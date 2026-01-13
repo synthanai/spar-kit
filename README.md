@@ -2,8 +2,8 @@
 
 **Run AI persona debates in your browser or terminal. No installation required.**
 
-> **நாலு பேரு, நாலு திசை, ஒரு முடிவு**
-> *Four voices, four directions, one decision*
+> **நாலு பேரு, நாலு திசை, ஒரு முடிவு!**
+> *Four Perspectives, Four Dimensions, One Synthesis*
 
 ---
 
@@ -149,6 +149,6 @@ Built with the SPAR methodology — using structured disagreement to stress-test
 ---
 
 > **நாலு பேரு, நாலு திசை, ஒரு முடிவு.**
-> **Four voices, four directions, one decision.**
+> **Four Perspectives, Four Dimensions, One Synthesis.**
 
 *Don't deliberate alone. SPAR.* 🥊

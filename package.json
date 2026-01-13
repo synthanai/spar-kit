@@ -1,6 +1,6 @@
 {
     "name": "spar-kit",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "SPAR: Structured Persona-Argumentation for Reasoning — Run AI persona debates from the command line",
     "main": "cli/index.js",
     "bin": {

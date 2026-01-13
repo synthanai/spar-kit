@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * SPAR Kit CLI
+ * SPAR Kit CLI v2.0
  * Run structured AI persona debates from the command line
  * 
  * Usage:
@@ -21,18 +21,23 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { homedir } from 'os';
 import { join } from 'path';
 
-// Version
-const VERSION = '1.0.0';
+// ============================================
+// CONFIGURATION
+// ============================================
 
-// Config file path
+const VERSION = '2.0.0';
 const CONFIG_PATH = join(homedir(), '.spar-kit.json');
 
-// Persona definitions (N-E-W-S Compass)
+// ============================================
+// PERSONA DEFINITIONS (N-E-W-S Compass)
+// ============================================
+
 const PERSONAS = {
     north: {
         name: 'The Visionary',
         direction: 'North',
         icon: '🔵',
+        color: 'blue',
         prompt: `You are THE VISIONARY (North).
 
 YOUR CORE PRIORITY: Where are we going? What's the ideal future?
@@ -49,6 +54,7 @@ Keep your response focused and under 250 words.`
         name: 'The Challenger',
         direction: 'East',
         icon: '🟢',
+        color: 'green',
         prompt: `You are THE CHALLENGER (East).
 
 YOUR CORE PRIORITY: What's emerging? What new dawn is breaking?
@@ -65,6 +71,7 @@ Keep your response focused and under 250 words.`
         name: 'The Pragmatist',
         direction: 'South',
         icon: '🟡',
+        color: 'yellow',
         prompt: `You are THE PRAGMATIST (South).
 
 YOUR CORE PRIORITY: What's grounded? What actually works in reality?
@@ -81,6 +88,7 @@ Keep your response focused and under 250 words.`
         name: 'The Sage',
         direction: 'West',
         icon: '🔴',
+        color: 'red',
         prompt: `You are THE SAGE (West).
 
 YOUR CORE PRIORITY: What's proven? What has history taught us?
@@ -95,7 +103,10 @@ Keep your response focused and under 250 words.`
     }
 };
 
-// Load config
+// ============================================
+// CONFIG MANAGEMENT
+// ============================================
+
 function loadConfig() {
     if (existsSync(CONFIG_PATH)) {
         try {
@@ -107,17 +118,19 @@ function loadConfig() {
     return {};
 }
 
-// Save config
 function saveConfig(config) {
     writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2));
 }
 
-// API call function
+// ============================================
+// API CALLS
+// ============================================
+
 async function callAI(provider, apiKey, systemPrompt, userMessage) {
     const endpoints = {
         openai: 'https://api.openai.com/v1/chat/completions',
         anthropic: 'https://api.anthropic.com/v1/messages',
-        gemini: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`
+        gemini: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`
     };
 
     if (provider === 'openai') {
@@ -150,7 +163,7 @@ async function callAI(provider, apiKey, systemPrompt, userMessage) {
                 'anthropic-version': '2023-06-01'
             },
             body: JSON.stringify({
-                model: 'claude-3-sonnet-20240229',
+                model: 'claude-3-5-sonnet-20241022',
                 max_tokens: 800,
                 system: systemPrompt,
                 messages: [{ role: 'user', content: userMessage }]
@@ -177,37 +190,50 @@ async function callAI(provider, apiKey, systemPrompt, userMessage) {
     throw new Error(`Unknown provider: ${provider}`);
 }
 
-// Print banner
+// ============================================
+// UI COMPONENTS
+// ============================================
+
 function printBanner() {
     console.log(chalk.bold.magenta(`
-    ╔═══════════════════════════════════════════════════════════╗
-    ║  🥊 ${chalk.white('SPAR Kit')} — Four Perspectives, Four Dimensions, One Synthesis  ║
-    ╚═══════════════════════════════════════════════════════════╝
+╔═══════════════════════════════════════════════════════════════════════╗
+║                                                                       ║
+║   🥊  ${chalk.white('S P A R   K I T')}   ${chalk.gray('v' + VERSION)}                                       ║
+║                                                                       ║
+║   ${chalk.cyan('Four Perspectives, Four Dimensions, One Synthesis')}                 ║
+║                                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
     `));
-    console.log(chalk.gray('    நாலு பேரு நாலு விதமா பேசுவாங்க'));
-    console.log(chalk.gray('    "Four people speak in four different ways."\n'));
+    console.log(chalk.italic.gray('   நாலு பேரு, நாலு திசை, ஒரு முடிவு!'));
+    console.log(chalk.gray('   "Four people speak in four different ways." — Tamil wisdom\n'));
 }
 
-// Print compass
 function printCompass() {
     console.log(chalk.gray(`
-                        ${chalk.blue('🔵 NORTH')}
-                       The Visionary
-                    "Where are we going?"
-                             │
-                             │
-         ${chalk.red('🔴 WEST')} ────────────┼──────────── ${chalk.green('🟢 EAST')}
-         The Sage            │            The Challenger
-     "What's proven?"        │         "What's emerging?"
-                             │
-                             │
-                        ${chalk.yellow('🟡 SOUTH')}
-                      The Pragmatist
-                   "What's grounded?"
+                            ${chalk.blue('🔵 NORTH')}
+                           The Visionary
+                        "Where are we going?"
+                                 │
+                                 │
+             ${chalk.red('🔴 WEST')} ─────────────┼───────────── ${chalk.green('🟢 EAST')}
+             The Sage            │             The Challenger
+         "What's proven?"        │          "What's emerging?"
+                                 │
+                                 │
+                            ${chalk.yellow('🟡 SOUTH')}
+                          The Pragmatist
+                       "What's grounded?"
     `));
 }
 
-// Run SPAR command
+function printDivider(char = '─', color = chalk.gray) {
+    console.log(color(char.repeat(70)));
+}
+
+// ============================================
+// MAIN SPAR EXECUTION
+// ============================================
+
 async function runSpar(decision, options) {
     printBanner();
 
@@ -224,7 +250,11 @@ async function runSpar(decision, options) {
                 type: 'list',
                 name: 'provider',
                 message: 'Select AI provider:',
-                choices: ['openai', 'anthropic', 'gemini'],
+                choices: [
+                    { name: 'OpenAI (GPT-4 Turbo)', value: 'openai' },
+                    { name: 'Anthropic (Claude 3.5 Sonnet)', value: 'anthropic' },
+                    { name: 'Google (Gemini 1.5 Flash)', value: 'gemini' }
+                ],
                 default: provider || 'openai'
             },
             {
@@ -248,6 +278,8 @@ async function runSpar(decision, options) {
             saveConfig({ provider, apiKey });
             console.log(chalk.green(`\n✓ Credentials saved to ${CONFIG_PATH}\n`));
         }
+    } else {
+        console.log(chalk.gray(`   Using: ${provider} | Config: ${CONFIG_PATH}\n`));
     }
 
     // Get decision if not provided
@@ -256,7 +288,7 @@ async function runSpar(decision, options) {
             {
                 type: 'editor',
                 name: 'decisionInput',
-                message: 'Describe your decision:',
+                message: 'Describe your decision (opens editor):',
             }
         ]);
         decision = decisionInput;
@@ -268,9 +300,10 @@ async function runSpar(decision, options) {
     }
 
     printCompass();
-    console.log(chalk.bold('\n📋 Decision:\n'));
-    console.log(chalk.white(`   ${decision}\n`));
-    console.log(chalk.gray('━'.repeat(60)));
+    printDivider('═', chalk.magenta);
+    console.log(chalk.bold('\n📋 THE DECISION:\n'));
+    console.log(chalk.white(`   ${decision.split('\n').join('\n   ')}\n`));
+    printDivider();
 
     const userMessage = `THE DECISION: ${decision}
 
@@ -279,19 +312,30 @@ Analyze this decision from your perspective:
 - What questions would you ask before deciding?
 - What's your position on this decision, and why?`;
 
-    // Run all personas in parallel
-    console.log(chalk.bold('\n⚔️  Round 1: Opening Positions\n'));
+    // ========================================
+    // ROUND 1: Opening Positions
+    // ========================================
+
+    console.log(chalk.bold.magenta('\n\n╔══════════════════════════════════════════╗'));
+    console.log(chalk.bold.magenta('║   ⚔️  ROUND 1: Opening Positions         ║'));
+    console.log(chalk.bold.magenta('╚══════════════════════════════════════════╝\n'));
 
     const responses = {};
     const directions = ['north', 'east', 'south', 'west'];
     const spinners = {};
+    const colorFns = {
+        north: chalk.blue,
+        east: chalk.green,
+        south: chalk.yellow,
+        west: chalk.red
+    };
 
     // Start spinners
     for (const dir of directions) {
         const persona = PERSONAS[dir];
         spinners[dir] = ora({
             text: `${persona.icon} ${persona.direction} — ${persona.name}`,
-            color: dir === 'north' ? 'blue' : dir === 'east' ? 'green' : dir === 'south' ? 'yellow' : 'red'
+            color: persona.color
         }).start();
     }
 
@@ -313,76 +357,170 @@ Analyze this decision from your perspective:
     // Print responses
     for (const dir of directions) {
         const persona = PERSONAS[dir];
-        const colorFn = dir === 'north' ? chalk.blue : dir === 'east' ? chalk.green : dir === 'south' ? chalk.yellow : chalk.red;
+        const colorFn = colorFns[dir];
 
-        console.log(colorFn(`\n${persona.icon} ${persona.direction.toUpperCase()} — ${persona.name}`));
-        console.log(chalk.gray('─'.repeat(50)));
-        console.log(chalk.white(responses[dir]));
+        console.log(colorFn(`\n┌${'─'.repeat(68)}┐`));
+        console.log(colorFn(`│ ${persona.icon}  ${persona.direction.toUpperCase().padEnd(6)} — ${persona.name.padEnd(55)} │`));
+        console.log(colorFn(`└${'─'.repeat(68)}┘`));
+        console.log(chalk.white('\n' + responses[dir].split('\n').map(l => '   ' + l).join('\n')));
+        console.log('');
     }
 
-    // Generate synthesis
-    console.log(chalk.bold('\n\n📊 Synthesis\n'));
-    console.log(chalk.gray('─'.repeat(50)));
+    // ========================================
+    // ROUND 2: The Clash (Optional)
+    // ========================================
 
-    const synthesisSpinner = ora('Generating synthesis...').start();
+    const { runClash } = await inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'runClash',
+            message: 'Run Round 2: The Clash? (Personas respond to each other)',
+            default: true
+        }
+    ]);
 
-    try {
-        const synthesisPrompt = `You are a neutral MODERATOR synthesizing a SPAR debate.
+    let round2Responses = {};
+    let synthesis = '';
+
+    if (runClash) {
+        console.log(chalk.bold.red('\n\n╔══════════════════════════════════════════╗'));
+        console.log(chalk.bold.red('║   🔥 ROUND 2: The Clash                  ║'));
+        console.log(chalk.bold.red('╚══════════════════════════════════════════╝\n'));
+
+        const clashPrompt = `The other perspectives said:
+
+NORTH (Visionary): ${responses.north.substring(0, 200)}...
+
+EAST (Challenger): ${responses.east.substring(0, 200)}...
+
+SOUTH (Pragmatist): ${responses.south.substring(0, 200)}...
+
+WEST (Sage): ${responses.west.substring(0, 200)}...
+
+Where do you DISAGREE with them? What are they missing? Be specific, direct, and confrontational. This is a clash of perspectives.`;
+
+        // Start spinners for round 2
+        for (const dir of directions) {
+            const persona = PERSONAS[dir];
+            spinners[dir] = ora({
+                text: `${persona.icon} ${persona.direction} responding...`,
+                color: persona.color
+            }).start();
+        }
+
+        const clashPromises = directions.map(async (dir) => {
+            try {
+                const response = await callAI(provider, apiKey, PERSONAS[dir].prompt, clashPrompt);
+                round2Responses[dir] = response;
+                spinners[dir].succeed();
+            } catch (error) {
+                round2Responses[dir] = `Error: ${error.message}`;
+                spinners[dir].fail();
+            }
+        });
+
+        await Promise.all(clashPromises);
+        console.log('');
+
+        // Print clash responses
+        for (const dir of directions) {
+            const persona = PERSONAS[dir];
+            const colorFn = colorFns[dir];
+
+            console.log(colorFn(`\n┌${'─'.repeat(68)}┐`));
+            console.log(colorFn(`│ ${persona.icon}  ${persona.direction.toUpperCase().padEnd(6)} responds...${' '.repeat(51)} │`));
+            console.log(colorFn(`└${'─'.repeat(68)}┘`));
+            console.log(chalk.white('\n' + round2Responses[dir].split('\n').map(l => '   ' + l).join('\n')));
+            console.log('');
+        }
+
+        // ========================================
+        // SYNTHESIS
+        // ========================================
+
+        console.log(chalk.bold.cyan('\n\n╔══════════════════════════════════════════╗'));
+        console.log(chalk.bold.cyan('║   📊 SYNTHESIS                           ║'));
+        console.log(chalk.bold.cyan('╚══════════════════════════════════════════╝\n'));
+
+        const synthesisSpinner = ora('Synthesizing the debate...').start();
+
+        try {
+            const synthesisPrompt = `You are a neutral MODERATOR synthesizing a SPAR debate.
 
 The decision was: ${decision}
 
-POSITIONS:
+ROUND 1 POSITIONS:
 North (Visionary): ${responses.north}
 East (Challenger): ${responses.east}
 South (Pragmatist): ${responses.south}
 West (Sage): ${responses.west}
 
-Provide a brief synthesis:
-1. KEY TENSIONS: Where do they disagree?
-2. CONVERGENCES: Where do they agree?
-3. INSIGHTS: What emerged that wasn't obvious?
-4. OPEN QUESTIONS: What remains unresolved?
+ROUND 2 - THE CLASH:
+North: ${round2Responses.north}
+East: ${round2Responses.east}
+South: ${round2Responses.south}
+West: ${round2Responses.west}
 
-Be concise (under 300 words).`;
+Provide a synthesis:
 
-        const synthesis = await callAI(provider, apiKey, 'You are a neutral debate moderator.', synthesisPrompt);
-        synthesisSpinner.succeed('Synthesis complete');
-        console.log(chalk.white('\n' + synthesis));
-    } catch (error) {
-        synthesisSpinner.fail('Synthesis failed');
-        console.log(chalk.red(error.message));
+## 🔥 KEY TENSIONS
+Where do they genuinely disagree?
+
+## 🤝 CONVERGENCES  
+Where do they unexpectedly agree?
+
+## 💡 INSIGHTS SURFACED
+What emerged that wasn't obvious?
+
+## ❓ OPEN QUESTIONS
+What remains unresolved?
+
+Be concise but complete.`;
+
+            synthesis = await callAI(provider, apiKey, 'You are a neutral debate moderator.', synthesisPrompt);
+            synthesisSpinner.succeed('Synthesis complete');
+            console.log(chalk.white('\n' + synthesis));
+        } catch (error) {
+            synthesisSpinner.fail('Synthesis failed');
+            console.log(chalk.red(error.message));
+        }
     }
 
-    // Export option
-    console.log(chalk.gray('\n━'.repeat(60)));
+    // ========================================
+    // EXPORT
+    // ========================================
+
+    printDivider('═', chalk.magenta);
 
     const { exportSession } = await inquirer.prompt([
         {
             type: 'confirm',
             name: 'exportSession',
             message: 'Export this session to Markdown?',
-            default: false
+            default: true
         }
     ]);
 
     if (exportSession) {
         const date = new Date().toISOString().split('T')[0];
+        const time = new Date().toLocaleTimeString();
         const filename = `spar-session-${date}-${Date.now()}.md`;
 
         const md = `# SPAR Session
 
-**Date**: ${new Date().toISOString()}
+**Date**: ${date} at ${time}
 **Provider**: ${provider}
+**Method**: SPAR Kit CLI v${VERSION}
 
 ---
 
-## Decision
+## 🎯 The Decision
 
 ${decision}
 
 ---
 
-## Round 1: Opening Positions
+## ⚔️ Round 1: Opening Positions
 
 ### 🔵 North — The Visionary
 ${responses.north}
@@ -398,20 +536,46 @@ ${responses.west}
 
 ---
 
-> **நாலு பேரு, நாலு திசை, ஒரு முடிவு.**
-> *Four Perspectives, Four Dimensions, One Synthesis.*
+## 🔥 Round 2: The Clash
 
-Generated by [SPAR Kit](https://github.com/synthanai/spar-kit)
+### 🔵 North responds
+${round2Responses.north || '_Not run_'}
+
+### 🟢 East responds
+${round2Responses.east || '_Not run_'}
+
+### 🟡 South responds
+${round2Responses.south || '_Not run_'}
+
+### 🔴 West responds
+${round2Responses.west || '_Not run_'}
+
+---
+
+## 📊 Synthesis
+
+${synthesis || '_Not generated_'}
+
+---
+
+> **நாலு பேரு, நாலு திசை, ஒரு முடிவு!**
+> *Four Perspectives, Four Dimensions, One Synthesis*
+
+🥊 Generated by [SPAR Kit](https://github.com/synthanai/spar-kit) | [Web App](https://synthanai.github.io/spar-kit)
 `;
 
         writeFileSync(filename, md);
-        console.log(chalk.green(`\n✓ Exported to ${filename}`));
+        console.log(chalk.green(`\n✓ Exported to ${chalk.bold(filename)}`));
     }
 
-    console.log(chalk.magenta('\n🥊 Don\'t deliberate alone. SPAR.\n'));
+    console.log(chalk.bold.magenta('\n\n🥊 Don\'t deliberate alone. SPAR.\n'));
+    console.log(chalk.italic.gray('நாலு பேரு, நாலு திசை, ஒரு முடிவு!\n'));
 }
 
-// Setup command
+// ============================================
+// SETUP COMMAND
+// ============================================
+
 async function setupCredentials() {
     printBanner();
 
@@ -420,7 +584,11 @@ async function setupCredentials() {
             type: 'list',
             name: 'provider',
             message: 'Select AI provider:',
-            choices: ['openai', 'anthropic', 'gemini']
+            choices: [
+                { name: 'OpenAI (GPT-4 Turbo)', value: 'openai' },
+                { name: 'Anthropic (Claude 3.5 Sonnet)', value: 'anthropic' },
+                { name: 'Google (Gemini 1.5 Flash)', value: 'gemini' }
+            ]
         },
         {
             type: 'password',
@@ -433,7 +601,35 @@ async function setupCredentials() {
     console.log(chalk.green(`\n✓ Credentials saved to ${CONFIG_PATH}\n`));
 }
 
-// CLI setup
+// ============================================
+// HISTORY COMMAND
+// ============================================
+
+async function showHistory() {
+    printBanner();
+
+    const config = loadConfig();
+    console.log(chalk.bold('\n📁 Configuration:\n'));
+    console.log(`   Provider: ${config.provider || chalk.gray('Not set')}`);
+    console.log(`   API Key: ${config.apiKey ? chalk.green('Saved ✓') : chalk.gray('Not set')}`);
+    console.log(`   Config file: ${CONFIG_PATH}`);
+    console.log('');
+
+    // Check for recent exports
+    const { readdirSync } = await import('fs');
+    const files = readdirSync('.').filter(f => f.startsWith('spar-session-'));
+
+    if (files.length > 0) {
+        console.log(chalk.bold('\n📝 Recent sessions in current directory:\n'));
+        files.slice(-5).forEach(f => console.log(`   • ${f}`));
+    }
+    console.log('');
+}
+
+// ============================================
+// CLI SETUP
+// ============================================
+
 const program = new Command();
 
 program
@@ -461,12 +657,17 @@ program
         printCompass();
         console.log(chalk.gray(`
     Natural Tensions:
-    • North ↔ South: Vision vs. Reality
-    • East ↔ West: Innovation vs. Tradition
+    • ${chalk.blue('North')} ↔ ${chalk.yellow('South')}: Vision vs. Reality
+    • ${chalk.green('East')} ↔ ${chalk.red('West')}: Innovation vs. Tradition
 
     When all four directions engage, no blind spot survives.
         `));
     });
+
+program
+    .command('history')
+    .description('Show configuration and recent sessions')
+    .action(showHistory);
 
 // Default action (no command)
 program

@@ -13,6 +13,7 @@
   <a href="https://www.npmjs.com/package/sparkit"><img src="https://img.shields.io/npm/v/sparkit.svg" alt="npm"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"></a>
   <a href="https://synthanai.github.io/spar-kit"><img src="https://img.shields.io/badge/playground-live-orange.svg" alt="Try Now"></a>
+  <img src="https://img.shields.io/badge/tests-102%20passing-brightgreen.svg" alt="Tests">
 </p>
 
 <p align="center">
@@ -128,13 +129,52 @@ T — TRANSMIT    Extract actionable recommendations
 
 ---
 
+## Testing
+
+```bash
+# Run all tests (102 tests)
+npm test
+
+# Watch mode
+npm run test:watch
+
+# Coverage report
+npm run test:coverage
+```
+
+### Test Suite
+
+| Suite | Tests | Coverage |
+|-------|-------|----------|
+| `cli.test.js` | CLI configuration, personas, providers, validation | ✅ |
+| `spar.test.js` | HTML structure, accessibility, JavaScript engine | ✅ |
+| `style.test.js` | CSS variables, layout, components, syntax | ✅ |
+| `integration.test.js` | Full debate flow, cross-component consistency | ✅ |
+
+---
+
+## SPAR Methodology
+
+This toolkit implements the **[SPAR](https://github.com/synthanai/spar)** methodology. For full documentation:
+
+| Resource | Description |
+|----------|-------------|
+| **[SPAR in 5 Minutes](https://github.com/synthanai/spar/blob/main/quick-start/SPAR_IN_5_MINUTES.md)** | Get started immediately |
+| **[The Four Directions](https://github.com/synthanai/spar/blob/main/docs/FOUR_DIRECTIONS.md)** | Canonical N-E-W-S compass reference |
+| **[The Five Principles](https://github.com/synthanai/spar/blob/main/docs/FIVE_PRINCIPLES.md)** | Non-negotiable foundations |
+| **[SPAR Manifesto](https://github.com/synthanai/spar/blob/main/docs/MANIFESTO.md)** | Core philosophy & methodology |
+| **[Persona Library](https://github.com/synthanai/spar/blob/main/templates/PERSONA_LIBRARY.md)** | 20+ ready-to-use personas |
+| **[Example Session](https://github.com/synthanai/spar/blob/main/examples/strategic_expansion.md)** | Full SPAR walkthrough |
+
+---
+
 ## Example
 
 ```bash
 $ spar "Should we pivot from B2B to B2C?"
 
 ╔═══════════════════════════════════════════════════════════════╗
-║   🥊  S P A R   v2.5.0                                        ║
+║   🥊  S P A R   v2.7.0                                        ║
 ╚═══════════════════════════════════════════════════════════════╝
 
 ⚔️  ROUND 1: Opening Positions
@@ -158,6 +198,7 @@ $ spar "Should we pivot from B2B to B2C?"
 git clone https://github.com/synthanai/spar-kit.git
 cd spar-kit
 npm install
+npm test        # Run 102 tests
 node cli/index.js
 ```
 

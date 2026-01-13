@@ -2,6 +2,34 @@
 
 All notable changes to SPAR Kit will be documented in this file.
 
+## [2.7.0] - 2026-01-14
+
+### Added
+- 🧪 **Comprehensive Test Suite** — 102 tests across 4 test files
+  - `cli.test.js` — CLI configuration, personas, providers, validation
+  - `spar.test.js` — HTML structure, accessibility, JavaScript engine
+  - `style.test.js` — CSS variables, layout, components, syntax validation
+  - `integration.test.js` — Full debate flow, cross-component consistency
+- 🔧 **Jest Configuration** — ES modules support with coverage reporting
+- 📦 **DevDependencies** — jest, jsdom, @testing-library/dom
+
+### Changed
+- 📋 `package.json` updated with test scripts and Jest config
+- 🏷️ Version bumped to 2.7.0
+
+### Test Coverage
+- HTML structure and SEO attributes
+- Persona definitions and consistency
+- API provider configuration
+- Input validation
+- Markdown export format
+- State management
+- Parallel execution
+- Error handling
+- Tamil phrase consistency
+
+---
+
 ## [2.6.0] - 2026-01-14
 
 ### Added

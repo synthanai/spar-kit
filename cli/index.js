@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * SPAR CLI v2.5
+ * SPAR Kit CLI v3.0
  * Structured Persona-Argumentation for Reasoning
  * 
- * Installation:
- *   npm install -g spar-ai
- *   
- * Usage:
- *   spar                        → Start interactive debate
- *   spar debate start [topic]   → Full debate session
- *   spar persona list           → Show available personas
- *   spar persona create         → Create custom persona
- *   spar config show            → View configuration
- *   spar status                 → Show version, config, stats
+ * Full SPAR Methodology Implementation:
+ * - NEWS Compass (4 Directions)
+ * - PERSONA Library (108 personas, 7 archetypes)
+ * - SPARKIT Protocol (7 steps)
+ * - SPARK Principles (5 foundations)
+ * - ASPIRES Framework (7 advanced patterns)
+ * 
+ * நாலு பேரு, நாலு திசை, ஒரு முடிவு!
+ * Four Perspectives, Four Dimensions, One Synthesis
  * 
  * @author Naveen Riaz Mohamed Kani
  * @license MIT
@@ -25,121 +24,27 @@ import chalk from 'chalk';
 import ora from 'ora';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { homedir } from 'os';
-import { join, basename } from 'path';
+import { join } from 'path';
+
+import { callAI, PROVIDERS } from './providers.js';
+import { NEWS_COMPASS, PRESET_PACKS, getAllPersonas, getPresetPersonas, PERSONA_ARCHETYPES } from './personas.js';
+import { SPARKIT_PROTOCOL, SPARK_PRINCIPLES, ASPIRES_FRAMEWORK, formatSparkitQuickRef, formatSparkQuickRef, formatAspiresQuickRef } from './methodology.js';
 
 // ============================================
 // CONFIGURATION
 // ============================================
 
-const VERSION = '2.5.0';
+const VERSION = '3.0.0';
 const SPAR_DIR = join(homedir(), '.spar');
 const CONFIG_PATH = join(SPAR_DIR, 'config.json');
 const PERSONAS_DIR = join(SPAR_DIR, 'personas');
 const SESSIONS_DIR = join(SPAR_DIR, 'sessions');
 
-// Ensure directories exist
 function ensureDirectories() {
     [SPAR_DIR, PERSONAS_DIR, SESSIONS_DIR].forEach(dir => {
-        if (!existsSync(dir)) {
-            mkdirSync(dir, { recursive: true });
-        }
+        if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     });
 }
-
-// ============================================
-// BUILT-IN PERSONAS (N-E-W-S Compass)
-// ============================================
-
-const BUILTIN_PERSONAS = {
-    north: {
-        id: 'north',
-        name: 'The Visionary',
-        direction: 'North',
-        icon: '🔵',
-        color: 'blue',
-        corePriority: 'Where are we going? What\'s the ideal future?',
-        fear: 'Settling for mediocrity when greatness is possible',
-        style: 'Focus on possibility, aspiration, and long-term direction',
-        keyQuestion: 'What could this become? Are we thinking big enough?',
-        prompt: `You are THE VISIONARY (North).
-
-YOUR CORE PRIORITY: Where are we going? What's the ideal future?
-YOUR FEAR: Settling for mediocrity when greatness is possible.
-YOUR STYLE: You focus on possibility, aspiration, and long-term direction.
-
-When engaging with problems, you ask: "What could this become? Are we thinking big enough?"
-
-You will analyze a decision. Argue your perspective directly.
-Don't be balanced — be you. Challenge others to think beyond current constraints.
-Keep your response focused and under 250 words.`
-    },
-    east: {
-        id: 'east',
-        name: 'The Challenger',
-        direction: 'East',
-        icon: '🟢',
-        color: 'green',
-        corePriority: 'What\'s emerging? What new dawn is breaking?',
-        fear: 'Being left behind by clinging to the old way',
-        style: 'Focus on disruption, innovation, and what\'s coming next',
-        keyQuestion: 'What\'s changing? What would a newcomer do differently?',
-        prompt: `You are THE CHALLENGER (East).
-
-YOUR CORE PRIORITY: What's emerging? What new dawn is breaking?
-YOUR FEAR: Being left behind by clinging to the old way.
-YOUR STYLE: You focus on disruption, innovation, and what's coming next.
-
-When engaging with problems, you ask: "What's changing? What would a newcomer do differently?"
-
-You will analyze a decision. Argue your perspective directly.
-Don't be balanced — be you. Challenge assumptions that worked yesterday but may fail tomorrow.
-Keep your response focused and under 250 words.`
-    },
-    south: {
-        id: 'south',
-        name: 'The Pragmatist',
-        direction: 'South',
-        icon: '🟡',
-        color: 'yellow',
-        corePriority: 'What\'s grounded? What actually works in reality?',
-        fear: 'Beautiful ideas that collapse when they meet the real world',
-        style: 'Focus on execution, feasibility, and practical constraints',
-        keyQuestion: 'Can we actually do this? What are the real constraints?',
-        prompt: `You are THE PRAGMATIST (South).
-
-YOUR CORE PRIORITY: What's grounded? What actually works in reality?
-YOUR FEAR: Beautiful ideas that collapse when they meet the real world.
-YOUR STYLE: You focus on execution, feasibility, and practical constraints.
-
-When engaging with problems, you ask: "Can we actually do this? What are the real constraints?"
-
-You will analyze a decision. Argue your perspective directly.
-Don't be balanced — be you. Ground airy visions in operational reality.
-Keep your response focused and under 250 words.`
-    },
-    west: {
-        id: 'west',
-        name: 'The Sage',
-        direction: 'West',
-        icon: '🔴',
-        color: 'red',
-        corePriority: 'What\'s proven? What has history taught us?',
-        fear: 'Repeating mistakes that wisdom could have prevented',
-        style: 'Focus on experience, patterns, and lessons from the past',
-        keyQuestion: 'What have we learned before? What does wisdom suggest?',
-        prompt: `You are THE SAGE (West).
-
-YOUR CORE PRIORITY: What's proven? What has history taught us?
-YOUR FEAR: Repeating mistakes that wisdom could have prevented.
-YOUR STYLE: You focus on experience, patterns, and lessons from the past.
-
-When engaging with problems, you ask: "What have we learned before? What does wisdom suggest?"
-
-You will analyze a decision. Argue your perspective directly.
-Don't be balanced — be you. Bring the weight of experience to bear on shiny new ideas.
-Keep your response focused and under 250 words.`
-    }
-};
 
 // ============================================
 // CONFIG MANAGEMENT
@@ -148,11 +53,8 @@ Keep your response focused and under 250 words.`
 function loadConfig() {
     ensureDirectories();
     if (existsSync(CONFIG_PATH)) {
-        try {
-            return JSON.parse(readFileSync(CONFIG_PATH, 'utf-8'));
-        } catch {
-            return {};
-        }
+        try { return JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')); }
+        catch { return {}; }
     }
     return {};
 }
@@ -162,49 +64,34 @@ function saveConfig(config) {
     writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2));
 }
 
-function getConfig(key) {
-    const config = loadConfig();
-    return config[key];
-}
-
-function setConfig(key, value) {
-    const config = loadConfig();
-    config[key] = value;
-    saveConfig(config);
-}
+function getConfig(key) { return loadConfig()[key]; }
+function setConfig(key, value) { const c = loadConfig(); c[key] = value; saveConfig(c); }
 
 // ============================================
-// PERSONA MANAGEMENT
+// CUSTOM PERSONA MANAGEMENT
 // ============================================
 
 function loadCustomPersonas() {
     ensureDirectories();
     const personas = {};
-
     if (existsSync(PERSONAS_DIR)) {
-        const files = readdirSync(PERSONAS_DIR).filter(f => f.endsWith('.json'));
-        for (const file of files) {
+        readdirSync(PERSONAS_DIR).filter(f => f.endsWith('.json')).forEach(file => {
             try {
-                const persona = JSON.parse(readFileSync(join(PERSONAS_DIR, file), 'utf-8'));
-                personas[persona.id] = persona;
-            } catch (e) {
-                console.error(chalk.yellow(`Warning: Could not load persona ${file}`));
-            }
-        }
+                const p = JSON.parse(readFileSync(join(PERSONAS_DIR, file), 'utf-8'));
+                personas[p.id] = p;
+            } catch { }
+        });
     }
-
     return personas;
 }
 
-function getAllPersonas() {
-    const custom = loadCustomPersonas();
-    return { ...BUILTIN_PERSONAS, ...custom };
+function getAllPersonasWithCustom() {
+    return { ...getAllPersonas(), ...loadCustomPersonas() };
 }
 
 function savePersona(persona) {
     ensureDirectories();
-    const filename = `${persona.id}.json`;
-    writeFileSync(join(PERSONAS_DIR, filename), JSON.stringify(persona, null, 2));
+    writeFileSync(join(PERSONAS_DIR, `${persona.id}.json`), JSON.stringify(persona, null, 2));
 }
 
 // ============================================
@@ -213,97 +100,22 @@ function savePersona(persona) {
 
 function saveSession(session) {
     ensureDirectories();
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const ts = new Date().toISOString().replace(/[:.]/g, '-');
     const slug = session.decision.substring(0, 30).replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
-    const filename = `${timestamp}_${slug}.json`;
-    writeFileSync(join(SESSIONS_DIR, filename), JSON.stringify(session, null, 2));
-    return filename;
+    const fn = `${ts}_${slug}.json`;
+    writeFileSync(join(SESSIONS_DIR, fn), JSON.stringify(session, null, 2));
+    return fn;
 }
 
 function listSessions(limit = 10) {
     ensureDirectories();
-    const files = readdirSync(SESSIONS_DIR)
+    return readdirSync(SESSIONS_DIR)
         .filter(f => f.endsWith('.json'))
-        .sort()
-        .reverse()
-        .slice(0, limit);
-
-    return files.map(f => {
-        try {
-            const session = JSON.parse(readFileSync(join(SESSIONS_DIR, f), 'utf-8'));
-            return { filename: f, ...session };
-        } catch {
-            return { filename: f, error: true };
-        }
-    });
-}
-
-// ============================================
-// API CALLS
-// ============================================
-
-async function callAI(provider, apiKey, systemPrompt, userMessage) {
-    const endpoints = {
-        openai: 'https://api.openai.com/v1/chat/completions',
-        anthropic: 'https://api.anthropic.com/v1/messages',
-        gemini: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`
-    };
-
-    if (provider === 'openai') {
-        const response = await fetch(endpoints.openai, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`
-            },
-            body: JSON.stringify({
-                model: 'gpt-4-turbo-preview',
-                messages: [
-                    { role: 'system', content: systemPrompt },
-                    { role: 'user', content: userMessage }
-                ],
-                max_tokens: 800
-            })
+        .sort().reverse().slice(0, limit)
+        .map(f => {
+            try { return { filename: f, ...JSON.parse(readFileSync(join(SESSIONS_DIR, f), 'utf-8')) }; }
+            catch { return { filename: f, error: true }; }
         });
-        const data = await response.json();
-        if (data.error) throw new Error(data.error.message);
-        return data.choices[0].message.content;
-    }
-
-    if (provider === 'anthropic') {
-        const response = await fetch(endpoints.anthropic, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': apiKey,
-                'anthropic-version': '2023-06-01'
-            },
-            body: JSON.stringify({
-                model: 'claude-3-5-sonnet-20241022',
-                max_tokens: 800,
-                system: systemPrompt,
-                messages: [{ role: 'user', content: userMessage }]
-            })
-        });
-        const data = await response.json();
-        if (data.error) throw new Error(data.error.message);
-        return data.content[0].text;
-    }
-
-    if (provider === 'gemini') {
-        const response = await fetch(endpoints.gemini, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                contents: [{ parts: [{ text: `${systemPrompt}\n\n${userMessage}` }] }]
-            })
-        });
-        const data = await response.json();
-        if (data.error) throw new Error(data.error.message);
-        return data.candidates[0].content.parts[0].text;
-    }
-
-    throw new Error(`Unknown provider: ${provider}`);
 }
 
 // ============================================
@@ -314,10 +126,10 @@ function printBanner() {
     console.log(chalk.bold.magenta(`
 ╔═══════════════════════════════════════════════════════════════════════╗
 ║                                                                       ║
-║   🥊  ${chalk.white('S P A R')}   ${chalk.gray('v' + VERSION)}                                             ║
+║   🥊  ${chalk.white('S P A R   K I T')}   ${chalk.gray('v' + VERSION)}                                      ║
 ║   ${chalk.dim('Structured Persona-Argumentation for Reasoning')}                      ║
 ║                                                                       ║
-║   ${chalk.cyan('Four Perspectives, Four Dimensions, One Synthesis')}                 ║
+║   ${chalk.cyan('SPARKIT Protocol')} · ${chalk.yellow('SPARK Principles')} · ${chalk.green('ASPIRES Framework')}       ║
 ║                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
     `));
@@ -330,11 +142,9 @@ function printCompass() {
                            The Visionary
                         "Where are we going?"
                                  │
-                                 │
              ${chalk.red('🔴 WEST')} ─────────────┼───────────── ${chalk.green('🟢 EAST')}
-             The Sage            │             The Challenger
-         "What's proven?"        │          "What's emerging?"
-                                 │
+             The Sage            │          The Challenger
+         "What's proven?"        │       "What's emerging?"
                                  │
                             ${chalk.yellow('🟡 SOUTH')}
                           The Pragmatist
@@ -343,37 +153,71 @@ function printCompass() {
 }
 
 function printDivider(char = '─', color = chalk.gray) {
-    console.log(color(char.repeat(70)));
+    console.log(color(char.repeat(72)));
 }
 
 // ============================================
-// COMMANDS
+// SPARK PRINCIPLES CHECK
 // ============================================
 
-// --- spar debate start ---
+async function runSparkCheck(phase = 'before') {
+    const principles = Object.values(SPARK_PRINCIPLES);
+    const relevant = principles.filter(p => {
+        if (phase === 'before') return p.timing === 'Before SPAR';
+        if (phase === 'during') return p.timing === 'During SPAR';
+        if (phase === 'after') return p.timing.includes('After');
+        return false;
+    });
+
+    if (relevant.length === 0) return true;
+
+    console.log(chalk.yellow(`\n⚡ SPARK Check (${phase}):\n`));
+
+    for (const p of relevant) {
+        console.log(chalk.bold(`  ${p.letter} — ${p.name}`));
+        console.log(chalk.gray(`     ${p.check}`));
+    }
+
+    const { proceed } = await inquirer.prompt([{
+        type: 'confirm',
+        name: 'proceed',
+        message: 'Have you considered these principles?',
+        default: true
+    }]);
+
+    return proceed;
+}
+
+// ============================================
+// MAIN DEBATE ENGINE (SPARKIT Protocol)
+// ============================================
+
 async function debateStart(decision, options) {
     printBanner();
 
     let provider = getConfig('provider');
     let apiKey = getConfig('apiKey');
+    const model = getConfig('model');
+    const baseUrl = getConfig('baseUrl');
 
     // Setup if needed
-    if (!provider || !apiKey) {
+    if (!provider) {
         console.log(chalk.yellow('⚙️  First-time setup required\n'));
         await configSetup();
         provider = getConfig('provider');
         apiKey = getConfig('apiKey');
     }
 
-    // Get decision
+    // STEP 1: SCOPE - Define the question
+    console.log(chalk.bold.cyan('\n═══ STEP 1: SCOPE ═══'));
+    console.log(chalk.gray(SPARKIT_PROTOCOL.S.description + '\n'));
+
     if (!decision) {
-        const { decisionInput } = await inquirer.prompt([
-            {
-                type: 'editor',
-                name: 'decisionInput',
-                message: 'Describe your decision (opens editor):'
-            }
-        ]);
+        const { decisionInput } = await inquirer.prompt([{
+            type: 'editor',
+            name: 'decisionInput',
+            message: 'Describe your decision (opens editor):'
+        }]);
         decision = decisionInput?.trim();
     }
 
@@ -382,54 +226,74 @@ async function debateStart(decision, options) {
         process.exit(1);
     }
 
-    // Select personas
-    const allPersonas = getAllPersonas();
-    let selectedPersonas = ['north', 'east', 'south', 'west']; // Default N-E-W-S
+    // SPARK Check (Before)
+    const sparkOk = await runSparkCheck('before');
+    if (!sparkOk) {
+        console.log(chalk.yellow('\n💡 Consider addressing the SPARK principles first.\n'));
+        return;
+    }
 
-    if (options.personas) {
+    // STEP 2: POPULATE - Select personas
+    console.log(chalk.bold.cyan('\n═══ STEP 2: POPULATE ═══'));
+    console.log(chalk.gray(SPARKIT_PROTOCOL.P.description + '\n'));
+
+    const allPersonas = getAllPersonasWithCustom();
+    let selectedPersonas = ['north', 'east', 'south', 'west'];
+
+    if (options.preset) {
+        const preset = PRESET_PACKS[options.preset];
+        if (preset) {
+            selectedPersonas = preset.personas;
+            console.log(chalk.green(`  Using preset: ${preset.name}`));
+        }
+    } else if (options.personas) {
         selectedPersonas = options.personas.split(',').map(p => p.trim());
     } else if (options.interactive) {
-        const { chosen } = await inquirer.prompt([
-            {
-                type: 'checkbox',
-                name: 'chosen',
-                message: 'Select personas for this debate:',
-                choices: Object.values(allPersonas).map(p => ({
-                    name: `${p.icon} ${p.name} — ${p.corePriority || p.keyQuestion}`,
-                    value: p.id,
-                    checked: ['north', 'east', 'south', 'west'].includes(p.id)
-                }))
-            }
-        ]);
+        const { chosen } = await inquirer.prompt([{
+            type: 'checkbox',
+            name: 'chosen',
+            message: 'Select personas:',
+            choices: Object.values(allPersonas).map(p => ({
+                name: `${p.icon} ${p.name} — ${p.corePriority || p.keyQuestion}`,
+                value: p.id,
+                checked: selectedPersonas.includes(p.id)
+            }))
+        }]);
         selectedPersonas = chosen;
     }
 
     printCompass();
     printDivider('═', chalk.magenta);
-    console.log(chalk.bold('\n📋 THE DECISION:\n'));
+
+    // STEP 3: ANNOUNCE - Present the challenge
+    console.log(chalk.bold.cyan('\n═══ STEP 3: ANNOUNCE ═══'));
+    console.log(chalk.bold('📋 THE DECISION:\n'));
     console.log(chalk.white(`   ${decision.split('\n').join('\n   ')}\n`));
     printDivider();
 
     const session = {
         decision,
         provider,
+        model: model || PROVIDERS[provider]?.defaultModel,
         personas: selectedPersonas,
         timestamp: new Date().toISOString(),
+        protocol: 'SPARKIT',
         responses: { round1: {}, round2: {} },
-        synthesis: null
+        synthesis: null,
+        interrogation: {},
+        finalPositions: {}
     };
 
-    const userMessage = `THE DECISION: ${decision}
+    const announcePrompt = `THE DECISION: ${decision}
 
 Analyze this decision from your perspective:
 - What do you see that others might miss?
 - What questions would you ask before deciding?
-- What's your position on this decision, and why?`;
+- What's your initial position, and why?
+- What would change your mind?`;
 
-    // Round 1
-    console.log(chalk.bold.magenta('\n\n╔══════════════════════════════════════════╗'));
-    console.log(chalk.bold.magenta('║   ⚔️  ROUND 1: Opening Positions         ║'));
-    console.log(chalk.bold.magenta('╚══════════════════════════════════════════╝\n'));
+    // STEP 4: RUMBLE - Round 1
+    console.log(chalk.bold.red('\n═══ STEP 4: RUMBLE — Round 1 ═══\n'));
 
     const colorFns = { north: chalk.blue, east: chalk.green, south: chalk.yellow, west: chalk.red };
     const spinners = {};
@@ -437,17 +301,14 @@ Analyze this decision from your perspective:
     for (const id of selectedPersonas) {
         const persona = allPersonas[id];
         if (!persona) continue;
-        spinners[id] = ora({
-            text: `${persona.icon} ${persona.name}`,
-            color: persona.color || 'white'
-        }).start();
+        spinners[id] = ora({ text: `${persona.icon} ${persona.name}`, color: persona.color || 'white' }).start();
     }
 
     const round1Promises = selectedPersonas.map(async (id) => {
         const persona = allPersonas[id];
         if (!persona) return;
         try {
-            const response = await callAI(provider, apiKey, persona.prompt, userMessage);
+            const response = await callAI(provider, apiKey, persona.prompt, announcePrompt, { model, baseUrl });
             session.responses.round1[id] = response;
             spinners[id].succeed();
         } catch (error) {
@@ -457,48 +318,42 @@ Analyze this decision from your perspective:
     });
 
     await Promise.all(round1Promises);
-    console.log('');
 
-    // Print Round 1 responses
     for (const id of selectedPersonas) {
         const persona = allPersonas[id];
         if (!persona) continue;
         const colorFn = colorFns[id] || chalk.white;
-
-        console.log(colorFn(`\n┌${'─'.repeat(68)}┐`));
-        console.log(colorFn(`│ ${persona.icon}  ${(persona.direction || persona.name).toUpperCase().padEnd(60)} │`));
-        console.log(colorFn(`└${'─'.repeat(68)}┘`));
+        console.log(colorFn(`\n┌${'─'.repeat(70)}┐`));
+        console.log(colorFn(`│ ${persona.icon}  ${(persona.direction || persona.name).toUpperCase().padEnd(62)} │`));
+        console.log(colorFn(`└${'─'.repeat(70)}┘`));
         console.log(chalk.white('\n' + (session.responses.round1[id] || '').split('\n').map(l => '   ' + l).join('\n')));
-        console.log('');
     }
 
-    // Round 2
+    // Round 2 - The Clash
     const { runClash } = await inquirer.prompt([
         { type: 'confirm', name: 'runClash', message: 'Run Round 2: The Clash?', default: true }
     ]);
 
     if (runClash) {
-        console.log(chalk.bold.red('\n\n╔══════════════════════════════════════════╗'));
-        console.log(chalk.bold.red('║   🔥 ROUND 2: The Clash                  ║'));
-        console.log(chalk.bold.red('╚══════════════════════════════════════════╝\n'));
+        console.log(chalk.bold.red('\n═══ RUMBLE — Round 2: The Clash ═══\n'));
 
-        const clashPrompt = selectedPersonas.map(id => {
+        const clashContext = selectedPersonas.map(id => {
             const p = allPersonas[id];
             const resp = session.responses.round1[id] || '';
-            return `${p?.name || id}: ${resp.substring(0, 200)}...`;
+            return `${p?.name || id}: ${resp.substring(0, 300)}...`;
         }).join('\n\n');
 
-        const clashMessage = `The other perspectives said:\n\n${clashPrompt}\n\nWhere do you DISAGREE with them? Be direct and confrontational.`;
+        const clashPrompt = `The other perspectives said:\n\n${clashContext}\n\nWhere do you DISAGREE with them? What are they missing? Be direct.`;
 
         for (const id of selectedPersonas) {
-            spinners[id] = ora({ text: `${allPersonas[id]?.icon} responding...`, color: allPersonas[id]?.color || 'white' }).start();
+            spinners[id] = ora({ text: `${allPersonas[id]?.icon} responding...` }).start();
         }
 
         const round2Promises = selectedPersonas.map(async (id) => {
             const persona = allPersonas[id];
             if (!persona) return;
             try {
-                const response = await callAI(provider, apiKey, persona.prompt, clashMessage);
+                const response = await callAI(provider, apiKey, persona.prompt, clashPrompt, { model, baseUrl });
                 session.responses.round2[id] = response;
                 spinners[id].succeed();
             } catch (error) {
@@ -513,32 +368,113 @@ Analyze this decision from your perspective:
             const persona = allPersonas[id];
             if (!persona) continue;
             const colorFn = colorFns[id] || chalk.white;
-            console.log(colorFn(`\n┌${'─'.repeat(68)}┐`));
-            console.log(colorFn(`│ ${persona.icon}  responds...${' '.repeat(55)} │`));
-            console.log(colorFn(`└${'─'.repeat(68)}┘`));
+            console.log(colorFn(`\n┌${'─'.repeat(70)}┐`));
+            console.log(colorFn(`│ ${persona.icon}  ${persona.name} responds${' '.repeat(52)} │`));
+            console.log(colorFn(`└${'─'.repeat(70)}┘`));
             console.log(chalk.white('\n' + (session.responses.round2[id] || '').split('\n').map(l => '   ' + l).join('\n')));
-        }
-
-        // Synthesis
-        console.log(chalk.bold.cyan('\n\n╔══════════════════════════════════════════╗'));
-        console.log(chalk.bold.cyan('║   📊 SYNTHESIS                           ║'));
-        console.log(chalk.bold.cyan('╚══════════════════════════════════════════╝\n'));
-
-        const synthesisSpinner = ora('Synthesizing...').start();
-        try {
-            const synthPrompt = `Synthesize this SPAR debate on: ${decision}\n\nRound 1:\n${JSON.stringify(session.responses.round1)}\n\nRound 2:\n${JSON.stringify(session.responses.round2)}\n\nProvide: Key Tensions, Convergences, Insights, Open Questions.`;
-            session.synthesis = await callAI(provider, apiKey, 'You are a neutral debate moderator.', synthPrompt);
-            synthesisSpinner.succeed();
-            console.log(chalk.white('\n' + session.synthesis));
-        } catch (e) {
-            synthesisSpinner.fail();
-            console.log(chalk.red(e.message));
         }
     }
 
-    // Auto-save session
+    // STEP 5: KNIT - Synthesis
+    console.log(chalk.bold.cyan('\n═══ STEP 5: KNIT — Synthesis ═══\n'));
+
+    const synthSpinner = ora('Synthesizing tensions...').start();
+    try {
+        const synthPrompt = `Synthesize this SPAR debate on: ${decision}
+
+Round 1 Positions:
+${JSON.stringify(session.responses.round1, null, 2)}
+
+Round 2 Clash:
+${JSON.stringify(session.responses.round2, null, 2)}
+
+Provide:
+1. KEY TENSIONS — Where do personas fundamentally disagree?
+2. CONVERGENCE — What do they surprisingly agree on?
+3. UNEXAMINED — What has NOT been addressed?
+4. DRAFT SYNTHESIS — A position that honors valid concerns from all sides`;
+
+        session.synthesis = await callAI(provider, apiKey,
+            'You are a neutral debate moderator synthesizing tensions.',
+            synthPrompt, { model, baseUrl, maxTokens: 1500 });
+        synthSpinner.succeed();
+        console.log(chalk.white('\n' + session.synthesis));
+    } catch (e) {
+        synthSpinner.fail();
+        console.log(chalk.red(e.message));
+    }
+
+    // STEP 6: INTERROGATE
+    const { runInterrogate } = await inquirer.prompt([
+        { type: 'confirm', name: 'runInterrogate', message: 'Run Step 6: INTERROGATE (stress-test synthesis)?', default: true }
+    ]);
+
+    if (runInterrogate && session.synthesis) {
+        console.log(chalk.bold.yellow('\n═══ STEP 6: INTERROGATE ═══\n'));
+
+        const interrogatePrompt = `The moderator has proposed this synthesis:
+
+${session.synthesis}
+
+Evaluate this synthesis:
+- What does it get RIGHT about your concerns?
+- What does it MISS or underweight?
+- What ASSUMPTIONS could be wrong?
+- What would make this synthesis FAIL?`;
+
+        for (const id of selectedPersonas) {
+            const persona = allPersonas[id];
+            if (!persona) continue;
+            const spinner = ora(`${persona.icon} ${persona.name} interrogating...`).start();
+            try {
+                session.interrogation[id] = await callAI(provider, apiKey, persona.prompt, interrogatePrompt, { model, baseUrl });
+                spinner.succeed();
+                console.log(chalk.gray(`\n${persona.icon} ${persona.name}:`));
+                console.log(chalk.white(session.interrogation[id].split('\n').map(l => '   ' + l).join('\n')));
+            } catch (e) {
+                spinner.fail();
+            }
+        }
+    }
+
+    // STEP 7: TRANSMIT
+    console.log(chalk.bold.green('\n═══ STEP 7: TRANSMIT — Final Recommendations ═══\n'));
+
+    const transmitSpinner = ora('Generating actionable recommendations...').start();
+    try {
+        const transmitPrompt = `Based on this complete SPAR session:
+
+Decision: ${decision}
+
+Synthesis: ${session.synthesis}
+
+Interrogation feedback: ${JSON.stringify(session.interrogation)}
+
+Provide:
+1. PRIMARY RECOMMENDATION — The clearest path forward
+2. KEY CONDITION — What must be true for this to work
+3. WATCH-OUTS — What could derail this
+4. OPEN QUESTIONS — What remains genuinely unresolved
+5. NEXT ACTION — The very next step to take`;
+
+        const finalRec = await callAI(provider, apiKey,
+            'You are a strategic advisor providing clear, actionable recommendations.',
+            transmitPrompt, { model, baseUrl, maxTokens: 1000 });
+        transmitSpinner.succeed();
+
+        console.log(chalk.bold.green('\n📋 ACTIONABLE RECOMMENDATIONS:\n'));
+        console.log(chalk.white(finalRec));
+        session.finalRecommendation = finalRec;
+    } catch (e) {
+        transmitSpinner.fail();
+    }
+
+    // SPARK Check (After)
+    await runSparkCheck('after');
+
+    // Auto-save
     const savedFile = saveSession(session);
-    console.log(chalk.green(`\n✓ Session saved to ~/.spar/sessions/${savedFile}`));
+    console.log(chalk.green(`\n✓ Session saved: ~/.spar/sessions/${savedFile}`));
 
     // Export option
     const { exportMd } = await inquirer.prompt([
@@ -546,18 +482,20 @@ Analyze this decision from your perspective:
     ]);
 
     if (exportMd) {
-        const mdFilename = exportSessionMarkdown(session);
-        console.log(chalk.green(`✓ Exported to ${mdFilename}`));
+        const mdFile = exportSessionMarkdown(session);
+        console.log(chalk.green(`✓ Exported: ${mdFile}`));
     }
 
     console.log(chalk.bold.magenta('\n\n🥊 Don\'t deliberate alone. SPAR.\n'));
 }
 
 function exportSessionMarkdown(session) {
-    const date = new Date().toISOString().split('T')[0];
-    const allPersonas = getAllPersonas();
-
-    let md = `# SPAR Session\n\n**Date**: ${session.timestamp}\n**Provider**: ${session.provider}\n\n---\n\n## 🎯 The Decision\n\n${session.decision}\n\n---\n\n## ⚔️ Round 1\n\n`;
+    const allPersonas = getAllPersonasWithCustom();
+    let md = `# SPAR Session (SPARKIT Protocol)\n\n`;
+    md += `**Date**: ${session.timestamp}\n`;
+    md += `**Provider**: ${session.provider} (${session.model})\n\n---\n\n`;
+    md += `## 🎯 The Decision\n\n${session.decision}\n\n---\n\n`;
+    md += `## ⚔️ Round 1: Opening Positions\n\n`;
 
     for (const id of session.personas) {
         const p = allPersonas[id];
@@ -567,196 +505,199 @@ function exportSessionMarkdown(session) {
     md += `---\n\n## 🔥 Round 2: The Clash\n\n`;
     for (const id of session.personas) {
         const p = allPersonas[id];
-        md += `### ${p?.icon || '•'} ${p?.name || id} responds\n${session.responses.round2[id] || '_Not run_'}\n\n`;
+        md += `### ${p?.icon || '•'} ${p?.name || id}\n${session.responses.round2[id] || '_Not run_'}\n\n`;
     }
 
-    md += `---\n\n## 📊 Synthesis\n\n${session.synthesis || '_Not generated_'}\n\n---\n\n> **நாலு பேரு, நாலு திசை, ஒரு முடிவு!**\n\n🥊 Generated by SPAR CLI\n`;
+    md += `---\n\n## 📊 Synthesis (KNIT)\n\n${session.synthesis || '_Not generated_'}\n\n`;
 
-    const filename = `spar-session-${date}.md`;
+    if (Object.keys(session.interrogation || {}).length > 0) {
+        md += `---\n\n## 🔍 Interrogation\n\n`;
+        for (const id of session.personas) {
+            const p = allPersonas[id];
+            if (session.interrogation[id]) {
+                md += `### ${p?.icon || '•'} ${p?.name || id}\n${session.interrogation[id]}\n\n`;
+            }
+        }
+    }
+
+    if (session.finalRecommendation) {
+        md += `---\n\n## ✅ Final Recommendations (TRANSMIT)\n\n${session.finalRecommendation}\n\n`;
+    }
+
+    md += `---\n\n> **நாலு பேரு, நாலு திசை, ஒரு முடிவு!**\n\n🥊 Generated by SPAR Kit v${VERSION}\n`;
+
+    const filename = `spar-session-${new Date().toISOString().split('T')[0]}.md`;
     writeFileSync(filename, md);
     return filename;
 }
 
-// --- spar persona list ---
-async function personaList() {
-    printBanner();
-    console.log(chalk.bold('\n📋 Available Personas\n'));
+// ============================================
+// CONFIG SETUP
+// ============================================
 
-    const allPersonas = getAllPersonas();
-    const builtinIds = Object.keys(BUILTIN_PERSONAS);
+async function configSetup() {
+    const providerChoices = [
+        { name: '🟢 Ollama (Local - No API key)', value: 'ollama' },
+        { name: '🔵 OpenAI (GPT-4)', value: 'openai' },
+        { name: '🟣 Anthropic (Claude)', value: 'anthropic' },
+        { name: '🟠 Google Gemini', value: 'gemini' },
+        { name: '⚪ OpenAI-Compatible (vLLM/llama.cpp/LM Studio)', value: 'openai_compatible' }
+    ];
 
-    console.log(chalk.cyan('Built-in (N-E-W-S Compass):\n'));
-    for (const id of builtinIds) {
-        const p = allPersonas[id];
-        console.log(`  ${p.icon} ${chalk.bold(p.name)} (${p.direction})`);
-        console.log(chalk.gray(`     Priority: ${p.corePriority}`));
-        console.log(chalk.gray(`     Fear: ${p.fear}`));
-        console.log('');
-    }
+    const answers = await inquirer.prompt([
+        { type: 'list', name: 'provider', message: 'Select AI provider:', choices: providerChoices }
+    ]);
 
-    const customIds = Object.keys(allPersonas).filter(id => !builtinIds.includes(id));
-    if (customIds.length > 0) {
-        console.log(chalk.green('\nCustom Personas:\n'));
-        for (const id of customIds) {
-            const p = allPersonas[id];
-            console.log(`  ${p.icon || '•'} ${chalk.bold(p.name)} (${p.id})`);
-            console.log(chalk.gray(`     ${p.corePriority || p.keyQuestion || ''}`));
-            console.log('');
+    setConfig('provider', answers.provider);
+
+    if (answers.provider === 'ollama') {
+        const { baseUrl, model } = await inquirer.prompt([
+            { type: 'input', name: 'baseUrl', message: 'Ollama URL:', default: 'http://localhost:11434/api/chat' },
+            { type: 'input', name: 'model', message: 'Model name:', default: 'llama3.2' }
+        ]);
+        setConfig('baseUrl', baseUrl);
+        setConfig('model', model);
+    } else if (answers.provider === 'openai_compatible') {
+        const { baseUrl, model, apiKey } = await inquirer.prompt([
+            { type: 'input', name: 'baseUrl', message: 'API endpoint:', default: 'http://localhost:8000/v1/chat/completions' },
+            { type: 'input', name: 'model', message: 'Model name:', default: 'default' },
+            { type: 'password', name: 'apiKey', message: 'API key (leave blank if none):' }
+        ]);
+        setConfig('baseUrl', baseUrl);
+        setConfig('model', model);
+        if (apiKey) setConfig('apiKey', apiKey);
+    } else {
+        const { apiKey } = await inquirer.prompt([
+            { type: 'password', name: 'apiKey', message: 'Enter your API key:', validate: i => i.length > 0 || 'Required' }
+        ]);
+        setConfig('apiKey', apiKey);
+
+        const models = PROVIDERS[answers.provider]?.models || [];
+        if (models.length > 1) {
+            const { model } = await inquirer.prompt([
+                { type: 'list', name: 'model', message: 'Select model:', choices: models }
+            ]);
+            setConfig('model', model);
         }
     }
 
-    console.log(chalk.gray(`\nPersonas stored in: ${PERSONAS_DIR}\n`));
+    console.log(chalk.green(`\n✓ Configuration saved to ${CONFIG_PATH}\n`));
 }
 
-// --- spar persona create ---
+async function configShow() {
+    printBanner();
+    console.log(chalk.bold('\n⚙️  Configuration\n'));
+    const config = loadConfig();
+    console.log(`  Provider:    ${config.provider || chalk.gray('Not set')}`);
+    console.log(`  Model:       ${config.model || chalk.gray('Default')}`);
+    console.log(`  API Key:     ${config.apiKey ? chalk.green('••••' + config.apiKey.slice(-4)) : chalk.gray('Not set')}`);
+    console.log(`  Base URL:    ${config.baseUrl || chalk.gray('Default')}`);
+    console.log(`  Config:      ${CONFIG_PATH}`);
+    console.log(`  Personas:    ${PERSONAS_DIR}`);
+    console.log(`  Sessions:    ${SESSIONS_DIR}\n`);
+}
+
+// ============================================
+// PERSONA COMMANDS
+// ============================================
+
+async function personaList() {
+    printBanner();
+    console.log(chalk.bold('\n📋 PERSONA Library\n'));
+
+    console.log(chalk.cyan('NEWS Compass (Default 4):\n'));
+    Object.values(NEWS_COMPASS).forEach(p => {
+        console.log(`  ${p.icon} ${chalk.bold(p.name)} (${p.direction}) — ${p.keyQuestion}`);
+    });
+
+    console.log(chalk.yellow('\n7 Archetypes (108 Total):\n'));
+    Object.entries(PERSONA_ARCHETYPES).forEach(([key, arch]) => {
+        console.log(`  ${arch.icon} ${chalk.bold(arch.name)} (${arch.count}) — "${arch.question}"`);
+    });
+
+    console.log(chalk.green('\nPreset Packs:\n'));
+    Object.entries(PRESET_PACKS).forEach(([id, pack]) => {
+        console.log(`  ${chalk.bold(id.padEnd(12))} ${pack.name} — ${pack.description}`);
+    });
+
+    const custom = loadCustomPersonas();
+    if (Object.keys(custom).length > 0) {
+        console.log(chalk.magenta('\nCustom Personas:\n'));
+        Object.values(custom).forEach(p => {
+            console.log(`  ${p.icon || '•'} ${chalk.bold(p.name)} (${p.id})`);
+        });
+    }
+    console.log('');
+}
+
 async function personaCreate() {
     printBanner();
     console.log(chalk.bold('\n🎭 Create New Persona\n'));
 
     const answers = await inquirer.prompt([
-        {
-            type: 'input',
-            name: 'id',
-            message: 'Persona ID (lowercase, no spaces):',
-            validate: (input) => /^[a-z0-9_]+$/.test(input) || 'Use lowercase letters, numbers, underscores only'
-        },
-        {
-            type: 'input',
-            name: 'name',
-            message: 'Display name (e.g., "The Risk Analyst"):',
-            validate: (input) => input.length > 0 || 'Name required'
-        },
-        {
-            type: 'input',
-            name: 'icon',
-            message: 'Icon emoji:',
-            default: '🎯'
-        },
-        {
-            type: 'input',
-            name: 'corePriority',
-            message: 'Core priority (what matters most to this persona):',
-            validate: (input) => input.length > 0 || 'Priority required'
-        },
-        {
-            type: 'input',
-            name: 'fear',
-            message: 'Fundamental fear (what keeps this persona up at night):',
-            validate: (input) => input.length > 0 || 'Fear required'
-        },
-        {
-            type: 'input',
-            name: 'keyQuestion',
-            message: 'Key question this persona always asks:',
-            validate: (input) => input.length > 0 || 'Question required'
-        },
-        {
-            type: 'editor',
-            name: 'prompt',
-            message: 'Full system prompt (opens editor):',
-            default: (answers) => `You are ${answers.name}.
-
-YOUR CORE PRIORITY: ${answers.corePriority}
-YOUR FEAR: ${answers.fear}
-YOUR STYLE: [Describe how this persona engages with problems]
-
-When engaging with problems, you ask: "${answers.keyQuestion}"
-
-You will analyze a decision. Argue your perspective directly.
-Don't be balanced — be you.
-Keep your response focused and under 250 words.`
-        }
+        { type: 'input', name: 'id', message: 'ID (lowercase):', validate: i => /^[a-z0-9_]+$/.test(i) || 'Lowercase only' },
+        { type: 'input', name: 'name', message: 'Display name:', validate: i => i.length > 0 || 'Required' },
+        { type: 'input', name: 'icon', message: 'Icon emoji:', default: '🎯' },
+        { type: 'input', name: 'corePriority', message: 'Core priority:', validate: i => i.length > 0 || 'Required' },
+        { type: 'input', name: 'fear', message: 'Fundamental fear:', validate: i => i.length > 0 || 'Required' },
+        { type: 'input', name: 'keyQuestion', message: 'Key question:', validate: i => i.length > 0 || 'Required' },
+        { type: 'editor', name: 'prompt', message: 'System prompt:' }
     ]);
 
-    const persona = {
-        id: answers.id,
-        name: answers.name,
-        icon: answers.icon,
-        corePriority: answers.corePriority,
-        fear: answers.fear,
-        keyQuestion: answers.keyQuestion,
-        prompt: answers.prompt
-    };
-
-    savePersona(persona);
-    console.log(chalk.green(`\n✓ Persona "${persona.name}" saved to ${PERSONAS_DIR}/${persona.id}.json\n`));
+    savePersona(answers);
+    console.log(chalk.green(`\n✓ Persona "${answers.name}" saved\n`));
 }
 
-// --- spar config show ---
-async function configShow() {
+// ============================================
+// METHODOLOGY COMMANDS
+// ============================================
+
+function showSparkit() {
     printBanner();
-    console.log(chalk.bold('\n⚙️  Configuration\n'));
-
-    const config = loadConfig();
-
-    console.log(`  Provider:    ${config.provider || chalk.gray('Not set')}`);
-    console.log(`  API Key:     ${config.apiKey ? chalk.green('••••••••' + config.apiKey.slice(-4)) : chalk.gray('Not set')}`);
-    console.log(`  Config file: ${CONFIG_PATH}`);
-    console.log(`  Personas:    ${PERSONAS_DIR}`);
-    console.log(`  Sessions:    ${SESSIONS_DIR}`);
-    console.log('');
+    console.log(chalk.bold.cyan('\n📜 The SPARKIT Protocol\n'));
+    console.log(formatSparkitQuickRef());
+    console.log('\n');
+    Object.values(SPARKIT_PROTOCOL).forEach(step => {
+        console.log(chalk.bold(`  ${step.letter} — ${step.name}`));
+        console.log(chalk.gray(`      ${step.description}\n`));
+    });
 }
 
-// --- spar config set ---
-async function configSet(key, value) {
-    if (!key) {
-        console.log(chalk.red('Usage: spar config set <key> <value>'));
-        console.log(chalk.gray('Keys: provider, apiKey'));
-        return;
-    }
-
-    if (key === 'apiKey' && !value) {
-        const { apiKey } = await inquirer.prompt([
-            { type: 'password', name: 'apiKey', message: 'Enter API key:' }
-        ]);
-        value = apiKey;
-    }
-
-    setConfig(key, value);
-    console.log(chalk.green(`✓ Set ${key}`));
-}
-
-// --- spar config setup (interactive) ---
-async function configSetup() {
-    const answers = await inquirer.prompt([
-        {
-            type: 'list',
-            name: 'provider',
-            message: 'Select AI provider:',
-            choices: [
-                { name: 'OpenAI (GPT-4 Turbo)', value: 'openai' },
-                { name: 'Anthropic (Claude 3.5 Sonnet)', value: 'anthropic' },
-                { name: 'Google (Gemini 1.5 Flash)', value: 'gemini' }
-            ]
-        },
-        {
-            type: 'password',
-            name: 'apiKey',
-            message: 'Enter your API key:',
-            validate: (input) => input.length > 0 || 'API key is required'
-        }
-    ]);
-
-    setConfig('provider', answers.provider);
-    setConfig('apiKey', answers.apiKey);
-    console.log(chalk.green(`\n✓ Configuration saved to ${CONFIG_PATH}\n`));
-}
-
-// --- spar status ---
-async function showStatus() {
+function showSpark() {
     printBanner();
+    console.log(chalk.bold.yellow('\n⚡ The SPARK Principles\n'));
+    console.log(formatSparkQuickRef());
+    console.log('\n');
+    Object.values(SPARK_PRINCIPLES).forEach(p => {
+        console.log(chalk.bold(`  ${p.letter} — ${p.name}`));
+        console.log(chalk.gray(`      When: ${p.timing}`));
+        console.log(chalk.white(`      Check: "${p.check}"\n`));
+    });
+}
 
+function showAspires() {
+    printBanner();
+    console.log(chalk.bold.green('\n🌟 The ASPIRES Framework\n'));
+    console.log(formatAspiresQuickRef());
+    console.log('\n');
+    Object.values(ASPIRES_FRAMEWORK).forEach(p => {
+        console.log(chalk.bold(`  ${p.letter} — ${p.name}`));
+        console.log(chalk.gray(`      Use: ${p.use}\n`));
+    });
+}
+
+function showStatus() {
+    printBanner();
     const config = loadConfig();
-    const customPersonas = loadCustomPersonas();
+    const custom = loadCustomPersonas();
     const sessions = listSessions(5);
 
     console.log(chalk.bold('\n📊 Status\n'));
     console.log(`  Version:         ${VERSION}`);
     console.log(`  Provider:        ${config.provider || chalk.gray('Not configured')}`);
-    console.log(`  API Key:         ${config.apiKey ? chalk.green('Configured ✓') : chalk.yellow('Not set')}`);
-    console.log(`  Custom Personas: ${Object.keys(customPersonas).length}`);
-    console.log(`  Saved Sessions:  ${sessions.length > 0 ? sessions.length + ' recent' : 'None'}`);
-    console.log('');
+    console.log(`  Model:           ${config.model || chalk.gray('Default')}`);
+    console.log(`  Custom Personas: ${Object.keys(custom).length}`);
+    console.log(`  Sessions:        ${sessions.length} recent\n`);
 
     if (sessions.length > 0) {
         console.log(chalk.bold('Recent Sessions:\n'));
@@ -767,25 +708,18 @@ async function showStatus() {
     }
 }
 
-// --- spar debate history ---
-async function debateHistory() {
+function debateHistory() {
     printBanner();
     console.log(chalk.bold('\n📜 Session History\n'));
-
     const sessions = listSessions(20);
-
     if (sessions.length === 0) {
         console.log(chalk.gray('  No sessions found.\n'));
         return;
     }
-
     sessions.forEach((s, i) => {
-        const date = s.timestamp?.split('T')[0] || 'Unknown';
-        const decision = s.decision?.substring(0, 60) || 'Unknown';
-        console.log(`  ${chalk.gray(i + 1 + '.')} ${date} — ${decision}...`);
+        console.log(`  ${chalk.gray(i + 1 + '.')} ${s.timestamp?.split('T')[0]} — ${s.decision?.substring(0, 55)}...`);
     });
-
-    console.log(chalk.gray(`\n  Sessions stored in: ${SESSIONS_DIR}\n`));
+    console.log(chalk.gray(`\n  Sessions: ${SESSIONS_DIR}\n`));
 }
 
 // ============================================
@@ -796,21 +730,22 @@ const program = new Command();
 
 program
     .name('spar')
-    .description('SPAR — Structured Persona-Argumentation for Reasoning')
+    .description('SPAR Kit — Structured Persona-Argumentation for Reasoning')
     .version(VERSION);
 
-// spar (default = spar debate start)
+// Default: spar [decision]
 program
     .argument('[decision]', 'The decision to debate')
     .option('-p, --personas <list>', 'Comma-separated persona IDs')
+    .option('-P, --preset <pack>', 'Use persona preset (news, startup, corporate, crisis, innovation, ethics)')
     .option('-i, --interactive', 'Interactive persona selection')
     .action((decision, options) => debateStart(decision, options));
 
 // spar debate
 const debate = program.command('debate').description('Debate commands');
 debate.command('start [decision]')
-    .description('Start a new SPAR debate')
     .option('-p, --personas <list>', 'Comma-separated persona IDs')
+    .option('-P, --preset <pack>', 'Use persona preset')
     .option('-i, --interactive', 'Interactive persona selection')
     .action(debateStart);
 debate.command('history').description('Show session history').action(debateHistory);
@@ -823,23 +758,13 @@ persona.command('create').description('Create a new persona').action(personaCrea
 // spar config
 const config = program.command('config').description('Configuration');
 config.command('show').description('Show current configuration').action(configShow);
-config.command('set <key> [value]').description('Set a configuration value').action(configSet);
 config.command('setup').description('Interactive setup').action(configSetup);
 
-// spar status
-program.command('status').description('Show SPAR status').action(showStatus);
-
-// spar compass
-program.command('compass').description('Show the N-E-W-S framework').action(() => {
-    printBanner();
-    printCompass();
-    console.log(chalk.gray(`
-    Natural Tensions:
-    • ${chalk.blue('North')} ↔ ${chalk.yellow('South')}: Vision vs. Reality  
-    • ${chalk.green('East')} ↔ ${chalk.red('West')}: Innovation vs. Tradition
-
-    When all four directions engage, no blind spot survives.
-    `));
-});
+// Methodology commands
+program.command('status').description('Show SPAR Kit status').action(showStatus);
+program.command('compass').description('Show NEWS compass').action(() => { printBanner(); printCompass(); });
+program.command('sparkit').description('Show SPARKIT 7-step protocol').action(showSparkit);
+program.command('spark').description('Show SPARK 5 principles').action(showSpark);
+program.command('aspires').description('Show ASPIRES 7 patterns').action(showAspires);
 
 program.parse();

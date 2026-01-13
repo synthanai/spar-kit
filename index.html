@@ -1105,6 +1105,200 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--smoke);
         }
+
+        /* ============================================
+           TOAST NOTIFICATIONS
+           ============================================ */
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: var(--space-4) var(--space-6);
+            background: var(--nebula);
+            border: 1px solid var(--meteor);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-success {
+            border-color: var(--east);
+        }
+
+        .toast-error {
+            border-color: var(--west);
+        }
+
+        .toast-icon {
+            font-size: 1.2rem;
+        }
+
+        .toast-message {
+            color: var(--cloud);
+        }
+
+        /* ============================================
+           COPY/RETRY BUTTONS
+           ============================================ */
+
+        .position-actions {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+
+        .btn-small {
+            padding: var(--space-2) var(--space-3);
+            font-size: 0.8rem;
+            border-radius: var(--radius-sm);
+            background: var(--stardust);
+            border: 1px solid var(--meteor);
+            color: var(--mist);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+
+        .btn-small:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--pure);
+        }
+
+        .btn-retry {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--west);
+            color: var(--west);
+        }
+
+        .btn-retry:hover {
+            background: var(--west);
+            color: var(--pure);
+        }
+
+        /* ============================================
+           REMEMBER CHECKBOX
+           ============================================ */
+
+        .remember-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+
+        .remember-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+        }
+
+        .remember-row label {
+            text-transform: none;
+            font-size: 0.9rem;
+            color: var(--mist);
+            cursor: pointer;
+        }
+
+        /* ============================================
+           ERROR STATES
+           ============================================ */
+
+        .position-content.error {
+            background: rgba(239, 68, 68, 0.05);
+            border-radius: var(--radius-sm);
+            padding: var(--space-4);
+        }
+
+        .error-content {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            color: var(--west);
+        }
+
+        .error-icon {
+            font-size: 1.5rem;
+        }
+
+        .error-message {
+            font-size: 0.9rem;
+        }
+
+        .loading-text {
+            color: var(--mist);
+            font-style: italic;
+        }
+
+        .position-content.loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fade-in {
+            animation: fadeInContent 0.5s ease;
+        }
+
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ============================================
+           KEYBOARD SHORTCUT HINT
+           ============================================ */
+
+        .keyboard-hint {
+            text-align: center;
+            margin-top: var(--space-4);
+            font-size: 0.8rem;
+            color: var(--smoke);
+        }
+
+        .keyboard-hint kbd {
+            background: var(--meteor);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* ============================================
+           ROUND 2 SECTION
+           ============================================ */
+
+        #round2 {
+            display: none;
+            margin-top: var(--space-10);
+        }
+
+        .synthesis-content h4 {
+            color: var(--accent-light);
+            margin: var(--space-4) 0 var(--space-2);
+        }
+
+        .synthesis-content p {
+            margin-bottom: var(--space-3);
+        }
     </style>
 </head>
 
@@ -1120,7 +1314,8 @@
             </div>
             <p class="tagline">Don't deliberate alone.</p>
             <p class="tagline-tamil">நாலு பேரு, நாலு திசை, ஒரு முடிவு</p>
-            <p class="tagline-tamil" style="font-size: 1rem; opacity: 0.6;">Four Perspectives, Four Dimensions, One Synthesis
+            <p class="tagline-tamil" style="font-size: 1rem; opacity: 0.6;">Four Perspectives, Four Dimensions, One
+                Synthesis
             </p>
 
             <div class="philosophy-quote">
@@ -1176,9 +1371,14 @@
                     <label for="apiKey">API Key</label>
                     <div class="api-row">
                         <input type="password" id="apiKey" placeholder="Enter your API key...">
-                        <button class="btn-icon" onclick="toggleApiKey()" title="Toggle visibility">👁️</button>
+                        <button class="btn-icon" id="toggleKeyBtn" onclick="toggleApiKey()"
+                            title="Toggle visibility">👁️</button>
                     </div>
                 </div>
+            </div>
+            <div class="remember-row">
+                <input type="checkbox" id="rememberKey">
+                <label for="rememberKey">Remember API key (stored locally)</label>
             </div>
             <div class="security-note">
                 <span>🔒</span>
@@ -1230,6 +1430,7 @@ Describe the decision, the context, and what makes it difficult. The more detail
                             <span class="btn-spar-icon">🥊</span>
                             <span class="btn-spar-text">SPAR</span>
                         </button>
+                        <p class="keyboard-hint"><kbd>⌘</kbd> + <kbd>Enter</kbd> to SPAR</p>
                     </div>
                     <div class="compass-direction east" id="east-indicator">
                         <span class="direction-icon">🟢</span>
@@ -1287,6 +1488,11 @@ Describe the decision, the context, and what makes it difficult. The more detail
                     <div class="position-content empty" id="north-content">
                         Awaiting response...
                     </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('north')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="north-retry" style="display: none;"
+                            onclick="retryPersona('north')">🔄 Retry</button>
+                    </div>
                 </div>
 
                 <div class="position-card east">
@@ -1302,6 +1508,11 @@ Describe the decision, the context, and what makes it difficult. The more detail
                     </div>
                     <div class="position-content empty" id="east-content">
                         Awaiting response...
+                    </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('east')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="east-retry" style="display: none;"
+                            onclick="retryPersona('east')">🔄 Retry</button>
                     </div>
                 </div>
 
@@ -1319,6 +1530,11 @@ Describe the decision, the context, and what makes it difficult. The more detail
                     <div class="position-content empty" id="south-content">
                         Awaiting response...
                     </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('south')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="south-retry" style="display: none;"
+                            onclick="retryPersona('south')">🔄 Retry</button>
+                    </div>
                 </div>
 
                 <div class="position-card west">
@@ -1335,6 +1551,80 @@ Describe the decision, the context, and what makes it difficult. The more detail
                     <div class="position-content empty" id="west-content">
                         Awaiting response...
                     </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('west')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="west-retry" style="display: none;"
+                            onclick="retryPersona('west')">🔄 Retry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Round 2: The Clash -->
+            <div id="round2">
+                <div class="round-header">
+                    <div class="round-number">2</div>
+                    <div>
+                        <h2 class="round-title">The Clash</h2>
+                        <p class="round-subtitle">Each direction responds to the others — where do they disagree?</p>
+                    </div>
+                </div>
+
+                <div class="positions-grid">
+                    <div class="position-card north">
+                        <div class="position-header">
+                            <div class="position-identity">
+                                <span class="position-icon">🔵</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">North</span>
+                                    <span class="position-name">The Visionary</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="north-r2-status">Waiting</span>
+                        </div>
+                        <div class="position-content empty" id="north-r2-content">Awaiting clash...</div>
+                    </div>
+
+                    <div class="position-card east">
+                        <div class="position-header">
+                            <div class="position-identity">
+                                <span class="position-icon">🟢</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">East</span>
+                                    <span class="position-name">The Challenger</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="east-r2-status">Waiting</span>
+                        </div>
+                        <div class="position-content empty" id="east-r2-content">Awaiting clash...</div>
+                    </div>
+
+                    <div class="position-card south">
+                        <div class="position-header">
+                            <div class="position-identity">
+                                <span class="position-icon">🟡</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">South</span>
+                                    <span class="position-name">The Pragmatist</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="south-r2-status">Waiting</span>
+                        </div>
+                        <div class="position-content empty" id="south-r2-content">Awaiting clash...</div>
+                    </div>
+
+                    <div class="position-card west">
+                        <div class="position-header">
+                            <div class="position-identity">
+                                <span class="position-icon">🔴</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">West</span>
+                                    <span class="position-name">The Sage</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="west-r2-status">Waiting</span>
+                        </div>
+                        <div class="position-content empty" id="west-r2-content">Awaiting clash...</div>
+                    </div>
                 </div>
             </div>
 
@@ -1342,6 +1632,7 @@ Describe the decision, the context, and what makes it difficult. The more detail
                 <div class="synthesis-header">
                     <span class="synthesis-icon">📊</span>
                     <h3 class="synthesis-title">Synthesis</h3>
+                    <button class="btn-small" style="margin-left: auto;" onclick="copySynthesis()">📋 Copy</button>
                 </div>
                 <div class="synthesis-content" id="synthesis-content"></div>
             </div>
@@ -1359,7 +1650,8 @@ Describe the decision, the context, and what makes it difficult. The more detail
                 <p class="tamil">நாலு பேரு நாலு விதமா பேசுவாங்க</p>
                 <p>"Four people speak in four different ways."<br>— Tamil Wisdom</p>
                 <p style="font-size: 1.5rem; margin-top: var(--space-6);">🥊 Don't deliberate alone.
-                    <strong>SPAR.</strong></p>
+                    <strong>SPAR.</strong>
+                </p>
             </div>
 
             <div class="footer-links">

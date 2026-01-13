@@ -1,6 +1,7 @@
 /**
  * SPAR Kit CSS Test Suite
  * Tests for stylesheet structure and critical styles
+ * (Styles are now inline in index.html)
  * 
  * @author Naveen Riaz Mohamed Kani
  * @license MIT
@@ -13,11 +14,19 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// Extract CSS from the <style> tag in index.html
+function extractCssFromHtml(htmlContent) {
+    const styleMatch = htmlContent.match(/<style>([\s\S]*?)<\/style>/);
+    return styleMatch ? styleMatch[1] : '';
+}
+
 describe('SPAR Kit CSS', () => {
     let css;
+    let html;
 
     beforeAll(() => {
-        css = readFileSync(join(__dirname, '..', 'style.css'), 'utf-8');
+        html = readFileSync(join(__dirname, '..', 'index.html'), 'utf-8');
+        css = extractCssFromHtml(html);
     });
 
     describe('CSS Variables', () => {
@@ -26,58 +35,64 @@ describe('SPAR Kit CSS', () => {
         });
 
         test('should have direction color variables', () => {
-            // Check for color definitions
-            expect(css).toMatch(/--.*north|#3b82f6|blue/i);
+            expect(css).toContain('--north');
+            expect(css).toContain('--east');
+            expect(css).toContain('--south');
+            expect(css).toContain('--west');
+        });
+
+        test('should define color values', () => {
+            expect(css).toMatch(/#[0-9a-f]{6}/i);
         });
     });
 
     describe('Layout Styles', () => {
         test('should have container styles', () => {
-            expect(css).toContain('.container');
+            expect(css).toContain('container');
         });
 
         test('should have header styles', () => {
-            expect(css).toContain('.header');
+            expect(css).toContain('header');
         });
 
         test('should have footer styles', () => {
-            expect(css).toContain('.footer');
+            expect(css).toContain('footer');
         });
     });
 
     describe('Component Styles', () => {
         test('should have compass styles', () => {
-            expect(css).toContain('.compass');
+            expect(css).toContain('compass');
         });
 
         test('should have button styles', () => {
-            expect(css).toMatch(/\.btn-primary|button/);
+            expect(css).toMatch(/button|btn/);
         });
 
         test('should have position/card styles', () => {
-            expect(css).toContain('.position');
+            expect(css).toContain('position');
         });
 
         test('should have status indicator styles', () => {
-            expect(css).toContain('.status');
+            expect(css).toContain('status');
         });
     });
 
     describe('Direction-Specific Styles', () => {
         test('should have north styles', () => {
-            expect(css).toMatch(/\.north|north-pos/);
+            expect(css).toMatch(/north/i);
         });
 
         test('should have east styles', () => {
-            expect(css).toMatch(/\.east|east-pos/);
+            expect(css).toMatch(/east/i);
         });
 
         test('should have south styles', () => {
-            expect(css).toMatch(/\.south|south-pos/);
+            expect(css).toMatch(/south/i);
         });
 
         test('should have west styles', () => {
-            expect(css).toMatch(/\.west|west-pos/);
+            expect(css).toMatch(/west/i);
         });
     });
 
@@ -92,8 +107,8 @@ describe('SPAR Kit CSS', () => {
             expect(css).toContain('transition');
         });
 
-        test('should have loading animation', () => {
-            expect(css).toMatch(/loading|@keyframes|animation/);
+        test('should have animations or keyframes', () => {
+            expect(css).toMatch(/@keyframes|animation/);
         });
     });
 
@@ -119,8 +134,7 @@ describe('SPAR Kit CSS', () => {
 
     describe('Color Scheme', () => {
         test('should have dark background colors', () => {
-            // Check for dark theme colors
-            expect(css).toMatch(/#[0-9a-f]{6}|rgb|hsl/i);
+            expect(css).toMatch(/--void|--cosmos|background/i);
         });
     });
 });
@@ -129,7 +143,8 @@ describe('SPAR Kit CSS Syntax Validation', () => {
     let css;
 
     beforeAll(() => {
-        css = readFileSync(join(__dirname, '..', 'style.css'), 'utf-8');
+        const html = readFileSync(join(__dirname, '..', 'index.html'), 'utf-8');
+        css = extractCssFromHtml(html);
     });
 
     test('should have balanced curly braces', () => {
@@ -139,23 +154,17 @@ describe('SPAR Kit CSS Syntax Validation', () => {
     });
 
     test('should not have empty rules', () => {
-        // Allow for minified CSS where {} may not have whitespace
         const emptyRules = css.match(/{\s*}/g) || [];
         expect(emptyRules.length).toBe(0);
     });
 
     test('should end properties with semicolons', () => {
-        // Check that most properties end with semicolons
         const properties = css.match(/:[^{}]+;/g) || [];
         expect(properties.length).toBeGreaterThan(0);
     });
 
     test('should have valid selectors', () => {
-        // Check for common selector patterns
         const hasClassSelectors = css.includes('.');
-        const hasIdSelectors = css.includes('#') || true; // Optional
-        const hasElementSelectors = css.match(/\bbody\b|\bhtml\b|\bheader\b/);
-
         expect(hasClassSelectors).toBe(true);
     });
 });

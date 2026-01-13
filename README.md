@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Run AI persona debates from your terminal or browser</strong><br>
-  <em>The official tool for the <a href="https://github.com/synthanai/spar">SPAR methodology</a></em>
+  <em>The official tool for <a href="https://github.com/synthanai/spar">SPAR</a> AI-Persona Mode (🤖 A in STASH)</em>
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 
 <p align="center">
   <strong>நாலு பேரு, நாலு திசை, ஒரு முடிவு!</strong><br>
-  <em>Four Perspectives, Four Dimensions, One Synthesis</em>
+  <em>One methodology. Five modes. Every decision.</em>
 </p>
 
 ---
@@ -160,6 +160,7 @@ This toolkit implements the **[SPAR](https://github.com/synthanai/spar)** method
 | Resource | Description |
 |----------|-------------|
 | **[SPAR in 5 Minutes](https://github.com/synthanai/spar/blob/main/quick-start/SPAR_IN_5_MINUTES.md)** | Get started immediately |
+| **[STASH Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)** | 5 modes: Solo Human, Team Human, AI-Persona, Solo AI, Hybrid |
 | **[The Four Directions](https://github.com/synthanai/spar/blob/main/docs/FOUR_DIRECTIONS.md)** | Canonical N-E-W-S compass reference |
 | **[The Five Principles](https://github.com/synthanai/spar/blob/main/docs/FIVE_PRINCIPLES.md)** | Non-negotiable foundations |
 | **[SPAR Manifesto](https://github.com/synthanai/spar/blob/main/docs/MANIFESTO.md)** | Core philosophy & methodology |
@@ -207,6 +208,7 @@ node cli/index.js
 ## Links
 
 - **[SPAR Methodology](https://github.com/synthanai/spar)** — The framework
+- **[STASH Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)** — 5 modes for running SPAR
 - **[Web Playground](https://synthanai.github.io/spar-kit)** — Try in browser
 - **[ASPIRES Framework](https://github.com/synthanai/spar/blob/main/docs/ADVANCED_PATTERNS.md)** — Advanced patterns
 

@@ -1,6 +1,6 @@
 # 🥊 SPAR Kit
 
-**Run AI persona debates in your browser. No installation required.**
+**Run AI persona debates in your browser or terminal. No installation required.**
 
 > **நாலு பேரு, நாலு திசை, ஒரு முடிவு**
 > *Four voices, four directions, one decision*
@@ -9,9 +9,28 @@
 
 ## 🚀 Try It Now
 
-**[▶️ Launch SPAR Kit](https://synthanai.github.io/spar-kit)**
+### Web (Instant)
 
-Enter your API key, paste your decision, hit SPAR. That's it.
+**[▶️ Launch SPAR Kit](https://synthanai.github.io/spar-kit)** — No installation, runs in your browser.
+
+### CLI (Enterprise-Ready)
+
+```bash
+# Run directly (no install)
+npx spar-kit
+
+# Or install globally
+npm install -g spar-kit
+spar run "Should we expand to Singapore?"
+```
+
+**CLI Features:**
+- ✅ Interactive setup wizard
+- ✅ Credentials stored locally (`~/.spar-kit.json`)
+- ✅ Parallel API execution
+- ✅ Beautiful terminal output
+- ✅ Markdown export
+- ✅ No browser required — perfect for enterprise/CI
 
 ---
 

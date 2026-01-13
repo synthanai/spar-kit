@@ -16,6 +16,13 @@ All notable changes to SPAR Kit will be documented in this file.
 - 📱 Responsive layout
 - 🔒 Privacy-first (no backend, keys stay local)
 
+### CLI
+- 💻 Full command-line interface (`npx spar-kit` or `spar run`)
+- 🔧 Interactive setup wizard
+- 💾 Local credential storage (`~/.spar-kit.json`)
+- 📤 Markdown session export
+- 🏢 Enterprise-ready (no browser required)
+
 ### Tamil Wisdom Anchor
 - நாலு பேரு நாலு விதமா பேசுவாங்க
 - நாலு பேரு, நாலு திசை, ஒரு முடிவு

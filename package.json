@@ -1,11 +1,12 @@
 {
-    "name": "spar-kit",
-    "version": "2.0.0",
+    "name": "sparkit",
+    "version": "2.5.0",
     "description": "SPAR: Structured Persona-Argumentation for Reasoning — Run AI persona debates from the command line",
     "main": "cli/index.js",
+    "type": "module",
     "bin": {
         "spar": "./cli/index.js",
-        "spar-kit": "./cli/index.js"
+        "sparkit": "./cli/index.js"
     },
     "scripts": {
         "start": "node cli/index.js",
@@ -13,14 +14,17 @@
     },
     "keywords": [
         "spar",
+        "sparkit",
         "ai",
         "debate",
         "decision-making",
         "personas",
+        "reasoning",
         "openai",
         "anthropic",
         "gemini",
-        "cli"
+        "cli",
+        "llm"
     ],
     "author": "Naveen Riaz Mohamed Kani",
     "license": "MIT",

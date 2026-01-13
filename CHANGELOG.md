@@ -2,6 +2,18 @@
 
 All notable changes to SPAR Kit will be documented in this file.
 
+## [2.6.0] - 2026-01-14
+
+### Added
+- 🎯 **SPARKIT Protocol** — Documentation for the 7-step dialectic engine
+  - The tool name `spar-kit` now aligns with the `SPARKIT` backronym
+  - Protocol reference added to README
+
+### Philosophy
+- **spar-kit** implements the **SPARKIT** protocol — *the tool embodies the method*
+
+---
+
 ## [1.0.0] - 2026-01-13
 
 ### Added

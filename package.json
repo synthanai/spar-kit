@@ -1,6 +1,6 @@
 {
     "name": "sparkit",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "SPAR: Structured Persona-Argumentation for Reasoning — Run AI persona debates from the command line",
     "type": "module",
     "main": "cli/index.js",

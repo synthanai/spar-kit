@@ -164,23 +164,23 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 ### Phase 7: API & Programmatic Access
 
 #### 7.1 Public API (`cli/api/`)
-- [ ] **TASK-084**: Create programmatic API entry point
-- [ ] **TASK-085**: Expose `createSession(options)` function
-- [ ] **TASK-086**: Expose `getSession(id)` function
-- [ ] **TASK-087**: Expose `listSessions(filters)` function
-- [ ] **TASK-088**: Expose `exportSession(id, format)` function
+- [x] **TASK-084**: Create programmatic API entry point ✅ [cli/api/index.js]
+- [x] **TASK-085**: Expose `createSession(options)` function ✅
+- [x] **TASK-086**: Expose `getSession(id)` function ✅
+- [x] **TASK-087**: Expose `listSessions(filters)` function ✅
+- [x] **TASK-088**: Expose `exportSession(id, format)` function ✅
 
 #### 7.2 API Tests (`__tests__/api/`)
-- [ ] **TASK-089**: Test programmatic session creation
-- [ ] **TASK-090**: Test session retrieval
-- [ ] **TASK-091**: Test session listing with filters
-- [ ] **TASK-092**: Test export formats
-- [ ] **TASK-093**: Test error handling and edge cases
+- [x] **TASK-089**: Test programmatic session creation ✅ [index.test.js]
+- [x] **TASK-090**: Test session retrieval ✅ [index.test.js]
+- [x] **TASK-091**: Test session listing with filters ✅ [index.test.js]
+- [x] **TASK-092**: Test export formats ✅ [index.test.js]
+- [x] **TASK-093**: Test error handling and edge cases ✅ [index.test.js]
 
 #### 7.3 API Documentation
-- [ ] **TASK-094**: Create API reference documentation
-- [ ] **TASK-095**: Add JSDoc comments to all exports
-- [ ] **TASK-096**: Create usage examples
+- [x] **TASK-094**: Create API reference documentation ✅ [JSDoc in cli/api/index.js]
+- [x] **TASK-095**: Add JSDoc comments to all exports ✅
+- [x] **TASK-096**: Create usage examples ✅ [docs/API_EXAMPLES.md]
 
 ---
 

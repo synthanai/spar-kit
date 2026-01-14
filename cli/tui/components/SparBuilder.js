@@ -203,12 +203,22 @@ function EngineStep({ config, onChange, onNext, onBack }) {
             description: 'Runs on your machine, no data sent externally'
         },
         {
+            label: '🧠 Ollama Ultrathink (DeepSeek-R1)',
+            value: 'ollama_ultrathink',
+            description: 'Extended reasoning with chain-of-thought'
+        },
+        {
             label: '🌐 OpenAI (GPT-4)',
             value: 'openai',
             description: 'Powerful, requires API key'
         },
         {
-            label: '🧠 Anthropic (Claude)',
+            label: '🔴 OpenAI Reasoning (o1/o3)',
+            value: 'openai_reasoning',
+            description: 'Premium reasoning models, requires API key'
+        },
+        {
+            label: '🤖 Anthropic (Claude)',
             value: 'anthropic',
             description: 'Nuanced, requires API key'
         },
@@ -237,10 +247,99 @@ function EngineStep({ config, onChange, onNext, onBack }) {
 }
 
 /**
- * Step 5: Review & Launch
+ * Step 5: Reasoning Tier Selection (Ultrathink)
+ */
+function ReasoningTierStep({ config, onChange, onNext, onBack }) {
+    const tiers = [
+        {
+            label: '🟢 Standard — Fast responses',
+            value: 'standard',
+            description: 'Quick decisions, good for simple questions',
+            maxTokens: 1000
+        },
+        {
+            label: '🟡 Ultrathink — Extended reasoning',
+            value: 'ultrathink',
+            description: 'Chain-of-thought, self-reflection, deeper analysis',
+            maxTokens: 4000
+        },
+        {
+            label: '🔴 Maximum — Premium reasoning',
+            value: 'maximum',
+            description: 'Best for complex, high-stakes decisions',
+            maxTokens: 8000
+        }
+    ];
+
+    const modelOptions = {
+        standard: {
+            ollama: ['mistral:latest', 'llama3.2', 'qwen2.5'],
+            openai: ['gpt-4o-mini', 'gpt-4o'],
+            anthropic: ['claude-3-haiku-20240307', 'claude-3-5-sonnet-20241022'],
+            gemini: ['gemini-1.5-flash', 'gemini-1.5-pro']
+        },
+        ultrathink: {
+            ollama_ultrathink: ['deepseek-r1:14b', 'deepseek-r1:7b', 'deepseek-r1:32b'],
+            ollama: ['deepseek-r1:14b'],
+            openai: ['gpt-4o'],
+            anthropic: ['claude-3-5-sonnet-20241022'],
+            gemini: ['gemini-2.0-flash-thinking-exp']
+        },
+        maximum: {
+            openai_reasoning: ['o1-mini', 'o1', 'o3-mini'],
+            ollama_ultrathink: ['deepseek-r1:70b', 'deepseek-r1:32b'],
+            openai: ['gpt-4o'],
+            anthropic: ['claude-3-opus-20240229'],
+            gemini: ['gemini-1.5-pro']
+        }
+    };
+
+    const handleSelect = (tier) => {
+        const provider = config.provider || 'ollama';
+        const models = modelOptions[tier.value]?.[provider] || modelOptions[tier.value]?.ollama || ['mistral:latest'];
+
+        onChange({
+            ...config,
+            tier: tier.value,
+            maxTokens: tier.maxTokens,
+            model: models[0]
+        });
+        onNext();
+    };
+
+    return (
+        <Box flexDirection="column">
+            <Text bold color="cyan">🧠 Select reasoning depth</Text>
+            <Text color="gray" dimColor>Deeper thinking = better synthesis, but slower</Text>
+            <Box marginY={1}>
+                <SelectInput
+                    items={tiers}
+                    onSelect={handleSelect}
+                />
+            </Box>
+            <Box marginTop={1} flexDirection="column">
+                <Text color="gray" dimColor>
+                    🟡 Ultrathink uses DeepSeek-R1 for chain-of-thought reasoning
+                </Text>
+                <Text color="gray" dimColor>
+                    You'll see the AI's thinking process in the session view
+                </Text>
+            </Box>
+        </Box>
+    );
+}
+
+/**
+ * Step 6: Review & Launch
  */
 function ReviewStep({ debate, onLaunch, onBack, onSaveTemplate }) {
     const [action, setAction] = useState(null);
+
+    const tierIcons = {
+        standard: '🟢',
+        ultrathink: '🟡',
+        maximum: '🔴'
+    };
 
     const actions = [
         { label: '🚀 START DEBATE', value: 'start' },
@@ -248,6 +347,9 @@ function ReviewStep({ debate, onLaunch, onBack, onSaveTemplate }) {
         { label: '📤 Share Link', value: 'share' },
         { label: '← Edit', value: 'back' }
     ];
+
+    const tier = debate.config.tier || 'standard';
+    const tierIcon = tierIcons[tier] || '🟢';
 
     return (
         <Box flexDirection="column">
@@ -277,10 +379,16 @@ function ReviewStep({ debate, onLaunch, onBack, onSaveTemplate }) {
                 <Box>
                     <Text color="gray">🤖 Engine: </Text>
                     <Text color="cyan">{debate.config.provider}</Text>
+                    <Text color="gray"> ({debate.config.model})</Text>
+                </Box>
+                <Box>
+                    <Text color="gray">🧠 Reasoning: </Text>
+                    <Text>{tierIcon} {tier.charAt(0).toUpperCase() + tier.slice(1)}</Text>
+                    {tier === 'ultrathink' && <Text color="yellow"> (CoT enabled)</Text>}
                 </Box>
                 <Box marginTop={1}>
                     <Text color="gray">⏱️ Estimated time: </Text>
-                    <Text>{debate.rules.rounds * 3}-{debate.rules.rounds * 5} minutes</Text>
+                    <Text>{debate.rules.rounds * (tier === 'standard' ? 3 : tier === 'ultrathink' ? 5 : 8)}-{debate.rules.rounds * (tier === 'standard' ? 5 : tier === 'ultrathink' ? 8 : 12)} minutes</Text>
                 </Box>
             </Box>
 
@@ -311,11 +419,13 @@ export function SparBuilder({ onComplete, onCancel }) {
         },
         config: {
             provider: 'ollama',
-            model: 'mistral:latest'
+            model: 'mistral:latest',
+            tier: 'standard',
+            maxTokens: 1000
         }
     });
 
-    const totalSteps = 5;
+    const totalSteps = 6;
 
     const updateDebate = (updates) => {
         setDebate(prev => ({ ...prev, ...updates }));
@@ -390,10 +500,18 @@ export function SparBuilder({ onComplete, onCancel }) {
                     />
                 )}
                 {step === 5 && (
+                    <ReasoningTierStep
+                        config={debate.config}
+                        onChange={(v) => updateDebate({ config: v })}
+                        onNext={() => setStep(6)}
+                        onBack={() => setStep(4)}
+                    />
+                )}
+                {step === 6 && (
                     <ReviewStep
                         debate={debate}
                         onLaunch={handleLaunch}
-                        onBack={() => setStep(4)}
+                        onBack={() => setStep(5)}
                         onSaveTemplate={handleSaveTemplate}
                     />
                 )}

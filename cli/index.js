@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * SPAR Kit CLI v3.0
+ * SPAR Kit CLI v3.1
  * Structured Persona-Argumentation for Reasoning
  * 
  * Full SPAR Methodology Implementation:
@@ -34,7 +34,7 @@ import { SPARKIT_PROTOCOL, SPARK_PRINCIPLES, ASPIRES_FRAMEWORK, formatSparkitQui
 // CONFIGURATION
 // ============================================
 
-const VERSION = '3.0.0';
+const VERSION = '3.1.0';
 const SPAR_DIR = join(homedir(), '.spar');
 const CONFIG_PATH = join(SPAR_DIR, 'config.json');
 const PERSONAS_DIR = join(SPAR_DIR, 'personas');
@@ -766,5 +766,71 @@ program.command('compass').description('Show NEWS compass').action(() => { print
 program.command('sparkit').description('Show SPARKIT 7-step protocol').action(showSparkit);
 program.command('spark').description('Show SPARK 5 principles').action(showSpark);
 program.command('aspires').description('Show ASPIRES 7 patterns').action(showAspires);
+
+// TUI commands (v3.1+)
+program.command('tui')
+    .description('Launch interactive Mission Control TUI')
+    .action(async () => {
+        try {
+            const { launchTUI } = await import('./tui/index.js');
+            await launchTUI();
+        } catch (e) {
+            console.log(chalk.yellow('TUI not available. Run: npm install'));
+            console.log(chalk.gray('Using classic CLI: sparkit debate start'));
+        }
+    });
+
+program.command('builder')
+    .description('Launch SPAR Builder wizard')
+    .action(async () => {
+        try {
+            const { launchTUI } = await import('./tui/index.js');
+            // Note: Builder launches inside TUI
+            await launchTUI();
+        } catch (e) {
+            console.log(chalk.yellow('Builder requires TUI. Run: npm install'));
+        }
+    });
+
+// Template commands
+const template = program.command('template').description('Template management');
+
+template.command('list')
+    .description('List all templates')
+    .action(async () => {
+        const { templateList } = await import('./commands.js');
+        templateList();
+    });
+
+template.command('show <id>')
+    .description('Show template details')
+    .action(async (id) => {
+        const { templateShow } = await import('./commands.js');
+        templateShow(id);
+    });
+
+template.command('use <id>')
+    .description('Use a template to start debate')
+    .action(async (id) => {
+        const { templateUse } = await import('./commands.js');
+        await templateUse(id);
+    });
+
+template.command('create')
+    .description('Create a new template')
+    .action(async () => {
+        const { templateCreate } = await import('./commands.js');
+        await templateCreate();
+    });
+
+template.command('delete <id>')
+    .description('Delete a template')
+    .action(async (id) => {
+        const { templateDelete } = await import('./commands.js');
+        await templateDelete(id);
+    });
+
+// Export debateStart for template use
+export { debateStart };
 
 program.parse();

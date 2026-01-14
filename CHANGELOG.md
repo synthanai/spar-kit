@@ -1,79 +1,92 @@
 # Changelog
 
-All notable changes to SPAR Kit will be documented in this file.
+All notable changes to this project will be documented in this file.
 
-## [2.7.0] - 2026-01-14
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [3.1.0] - 2026-01-14
 
 ### Added
-- 🧪 **Comprehensive Test Suite** — 102 tests across 4 test files
-  - `cli.test.js` — CLI configuration, personas, providers, validation
-  - `spar.test.js` — HTML structure, accessibility, JavaScript engine
-  - `style.test.js` — CSS variables, layout, components, syntax validation
-  - `integration.test.js` — Full debate flow, cross-component consistency
-- 🔧 **Jest Configuration** — ES modules support with coverage reporting
-- 📦 **DevDependencies** — jest, jsdom, @testing-library/dom
+
+#### 🖥️ Mission Control TUI
+- **Interactive Dashboard** — Browse sessions, view stats, manage debates
+- **SPAR Builder Wizard** — 5-step no-code debate creation
+- **Session Detail View** — Phase-by-phase debate inspection
+- **Live Session View** — Real-time debate monitoring (foundation)
+- **Settings Editor** — Interactive configuration management
+- Launch with `spar tui` or `spar builder`
+
+#### 📋 Template System
+- **6 Built-in Templates**:
+  - `startup-pivot` — Evaluate major strategic pivots
+  - `hiring-decision` — Should you hire this person?
+  - `investment-eval` — Evaluate investment opportunities
+  - `product-launch` — Product launch readiness
+  - `crisis-response` — Emergency response decisions
+  - `ethics-dilemma` — Navigate ethical situations
+- **Custom Templates** — Create and save your own
+- **Variable Substitution** — Templates with placeholders
+- New commands: `spar template list|show|use|create|delete`
+
+#### 🔒 Security Layer
+- **Input Validation** — XSS, path traversal, SSRF prevention
+- **Output Sanitization** — Safe terminal and export output
+- **API Key Masking** — Sensitive data protection in logs
+- **Session Integrity** — Validation on load/save
+
+#### 🧪 Comprehensive Test Suite
+- **Security Tests** — Validation and sanitization coverage
+- **Unit Tests** — Store operations and session management
+- **Performance Tests** — Benchmarks for large session counts
+- **API Tests** — Public API contract testing
+- New commands: `npm run test:security|unit|performance|api`
+
+#### 📡 Programmatic API
+- Public API for integrations and CI/CD
+- Methods: `createSession`, `getSession`, `listSessions`, `exportSession`, `deleteSession`, `cloneSession`, `getStats`, `getConfig`
+- Import with: `import sparkit from 'sparkit/api'`
 
 ### Changed
-- 📋 `package.json` updated with test scripts and Jest config
-- 🏷️ Version bumped to 2.7.0
+- Version bump to 3.1.0
+- Improved persona list display (now shows 108 personas)
+- Enhanced session auto-save with more metadata
 
-### Test Coverage
-- HTML structure and SEO attributes
-- Persona definitions and consistency
-- API provider configuration
-- Input validation
-- Markdown export format
-- State management
-- Parallel execution
-- Error handling
-- Tamil phrase consistency
+### Technical
+- Added Ink (React for CLI) for TUI
+- Added Zustand for state management
+- New directory structure: `cli/tui/`, `cli/security/`, `cli/api/`
 
 ---
 
-## [2.6.0] - 2026-01-14
+## [3.0.0] - 2026-01-13
 
 ### Added
-- 🎯 **SPARKIT Protocol** — Documentation for the 7-step dialectic engine
-  - The tool name `spar-kit` now aligns with the `SPARKIT` backronym
-  - Protocol reference added to README
+- **Full SPAR Methodology Implementation**
+- **SPARKIT Protocol** — 7-step debate process
+- **SPARK Principles** — 5 foundational checks
+- **ASPIRES Framework** — 7 advanced patterns
+- **108 Personas** across 7 archetypes
+- **Local LLM Support** — Ollama integration
+- **Preset Packs** — news, startup, corporate, crisis, innovation, ethics
+- **Session Auto-Save** — All debates saved to `~/.spar/sessions/`
+- **Markdown Export** — Export debates to markdown files
 
-### Philosophy
-- **spar-kit** implements the **SPARKIT** protocol — *the tool embodies the method*
+### Changed
+- Renamed package from `spar-kit` to `sparkit`
+- Updated CLI to use `spar` and `sparkit` commands
+- Improved error handling and validation
 
 ---
 
-## [1.0.0] - 2026-01-13
+## [2.7.0] - 2026-01-10
 
 ### Added
-- 🥊 Initial release of SPAR Kit
-- 🧭 Four Directions compass UI (N-E-W-S personas)
-- 🔌 Multi-provider support (OpenAI, Anthropic, Gemini)
-- ⚡ Parallel API execution for all 4 personas
-- ⚔️ Two-round debate structure (positions + clash)
-- 📊 Auto-synthesis with AI moderator
-- 📄 Markdown export for sessions
-- 🌙 Dark mode design
-- 📱 Responsive layout
-- 🔒 Privacy-first (no backend, keys stay local)
-
-### CLI
-- 💻 Full command-line interface (`npx spar-kit` or `spar run`)
-- 🔧 Interactive setup wizard
-- 💾 Local credential storage (`~/.spar-kit.json`)
-- 📤 Markdown session export
-- 🏢 Enterprise-ready (no browser required)
-
-### Tamil Wisdom Anchor
-- நாலு பேரு நாலு விதமா பேசுவாங்க
-- நாலு பேரு, நாலு திசை, ஒரு முடிவு
+- Initial public release
+- Basic debate engine
+- OpenAI, Anthropic, Gemini support
+- Web playground
 
 ---
 
-## [Unreleased]
-
-### Planned
-- Light mode toggle
-- LocalStorage for saving sessions
-- Additional AI providers
-- PWA support for offline use
-- Keyboard shortcuts
+*🥊 Don't deliberate alone. SPAR.*

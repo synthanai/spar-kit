@@ -38,7 +38,10 @@ npm install -g sparkit
 ## Usage
 
 ```bash
-# Interactive mode
+# Launch interactive TUI (NEW in v3.1!)
+spar tui
+
+# Classic interactive mode
 spar
 
 # Direct debate
@@ -46,18 +49,47 @@ spar "Should we expand to Singapore?"
 
 # Full command
 spar debate start "Your decision here"
+
+# Use a template
+spar template use startup-pivot
 ```
 
 ---
 
 ## Commands
 
+### Core Commands
 | Command | Description |
 |---------|-------------|
 | `spar` | Start interactive debate |
+| `spar tui` | **NEW!** Launch Mission Control TUI |
+| `spar builder` | **NEW!** Launch SPAR Builder wizard |
 | `spar debate start [topic]` | Start debate session |
 | `spar debate history` | View past sessions |
-| `spar persona list` | Show all personas |
+
+### Template Commands (NEW!)
+| Command | Description |
+|---------|-------------|
+| `spar template list` | Show all templates |
+| `spar template show <id>` | View template details |
+| `spar template use <id>` | Use template to start debate |
+| `spar template create` | Create custom template |
+| `spar template delete <id>` | Delete a template |
+
+### Built-in Templates
+| Template | Preset | Use Case |
+|----------|--------|----------|
+| `startup-pivot` | 🚀 Startup | Evaluate major pivots |
+| `hiring-decision` | 💼 Corporate | Should you hire this person? |
+| `investment-eval` | 💼 Corporate | Evaluate investments |
+| `product-launch` | 🎨 Innovation | Launch readiness |
+| `crisis-response` | ⚠️ Crisis | Emergency decisions |
+| `ethics-dilemma` | ⚖️ Ethics | Navigate ethical situations |
+
+### Other Commands
+| Command | Description |
+|---------|-------------|
+| `spar persona list` | Show all 108 personas |
 | `spar persona create` | Create custom persona |
 | `spar config setup` | Configure provider & API key |
 | `spar config show` | View configuration |

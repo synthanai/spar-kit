@@ -249,6 +249,7 @@ function advanceToStep(targetStep) {
 function updateSummary() {
     const summaryDecision = document.getElementById('summary-decision');
     const summaryProvider = document.getElementById('summary-provider');
+    const summaryPersonas = document.getElementById('summary-personas');
 
     if (summaryDecision) {
         const decision = $('decisionInput')?.value.trim() || 'Not defined';
@@ -261,6 +262,22 @@ function updateSummary() {
         const providerSelect = $('provider');
         const providerName = providerSelect?.options[providerSelect.selectedIndex]?.text || 'Unknown';
         summaryProvider.textContent = providerName;
+    }
+
+    // Update personas summary with selected personas
+    if (summaryPersonas) {
+        const personaNames = [];
+        ['north', 'east', 'south', 'west'].forEach(dir => {
+            const dropdown = document.getElementById(`persona-${dir}`);
+            if (dropdown) {
+                // Get the text of the selected option (persona name)
+                const selectedText = dropdown.options[dropdown.selectedIndex]?.text || '';
+                // Extract just the name part (after the emoji)
+                const name = selectedText.split('—')[0].trim().replace(/^[^\s]+\s/, '');
+                personaNames.push(name || 'Default');
+            }
+        });
+        summaryPersonas.textContent = personaNames.join(', ') || 'Not selected';
     }
 }
 

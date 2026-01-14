@@ -81,10 +81,10 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 
 #### 4.1 Unit Tests (`__tests__/unit/`)
 - [x] **TASK-034**: Test session store operations ✅ [sessions.test.js]
-- [ ] **TASK-035**: Test config store operations
+- [x] **TASK-035**: Test config store operations ✅ [config.test.js]
 - [x] **TASK-036**: Test state machine transitions ✅ [sessions.test.js]
 - [x] **TASK-037**: Test session schema validation ✅ [sessions.test.js]
-- [ ] **TASK-038**: Test export functions (MD, JSON, TXT)
+- [x] **TASK-038**: Test export functions (MD, JSON, TXT) ✅ [export.test.js]
 - [ ] **TASK-039**: Test checkpoint serialization/deserialization
 
 #### 4.2 Component Tests (`__tests__/components/`)
@@ -94,11 +94,11 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [ ] **TASK-043**: Test `<LiveSession>` streaming updates
 
 #### 4.3 Integration Tests (`__tests__/integration/`)
-- [ ] **TASK-044**: Test full debate flow (start → complete)
-- [ ] **TASK-045**: Test pause/resume flow
-- [ ] **TASK-046**: Test clone & re-run flow
-- [ ] **TASK-047**: Test CLI command output format
-- [ ] **TASK-048**: Test session persistence across restarts
+- [x] **TASK-044**: Test full debate flow (start → complete) ✅ [debate-flow.test.js]
+- [x] **TASK-045**: Test pause/resume flow ✅ [debate-flow.test.js]
+- [x] **TASK-046**: Test clone & re-run flow ✅ [debate-flow.test.js]
+- [x] **TASK-047**: Test CLI command output format ✅ [debate-flow.test.js]
+- [x] **TASK-048**: Test session persistence across restarts ✅ [debate-flow.test.js]
 
 #### 4.4 End-to-End Tests (`__tests__/e2e/`)
 - [ ] **TASK-049**: E2E: New debate with Ollama
@@ -130,11 +130,11 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [ ] **TASK-065**: Prevent session ID enumeration
 
 #### 5.4 Security Tests (`__tests__/security/`)
-- [ ] **TASK-066**: Test XSS payload in decision text
-- [ ] **TASK-067**: Test path traversal in export path
-- [ ] **TASK-068**: Test malformed session JSON handling
-- [ ] **TASK-069**: Test API key masking in logs
-- [ ] **TASK-070**: Test SSRF prevention in base URLs
+- [x] **TASK-066**: Test XSS payload in decision text ✅ [validation.test.js]
+- [x] **TASK-067**: Test path traversal in export path ✅ [validation.test.js]
+- [x] **TASK-068**: Test malformed session JSON handling ✅ [validation.test.js]
+- [x] **TASK-069**: Test API key masking in logs ✅ [validation.test.js]
+- [x] **TASK-070**: Test SSRF prevention in base URLs ✅ [validation.test.js]
 
 ---
 

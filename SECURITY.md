@@ -13,7 +13,7 @@
 If you discover a security vulnerability in SPAR-Kit, please report it responsibly:
 
 1. **DO NOT** create a public GitHub issue
-2. Email: security@synthanai.com (or file a private security advisory)
+2. Email: synthai@synthai.biz
 3. Include:
    - Description of the vulnerability
    - Steps to reproduce

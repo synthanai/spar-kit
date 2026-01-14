@@ -1299,14 +1299,22 @@
         }
 
         .btn-secondary {
-            background: var(--nebula);
-            color: var(--cloud);
-            border: 1px solid var(--meteor);
+            background: var(--stardust);
+            color: var(--pure);
+            border: 1px solid var(--smoke);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--duration-fast);
         }
 
         .btn-secondary:hover {
-            background: var(--stardust);
-            border-color: var(--smoke);
+            background: var(--meteor);
+            border-color: var(--accent);
+            color: var(--pure);
+            transform: translateY(-1px);
         }
 
         /* ============================================
@@ -1802,6 +1810,11 @@
                                 <input type="checkbox" id="rememberKey">
                                 <label for="rememberKey">Remember API key (stored locally)</label>
                             </div>
+                            <div class="security-note">
+                                <span>🔒</span>
+                                <span>Your key never leaves your browser. All API calls go directly to your chosen
+                                    provider.</span>
+                            </div>
                             <div class="form-group" style="margin-top: var(--space-6);">
                                 <label for="decisionInput">Your Decision Question</label>
                                 <textarea id="decisionInput"
@@ -1985,117 +1998,6 @@ Describe the decision, the context, and what makes it difficult. The more detail
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Setup -->
-        <section class="setup-section" id="setup">
-            <div class="section-header">
-                <div class="section-icon">🔑</div>
-                <h2 class="section-title" data-i18n="setup-title">Setup</h2>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="provider" data-i18n="provider-label">AI Provider</label>
-                    <select id="provider">
-                        <option value="openai">OpenAI (GPT-4)</option>
-                        <option value="anthropic">Anthropic (Claude)</option>
-                        <option value="gemini">Google (Gemini)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="apiKey">API Key</label>
-                    <div class="api-row">
-                        <input type="password" id="apiKey" placeholder="Enter your API key...">
-                        <button class="btn-icon" id="toggleKeyBtn" onclick="toggleApiKey()"
-                            title="Toggle visibility">👁️</button>
-                    </div>
-                </div>
-            </div>
-            <div class="remember-row">
-                <input type="checkbox" id="rememberKey">
-                <label for="rememberKey">Remember API key (stored locally)</label>
-            </div>
-            <div class="security-note">
-                <span>🔒</span>
-                <span>Your key never leaves your browser. All API calls go directly to your chosen provider.</span>
-            </div>
-        </section>
-
-        <!-- Decision -->
-        <section class="decision-section" id="decision">
-            <div class="section-header">
-                <div class="section-icon">🎯</div>
-                <h2 class="section-title">Your Decision</h2>
-            </div>
-            <textarea id="decisionInput"
-                placeholder="I'm deciding whether to...
-
-Describe the decision, the context, and what makes it difficult. The more detail you provide, the more nuanced the debate will be."></textarea>
-
-            <div class="decision-examples">
-                <p class="examples-title">Quick Examples</p>
-                <div class="example-chips">
-                    <span class="example-chip" onclick="setExample('career')">Career change</span>
-                    <span class="example-chip" onclick="setExample('market')">Market expansion</span>
-                    <span class="example-chip" onclick="setExample('product')">Product launch</span>
-                    <span class="example-chip" onclick="setExample('hire')">Key hire</span>
-                    <span class="example-chip" onclick="setExample('investment')">Investment</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Compass -->
-        <section class="compass-section">
-            <div class="compass-wrapper">
-                <div class="compass">
-                    <div class="compass-direction north" id="north-indicator">
-                        <span class="direction-icon">🔵</span>
-                        <span class="direction-label" data-i18n="north-label">North</span>
-                        <span class="direction-name" data-i18n="north-name">The Visionary</span>
-                        <span class="direction-question" data-i18n="north-question">"Where are we going?"</span>
-                    </div>
-                    <div class="compass-direction west" id="west-indicator">
-                        <span class="direction-icon">🔴</span>
-                        <span class="direction-label" data-i18n="west-label">West</span>
-                        <span class="direction-name" data-i18n="west-name">The Sage</span>
-                        <span class="direction-question" data-i18n="west-question">"What's proven?"</span>
-                    </div>
-                    <div class="compass-center">
-                        <button class="btn-spar" id="sparBtn" onclick="runSpar()">
-                            <span class="btn-spar-icon">🥊</span>
-                            <span class="btn-spar-text" data-i18n="spar-btn">SPAR</span>
-                        </button>
-                    </div>
-                    <div class="compass-direction east" id="east-indicator">
-                        <span class="direction-icon">🟢</span>
-                        <span class="direction-label" data-i18n="east-label">East</span>
-                        <span class="direction-name" data-i18n="east-name">The Challenger</span>
-                        <span class="direction-question" data-i18n="east-question">"What's emerging?"</span>
-                    </div>
-                    <div class="compass-direction south" id="south-indicator">
-                        <span class="direction-icon">🟡</span>
-                        <span class="direction-label" data-i18n="south-label">South</span>
-                        <span class="direction-name" data-i18n="south-name">The Pragmatist</span>
-                        <span class="direction-question" data-i18n="south-question">"What's grounded?"</span>
-                    </div>
-                </div>
-
-                <div class="compass-tensions">
-                    <div class="tension">
-                        <span style="color: var(--north)">North</span>
-                        <span class="tension-arrow">↔</span>
-                        <span style="color: var(--south)">South</span>
-                        <span>Vision vs Reality</span>
-                    </div>
-                    <div class="tension">
-                        <span style="color: var(--east)">East</span>
-                        <span class="tension-arrow">↔</span>
-                        <span style="color: var(--west)">West</span>
-                        <span>Innovation vs Tradition</span>
-                    </div>
-                </div>
-                <p class="keyboard-hint"><kbd>⌘</kbd> + <kbd>Enter</kbd> to SPAR</p>
             </div>
         </section>
 

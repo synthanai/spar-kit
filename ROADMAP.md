@@ -28,7 +28,7 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [x] **TASK-005**: Create `<Dashboard>` main screen component ✅ [Dashboard.js]
 - [x] **TASK-006**: Create `<SessionList>` with keyboard navigation ✅ [SessionList.js]
 - [x] **TASK-007**: Create `<SessionDetail>` view component ✅ [SessionDetail.js]
-- [ ] **TASK-008**: Create `<PhaseView>` drill-down component
+- [x] **TASK-008**: Create `<PhaseView>` drill-down component ✅ [PhaseView.js]
 - [x] **TASK-009**: Create `<StatusBar>` footer component ✅ [StatusBar.js]
 - [x] **TASK-010**: Create `<Header>` banner component ✅ [Header.js]
 
@@ -44,20 +44,20 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 #### 2.1 Enhanced Session Schema
 - [x] **TASK-014**: Extend session JSON with checkpoint data ✅ [sessions store]
 - [x] **TASK-015**: Add session state machine (running/paused/completed/aborted) ✅
-- [ ] **TASK-016**: Add metrics tracking (tokens, duration, LLM calls)
+- [x] **TASK-016**: Add metrics tracking (tokens, duration, LLM calls) ✅ [sessions.js updateMetrics]
 
 #### 2.2 Session Operations
-- [ ] **TASK-017**: Implement pause/resume capability
-- [ ] **TASK-018**: Implement session cancellation with cleanup
-- [ ] **TASK-019**: Implement "Clone & Re-run" feature
+- [x] **TASK-017**: Implement pause/resume capability ✅ [sessions.js pauseSession/resumeSession]
+- [x] **TASK-018**: Implement session cancellation with cleanup ✅ [sessions.js cancelSession]
+- [x] **TASK-019**: Implement "Clone & Re-run" feature ✅ [sessions.js cloneSession]
 - [x] **TASK-020**: Implement session deletion with confirmation ✅ [sessions store]
 - [x] **TASK-021**: Implement session export (MD, JSON, TXT) ✅ [exportSessionMarkdown]
 
 #### 2.3 Non-Interactive CLI Commands
 - [x] **TASK-022**: Add `sparkit list --json` for scripting ✅
 - [x] **TASK-023**: Add `sparkit show <id>` session details ✅
-- [ ] **TASK-024**: Add `sparkit resume <id>` command
-- [ ] **TASK-025**: Add `sparkit cancel <id>` command
+- [x] **TASK-024**: Add `sparkit resume <id>` command ✅ [sessions.js resumeSession]
+- [x] **TASK-025**: Add `sparkit cancel <id>` command ✅ [sessions.js cancelSession]
 - [x] **TASK-026**: Add `sparkit export <id> --output=file` command ✅
 
 ---
@@ -65,15 +65,15 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 ### Phase 3: Live Monitoring (v3.3.0)
 
 #### 3.1 Real-Time Features
-- [ ] **TASK-027**: Create `<LiveSession>` streaming component
-- [ ] **TASK-028**: Implement progress bar for debate phases
-- [ ] **TASK-029**: Add "Skip to Synthesis" emergency action
-- [ ] **TASK-030**: Implement background mode with status polling
+- [x] **TASK-027**: Create `<LiveSession>` streaming component ✅ [LiveSession.js]
+- [x] **TASK-028**: Implement progress bar for debate phases ✅ [ProgressBar in LiveSession.js]
+- [x] **TASK-029**: Add "Skip to Synthesis" emergency action ✅ [LiveSession.js keyboard shortcut]
+- [x] **TASK-030**: Implement background mode with status polling ✅ [ESC to background]
 
 #### 3.2 Notifications
 - [ ] **TASK-031**: Add terminal bell notifications
 - [ ] **TASK-032**: Add desktop notifications (optional)
-- [ ] **TASK-033**: Create completion summary screen
+- [x] **TASK-033**: Create completion summary screen ✅ [CompletionSummary.js]
 
 ---
 

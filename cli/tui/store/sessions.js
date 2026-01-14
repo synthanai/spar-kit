@@ -287,6 +287,19 @@ export const useSessionStore = create((set, get) => ({
         });
     },
 
+    // Update session metrics (tokens, duration, LLM calls)
+    updateMetrics: (id, tokenCount, durationMs) => {
+        const session = get().getSession(id);
+        if (session) {
+            get().updateSession(id, {
+                'metrics.total_tokens': (session.metrics?.total_tokens || 0) + (tokenCount || 0),
+                'metrics.llm_calls': (session.metrics?.llm_calls || 0) + 1,
+                'metrics.duration_ms': (session.metrics?.duration_ms || 0) + (durationMs || 0),
+                'metrics.updated_at': new Date().toISOString()
+            });
+        }
+    },
+
     // Delete session
     deleteSession: (id) => {
         const session = get().getSession(id);

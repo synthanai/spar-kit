@@ -56,6 +56,7 @@ function PhaseRow({ name, label, phase, isSelected, onSelect }) {
 
     const status = phase?.status || 'pending';
     const description = phaseLabels[name] || '';
+    const hasThinking = phase?.hasThinking || phase?.thinking;
 
     return (
         <Box>
@@ -75,6 +76,11 @@ function PhaseRow({ name, label, phase, isSelected, onSelect }) {
             <Box>
                 <Text color="gray" dimColor>{description}</Text>
             </Box>
+            {hasThinking && (
+                <Box marginLeft={1}>
+                    <Text color="yellow">🧠</Text>
+                </Box>
+            )}
             {status === 'completed' && (
                 <Box marginLeft={2}>
                     <Text color="gray">[→]</Text>
@@ -83,6 +89,50 @@ function PhaseRow({ name, label, phase, isSelected, onSelect }) {
         </Box>
     );
 }
+
+/**
+ * Thinking Block Component - Displays AI reasoning chain
+ * Used to show transparency for ultrathink mode
+ */
+function ThinkingBlock({ thinking, isExpanded, onToggle }) {
+    if (!thinking) return null;
+
+    const maxPreviewLength = 200;
+    const preview = thinking.length > maxPreviewLength
+        ? thinking.substring(0, maxPreviewLength) + '...'
+        : thinking;
+
+    return (
+        <Box
+            flexDirection="column"
+            borderStyle="single"
+            borderColor="yellow"
+            paddingX={2}
+            paddingY={0}
+            marginY={1}
+        >
+            <Box>
+                <Text color="yellow" bold>🧠 AI Reasoning Chain</Text>
+                <Text color="gray"> (Chain-of-Thought)</Text>
+            </Box>
+            <Box marginTop={1}>
+                <Text color="gray" wrap="wrap">
+                    {isExpanded ? thinking : preview}
+                </Text>
+            </Box>
+            {thinking.length > maxPreviewLength && (
+                <Box marginTop={1}>
+                    <Text color="cyan" dimColor>
+                        Press [T] to {isExpanded ? 'collapse' : 'expand'} thinking
+                    </Text>
+                </Box>
+            )}
+        </Box>
+    );
+}
+
+// Export ThinkingBlock for use in phase detail views
+export { ThinkingBlock };
 
 /**
  * Session Metadata Component
@@ -95,6 +145,16 @@ function SessionMeta({ session }) {
         [SessionStatus.ABORTED]: 'red',
         [SessionStatus.FAILED]: 'red'
     };
+
+    const tierIcons = {
+        standard: '🟢',
+        ultrathink: '🟡',
+        maximum: '🔴'
+    };
+
+    const tier = session.config?.tier || 'standard';
+    const tierIcon = tierIcons[tier] || '🟢';
+    const hasThinking = session.hasThinking || tier === 'ultrathink' || tier === 'maximum';
 
     return (
         <Box
@@ -124,6 +184,13 @@ function SessionMeta({ session }) {
                 <Text color="cyan">{session.model}</Text>
                 <Text color="gray"> • Provider: </Text>
                 <Text color="cyan">{session.provider}</Text>
+            </Box>
+            <Box>
+                <Text color="gray">Reasoning: </Text>
+                <Text>{tierIcon} {tier.charAt(0).toUpperCase() + tier.slice(1)}</Text>
+                {hasThinking && (
+                    <Text color="yellow"> (Chain-of-Thought enabled)</Text>
+                )}
             </Box>
         </Box>
     );

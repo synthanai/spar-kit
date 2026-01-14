@@ -221,7 +221,7 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 
 #### 9.3 Human-AI Collaboration Design
 - [x] **TASK-116**: Design intuitive human-AI collaboration interfaces ✅ [cli/tui/components/SparBuilder.js]
-- [ ] **TASK-117**: Implement transparency indicators for AI-generated insights
+- [x] **TASK-117**: Implement transparency indicators for AI-generated insights ✅ [ThinkingBlock component]
 - [ ] **TASK-118**: Create "confidence level" displays for AI recommendations
 - [ ] **TASK-119**: Build override mechanisms for human decision-makers
 - [ ] **TASK-120**: Develop adaptive AI learning from human feedback loops

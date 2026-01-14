@@ -5,14 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.1] - 2026-01-14
+
+### Fixed
+
+- **Gemini API Model Deprecation** — `gemini-1.5-flash` was deprecated. Now uses dynamic model discovery to automatically fetch available models from the Gemini API and select the latest fast model (e.g., `gemini-2.0-flash`, `gemini-2.5-flash`). Falls back gracefully if the API call fails.
+- **Compass Idle State Visual** — Enhanced the N-E-W-S compass to look polished before SPAR initiation with:
+  - Added subtle breathing animation (`compassIdle`) with staggered delays per direction
+  - Enhanced glow effects with inner shadows for more depth
+  - Improved hover state that pauses the idle animation
+
+### Changed
+
+- Updated all Gemini model references from deprecated `gemini-1.5-*` to current `gemini-2.0-*` and `gemini-2.5-*` models
+- CLI providers now mark Gemini as supporting `dynamicModelDiscovery`
+
+---
+
 ## [3.1.0] - 2026-01-14
 
 ### Added
 
 #### 🖥️ Mission Control TUI
-- **Interactive Dashboard** — Browse sessions, view stats, manage debates
-- **SPAR Builder Wizard** — 5-step no-code debate creation
-- **Session Detail View** — Phase-by-phase debate inspection
 - **Live Session View** — Real-time debate monitoring (foundation)
 - **Settings Editor** — Interactive configuration management
 - Launch with `spar tui` or `spar builder`

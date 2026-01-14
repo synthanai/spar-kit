@@ -312,7 +312,6 @@ Based on enterprise AI decision-making standards:
 
 - [SPAR-Kit ROADMAP.md](./ROADMAP.md)
 - [SPAR Methodology SPARK Principles](https://github.com/synthanai/spar/docs/SPARK_PRINCIPLES.md)
-- [ARIVAR LLM Orchestration Standards](../../../.gemini/antigravity/knowledge/arivar_llm_orchestration)
 
 ---
 

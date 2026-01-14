@@ -559,6 +559,22 @@
             transition: all var(--duration-normal) var(--ease-out);
             position: relative;
             overflow: hidden;
+            /* Idle state breathing animation */
+            animation: compassIdle 3s ease-in-out infinite;
+        }
+
+        @keyframes compassIdle {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+                filter: brightness(1.1);
+            }
         }
 
         .compass-direction::before {
@@ -574,28 +590,38 @@
             opacity: 1;
         }
 
+        .compass-direction:hover {
+            transform: scale(1.05);
+            animation: none;
+            /* Stop idle animation on hover */
+        }
+
         .compass-direction.north {
             grid-area: north;
             border-color: var(--north);
-            box-shadow: 0 0 30px var(--north-glow);
+            box-shadow: 0 0 20px var(--north-glow), inset 0 0 20px var(--north-glow);
+            animation-delay: 0s;
         }
 
         .compass-direction.east {
             grid-area: east;
             border-color: var(--east);
-            box-shadow: 0 0 30px var(--east-glow);
+            box-shadow: 0 0 20px var(--east-glow), inset 0 0 20px var(--east-glow);
+            animation-delay: 0.5s;
         }
 
         .compass-direction.south {
             grid-area: south;
             border-color: var(--south);
-            box-shadow: 0 0 30px var(--south-glow);
+            box-shadow: 0 0 20px var(--south-glow), inset 0 0 20px var(--south-glow);
+            animation-delay: 1s;
         }
 
         .compass-direction.west {
             grid-area: west;
             border-color: var(--west);
-            box-shadow: 0 0 30px var(--west-glow);
+            box-shadow: 0 0 20px var(--west-glow), inset 0 0 20px var(--west-glow);
+            animation-delay: 1.5s;
         }
 
         .compass-direction.active {

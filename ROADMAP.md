@@ -71,8 +71,8 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [x] **TASK-030**: Implement background mode with status polling ✅ [ESC to background]
 
 #### 3.2 Notifications
-- [ ] **TASK-031**: Add terminal bell notifications
-- [ ] **TASK-032**: Add desktop notifications (optional)
+- [x] **TASK-031**: Add terminal bell notifications ✅ [cli/notifications.js]
+- [x] **TASK-032**: Add desktop notifications (optional) ✅ [cli/notifications.js - node-notifier]
 - [x] **TASK-033**: Create completion summary screen ✅ [CompletionSummary.js]
 
 ---
@@ -80,10 +80,10 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 ### Phase 4: Testing Suite
 
 #### 4.1 Unit Tests (`__tests__/unit/`)
-- [ ] **TASK-034**: Test session store operations
+- [x] **TASK-034**: Test session store operations ✅ [sessions.test.js]
 - [ ] **TASK-035**: Test config store operations
-- [ ] **TASK-036**: Test state machine transitions
-- [ ] **TASK-037**: Test session schema validation
+- [x] **TASK-036**: Test state machine transitions ✅ [sessions.test.js]
+- [x] **TASK-037**: Test session schema validation ✅ [sessions.test.js]
 - [ ] **TASK-038**: Test export functions (MD, JSON, TXT)
 - [ ] **TASK-039**: Test checkpoint serialization/deserialization
 

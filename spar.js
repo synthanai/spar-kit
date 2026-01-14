@@ -264,6 +264,29 @@ function updateSummary() {
     }
 }
 
+function updatePersonaPreview(direction) {
+    const dropdown = document.getElementById(`persona-${direction}`);
+    if (!dropdown) return;
+
+    const selectedValue = dropdown.value;
+    console.log(`${direction} persona changed to: ${selectedValue}`);
+
+    // Store the selected persona in state
+    if (!sparState.selectedPersonas) {
+        sparState.selectedPersonas = { north: 'north', east: 'east', south: 'south', west: 'west' };
+    }
+    sparState.selectedPersonas[direction] = selectedValue;
+}
+
+function getSelectedPersonas() {
+    return {
+        north: document.getElementById('persona-north')?.value || 'north',
+        east: document.getElementById('persona-east')?.value || 'east',
+        south: document.getElementById('persona-south')?.value || 'south',
+        west: document.getElementById('persona-west')?.value || 'west'
+    };
+}
+
 // ============================================
 // UTILITY FUNCTIONS
 // ============================================

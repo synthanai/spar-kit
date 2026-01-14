@@ -799,6 +799,87 @@
             height: 60px;
         }
 
+        /* Persona Selection Grid */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+
+        @media (max-width: 768px) {
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .persona-selector {
+            background: var(--nebula);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            border: 2px solid var(--meteor);
+            transition: all var(--duration-fast);
+        }
+
+        .persona-selector.north-selector {
+            border-color: var(--north);
+        }
+
+        .persona-selector.east-selector {
+            border-color: var(--east);
+        }
+
+        .persona-selector.south-selector {
+            border-color: var(--south);
+        }
+
+        .persona-selector.west-selector {
+            border-color: var(--west);
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-3);
+        }
+
+        .persona-header .direction-icon {
+            font-size: 1.5rem;
+        }
+
+        .persona-header .direction-label {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--pure);
+        }
+
+        .persona-dropdown {
+            width: 100%;
+            padding: var(--space-3);
+            background: var(--stardust);
+            border: 1px solid var(--smoke);
+            border-radius: var(--radius-md);
+            color: var(--pure);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .persona-dropdown:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .persona-dropdown optgroup {
+            font-weight: 600;
+            color: var(--mist);
+        }
+
+        .persona-dropdown option {
+            padding: var(--space-2);
+        }
+
         /* ============================================
            COMPASS SECTION
            ============================================ */
@@ -1846,39 +1927,127 @@ Describe the decision, the context, and what makes it difficult. The more detail
                         <div class="wizard-step-number">P</div>
                         <div class="wizard-step-info">
                             <div class="wizard-step-name">Populate</div>
-                            <div class="wizard-step-desc">Review the four clashing perspectives</div>
+                            <div class="wizard-step-desc">Choose your four clashing perspectives</div>
                         </div>
                         <div class="wizard-step-status">Locked</div>
                     </div>
                     <div class="wizard-step-content">
                         <div class="wizard-step-body">
-                            <p style="color: var(--mist); margin-bottom: var(--space-4);">These four personas will
-                                debate your decision from radically different worldviews:</p>
-                            <div class="compass mini-compass">
-                                <div class="compass-direction north">
-                                    <span class="direction-icon">🔵</span>
-                                    <span class="direction-name">The Visionary</span>
-                                    <span class="direction-question">"Where are we going?"</span>
+                            <p style="color: var(--mist); margin-bottom: var(--space-4);">Select a persona for each
+                                direction. Choose perspectives that will genuinely clash:</p>
+
+                            <div class="persona-grid">
+                                <!-- North -->
+                                <div class="persona-selector north-selector">
+                                    <div class="persona-header">
+                                        <span class="direction-icon">🔵</span>
+                                        <span class="direction-label">North</span>
+                                    </div>
+                                    <select id="persona-north" class="persona-dropdown"
+                                        onchange="updatePersonaPreview('north')">
+                                        <optgroup label="Default">
+                                            <option value="north" selected>🔵 The Visionary — "Where are we going?"
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="📊 Strategist">
+                                            <option value="s1_systems_thinker">🕸️ The Systems Thinker</option>
+                                            <option value="s2_game_theorist">🎯 The Game Theorist</option>
+                                            <option value="s3_scenario_planner">🗺️ The Scenario Planner</option>
+                                        </optgroup>
+                                        <optgroup label="🚀 Explorer">
+                                            <option value="e1_opportunity_seeker">🚀 The Opportunity Seeker</option>
+                                            <option value="e2_innovation_hunter">💡 The Innovation Hunter</option>
+                                            <option value="e3_moonshot">🌙 The Moonshot Thinker</option>
+                                        </optgroup>
+                                        <optgroup label="🛡 Protector">
+                                            <option value="p1_risk_watcher">🔍 The Risk Watcher</option>
+                                            <option value="p5_black_swan">🦢 The Black Swan Hunter</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
-                                <div class="compass-direction west">
-                                    <span class="direction-icon">🔴</span>
-                                    <span class="direction-name">The Sage</span>
-                                    <span class="direction-question">"What's proven?"</span>
+
+                                <!-- East -->
+                                <div class="persona-selector east-selector">
+                                    <div class="persona-header">
+                                        <span class="direction-icon">�</span>
+                                        <span class="direction-label">East</span>
+                                    </div>
+                                    <select id="persona-east" class="persona-dropdown"
+                                        onchange="updatePersonaPreview('east')">
+                                        <optgroup label="Default">
+                                            <option value="east" selected>🟢 The Challenger — "What's emerging?"
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="🚀 Explorer">
+                                            <option value="e4_beginners_mind">🌱 The Beginner's Mind</option>
+                                            <option value="e2_innovation_hunter">💡 The Innovation Hunter</option>
+                                            <option value="e3_moonshot">🌙 The Moonshot Thinker</option>
+                                        </optgroup>
+                                        <optgroup label="👥 Negotiator">
+                                            <option value="n1_devils_advocate">😈 The Devil's Advocate</option>
+                                            <option value="n2_customer_voice">👤 The Customer Voice</option>
+                                        </optgroup>
+                                        <optgroup label="⚙️ Operator">
+                                            <option value="o1_execution_realist">⚙️ The Execution Realist</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
-                                <div class="compass-center mini-center">
-                                    <span style="font-size: 2rem;">⚔️</span>
+
+                                <!-- South -->
+                                <div class="persona-selector south-selector">
+                                    <div class="persona-header">
+                                        <span class="direction-icon">�</span>
+                                        <span class="direction-label">South</span>
+                                    </div>
+                                    <select id="persona-south" class="persona-dropdown"
+                                        onchange="updatePersonaPreview('south')">
+                                        <optgroup label="Default">
+                                            <option value="south" selected>🟡 The Pragmatist — "What's grounded?"
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="⚙️ Operator">
+                                            <option value="o1_execution_realist">⚙️ The Execution Realist</option>
+                                            <option value="o2_resource_allocator">💰 The Resource Allocator</option>
+                                            <option value="o3_bottleneck_finder">🔧 The Bottleneck Finder</option>
+                                        </optgroup>
+                                        <optgroup label="🛡 Protector">
+                                            <option value="p2_contrarian_accountant">📊 The Contrarian Accountant
+                                            </option>
+                                            <option value="p3_ethics_guardian">👁 The Ethics Guardian</option>
+                                        </optgroup>
+                                        <optgroup label="📊 Strategist">
+                                            <option value="s1_systems_thinker">🕸️ The Systems Thinker</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
-                                <div class="compass-direction east">
-                                    <span class="direction-icon">🟢</span>
-                                    <span class="direction-name">The Challenger</span>
-                                    <span class="direction-question">"What's emerging?"</span>
-                                </div>
-                                <div class="compass-direction south">
-                                    <span class="direction-icon">🟡</span>
-                                    <span class="direction-name">The Pragmatist</span>
-                                    <span class="direction-question">"What's grounded?"</span>
+
+                                <!-- West -->
+                                <div class="persona-selector west-selector">
+                                    <div class="persona-header">
+                                        <span class="direction-icon">�</span>
+                                        <span class="direction-label">West</span>
+                                    </div>
+                                    <select id="persona-west" class="persona-dropdown"
+                                        onchange="updatePersonaPreview('west')">
+                                        <optgroup label="Default">
+                                            <option value="west" selected>🔴 The Sage — "What's proven?"</option>
+                                        </optgroup>
+                                        <optgroup label="🔬 Analyst">
+                                            <option value="a1_pattern_matcher">📈 The Pattern Matcher</option>
+                                            <option value="a2_contrarian_evidence">📉 The Contrarian Evidence</option>
+                                            <option value="a3_historian">📚 The Historian</option>
+                                        </optgroup>
+                                        <optgroup label="🛡 Protector">
+                                            <option value="p4_regulatory_sentinel">⚖️ The Regulatory Sentinel</option>
+                                            <option value="p1_risk_watcher">🔍 The Risk Watcher</option>
+                                        </optgroup>
+                                        <optgroup label="📊 Strategist">
+                                            <option value="s4_long_term">⏳ The Long-Term Advocate</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
                             </div>
+
                             <div class="wizard-step-actions">
                                 <button class="btn-secondary" onclick="advanceToStep('A')">Continue to Announce
                                     →</button>

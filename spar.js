@@ -116,8 +116,51 @@ let sparState = {
     },
     synthesis: '',
     errors: {},
-    isRunning: false
+    isRunning: false,
+    currentStep: 'S' // Track which SPARKIT step we're on
 };
+
+// ============================================
+// SPARKIT PROTOCOL STEP TRACKING
+// ============================================
+
+const SPARKIT_STEPS = ['S', 'P', 'A', 'R', 'K', 'I', 'T'];
+
+function updateProtocolStep(stepLetter, status = 'active') {
+    // status: 'active', 'completed', 'pending'
+    const stepEl = document.querySelector(`.protocol-step[data-step="${stepLetter}"]`);
+    if (!stepEl) return;
+
+    // Remove all status classes
+    stepEl.classList.remove('active', 'completed');
+
+    if (status === 'active') {
+        stepEl.classList.add('active');
+        sparState.currentStep = stepLetter;
+    } else if (status === 'completed') {
+        stepEl.classList.add('completed');
+    }
+}
+
+function setProtocolProgress(currentStep) {
+    // Mark all steps before current as completed, current as active
+    const currentIndex = SPARKIT_STEPS.indexOf(currentStep);
+
+    SPARKIT_STEPS.forEach((step, index) => {
+        if (index < currentIndex) {
+            updateProtocolStep(step, 'completed');
+        } else if (index === currentIndex) {
+            updateProtocolStep(step, 'active');
+        } else {
+            updateProtocolStep(step, 'pending');
+        }
+    });
+}
+
+function resetProtocolSteps() {
+    SPARKIT_STEPS.forEach(step => updateProtocolStep(step, 'pending'));
+    updateProtocolStep('S', 'active'); // Start at Scope
+}
 
 // ============================================
 // UTILITY FUNCTIONS
@@ -456,8 +499,14 @@ async function runSpar() {
     sparState.isRunning = true;
     sparState.errors = {};
 
+    // SPARKIT Step S→P: Scope defined, now Populating personas
+    setProtocolProgress('P');
+
     // Play start sound
     playSound('start');
+
+    // SPARKIT Step P→A: Announcing challenge to personas
+    setTimeout(() => setProtocolProgress('A'), 500);
 
     // Show debate section
     $('debate').classList.add('active');
@@ -470,6 +519,9 @@ async function runSpar() {
 
     // Update favicon to show progress
     updateFavicon('running');
+
+    // SPARKIT Step A→R: Running the Rumble (dialectic)
+    setTimeout(() => setProtocolProgress('R'), 1000);
 
     const userMessage = `THE DECISION: ${decision}
 
@@ -497,7 +549,8 @@ Analyze this decision from your perspective:
     sparState.isRunning = false;
     updateFavicon('done');
 
-    showToast('Round 1 complete! 🥊', 'success');
+    // SPARKIT: Rumble complete - ready for Knit (Round 2)
+    showToast('Round 1 complete! Click "The Clash" to continue 🥊', 'success');
 }
 
 async function runSinglePersona(dir, config = null, userMessage = null) {
@@ -597,6 +650,9 @@ async function runRound2() {
     const config = getApiConfig();
     if (!config) return;
 
+    // SPARKIT Step R→K: Moving to Knit (synthesis phase)
+    setProtocolProgress('K');
+
     $('round2').style.display = 'block';
     $('round2').scrollIntoView({ behavior: 'smooth' });
 
@@ -653,6 +709,9 @@ Where do you DISAGREE with them? What are they missing? Be specific, direct, and
 // ============================================
 
 async function generateSynthesis(config) {
+    // SPARKIT Step K→I: Synthesis ready for Interrogation
+    setTimeout(() => setProtocolProgress('I'), 500);
+
     $('synthesis').style.display = 'block';
     $('synthesis').scrollIntoView({ behavior: 'smooth' });
 

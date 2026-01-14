@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/synthanai/spar/main/images/spar_logo.png" alt="SPAR Kit" width="150">
+  <span style="font-size: 100px;">🥊</span>
 </p>
 
 <h1 align="center">🥊 sparkit</h1>
 
 <p align="center">
   <strong>Run AI persona debates from your terminal or browser</strong><br>
-  <em>The official tool for <a href="https://github.com/synthanai/spar">SPAR</a> AI-Persona Mode (🤖 A in STASH)</em>
+  <em>The official implementation of the SPAR methodology for AI-Persona Mode</em>
 </p>
 
 <p align="center">
@@ -202,17 +202,16 @@ npm run test:coverage
 
 ## SPAR Methodology
 
-This toolkit implements the **[SPAR](https://github.com/synthanai/spar)** methodology. For full documentation:
+This toolkit implements the **SPAR** methodology — Structured Persona-Argumentation for Reasoning. Documentation:
 
 | Resource | Description |
 |----------|-------------|
-| **[SPAR in 5 Minutes](https://github.com/synthanai/spar/blob/main/quick-start/SPAR_IN_5_MINUTES.md)** | Get started immediately |
-| **[STASH Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)** | 5 modes: Solo Human, Team Human, AI-Persona, Solo AI, Hybrid |
-| **[The Four Directions](https://github.com/synthanai/spar/blob/main/docs/FOUR_DIRECTIONS.md)** | Canonical N-E-W-S compass reference |
-| **[The Five Principles](https://github.com/synthanai/spar/blob/main/docs/FIVE_PRINCIPLES.md)** | Non-negotiable foundations |
-| **[SPAR Manifesto](https://github.com/synthanai/spar/blob/main/docs/MANIFESTO.md)** | Core philosophy & methodology |
-| **[Persona Library](https://github.com/synthanai/spar/blob/main/templates/PERSONA_LIBRARY.md)** | 20+ ready-to-use personas |
-| **[Example Session](https://github.com/synthanai/spar/blob/main/examples/strategic_expansion.md)** | Full SPAR walkthrough |
+| **[SPARKIT Protocol](docs/gpts/knowledge/SPARKIT_PROTOCOL.md)** | The 7-step methodology |
+| **[Four Directions](docs/gpts/knowledge/FOUR_DIRECTIONS.md)** | N-E-W-S compass model |
+| **[ASPIRES Framework](docs/gpts/knowledge/ASPIRES_FRAMEWORK.md)** | 7 advanced patterns |
+| **[Persona Library](docs/gpts/knowledge/PERSONA_LIBRARY.md)** | 108 ready-to-use personas |
+| **[Arena Templates](docs/gpts/knowledge/ARENA_TEMPLATES.md)** | Pre-configured debate formations |
+| **[ChatGPT GPT](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)** | Try SPAR in ChatGPT |
 
 ---
 
@@ -257,11 +256,11 @@ node cli/index.js
 
 ## Links
 
-- **[SPAR Methodology](https://github.com/synthanai/spar)** — The framework
 - **[ChatGPT GPT](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)** — Use SPAR in ChatGPT
-- **[STASH Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)** — 5 modes for running SPAR
 - **[Web Playground](https://synthanai.github.io/spar-kit)** — Try in browser
-- **[ASPIRES Framework](https://github.com/synthanai/spar/blob/main/docs/ADVANCED_PATTERNS.md)** — Advanced patterns
+- **[npm Package](https://www.npmjs.com/package/sparkit)** — Install via npm
+- **[SPARKIT Protocol](docs/gpts/knowledge/SPARKIT_PROTOCOL.md)** — 7-step methodology
+- **[ASPIRES Framework](docs/gpts/knowledge/ASPIRES_FRAMEWORK.md)** — Advanced patterns
 
 ---
 

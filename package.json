@@ -50,11 +50,18 @@
     "engines": {
         "node": ">=18.0.0"
     },
+    "exports": {
+        ".": "./cli/index.js",
+        "./api": "./cli/api/index.js",
+        "./security": "./cli/security/index.js"
+    },
     "files": [
         "cli/",
+        "docs/",
         "README.md",
         "LICENSE",
-        "CHANGELOG.md"
+        "CHANGELOG.md",
+        "SECURITY.md"
     ],
     "dependencies": {
         "chalk": "^5.3.0",

@@ -7,14 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [3.4.0] - 2026-01-14
+## [4.0.0] - 2026-01-14
 
 ### 🚀 Highlights
 
+- **Ultrathink Enhancement**: Model-agnostic reasoning modes (Standard, Ultrathink, Maximum)
 - **Complete Testing Suite**: 140+ tests across unit, component, integration, E2E, security, and performance
 - **Security Hardening**: Full input validation, session integrity, and sanitization
 - **Programmatic API**: Full-featured API with JSDoc documentation
-- **Ultrathink Enhancement**: Model-agnostic reasoning modes
 
 ### Added
 

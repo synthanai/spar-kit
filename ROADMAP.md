@@ -194,8 +194,8 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 
 #### 8.2 Release Preparation
 - [ ] **TASK-101**: Final test pass on all platforms (macOS, Linux, Windows)
-- [ ] **TASK-102**: Update version to 3.4.0
-- [ ] **TASK-103**: Create Git tag v3.4.0
+- [x] **TASK-102**: Update version to 3.4.0 ✅ [package.json]
+- [x] **TASK-103**: Create Git tag v3.4.0 ✅
 - [ ] **TASK-104**: Publish to npm registry
 - [ ] **TASK-105**: Announce release
 

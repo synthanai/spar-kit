@@ -19,11 +19,38 @@ This document contains everything needed to create the official SPAR GPT in the 
 
 ### Conversation Starters
 
+**1. Career/Life Decision**
 ```
-1. "I need to decide whether to accept a job offer"
-2. "ARENA: Feature Validation — Should we add dark mode?"
-3. "Help me think through a difficult career decision"
-4. "Deep SPAR: Should we pivot our business model?"
+🎯 DECISION: [e.g., "Take job offer?"]
+📍 CONTEXT: [Role, salary, situation]
+🔀 OPTIONS: A) [X] B) [Y] C) [Stay]
+😵 WHY HARD: [The tension]
+⏰ DEADLINE: [When decide by]
+```
+
+**2. Product/Tech Decision**
+```
+🎯 DECISION: [e.g., "Build vs buy auth?"]
+📍 CONTEXT: [Team size, stage, stack]
+🔀 OPTIONS: A) [X] B) [Y] C) [Wait]
+😵 WHY HARD: [Competing priorities]
+👥 STAKEHOLDERS: [Who cares]
+```
+
+**3. Strategic Pivot**
+```
+🎯 DECISION: [e.g., "Pivot to AI-first?"]
+📍 CONTEXT: [ARR, runway, growth]
+🔀 OPTIONS: A) Stay B) Evolve C) Pivot
+💰 STAKES: [Win/lose scenarios]
+```
+
+**4. Pre-Mortem**
+```
+🚨 LAUNCHING: [What]
+📅 WHEN: [Date]
+😰 WORRIED ABOUT: [Risks]
+❓ "Pre-mortem: assume it failed. Why?"
 ```
 
 ### Capabilities

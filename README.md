@@ -28,6 +28,9 @@
 ### Web (No Install)
 **[▶️ synthanai.github.io/spar-kit](https://synthanai.github.io/spar-kit)**
 
+### ChatGPT GPT (No Install)
+**[🤖 SPAR Decision Partner](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)** — Use SPAR directly in ChatGPT
+
 ### CLI
 ```bash
 npm install -g sparkit
@@ -255,6 +258,7 @@ node cli/index.js
 ## Links
 
 - **[SPAR Methodology](https://github.com/synthanai/spar)** — The framework
+- **[ChatGPT GPT](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)** — Use SPAR in ChatGPT
 - **[STASH Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)** — 5 modes for running SPAR
 - **[Web Playground](https://synthanai.github.io/spar-kit)** — Try in browser
 - **[ASPIRES Framework](https://github.com/synthanai/spar/blob/main/docs/ADVANCED_PATTERNS.md)** — Advanced patterns

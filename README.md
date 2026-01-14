@@ -13,7 +13,7 @@
   <a href="https://www.npmjs.com/package/sparkit"><img src="https://img.shields.io/npm/v/sparkit.svg" alt="npm"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"></a>
   <a href="https://synthanai.github.io/spar-kit"><img src="https://img.shields.io/badge/playground-live-orange.svg" alt="Try Now"></a>
-  <img src="https://img.shields.io/badge/tests-102%20passing-brightgreen.svg" alt="Tests">
+  <img src="https://img.shields.io/badge/tests-140%2B%20passing-brightgreen.svg" alt="Tests">
 </p>
 
 <p align="center">
@@ -38,21 +38,29 @@ npm install -g sparkit
 ## Usage
 
 ```bash
-# Launch interactive TUI (NEW in v3.1!)
-spar tui
+# 🎯 Launch TUI Mission Control (recommended)
+sparkit tui
 
-# Classic interactive mode
-spar
+# 🧙 Launch SPAR Builder wizard
+sparkit builder
 
-# Direct debate
-spar "Should we expand to Singapore?"
+# ⚡ Quick debate
+sparkit "Should we expand to Singapore?"
 
-# Full command
-spar debate start "Your decision here"
+# 📝 Full command
+sparkit debate start "Your decision here"
 
-# Use a template
-spar template use startup-pivot
+# 📦 Use a template
+sparkit template use startup-pivot
 ```
+
+### TUI Features (v3.4.0)
+
+- **Dashboard**: View all sessions with status indicators
+- **Session Management**: Pause, resume, cancel, clone debates
+- **Live Monitoring**: Watch debates unfold in real-time
+- **Persona Browser**: Browse 109 personas across 7 archetypes
+- **Keyboard Navigation**: Full keyboard control (see `docs/KEYBOARD_SHORTCUTS.md`)
 
 ---
 

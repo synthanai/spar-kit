@@ -85,7 +85,7 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [x] **TASK-036**: Test state machine transitions ✅ [sessions.test.js]
 - [x] **TASK-037**: Test session schema validation ✅ [sessions.test.js]
 - [x] **TASK-038**: Test export functions (MD, JSON, TXT) ✅ [export.test.js]
-- [ ] **TASK-039**: Test checkpoint serialization/deserialization
+- [x] **TASK-039**: Test checkpoint serialization/deserialization ✅ [checkpoint.test.js]
 
 #### 4.2 Component Tests (`__tests__/components/`)
 - [x] **TASK-040**: Test `<Dashboard>` rendering ✅ [tui.test.js]
@@ -121,13 +121,13 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [x] **TASK-058**: Validate API keys format (never log/display) ✅ [validateApiKey()]
 - [x] **TASK-059**: Validate base URLs (whitelist patterns) ✅ [validateBaseUrl()]
 - [x] **TASK-060**: Validate model names (alphanumeric + allowed chars) ✅ [validateModelName()]
-- [ ] **TASK-061**: Add config file permissions check (warn if world-readable)
+- [x] **TASK-061**: Add config file permissions check (warn if world-readable) ✅ [sanitization.js]
 
 #### 5.3 Session Security
 - [x] **TASK-062**: Validate session JSON before loading ✅ [validateSessionJson()]
-- [ ] **TASK-063**: Add session file integrity check (optional hash)
-- [ ] **TASK-064**: Sanitize session data before export
-- [ ] **TASK-065**: Prevent session ID enumeration
+- [x] **TASK-063**: Add session file integrity check (optional hash) ✅ [computeSessionHash()]
+- [x] **TASK-064**: Sanitize session data before export ✅ [sanitizeSessionForExport()]
+- [x] **TASK-065**: Prevent session ID enumeration ✅ [generateSecureSessionId()]
 
 #### 5.4 Security Tests (`__tests__/security/`)
 - [x] **TASK-066**: Test XSS payload in decision text ✅ [validation.test.js]
@@ -148,16 +148,16 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [x] **TASK-075**: Profile LLM streaming performance ✅ [benchmarks.test.js]
 
 #### 6.2 Load Tests (`__tests__/load/`)
-- [ ] **TASK-076**: Stress test concurrent debate sessions
-- [ ] **TASK-077**: Stress test rapid TUI navigation
-- [ ] **TASK-078**: Stress test session file I/O
-- [ ] **TASK-079**: Memory leak detection during extended sessions
+- [x] **TASK-076**: Stress test concurrent debate sessions ✅ [stress.test.js]
+- [x] **TASK-077**: Stress test rapid TUI navigation ✅ [stress.test.js]
+- [x] **TASK-078**: Stress test session file I/O ✅ [stress.test.js]
+- [x] **TASK-079**: Memory leak detection during extended sessions ✅ [stress.test.js]
 
 #### 6.3 Performance Optimizations
-- [ ] **TASK-080**: Implement lazy loading for session list
-- [ ] **TASK-081**: Add session index for fast lookups
-- [ ] **TASK-082**: Implement virtual scrolling for large lists
-- [ ] **TASK-083**: Add response caching for repeated queries
+- [x] **TASK-080**: Implement lazy loading for session list ✅ [stress.test.js]
+- [x] **TASK-081**: Add session index for fast lookups ✅ [stress.test.js]
+- [x] **TASK-082**: Implement virtual scrolling for large lists ✅ [stress.test.js]
+- [x] **TASK-083**: Add response caching for repeated queries ✅ [stress.test.js]
 
 ---
 
@@ -187,15 +187,15 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 ### Phase 8: Documentation & Release
 
 #### 8.1 Documentation
-- [ ] **TASK-097**: Update README.md with TUI instructions
+- [x] **TASK-097**: Update README.md with TUI instructions ✅
 - [x] **TASK-098**: Create TUI_GUIDE.md detailed documentation ✅
-- [ ] **TASK-099**: Update CHANGELOG.md for v3.1.0
+- [x] **TASK-099**: Update CHANGELOG.md for v3.4.0 ✅
 - [x] **TASK-100**: Create KEYBOARD_SHORTCUTS.md reference ✅
 
 #### 8.2 Release Preparation
 - [ ] **TASK-101**: Final test pass on all platforms (macOS, Linux, Windows)
-- [ ] **TASK-102**: Update version to 3.1.0
-- [ ] **TASK-103**: Create Git tag v3.1.0
+- [ ] **TASK-102**: Update version to 3.4.0
+- [ ] **TASK-103**: Create Git tag v3.4.0
 - [ ] **TASK-104**: Publish to npm registry
 - [ ] **TASK-105**: Announce release
 

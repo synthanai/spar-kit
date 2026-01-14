@@ -174,6 +174,89 @@ export function truncateSafely(str, maxLength, suffix = '...') {
     return chars.slice(0, maxLength - suffix.length).join('') + suffix;
 }
 
+// ============================================
+// CONFIG FILE PERMISSIONS (TASK-061)
+// ============================================
+
+/**
+ * Check if config file has safe permissions
+ */
+export function checkConfigPermissions(filePath) {
+    try {
+        const { statSync } = require('fs');
+        const stats = statSync(filePath);
+        const mode = stats.mode & 0o777;
+        const modeString = mode.toString(8).padStart(3, '0');
+
+        if ((mode & 0o004) !== 0) {
+            return {
+                safe: false,
+                mode: modeString,
+                warning: `Config file is world-readable. Run: chmod 600 ${filePath}`
+            };
+        }
+        return { safe: true, mode: modeString, warning: null };
+    } catch (error) {
+        return { safe: true, mode: null, warning: error.code === 'ENOENT' ? null : error.message };
+    }
+}
+
+// ============================================
+// SESSION INTEGRITY (TASK-063)
+// ============================================
+
+/**
+ * Compute SHA-256 hash for session integrity
+ */
+export function computeSessionHash(session) {
+    const { createHash } = require('crypto');
+    const content = JSON.stringify({
+        id: session.id,
+        decision: session.decision,
+        phases: session.phases,
+        status: session.status
+    });
+    return createHash('sha256').update(content).digest('hex');
+}
+
+/**
+ * Verify session integrity
+ */
+export function verifySessionIntegrity(session) {
+    if (!session._integrity) return { valid: true, error: null };
+
+    const sessionCopy = { ...session };
+    delete sessionCopy._integrity;
+    const computed = computeSessionHash(sessionCopy);
+
+    return computed === session._integrity.hash
+        ? { valid: true, error: null }
+        : { valid: false, error: 'Integrity check failed' };
+}
+
+// ============================================
+// SECURE SESSION ID (TASK-065)
+// ============================================
+
+/**
+ * Generate cryptographically secure session ID
+ */
+export function generateSecureSessionId() {
+    const { randomBytes } = require('crypto');
+    const bytes = randomBytes(16);
+    bytes[6] = (bytes[6] & 0x0f) | 0x40;
+    bytes[8] = (bytes[8] & 0x3f) | 0x80;
+
+    const hex = bytes.toString('hex');
+    return [
+        hex.slice(0, 8),
+        hex.slice(8, 12),
+        hex.slice(12, 16),
+        hex.slice(16, 20),
+        hex.slice(20)
+    ].join('-');
+}
+
 export default {
     escapeHtml,
     sanitizeForTerminal,
@@ -183,5 +266,9 @@ export default {
     maskSensitiveData,
     sanitizeSessionForExport,
     createSafeFilename,
-    truncateSafely
+    truncateSafely,
+    checkConfigPermissions,
+    computeSessionHash,
+    verifySessionIntegrity,
+    generateSecureSessionId
 };

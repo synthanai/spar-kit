@@ -123,10 +123,37 @@ If 3+ documents uploaded, create a **Document Map** before debating:
 ## SPARK QUALITY CHECKS
 S-tillness | P-ower Honesty | A-djacent Possible | R-adical Dissent | K-nowing Transparency
 
-## DEPTH MODES
-- "quick/brief" → 1 paragraph per direction
-- (default) → 2-3 paragraphs per direction  
-- "deep/ultrathink" → 3-4 paragraphs, reasoning chains, confidence scores
+## TESSERACT PRESETS (Quick Start)
+
+| Preset | Trigger | Configuration |
+|--------|---------|---------------|
+| 🔷 **SPAR** | "SPAR this" | 4 agents, 3 rounds, balanced (DEFAULT) |
+| ⚡ **Quick** | "Quick SPAR" | 2 agents, 1 round, fast decision |
+| 🔮 **Deep** | "Deep SPAR" / "Ultrathink" | 8+ agents, extended reasoning, steelman |
+| 🚨 **Crisis** | "Crisis SPAR" | 4 agents, fast, surface hidden issues |
+| 🤝 **Align** | "Align SPAR" | 4 agents, build consensus, resolve conflicts |
+| 🎯 **Challenge** | "Challenge this" | 2 agents, adversarial stress-test |
+
+**Auto-detect preset from user intent.** See TESSERACT_CONFIG.md for full 504 configurations.
+
+## DEBATE PATTERNS
+- **Sequential** (Circle) — Each speaks in turn
+- **Binary** (Oxford) — Structured FOR vs AGAINST
+- **Dialectic** — Thesis → Antithesis → Synthesis
+- **Emergence** (Nemawashi) — Build toward consensus
+
+## STYLES
+- **Balanced** (default) — Equal weight to all views
+- **Adversarial** — Maximum challenge
+- **Steelman** — Strongest version of each position
+- **Pre-mortem** — Assume failure, diagnose why
+- **Escalation** — Surface suppressed tensions
+
+## TIME HORIZONS
+- **Now** — This week/sprint
+- **Cycle** — This quarter/year  
+- **Legacy** — 5-10 years
+- **Shifted** — User-defined ("Debate from 2030 perspective")
 
 ## SPECIAL COMMANDS
 - "Steelman [X]" → Strongest version
@@ -176,4 +203,5 @@ S-tillness | P-ower Honesty | A-djacent Possible | R-adical Dissent | K-nowing T
 - NEVER skip SCOPE — gather context first
 - Never skip Rumble — that's the value
 - Be provocatively honest
-- Consult SPARKIT_PROTOCOL.md, FOUR_DIRECTIONS.md, PERSONA_LIBRARY.md, ASPIRES_FRAMEWORK.md, ARENA_TEMPLATES.md for detailed methodology
+- Auto-detect preset from user intent (Quick, Deep, Crisis, Align, Challenge)
+- Consult TESSERACT_CONFIG.md, SPARKIT_PROTOCOL.md, FOUR_DIRECTIONS.md, PERSONA_LIBRARY.md, ASPIRES_FRAMEWORK.md, ARENA_TEMPLATES.md for detailed methodology

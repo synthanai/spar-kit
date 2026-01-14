@@ -62,11 +62,12 @@ export const PROVIDERS = {
     },
     gemini: {
         name: 'Google Gemini',
-        models: ['gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-2.0-flash-exp', 'gemini-2.0-flash-thinking-exp'],
-        defaultModel: 'gemini-1.5-flash',
+        models: ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.5-pro', 'gemini-2.0-flash-thinking-exp'],
+        defaultModel: 'gemini-2.0-flash',
         requiresKey: true,
         endpoint: 'https://generativelanguage.googleapis.com/v1beta/models',
-        tier: 'standard'
+        tier: 'standard',
+        dynamicModelDiscovery: true  // CLI can fetch available models at runtime
     },
     ollama: {
         name: 'Ollama (Local)',
@@ -80,7 +81,7 @@ export const PROVIDERS = {
         name: 'Ollama Ultrathink (DeepSeek-R1)',
         models: [
             'deepseek-r1:1.5b',
-            'deepseek-r1:7b', 
+            'deepseek-r1:7b',
             'deepseek-r1:8b',
             'deepseek-r1:14b',
             'deepseek-r1:32b',
@@ -134,14 +135,14 @@ export function extractThinkingBlocks(content) {
     // DeepSeek-R1 uses <think>...</think> blocks
     const thinkPattern = /<think>([\s\S]*?)<\/think>/gi;
     const matches = [...content.matchAll(thinkPattern)];
-    
+
     if (matches.length === 0) {
         return { thinking: null, response: content };
     }
-    
+
     const thinking = matches.map(m => m[1].trim()).join('\n\n');
     const response = content.replace(thinkPattern, '').trim();
-    
+
     return { thinking, response };
 }
 
@@ -149,14 +150,14 @@ export function extractThinkingBlocks(content) {
  * Call AI provider with message
  */
 export async function callAI(provider, apiKey, systemPrompt, userMessage, options = {}) {
-    const providerKey = provider.includes('ultrathink') ? 'ollama_ultrathink' : 
-                        provider.includes('reasoning') ? 'openai_reasoning' : provider;
+    const providerKey = provider.includes('ultrathink') ? 'ollama_ultrathink' :
+        provider.includes('reasoning') ? 'openai_reasoning' : provider;
     const config = PROVIDERS[providerKey] || PROVIDERS[provider];
-    
+
     if (!config) {
         throw new Error(`Unknown provider: ${provider}`);
     }
-    
+
     const model = options.model || config.defaultModel;
     const baseUrl = options.baseUrl || config.endpoint;
     const maxTokens = options.maxTokens || REASONING_TIERS[config.tier]?.defaultMaxTokens || 1000;
@@ -191,10 +192,10 @@ export async function callAI(provider, apiKey, systemPrompt, userMessage, option
 export async function callAIWithReasoning(provider, apiKey, systemPrompt, userMessage, options = {}) {
     const content = await callAI(provider, apiKey, systemPrompt, userMessage, options);
     const { thinking, response } = extractThinkingBlocks(content);
-    
+
     const providerKey = provider.includes('ultrathink') ? 'ollama_ultrathink' : provider;
     const config = PROVIDERS[providerKey] || PROVIDERS[provider];
-    
+
     return {
         thinking,
         response,
@@ -230,7 +231,7 @@ async function callOpenAI(endpoint, apiKey, model, systemPrompt, userMessage, ma
  * These models have different API parameters
  */
 async function callOpenAIReasoning(apiKey, model, systemPrompt, userMessage, maxTokens) {
-    const headers = { 
+    const headers = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`
     };
@@ -316,34 +317,34 @@ export async function checkOllamaModel(model, endpoint = 'http://localhost:11434
     try {
         const response = await fetch(`${endpoint}/api/tags`);
         if (!response.ok) return { available: false, error: 'Ollama not running' };
-        
+
         const data = await response.json();
         const models = data.models?.map(m => m.name) || [];
         const hasModel = models.some(m => m.startsWith(model.split(':')[0]));
-        
-        return { 
-            available: true, 
+
+        return {
+            available: true,
             hasModel,
             models,
             suggestion: hasModel ? null : `Run: ollama pull ${model}`
         };
     } catch (error) {
-        return { 
-            available: false, 
+        return {
+            available: false,
             error: 'Cannot connect to Ollama. Is it running?',
             suggestion: 'Start Ollama with: ollama serve'
         };
     }
 }
 
-export default { 
-    callAI, 
+export default {
+    callAI,
     callAIWithReasoning,
     extractThinkingBlocks,
     getProvidersByTier,
     getRecommendedProvider,
     checkOllamaModel,
-    PROVIDERS, 
-    REASONING_TIERS 
+    PROVIDERS,
+    REASONING_TIERS
 };
 

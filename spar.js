@@ -280,14 +280,80 @@ function getApiConfig() {
 }
 
 // ============================================
+// GEMINI MODEL DISCOVERY
+// ============================================
+
+// Cache for discovered Gemini model
+let cachedGeminiModel = null;
+
+/**
+ * Fetches available Gemini models and selects the best fast model.
+ * Prioritizes: gemini-2.5-flash > gemini-2.0-flash > any flash model
+ */
+async function getGeminiModel(apiKey) {
+    // Return cached model if available
+    if (cachedGeminiModel) {
+        return cachedGeminiModel;
+    }
+
+    try {
+        const response = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`
+        );
+
+        if (!response.ok) {
+            console.warn('Failed to fetch Gemini models, using fallback');
+            return 'gemini-2.0-flash';
+        }
+
+        const data = await response.json();
+        const models = data.models || [];
+
+        // Filter for flash models that support generateContent
+        const flashModels = models
+            .filter(m =>
+                m.name &&
+                m.name.includes('flash') &&
+                m.supportedGenerationMethods?.includes('generateContent')
+            )
+            .map(m => m.name.replace('models/', ''))
+            .sort((a, b) => {
+                // Extract version numbers for sorting (higher = newer)
+                const versionA = parseFloat(a.match(/\d+\.?\d*/)?.[0] || '0');
+                const versionB = parseFloat(b.match(/\d+\.?\d*/)?.[0] || '0');
+                return versionB - versionA;
+            });
+
+        console.log('📡 Available Gemini flash models:', flashModels);
+
+        // Select the best model (newest version)
+        cachedGeminiModel = flashModels[0] || 'gemini-2.0-flash';
+        console.log('✅ Selected Gemini model:', cachedGeminiModel);
+
+        return cachedGeminiModel;
+
+    } catch (error) {
+        console.warn('Error fetching Gemini models:', error.message);
+        return 'gemini-2.0-flash'; // Fallback to known stable model
+    }
+}
+
+// ============================================
 // API CALLS WITH STREAMING SUPPORT
 // ============================================
 
 async function callAI(provider, apiKey, systemPrompt, userMessage, onChunk = null) {
+    // For Gemini, dynamically determine the model
+    let geminiEndpoint = null;
+    if (provider === 'gemini') {
+        const geminiModel = await getGeminiModel(apiKey);
+        geminiEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${apiKey}`;
+    }
+
     const endpoints = {
         openai: 'https://api.openai.com/v1/chat/completions',
         anthropic: 'https://api.anthropic.com/v1/messages',
-        gemini: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`
+        gemini: geminiEndpoint
     };
 
     try {

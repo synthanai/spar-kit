@@ -276,7 +276,7 @@ function ReasoningTierStep({ config, onChange, onNext, onBack }) {
             ollama: ['mistral:latest', 'llama3.2', 'qwen2.5'],
             openai: ['gpt-4o-mini', 'gpt-4o'],
             anthropic: ['claude-3-haiku-20240307', 'claude-3-5-sonnet-20241022'],
-            gemini: ['gemini-1.5-flash', 'gemini-1.5-pro']
+            gemini: ['gemini-2.0-flash', 'gemini-2.5-flash']
         },
         ultrathink: {
             ollama_ultrathink: ['deepseek-r1:14b', 'deepseek-r1:7b', 'deepseek-r1:32b'],
@@ -290,7 +290,7 @@ function ReasoningTierStep({ config, onChange, onNext, onBack }) {
             ollama_ultrathink: ['deepseek-r1:70b', 'deepseek-r1:32b'],
             openai: ['gpt-4o'],
             anthropic: ['claude-3-opus-20240229'],
-            gemini: ['gemini-1.5-pro']
+            gemini: ['gemini-2.5-pro']
         }
     };
 

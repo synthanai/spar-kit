@@ -230,8 +230,8 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 #### 9.4 Employment & Social Impact
 - [ ] **TASK-122**: Analyze potential employment impact of automation features
 - [x] **TASK-123**: Document job augmentation (not replacement) strategies ✅ [docs/JOB_AUGMENTATION.md]
-- [ ] **TASK-124**: Create guidelines for responsible deployment in workplaces
-- [ ] **TASK-125**: Design upskilling pathways for users transitioning to AI-assisted decisions
+- [x] **TASK-124**: Create guidelines for responsible deployment in workplaces ✅ [docs/RESPONSIBLE_DEPLOYMENT.md]
+- [x] **TASK-125**: Design upskilling pathways for users transitioning to AI-assisted decisions ✅ [docs/UPSKILLING_PATHWAYS.md]
 
 #### 9.5 Ethical Framework & Governance
 - [x] **TASK-126**: Document ethical guardrails for AI decision-making boundaries ✅ [docs/ETHICAL_FRAMEWORK.md]

@@ -261,6 +261,71 @@
         }
 
         /* ============================================
+           SPAR DEFINITION SECTION
+           ============================================ */
+
+        .spar-definition {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-4);
+            max-width: 900px;
+            margin: var(--space-8) auto 0;
+        }
+
+        .spar-letter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-5);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .spar-letter:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .spar-letter .letter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-2);
+        }
+
+        .spar-letter .word {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--pure);
+            margin-bottom: var(--space-2);
+        }
+
+        .spar-letter .meaning {
+            font-size: 0.8rem;
+            color: var(--mist);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .spar-definition {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spar-definition {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
            CORE INSIGHT SECTION
            ============================================ */
 
@@ -524,13 +589,14 @@
                 "west center east"
                 ". south .";
             grid-template-columns: 1fr 140px 1fr;
-            grid-template-rows: auto 140px auto;
+            grid-template-rows: auto auto auto;
             gap: var(--space-4);
             max-width: 600px;
             width: 100%;
             margin: var(--space-8) 0;
             padding: var(--space-6);
             position: relative;
+            align-items: center;
         }
 
         .compass::before {
@@ -1416,6 +1482,20 @@
                     <strong>SPAR is different.</strong> By instantiating separate personas with genuinely conflicting
                     value systems, SPAR surfaces what consensus-seeking processes systematically miss."
                 </blockquote>
+            </div>
+
+            <!-- SPAR Acronym Definition -->
+            <div class="spar-definition">
+                <div class="spar-letter"><span class="letter">S</span><span class="word">Structured</span><span
+                        class="meaning">Not ad-hoc; a designed process with protocols and phases</span></div>
+                <div class="spar-letter"><span class="letter">P</span><span class="word">Persona</span><span
+                        class="meaning">Distinct voices with coherent, conflicting worldviews</span></div>
+                <div class="spar-letter"><span class="letter">A</span><span class="word">Argumentation</span><span
+                        class="meaning">Personas debate and defend positions — not just "provide perspectives"</span>
+                </div>
+                <div class="spar-letter"><span class="letter">R</span><span class="word">Reasoning</span><span
+                        class="meaning">Systematic logic that exposes blind spots and triggers System 2 thinking</span>
+                </div>
             </div>
         </header>
 

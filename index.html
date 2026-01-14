@@ -464,8 +464,8 @@
         textarea {
             width: 100%;
             padding: var(--space-4);
-            background: var(--nebula);
-            border: 1px solid var(--meteor);
+            background: var(--stardust);
+            border: 1px solid var(--smoke);
             border-radius: var(--radius-md);
             color: var(--pure);
             font-family: inherit;
@@ -479,11 +479,12 @@
             outline: none;
             border-color: var(--accent);
             box-shadow: 0 0 0 3px var(--accent-glow);
+            background: var(--meteor);
         }
 
         input::placeholder,
         textarea::placeholder {
-            color: var(--smoke);
+            color: var(--mist);
         }
 
         .api-row {
@@ -581,6 +582,115 @@
             background: var(--accent);
             color: var(--pure);
             border-color: var(--accent);
+        }
+
+        /* ============================================
+           SPARKIT PROTOCOL STEPS
+           ============================================ */
+
+        .protocol-section {
+            text-align: center;
+            margin-bottom: var(--space-8);
+            padding: var(--space-8);
+            background: var(--cosmos);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+        }
+
+        .protocol-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .protocol-subtitle {
+            font-size: 1rem;
+            color: var(--mist);
+            margin-bottom: var(--space-6);
+        }
+
+        .protocol-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+        }
+
+        .protocol-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: var(--space-4);
+            background: var(--nebula);
+            border: 2px solid var(--meteor);
+            border-radius: var(--radius-md);
+            min-width: 100px;
+            transition: all var(--duration-normal) var(--ease-out);
+            opacity: 0.6;
+        }
+
+        .protocol-step.active {
+            border-color: var(--accent);
+            background: var(--stardust);
+            opacity: 1;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .protocol-step.completed {
+            border-color: var(--east);
+            opacity: 1;
+        }
+
+        .protocol-step.completed .step-letter {
+            background: var(--gradient-east);
+        }
+
+        .step-letter {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .step-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--pure);
+            margin: var(--space-1) 0;
+        }
+
+        .step-desc {
+            font-size: 0.7rem;
+            color: var(--fog);
+        }
+
+        @media (max-width: 768px) {
+            .protocol-steps {
+                gap: var(--space-2);
+            }
+
+            .protocol-step {
+                min-width: 70px;
+                padding: var(--space-2);
+            }
+
+            .step-letter {
+                font-size: 1.2rem;
+            }
+
+            .step-name {
+                font-size: 0.75rem;
+            }
+
+            .step-desc {
+                display: none;
+            }
         }
 
         /* ============================================
@@ -1542,6 +1652,49 @@
                     <h4 data-i18n="insight-4-title">✅ Decisions You Can Stand Behind</h4>
                     <p data-i18n="insight-4-desc">Not sophisticated confirmation. Choices forged through challenge, not
                         comfort.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPARKIT Protocol Steps -->
+        <section class="protocol-section" id="protocol">
+            <h2 class="protocol-title">🥊 The SPARKIT Protocol</h2>
+            <p class="protocol-subtitle">7 steps to structured disagreement</p>
+            <div class="protocol-steps">
+                <div class="protocol-step active" data-step="S">
+                    <span class="step-letter">S</span>
+                    <span class="step-name">Scope</span>
+                    <span class="step-desc">Define your decision</span>
+                </div>
+                <div class="protocol-step" data-step="P">
+                    <span class="step-letter">P</span>
+                    <span class="step-name">Populate</span>
+                    <span class="step-desc">Instantiate personas</span>
+                </div>
+                <div class="protocol-step" data-step="A">
+                    <span class="step-letter">A</span>
+                    <span class="step-name">Announce</span>
+                    <span class="step-desc">Present challenge</span>
+                </div>
+                <div class="protocol-step" data-step="R">
+                    <span class="step-letter">R</span>
+                    <span class="step-name">Rumble</span>
+                    <span class="step-desc">Run the dialectic</span>
+                </div>
+                <div class="protocol-step" data-step="K">
+                    <span class="step-letter">K</span>
+                    <span class="step-name">Knit</span>
+                    <span class="step-desc">Synthesize tensions</span>
+                </div>
+                <div class="protocol-step" data-step="I">
+                    <span class="step-letter">I</span>
+                    <span class="step-name">Interrogate</span>
+                    <span class="step-desc">Challenge synthesis</span>
+                </div>
+                <div class="protocol-step" data-step="T">
+                    <span class="step-letter">T</span>
+                    <span class="step-name">Transmit</span>
+                    <span class="step-desc">Extract actions</span>
                 </div>
             </div>
         </section>

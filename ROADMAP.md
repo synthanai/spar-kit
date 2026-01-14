@@ -111,20 +111,20 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 ### Phase 5: Security & Validation
 
 #### 5.1 Input Validation (`cli/security/`)
-- [ ] **TASK-053**: Validate decision text (XSS prevention)
-- [ ] **TASK-054**: Validate persona IDs (injection prevention)
-- [ ] **TASK-055**: Validate file paths (path traversal prevention)
-- [ ] **TASK-056**: Validate session IDs (UUID format)
-- [ ] **TASK-057**: Sanitize LLM responses before display
+- [x] **TASK-053**: Validate decision text (XSS prevention) ✅ [validateDecision()]
+- [x] **TASK-054**: Validate persona IDs (injection prevention) ✅ [validatePersonaId()]
+- [x] **TASK-055**: Validate file paths (path traversal prevention) ✅ [validateFilePath()]
+- [x] **TASK-056**: Validate session IDs (UUID format) ✅ [validateUUID()]
+- [x] **TASK-057**: Sanitize LLM responses before display ✅ [XSS_PATTERNS]
 
 #### 5.2 Configuration Security
-- [ ] **TASK-058**: Validate API keys format (never log/display)
-- [ ] **TASK-059**: Validate base URLs (whitelist patterns)
-- [ ] **TASK-060**: Validate model names (alphanumeric + allowed chars)
+- [x] **TASK-058**: Validate API keys format (never log/display) ✅ [validateApiKey()]
+- [x] **TASK-059**: Validate base URLs (whitelist patterns) ✅ [validateBaseUrl()]
+- [x] **TASK-060**: Validate model names (alphanumeric + allowed chars) ✅ [validateModelName()]
 - [ ] **TASK-061**: Add config file permissions check (warn if world-readable)
 
 #### 5.3 Session Security
-- [ ] **TASK-062**: Validate session JSON before loading
+- [x] **TASK-062**: Validate session JSON before loading ✅ [validateSessionJson()]
 - [ ] **TASK-063**: Add session file integrity check (optional hash)
 - [ ] **TASK-064**: Sanitize session data before export
 - [ ] **TASK-065**: Prevent session ID enumeration
@@ -188,9 +188,9 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 
 #### 8.1 Documentation
 - [ ] **TASK-097**: Update README.md with TUI instructions
-- [ ] **TASK-098**: Create TUI_GUIDE.md detailed documentation
+- [x] **TASK-098**: Create TUI_GUIDE.md detailed documentation ✅
 - [ ] **TASK-099**: Update CHANGELOG.md for v3.1.0
-- [ ] **TASK-100**: Create KEYBOARD_SHORTCUTS.md reference
+- [x] **TASK-100**: Create KEYBOARD_SHORTCUTS.md reference ✅
 
 #### 8.2 Release Preparation
 - [ ] **TASK-101**: Final test pass on all platforms (macOS, Linux, Windows)

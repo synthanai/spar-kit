@@ -778,6 +778,9 @@ function renderMarkdown(text) {
 // ============================================
 
 function exportMarkdown() {
+    // SPARKIT Step I→T: Transmitting actionable output
+    setProtocolProgress('T');
+
     const date = new Date().toISOString().split('T')[0];
     const time = new Date().toLocaleTimeString();
 
@@ -864,8 +867,12 @@ function resetSpar() {
         },
         synthesis: '',
         errors: {},
-        isRunning: false
+        isRunning: false,
+        currentStep: 'S'
     };
+
+    // Reset SPARKIT protocol steps
+    resetProtocolSteps();
 
     $('decisionInput').value = '';
     $('debate').classList.remove('active');

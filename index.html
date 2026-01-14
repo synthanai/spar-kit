@@ -589,12 +589,12 @@
            ============================================ */
 
         .protocol-section {
-            text-align: center;
             margin-bottom: var(--space-8);
-            padding: var(--space-8);
-            background: var(--cosmos);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius-xl);
+        }
+
+        .protocol-header {
+            text-align: center;
+            margin-bottom: var(--space-6);
         }
 
         .protocol-title {
@@ -610,87 +610,193 @@
         .protocol-subtitle {
             font-size: 1rem;
             color: var(--mist);
-            margin-bottom: var(--space-6);
         }
 
-        .protocol-steps {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-3);
-        }
-
-        .protocol-step {
+        /* Wizard Steps Container */
+        .wizard-steps {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: var(--space-4);
-            background: var(--nebula);
+            gap: var(--space-4);
+        }
+
+        .wizard-step {
+            background: var(--cosmos);
             border: 2px solid var(--meteor);
-            border-radius: var(--radius-md);
-            min-width: 100px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
             transition: all var(--duration-normal) var(--ease-out);
-            opacity: 0.6;
         }
 
-        .protocol-step.active {
+        .wizard-step.locked {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .wizard-step.active {
             border-color: var(--accent);
-            background: var(--stardust);
-            opacity: 1;
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 30px var(--accent-glow);
         }
 
-        .protocol-step.completed {
+        .wizard-step.completed {
             border-color: var(--east);
-            opacity: 1;
         }
 
-        .protocol-step.completed .step-letter {
+        .wizard-step-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-5);
+            cursor: pointer;
+            transition: background var(--duration-fast);
+        }
+
+        .wizard-step-header:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .wizard-step-number {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            border-radius: 50%;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--pure);
+            flex-shrink: 0;
+        }
+
+        .wizard-step.completed .wizard-step-number {
             background: var(--gradient-east);
         }
 
-        .step-letter {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .wizard-step.completed .wizard-step-number::after {
+            content: '✓';
         }
 
-        .step-name {
-            font-size: 0.85rem;
+        .wizard-step-info {
+            flex: 1;
+        }
+
+        .wizard-step-name {
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--pure);
-            margin: var(--space-1) 0;
+            margin-bottom: var(--space-1);
         }
 
-        .step-desc {
-            font-size: 0.7rem;
+        .wizard-step-desc {
+            font-size: 0.9rem;
+            color: var(--mist);
+        }
+
+        .wizard-step-status {
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .wizard-step.active .wizard-step-status {
+            background: var(--accent);
+            color: var(--pure);
+        }
+
+        .wizard-step.completed .wizard-step-status {
+            background: var(--east);
+            color: var(--void);
+        }
+
+        .wizard-step.locked .wizard-step-status {
+            background: var(--meteor);
             color: var(--fog);
         }
 
+        /* Expandable Content */
+        .wizard-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--duration-slow) var(--ease-out);
+        }
+
+        .wizard-step.active .wizard-step-content {
+            max-height: 2000px;
+        }
+
+        .wizard-step-body {
+            padding: 0 var(--space-6) var(--space-6);
+        }
+
+        .wizard-step-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-3);
+            margin-top: var(--space-6);
+        }
+
         @media (max-width: 768px) {
-            .protocol-steps {
-                gap: var(--space-2);
+            .wizard-step-header {
+                padding: var(--space-4);
             }
 
-            .protocol-step {
-                min-width: 70px;
-                padding: var(--space-2);
+            .wizard-step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
 
-            .step-letter {
-                font-size: 1.2rem;
+            .wizard-step-name {
+                font-size: 1rem;
             }
 
-            .step-name {
-                font-size: 0.75rem;
+            .wizard-step-desc {
+                font-size: 0.8rem;
             }
+        }
 
-            .step-desc {
-                display: none;
-            }
+        /* Viewing completed step */
+        .wizard-step.completed.viewing .wizard-step-content,
+        .wizard-step.viewing .wizard-step-content {
+            max-height: 2000px;
+        }
+
+        /* Summary styles */
+        .announce-summary {
+            background: var(--nebula);
+            border-radius: var(--radius-md);
+            padding: var(--space-5);
+            margin-bottom: var(--space-4);
+        }
+
+        .summary-item {
+            display: flex;
+            gap: var(--space-3);
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid var(--meteor);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-item strong {
+            color: var(--pure);
+            min-width: 100px;
+        }
+
+        /* Mini compass for Populate step */
+        .mini-compass {
+            max-width: 500px;
+            margin: var(--space-4) auto;
+        }
+
+        .mini-compass .compass-center {
+            width: 60px;
+            height: 60px;
         }
 
         /* ============================================
@@ -1656,45 +1762,228 @@
             </div>
         </section>
 
-        <!-- SPARKIT Protocol Steps -->
+        <!-- SPARKIT Protocol Wizard -->
         <section class="protocol-section" id="protocol">
-            <h2 class="protocol-title">🥊 The SPARKIT Protocol</h2>
-            <p class="protocol-subtitle">7 steps to structured disagreement</p>
-            <div class="protocol-steps">
-                <div class="protocol-step active" data-step="S">
-                    <span class="step-letter">S</span>
-                    <span class="step-name">Scope</span>
-                    <span class="step-desc">Define your decision</span>
+            <div class="protocol-header">
+                <h2 class="protocol-title">🥊 The SPARKIT Protocol</h2>
+                <p class="protocol-subtitle">Follow the 7 steps to structured disagreement</p>
+            </div>
+
+            <div class="wizard-steps">
+                <!-- Step S: Scope -->
+                <div class="wizard-step active" data-step="S" id="step-S">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('S')">
+                        <div class="wizard-step-number">S</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Scope</div>
+                            <div class="wizard-step-desc">Define your strategic question</div>
+                        </div>
+                        <div class="wizard-step-status">Current</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <div class="form-group">
+                                <label for="provider" data-i18n="provider-label">AI Provider</label>
+                                <select id="provider">
+                                    <option value="openai">OpenAI (GPT-4)</option>
+                                    <option value="anthropic">Anthropic (Claude)</option>
+                                    <option value="gemini">Google (Gemini)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="apiKey">API Key</label>
+                                <div class="api-row">
+                                    <input type="password" id="apiKey" placeholder="Enter your API key...">
+                                    <button class="btn-icon" id="toggleKeyBtn" onclick="toggleApiKey()"
+                                        title="Toggle visibility">👁️</button>
+                                </div>
+                            </div>
+                            <div class="remember-row">
+                                <input type="checkbox" id="rememberKey">
+                                <label for="rememberKey">Remember API key (stored locally)</label>
+                            </div>
+                            <div class="form-group" style="margin-top: var(--space-6);">
+                                <label for="decisionInput">Your Decision Question</label>
+                                <textarea id="decisionInput"
+                                    placeholder="I'm deciding whether to...
+
+Describe the decision, the context, and what makes it difficult. The more detail you provide, the more nuanced the debate will be."></textarea>
+                            </div>
+                            <div class="decision-examples">
+                                <p class="examples-title">Quick Examples</p>
+                                <div class="example-chips">
+                                    <span class="example-chip" onclick="setExample('career')">Career change</span>
+                                    <span class="example-chip" onclick="setExample('market')">Market expansion</span>
+                                    <span class="example-chip" onclick="setExample('product')">Product launch</span>
+                                    <span class="example-chip" onclick="setExample('hire')">Key hire</span>
+                                    <span class="example-chip" onclick="setExample('investment')">Investment</span>
+                                </div>
+                            </div>
+                            <div class="wizard-step-actions">
+                                <button class="btn-secondary" onclick="advanceToStep('P')">Continue to Personas
+                                    →</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="protocol-step" data-step="P">
-                    <span class="step-letter">P</span>
-                    <span class="step-name">Populate</span>
-                    <span class="step-desc">Instantiate personas</span>
+
+                <!-- Step P: Populate -->
+                <div class="wizard-step locked" data-step="P" id="step-P">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('P')">
+                        <div class="wizard-step-number">P</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Populate</div>
+                            <div class="wizard-step-desc">Review the four clashing perspectives</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <p style="color: var(--mist); margin-bottom: var(--space-4);">These four personas will
+                                debate your decision from radically different worldviews:</p>
+                            <div class="compass mini-compass">
+                                <div class="compass-direction north">
+                                    <span class="direction-icon">🔵</span>
+                                    <span class="direction-name">The Visionary</span>
+                                    <span class="direction-question">"Where are we going?"</span>
+                                </div>
+                                <div class="compass-direction west">
+                                    <span class="direction-icon">🔴</span>
+                                    <span class="direction-name">The Sage</span>
+                                    <span class="direction-question">"What's proven?"</span>
+                                </div>
+                                <div class="compass-center mini-center">
+                                    <span style="font-size: 2rem;">⚔️</span>
+                                </div>
+                                <div class="compass-direction east">
+                                    <span class="direction-icon">🟢</span>
+                                    <span class="direction-name">The Challenger</span>
+                                    <span class="direction-question">"What's emerging?"</span>
+                                </div>
+                                <div class="compass-direction south">
+                                    <span class="direction-icon">🟡</span>
+                                    <span class="direction-name">The Pragmatist</span>
+                                    <span class="direction-question">"What's grounded?"</span>
+                                </div>
+                            </div>
+                            <div class="wizard-step-actions">
+                                <button class="btn-secondary" onclick="advanceToStep('A')">Continue to Announce
+                                    →</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="protocol-step" data-step="A">
-                    <span class="step-letter">A</span>
-                    <span class="step-name">Announce</span>
-                    <span class="step-desc">Present challenge</span>
+
+                <!-- Step A: Announce -->
+                <div class="wizard-step locked" data-step="A" id="step-A">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('A')">
+                        <div class="wizard-step-number">A</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Announce</div>
+                            <div class="wizard-step-desc">Review and launch the SPAR</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <div class="announce-summary">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-3);">📋 SPAR Summary</h4>
+                                <div class="summary-item">
+                                    <strong>Decision:</strong>
+                                    <span id="summary-decision" style="color: var(--mist);">Not yet defined</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Personas:</strong>
+                                    <span style="color: var(--mist);">Visionary, Challenger, Pragmatist, Sage</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Provider:</strong>
+                                    <span id="summary-provider" style="color: var(--mist);">Not yet selected</span>
+                                </div>
+                            </div>
+                            <div class="wizard-step-actions">
+                                <button class="btn-spar" id="sparBtn" onclick="runSpar()">
+                                    <span class="btn-spar-icon">🥊</span>
+                                    <span class="btn-spar-text">SPAR — Launch the Rumble</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="protocol-step" data-step="R">
-                    <span class="step-letter">R</span>
-                    <span class="step-name">Rumble</span>
-                    <span class="step-desc">Run the dialectic</span>
+
+                <!-- Step R: Rumble -->
+                <div class="wizard-step locked" data-step="R" id="step-R">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('R')">
+                        <div class="wizard-step-number">R</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Rumble</div>
+                            <div class="wizard-step-desc">Watch the dialectic unfold</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body" id="rumble-content">
+                            <!-- Debate content will be injected here -->
+                            <p style="color: var(--mist);">The four personas are debating...</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="protocol-step" data-step="K">
-                    <span class="step-letter">K</span>
-                    <span class="step-name">Knit</span>
-                    <span class="step-desc">Synthesize tensions</span>
+
+                <!-- Step K: Knit -->
+                <div class="wizard-step locked" data-step="K" id="step-K">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('K')">
+                        <div class="wizard-step-number">K</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Knit</div>
+                            <div class="wizard-step-desc">Synthesize tensions into insights</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body" id="knit-content">
+                            <!-- Round 2 / Synthesis content -->
+                            <p style="color: var(--mist);">Ready to synthesize...</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="protocol-step" data-step="I">
-                    <span class="step-letter">I</span>
-                    <span class="step-name">Interrogate</span>
-                    <span class="step-desc">Challenge synthesis</span>
+
+                <!-- Step I: Interrogate -->
+                <div class="wizard-step locked" data-step="I" id="step-I">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('I')">
+                        <div class="wizard-step-number">I</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Interrogate</div>
+                            <div class="wizard-step-desc">Challenge and stress-test the synthesis</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body" id="interrogate-content">
+                            <!-- Synthesis review content -->
+                            <p style="color: var(--mist);">Review the synthesized insights...</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="protocol-step" data-step="T">
-                    <span class="step-letter">T</span>
-                    <span class="step-name">Transmit</span>
-                    <span class="step-desc">Extract actions</span>
+
+                <!-- Step T: Transmit -->
+                <div class="wizard-step locked" data-step="T" id="step-T">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('T')">
+                        <div class="wizard-step-number">T</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Transmit</div>
+                            <div class="wizard-step-desc">Export actionable recommendations</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <p style="color: var(--mist); margin-bottom: var(--space-4);">Export your SPAR session:</p>
+                            <div class="wizard-step-actions" style="justify-content: flex-start;">
+                                <button class="btn-secondary" onclick="exportMarkdown()">📄 Export Markdown</button>
+                                <button class="btn-secondary" onclick="resetSpar()">🔄 New SPAR</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

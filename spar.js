@@ -163,6 +163,108 @@ function resetProtocolSteps() {
 }
 
 // ============================================
+// WIZARD STEP NAVIGATION
+// ============================================
+
+function toggleWizardStep(stepLetter) {
+    const step = document.querySelector(`#step-${stepLetter}`);
+    if (!step || step.classList.contains('locked')) return;
+
+    // If already active, do nothing (can't collapse current step)
+    if (step.classList.contains('active')) return;
+
+    // If completed, allow viewing
+    if (step.classList.contains('completed')) {
+        // Collapse other steps, expand this one temporarily
+        SPARKIT_STEPS.forEach(s => {
+            const el = document.querySelector(`#step-${s}`);
+            if (el && el !== step) {
+                el.classList.remove('viewing');
+            }
+        });
+        step.classList.toggle('viewing');
+    }
+}
+
+function advanceToStep(targetStep) {
+    const currentIndex = SPARKIT_STEPS.indexOf(sparState.currentStep);
+    const targetIndex = SPARKIT_STEPS.indexOf(targetStep);
+
+    // Validate - can only advance one step at a time
+    if (targetIndex > currentIndex + 1) {
+        showToast('Please complete the current step first', 'error');
+        return;
+    }
+
+    // Validate current step is complete
+    if (sparState.currentStep === 'S') {
+        const decision = $('decisionInput')?.value.trim();
+        const apiKey = $('apiKey')?.value.trim();
+
+        if (!apiKey) {
+            showToast('Please enter your API key', 'error');
+            $('apiKey')?.focus();
+            return;
+        }
+        if (!decision) {
+            showToast('Please describe your decision', 'error');
+            $('decisionInput')?.focus();
+            return;
+        }
+
+        // Save the decision for summary
+        sparState.decision = decision;
+    }
+
+    // Mark current step as completed
+    const currentStep = document.querySelector(`#step-${sparState.currentStep}`);
+    if (currentStep) {
+        currentStep.classList.remove('active');
+        currentStep.classList.add('completed');
+        currentStep.querySelector('.wizard-step-status').textContent = 'Done';
+    }
+
+    // Activate target step
+    const targetStepEl = document.querySelector(`#step-${targetStep}`);
+    if (targetStepEl) {
+        targetStepEl.classList.remove('locked');
+        targetStepEl.classList.add('active');
+        targetStepEl.querySelector('.wizard-step-status').textContent = 'Current';
+
+        // Scroll to the new step
+        setTimeout(() => {
+            targetStepEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+
+    // Update state
+    sparState.currentStep = targetStep;
+
+    // Update summary if advancing to Announce
+    if (targetStep === 'A') {
+        updateSummary();
+    }
+}
+
+function updateSummary() {
+    const summaryDecision = document.getElementById('summary-decision');
+    const summaryProvider = document.getElementById('summary-provider');
+
+    if (summaryDecision) {
+        const decision = $('decisionInput')?.value.trim() || 'Not defined';
+        summaryDecision.textContent = decision.length > 100
+            ? decision.substring(0, 100) + '...'
+            : decision;
+    }
+
+    if (summaryProvider) {
+        const providerSelect = $('provider');
+        const providerName = providerSelect?.options[providerSelect.selectedIndex]?.text || 'Unknown';
+        summaryProvider.textContent = providerName;
+    }
+}
+
+// ============================================
 // UTILITY FUNCTIONS
 // ============================================
 
@@ -499,18 +601,31 @@ async function runSpar() {
     sparState.isRunning = true;
     sparState.errors = {};
 
-    // SPARKIT Step S→P: Scope defined, now Populating personas
-    setProtocolProgress('P');
+    // Mark A step as completed, activate R step
+    const stepA = document.querySelector('#step-A');
+    if (stepA) {
+        stepA.classList.remove('active');
+        stepA.classList.add('completed');
+        stepA.querySelector('.wizard-step-status').textContent = 'Done';
+    }
+
+    const stepR = document.querySelector('#step-R');
+    if (stepR) {
+        stepR.classList.remove('locked');
+        stepR.classList.add('active');
+        stepR.querySelector('.wizard-step-status').textContent = 'Current';
+        sparState.currentStep = 'R';
+
+        setTimeout(() => {
+            stepR.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
 
     // Play start sound
     playSound('start');
 
-    // SPARKIT Step P→A: Announcing challenge to personas
-    setTimeout(() => setProtocolProgress('A'), 500);
-
     // Show debate section
     $('debate').classList.add('active');
-    $('debate').scrollIntoView({ behavior: 'smooth' });
 
     // Update button state
     const btn = $('sparBtn');
@@ -519,9 +634,6 @@ async function runSpar() {
 
     // Update favicon to show progress
     updateFavicon('running');
-
-    // SPARKIT Step A→R: Running the Rumble (dialectic)
-    setTimeout(() => setProtocolProgress('R'), 1000);
 
     const userMessage = `THE DECISION: ${decision}
 
@@ -871,14 +983,32 @@ function resetSpar() {
         currentStep: 'S'
     };
 
-    // Reset SPARKIT protocol steps
-    resetProtocolSteps();
+    // Reset all wizard steps to initial state
+    SPARKIT_STEPS.forEach((step, index) => {
+        const stepEl = document.querySelector(`#step-${step}`);
+        if (stepEl) {
+            stepEl.classList.remove('active', 'completed', 'viewing');
+            if (index === 0) {
+                stepEl.classList.add('active');
+                stepEl.querySelector('.wizard-step-status').textContent = 'Current';
+            } else {
+                stepEl.classList.add('locked');
+                stepEl.querySelector('.wizard-step-status').textContent = 'Locked';
+            }
+        }
+    });
 
     $('decisionInput').value = '';
     $('debate').classList.remove('active');
-    $('round2').style.display = 'none';
-    $('synthesis').style.display = 'none';
-    $('actions').style.display = 'none';
+
+    const round2El = $('round2');
+    if (round2El) round2El.style.display = 'none';
+
+    const synthesisEl = $('synthesis');
+    if (synthesisEl) synthesisEl.style.display = 'none';
+
+    const actionsEl = $('actions');
+    if (actionsEl) actionsEl.style.display = 'none';
 
     ['north', 'east', 'south', 'west'].forEach(dir => {
         const content = $(`${dir}-content`);
@@ -902,7 +1032,12 @@ function resetSpar() {
         }
     });
 
-    $('setup').scrollIntoView({ behavior: 'smooth' });
+    // Scroll to protocol section
+    const protocolSection = document.querySelector('#protocol');
+    if (protocolSection) {
+        protocolSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
     updateFavicon('idle');
     showToast('Ready for a new SPAR! 🥊', 'info');
 }

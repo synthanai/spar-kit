@@ -19,46 +19,46 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 ### Phase 1: Foundation (v3.1.0)
 
 #### 1.1 Project Setup
-- [ ] **TASK-001**: Add Ink and React dependencies to package.json
-- [ ] **TASK-002**: Create TUI directory structure (`cli/tui/`)
-- [ ] **TASK-003**: Set up TUI entry point (`cli/tui/index.js`)
-- [ ] **TASK-004**: Create shared component library (`cli/tui/components/`)
+- [x] **TASK-001**: Add Ink and React dependencies to package.json ✅
+- [x] **TASK-002**: Create TUI directory structure (`cli/tui/`) ✅
+- [x] **TASK-003**: Set up TUI entry point (`cli/tui/index.js`) ✅
+- [x] **TASK-004**: Create shared component library (`cli/tui/components/`) ✅
 
 #### 1.2 Core TUI Components
-- [ ] **TASK-005**: Create `<Dashboard>` main screen component
-- [ ] **TASK-006**: Create `<SessionList>` with keyboard navigation
-- [ ] **TASK-007**: Create `<SessionDetail>` view component
+- [x] **TASK-005**: Create `<Dashboard>` main screen component ✅ [Dashboard.js]
+- [x] **TASK-006**: Create `<SessionList>` with keyboard navigation ✅ [SessionList.js]
+- [x] **TASK-007**: Create `<SessionDetail>` view component ✅ [SessionDetail.js]
 - [ ] **TASK-008**: Create `<PhaseView>` drill-down component
-- [ ] **TASK-009**: Create `<StatusBar>` footer component
-- [ ] **TASK-010**: Create `<Header>` banner component
+- [x] **TASK-009**: Create `<StatusBar>` footer component ✅ [StatusBar.js]
+- [x] **TASK-010**: Create `<Header>` banner component ✅ [Header.js]
 
 #### 1.3 State Management
-- [ ] **TASK-011**: Create session store (`cli/tui/store/sessions.js`)
-- [ ] **TASK-012**: Create config store (`cli/tui/store/config.js`)
-- [ ] **TASK-013**: Create navigation store (`cli/tui/store/navigation.js`)
+- [x] **TASK-011**: Create session store (`cli/tui/store/sessions.js`) ✅
+- [x] **TASK-012**: Create config store (`cli/tui/store/config.js`) ✅
+- [x] **TASK-013**: Create navigation store (`cli/tui/store/navigation.js`) ✅
 
 ---
 
 ### Phase 2: Session Management (v3.2.0)
 
 #### 2.1 Enhanced Session Schema
-- [ ] **TASK-014**: Extend session JSON with checkpoint data
-- [ ] **TASK-015**: Add session state machine (running/paused/completed/aborted)
+- [x] **TASK-014**: Extend session JSON with checkpoint data ✅ [sessions store]
+- [x] **TASK-015**: Add session state machine (running/paused/completed/aborted) ✅
 - [ ] **TASK-016**: Add metrics tracking (tokens, duration, LLM calls)
 
 #### 2.2 Session Operations
 - [ ] **TASK-017**: Implement pause/resume capability
 - [ ] **TASK-018**: Implement session cancellation with cleanup
 - [ ] **TASK-019**: Implement "Clone & Re-run" feature
-- [ ] **TASK-020**: Implement session deletion with confirmation
-- [ ] **TASK-021**: Implement session export (MD, JSON, TXT)
+- [x] **TASK-020**: Implement session deletion with confirmation ✅ [sessions store]
+- [x] **TASK-021**: Implement session export (MD, JSON, TXT) ✅ [exportSessionMarkdown]
 
 #### 2.3 Non-Interactive CLI Commands
-- [ ] **TASK-022**: Add `sparkit list --json` for scripting
-- [ ] **TASK-023**: Add `sparkit show <id>` session details
+- [x] **TASK-022**: Add `sparkit list --json` for scripting ✅
+- [x] **TASK-023**: Add `sparkit show <id>` session details ✅
 - [ ] **TASK-024**: Add `sparkit resume <id>` command
 - [ ] **TASK-025**: Add `sparkit cancel <id>` command
-- [ ] **TASK-026**: Add `sparkit export <id> --output=file` command
+- [x] **TASK-026**: Add `sparkit export <id> --output=file` command ✅
 
 ---
 

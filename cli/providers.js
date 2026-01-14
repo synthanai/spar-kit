@@ -1,138 +1,132 @@
 /**
- * SPAR Kit - Provider Module v3.2 (Ultrathink)
- * Multi-provider LLM support with extended reasoning capabilities
+ * SPAR Kit - Provider Module v3.3 (Model-Agnostic Ultrathink)
+ * Multi-provider LLM support with user-selectable reasoning modes
+ * 
+ * DESIGN PRINCIPLE: Users choose their own provider and model.
+ * Ultrathink is a REASONING MODE that can apply to any model.
  */
 
 /**
- * Reasoning Tiers Configuration
- * Controls the depth of thinking for AI personas
+ * Reasoning Modes Configuration
+ * These are mode SETTINGS, not model recommendations
+ * Users can apply any mode to any provider/model they choose
  */
-export const REASONING_TIERS = {
+export const REASONING_MODES = {
     standard: {
         name: 'Standard',
-        description: 'Fast responses, good for simple decisions',
+        description: 'Fast responses, suitable for straightforward decisions',
         icon: '🟢',
         defaultMaxTokens: 1000,
-        thinkingEnabled: false
+        thinkingEnabled: false,
+        systemPromptAddition: ''
     },
     ultrathink: {
         name: 'Ultrathink',
-        description: 'Extended reasoning with chain-of-thought',
+        description: 'Extended reasoning with visible chain-of-thought',
         icon: '🟡',
         defaultMaxTokens: 4000,
-        thinkingEnabled: true
+        thinkingEnabled: true,
+        systemPromptAddition: '\n\nBefore providing your response, think through the problem step by step. Show your reasoning process clearly. If your model supports <think> blocks, use them to show your deliberation.'
     },
     maximum: {
         name: 'Maximum',
-        description: 'Premium reasoning models (OpenAI o1/o3)',
+        description: 'Deep reasoning for complex, high-stakes decisions',
         icon: '🔴',
         defaultMaxTokens: 8000,
-        thinkingEnabled: true
+        thinkingEnabled: true,
+        systemPromptAddition: '\n\nThis is a high-stakes decision requiring deep analysis. Before responding, think through multiple angles, consider counterarguments, identify risks, and show your complete reasoning process. Use <think> blocks if supported.'
     }
 };
 
+// Alias for backward compatibility
+export const REASONING_TIERS = REASONING_MODES;
+
 /**
- * Available providers configuration
+ * Provider Categories (not model recommendations)
+ * Users can use any model available through these providers
  */
 export const PROVIDERS = {
+    ollama: {
+        name: 'Ollama (Local)',
+        description: 'Run models locally - you choose which models to install',
+        requiresKey: false,
+        endpoint: 'http://localhost:11434/api/chat',
+        supportsModelDiscovery: true,  // CLI can query available models
+        thinkingBlockPattern: /<think>([\s\S]*?)<\/think>/gi
+    },
     openai: {
         name: 'OpenAI',
-        models: ['gpt-4-turbo-preview', 'gpt-4o', 'gpt-4o-mini'],
-        defaultModel: 'gpt-4o',
+        description: 'OpenAI API - GPT models and reasoning models (o1/o3)',
         requiresKey: true,
         endpoint: 'https://api.openai.com/v1/chat/completions',
-        tier: 'standard'
-    },
-    openai_reasoning: {
-        name: 'OpenAI Reasoning (o1/o3)',
-        models: ['o1', 'o1-mini', 'o3-mini'],
-        defaultModel: 'o1-mini',
-        requiresKey: true,
-        endpoint: 'https://api.openai.com/v1/chat/completions',
-        tier: 'maximum',
-        supportsThinking: true
+        supportsModelDiscovery: false
     },
     anthropic: {
         name: 'Anthropic',
-        models: ['claude-3-5-sonnet-20241022', 'claude-3-opus-20240229', 'claude-3-haiku-20240307'],
-        defaultModel: 'claude-3-5-sonnet-20241022',
+        description: 'Anthropic API - Claude models',
         requiresKey: true,
         endpoint: 'https://api.anthropic.com/v1/messages',
-        tier: 'standard'
+        supportsModelDiscovery: false
     },
     gemini: {
         name: 'Google Gemini',
-        models: ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.5-pro', 'gemini-2.0-flash-thinking-exp'],
-        defaultModel: 'gemini-2.0-flash',
+        description: 'Google AI - Gemini models',
         requiresKey: true,
         endpoint: 'https://generativelanguage.googleapis.com/v1beta/models',
-        tier: 'standard',
-        dynamicModelDiscovery: true  // CLI can fetch available models at runtime
-    },
-    ollama: {
-        name: 'Ollama (Local)',
-        models: ['llama3.2', 'mistral', 'qwen2.5', 'phi3'],
-        defaultModel: 'llama3.2',
-        requiresKey: false,
-        endpoint: 'http://localhost:11434/api/chat',
-        tier: 'standard'
-    },
-    ollama_ultrathink: {
-        name: 'Ollama Ultrathink (DeepSeek-R1)',
-        models: [
-            'deepseek-r1:1.5b',
-            'deepseek-r1:7b',
-            'deepseek-r1:8b',
-            'deepseek-r1:14b',
-            'deepseek-r1:32b',
-            'deepseek-r1:70b',
-            'deepseek-r1'  // Latest/default
-        ],
-        defaultModel: 'deepseek-r1:14b',
-        requiresKey: false,
-        endpoint: 'http://localhost:11434/api/chat',
-        tier: 'ultrathink',
-        supportsThinking: true
+        supportsModelDiscovery: true
     },
     openai_compatible: {
-        name: 'OpenAI-Compatible (vLLM/llama.cpp/LM Studio)',
-        models: [],
-        defaultModel: 'default',
+        name: 'OpenAI-Compatible',
+        description: 'Custom endpoint (vLLM, llama.cpp, LM Studio, etc.)',
         requiresKey: false,
         endpoint: 'http://localhost:8000/v1/chat/completions',
-        tier: 'standard'
+        customEndpoint: true,
+        supportsModelDiscovery: false
     }
 };
 
 /**
- * Get provider by reasoning tier
+ * Check if Ollama is running and list available models
  */
-export function getProvidersByTier(tier) {
-    return Object.entries(PROVIDERS)
-        .filter(([_, config]) => config.tier === tier)
-        .map(([key, config]) => ({ key, ...config }));
+export async function discoverOllamaModels() {
+    try {
+        const response = await fetch('http://localhost:11434/api/tags');
+        if (!response.ok) return [];
+        const data = await response.json();
+        return data.models?.map(m => m.name) || [];
+    } catch {
+        return [];
+    }
 }
 
 /**
- * Get recommended provider for a tier
+ * Check if a specific model is available in Ollama
  */
-export function getRecommendedProvider(tier) {
-    const providers = getProvidersByTier(tier);
-    if (tier === 'ultrathink') {
-        return providers.find(p => p.key === 'ollama_ultrathink') || providers[0];
-    }
-    if (tier === 'maximum') {
-        return providers.find(p => p.key === 'openai_reasoning') || providers[0];
-    }
-    return providers.find(p => p.key === 'ollama') || providers[0];
+export async function checkOllamaModel(modelName) {
+    const models = await discoverOllamaModels();
+    return models.some(m => m.includes(modelName) || modelName.includes(m));
 }
 
 /**
- * Extract thinking blocks from DeepSeek-R1 or similar models
+ * Get list of available providers
+ */
+export function getAvailableProviders() {
+    return Object.entries(PROVIDERS).map(([key, config]) => ({
+        key,
+        name: config.name,
+        description: config.description,
+        requiresKey: config.requiresKey,
+        supportsModelDiscovery: config.supportsModelDiscovery
+    }));
+}
+
+/**
+ * Extract thinking blocks from models that support <think> blocks
+ * Works with any model that outputs thinking in this format
  * Returns { thinking: string, response: string }
  */
 export function extractThinkingBlocks(content) {
-    // DeepSeek-R1 uses <think>...</think> blocks
+    // Support <think>...</think> blocks (used by many reasoning models)
     const thinkPattern = /<think>([\s\S]*?)<\/think>/gi;
     const matches = [...content.matchAll(thinkPattern)];
 
@@ -148,38 +142,44 @@ export function extractThinkingBlocks(content) {
 
 /**
  * Call AI provider with message
+ * Provider-agnostic: works with any provider + model combination
+ * 
+ * @param {string} provider - Provider key (ollama, openai, anthropic, gemini, openai_compatible)
+ * @param {string} apiKey - API key (null for local providers)
+ * @param {string} model - User-selected model name
+ * @param {string} systemPrompt - System prompt for the AI
+ * @param {string} userMessage - User message
+ * @param {object} options - Additional options (maxTokens, baseUrl, reasoningMode)
  */
-export async function callAI(provider, apiKey, systemPrompt, userMessage, options = {}) {
-    const providerKey = provider.includes('ultrathink') ? 'ollama_ultrathink' :
-        provider.includes('reasoning') ? 'openai_reasoning' : provider;
-    const config = PROVIDERS[providerKey] || PROVIDERS[provider];
+export async function callAI(provider, apiKey, model, systemPrompt, userMessage, options = {}) {
+    const config = PROVIDERS[provider];
 
     if (!config) {
         throw new Error(`Unknown provider: ${provider}`);
     }
 
-    const model = options.model || config.defaultModel;
     const baseUrl = options.baseUrl || config.endpoint;
-    const maxTokens = options.maxTokens || REASONING_TIERS[config.tier]?.defaultMaxTokens || 1000;
+    const reasoningMode = options.reasoningMode || 'standard';
+    const modeConfig = REASONING_MODES[reasoningMode] || REASONING_MODES.standard;
+    const maxTokens = options.maxTokens || modeConfig.defaultMaxTokens;
 
-    if (providerKey === 'openai' || providerKey === 'openai_compatible') {
-        return await callOpenAI(baseUrl, apiKey, model, systemPrompt, userMessage, maxTokens);
+    // Enhance system prompt based on reasoning mode
+    const enhancedSystemPrompt = systemPrompt + modeConfig.systemPromptAddition;
+
+    if (provider === 'openai' || provider === 'openai_compatible') {
+        return await callOpenAI(baseUrl, apiKey, model, enhancedSystemPrompt, userMessage, maxTokens);
     }
 
-    if (providerKey === 'openai_reasoning') {
-        return await callOpenAIReasoning(apiKey, model, systemPrompt, userMessage, maxTokens);
+    if (provider === 'anthropic') {
+        return await callAnthropic(apiKey, model, enhancedSystemPrompt, userMessage, maxTokens);
     }
 
-    if (providerKey === 'anthropic') {
-        return await callAnthropic(apiKey, model, systemPrompt, userMessage, maxTokens);
+    if (provider === 'gemini') {
+        return await callGemini(apiKey, model, enhancedSystemPrompt, userMessage, maxTokens);
     }
 
-    if (providerKey === 'gemini') {
-        return await callGemini(apiKey, model, systemPrompt, userMessage, maxTokens);
-    }
-
-    if (providerKey === 'ollama' || providerKey === 'ollama_ultrathink') {
-        return await callOllama(baseUrl, model, systemPrompt, userMessage, maxTokens);
+    if (provider === 'ollama') {
+        return await callOllama(baseUrl, model, enhancedSystemPrompt, userMessage, maxTokens);
     }
 
     throw new Error(`Unknown provider: ${provider}`);

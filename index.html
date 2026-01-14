@@ -4,190 +4,3075 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPAR Kit — Four Voices, Four Directions, One Decision</title>
+    <title>SPAR — Four Voices, Four Directions, One Decision</title>
     <meta name="description"
-        content="Run structured AI persona debates to stress-test your decisions. Free, open-source, no signup required.">
+        content="SPAR: A decision-making methodology that uses structured disagreement to surface what consensus-seeking processes miss. Works with humans, AI, or both.">
+    <meta name="keywords"
+        content="SPAR, decision making, structured disagreement, personas, strategic thinking, dialectic">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="SPAR — Don't Deliberate Alone">
+    <meta property="og:description"
+        content="Structured Persona-Argumentation for Reasoning. Stress-test decisions through structured disagreement — with humans, AI, or both.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://synthanai.github.io/spar-kit">
+
+    <!-- Favicon -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥊</text></svg>">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ============================================
+           SPAR Kit — Premium Design System
+           நாலு பேரு, நாலு திசை, ஒரு முடிவு
+           ============================================ */
+
+        :root {
+            /* Dark Universe */
+            --void: #05050a;
+            --cosmos: #0a0a12;
+            --nebula: #12121f;
+            --stardust: #1a1a2e;
+            --meteor: #252540;
+
+            /* Light Spectrum */
+            --pure: #ffffff;
+            --cloud: #e8e8f0;
+            --mist: #a0a0b8;
+            --fog: #606080;
+            --smoke: #404060;
+
+            /* Direction Colors (Compass) */
+            --north: #3b82f6;
+            --north-glow: rgba(59, 130, 246, 0.3);
+            --east: #10b981;
+            --east-glow: rgba(16, 185, 129, 0.3);
+            --south: #f59e0b;
+            --south-glow: rgba(245, 158, 11, 0.3);
+            --west: #ef4444;
+            --west-glow: rgba(239, 68, 68, 0.3);
+
+            /* Accent */
+            --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --accent-glow: rgba(139, 92, 246, 0.4);
+
+            /* Gradients */
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-north: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --gradient-east: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-south: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --gradient-west: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+
+            /* Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 9999px;
+
+            /* Transitions */
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --duration-fast: 150ms;
+            --duration-normal: 300ms;
+            --duration-slow: 500ms;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--void);
+            color: var(--cloud);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, var(--accent-glow) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, var(--north-glow) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: bgPulse 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-8);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+
+        .hero {
+            text-align: center;
+            padding: var(--space-16) 0 var(--space-12);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            opacity: 0.4;
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            position: relative;
+        }
+
+        .logo-icon {
+            font-size: 4rem;
+            animation: punch 2s ease-in-out infinite;
+        }
+
+        @keyframes punch {
+
+            0%,
+            100% {
+                transform: rotate(-5deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(5deg) scale(1.1);
+            }
+        }
+
+        .logo-text {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--mist);
+            margin-bottom: var(--space-4);
+        }
+
+        .tagline-tamil {
+            font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+            font-size: 1.25rem;
+            color: var(--accent-light);
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: var(--space-8);
+        }
+
+        .philosophy-quote {
+            max-width: 700px;
+            margin: 0 auto var(--space-10);
+            padding: var(--space-6);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .philosophy-quote blockquote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--cloud);
+            line-height: 1.8;
+        }
+
+        .philosophy-quote cite {
+            display: block;
+            margin-top: var(--space-3);
+            font-size: 0.9rem;
+            color: var(--fog);
+            font-style: normal;
+        }
+
+        .mode-note {
+            margin-top: var(--space-4);
+            padding-top: var(--space-4);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            color: var(--accent-light);
+            font-style: normal;
+            text-align: center;
+        }
+
+        .mode-note strong {
+            color: var(--pure);
+        }
+
+        /* ============================================
+           SPAR DEFINITION SECTION
+           ============================================ */
+
+        .spar-definition {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-4);
+            max-width: 900px;
+            margin: var(--space-8) auto 0;
+        }
+
+        .spar-letter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-5);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .spar-letter:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .spar-letter .letter {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-2);
+        }
+
+        .spar-letter .word {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--pure);
+            margin-bottom: var(--space-2);
+        }
+
+        .spar-letter .meaning {
+            font-size: 0.8rem;
+            color: var(--mist);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .spar-definition {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spar-definition {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           CORE INSIGHT SECTION
+           ============================================ */
+
+        .insight-section {
+            background: var(--cosmos);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--space-10);
+            margin-bottom: var(--space-10);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-section::before {
+            content: '💡';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.05;
+        }
+
+        .insight-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .insight-card {
+            background: var(--nebula);
+            border-radius: var(--radius-md);
+            padding: var(--space-6);
+            border-left: 3px solid var(--accent);
+            transition: transform var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out);
+        }
+
+        .insight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .insight-card h4 {
+            font-size: 1rem;
+            color: var(--accent-light);
+            margin-bottom: var(--space-2);
+        }
+
+        .insight-card p {
+            font-size: 0.95rem;
+            color: var(--mist);
+        }
+
+        /* ============================================
+           SETUP SECTION
+           ============================================ */
+
+        .setup-section {
+            background: var(--cosmos);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            border-radius: var(--radius-sm);
+            font-size: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: var(--space-6);
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--mist);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: var(--space-4);
+            background: var(--stardust);
+            border: 1px solid var(--smoke);
+            border-radius: var(--radius-md);
+            color: var(--pure);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all var(--duration-fast);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+            background: var(--meteor);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--mist);
+        }
+
+        .api-row {
+            display: flex;
+            gap: var(--space-3);
+        }
+
+        .api-row input {
+            flex: 1;
+        }
+
+        .btn-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--nebula);
+            border: 1px solid var(--meteor);
+            border-radius: var(--radius-md);
+            color: var(--mist);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+
+        .btn-icon:hover {
+            background: var(--stardust);
+            color: var(--pure);
+        }
+
+        .security-note {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+            padding: var(--space-3) var(--space-4);
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: var(--east);
+        }
+
+        /* ============================================
+           DECISION INPUT
+           ============================================ */
+
+        .decision-section {
+            background: var(--cosmos);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .decision-examples {
+            margin-top: var(--space-6);
+            padding: var(--space-5);
+            background: var(--nebula);
+            border-radius: var(--radius-md);
+        }
+
+        .examples-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--fog);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-3);
+        }
+
+        .example-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+        }
+
+        .example-chip {
+            padding: var(--space-2) var(--space-4);
+            background: var(--stardust);
+            border: 1px solid var(--meteor);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            color: var(--mist);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+
+        .example-chip:hover {
+            background: var(--accent);
+            color: var(--pure);
+            border-color: var(--accent);
+        }
+
+        /* ============================================
+           SPARKIT PROTOCOL STEPS
+           ============================================ */
+
+        .protocol-section {
+            margin-bottom: var(--space-8);
+        }
+
+        .protocol-header {
+            text-align: center;
+            margin-bottom: var(--space-6);
+        }
+
+        .protocol-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .protocol-subtitle {
+            font-size: 1rem;
+            color: var(--mist);
+        }
+
+        /* Wizard Steps Container */
+        .wizard-steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        .wizard-step {
+            background: var(--cosmos);
+            border: 2px solid var(--meteor);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .wizard-step.locked {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .wizard-step.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .wizard-step.completed {
+            border-color: var(--east);
+        }
+
+        .wizard-step-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-5);
+            cursor: pointer;
+            transition: background var(--duration-fast);
+        }
+
+        .wizard-step-header:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .wizard-step-number {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            border-radius: 50%;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--pure);
+            flex-shrink: 0;
+        }
+
+        .wizard-step.completed .wizard-step-number {
+            background: var(--gradient-east);
+        }
+
+        .wizard-step.completed .wizard-step-number::after {
+            content: '✓';
+        }
+
+        .wizard-step-info {
+            flex: 1;
+        }
+
+        .wizard-step-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--pure);
+            margin-bottom: var(--space-1);
+        }
+
+        .wizard-step-desc {
+            font-size: 0.9rem;
+            color: var(--mist);
+        }
+
+        .wizard-step-status {
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .wizard-step.active .wizard-step-status {
+            background: var(--accent);
+            color: var(--pure);
+        }
+
+        .wizard-step.completed .wizard-step-status {
+            background: var(--east);
+            color: var(--void);
+        }
+
+        .wizard-step.locked .wizard-step-status {
+            background: var(--meteor);
+            color: var(--fog);
+        }
+
+        /* Expandable Content */
+        .wizard-step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--duration-slow) var(--ease-out);
+        }
+
+        .wizard-step.active .wizard-step-content {
+            max-height: 2000px;
+        }
+
+        .wizard-step-body {
+            padding: 0 var(--space-6) var(--space-6);
+        }
+
+        .wizard-step-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-3);
+            margin-top: var(--space-6);
+        }
+
+        @media (max-width: 768px) {
+            .wizard-step-header {
+                padding: var(--space-4);
+            }
+
+            .wizard-step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .wizard-step-name {
+                font-size: 1rem;
+            }
+
+            .wizard-step-desc {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Viewing completed step */
+        .wizard-step.completed.viewing .wizard-step-content,
+        .wizard-step.viewing .wizard-step-content {
+            max-height: 2000px;
+        }
+
+        /* Summary styles */
+        .announce-summary {
+            background: var(--nebula);
+            border-radius: var(--radius-md);
+            padding: var(--space-5);
+            margin-bottom: var(--space-4);
+        }
+
+        .summary-item {
+            display: flex;
+            gap: var(--space-3);
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid var(--meteor);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-item strong {
+            color: var(--pure);
+            min-width: 100px;
+        }
+
+        /* Mini compass for Populate step */
+        .mini-compass {
+            max-width: 500px;
+            margin: var(--space-4) auto;
+        }
+
+        .mini-compass .compass-center {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* Persona Selection Grid */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+
+        @media (max-width: 768px) {
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .persona-selector {
+            background: var(--nebula);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            border: 2px solid var(--meteor);
+            transition: all var(--duration-fast);
+        }
+
+        .persona-selector.north-selector {
+            border-color: var(--north);
+        }
+
+        .persona-selector.east-selector {
+            border-color: var(--east);
+        }
+
+        .persona-selector.south-selector {
+            border-color: var(--south);
+        }
+
+        .persona-selector.west-selector {
+            border-color: var(--west);
+        }
+
+        .persona-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-3);
+        }
+
+        .persona-header .direction-icon {
+            font-size: 1.5rem;
+        }
+
+        .persona-header .direction-label {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--pure);
+        }
+
+        .persona-dropdown {
+            width: 100%;
+            padding: var(--space-3);
+            background: var(--stardust);
+            border: 1px solid var(--smoke);
+            border-radius: var(--radius-md);
+            color: var(--pure);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .persona-dropdown:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .persona-dropdown optgroup {
+            font-weight: 600;
+            color: var(--mist);
+        }
+
+        .persona-dropdown option {
+            padding: var(--space-2);
+        }
+
+        /* ============================================
+           COMPASS SECTION
+           ============================================ */
+
+        .compass-section {
+            margin-bottom: var(--space-10);
+        }
+
+        .compass-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .compass {
+            display: grid;
+            grid-template-areas:
+                ". north ."
+                "west center east"
+                ". south .";
+            grid-template-columns: 1fr 140px 1fr;
+            grid-template-rows: auto 140px auto;
+            gap: var(--space-4);
+            max-width: 650px;
+            width: 100%;
+            margin: var(--space-8) 0;
+            padding: var(--space-6);
+            position: relative;
+            align-items: stretch;
+        }
+
+        .compass::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            height: 90%;
+            border: 2px dashed var(--meteor);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .compass-direction {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--space-4) var(--space-3);
+            background: var(--nebula);
+            border-radius: var(--radius-lg);
+            border: 2px solid transparent;
+            cursor: default;
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            min-height: fit-content;
+            /* Idle state breathing animation */
+            animation: compassIdle 3s ease-in-out infinite;
+        }
+
+        @keyframes compassIdle {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+                filter: brightness(1.1);
+            }
+        }
+
+        .compass-direction::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity var(--duration-normal);
+        }
+
+        .compass-direction:hover::before {
+            opacity: 1;
+        }
+
+        .compass-direction:hover {
+            transform: scale(1.05);
+            animation: none;
+            /* Stop idle animation on hover */
+        }
+
+        .compass-direction.north {
+            grid-area: north;
+            border-color: var(--north);
+            box-shadow: 0 0 20px var(--north-glow), inset 0 0 20px var(--north-glow);
+            animation-delay: 0s;
+        }
+
+        .compass-direction.east {
+            grid-area: east;
+            border-color: var(--east);
+            box-shadow: 0 0 20px var(--east-glow), inset 0 0 20px var(--east-glow);
+            animation-delay: 0.5s;
+        }
+
+        .compass-direction.south {
+            grid-area: south;
+            border-color: var(--south);
+            box-shadow: 0 0 20px var(--south-glow), inset 0 0 20px var(--south-glow);
+            animation-delay: 1s;
+        }
+
+        .compass-direction.west {
+            grid-area: west;
+            border-color: var(--west);
+            box-shadow: 0 0 20px var(--west-glow), inset 0 0 20px var(--west-glow);
+            animation-delay: 1.5s;
+        }
+
+        .compass-direction.active {
+            transform: scale(1.05);
+            animation: compassPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes compassPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 30px var(--accent-glow);
+            }
+
+            50% {
+                box-shadow: 0 0 50px var(--accent-glow);
+            }
+        }
+
+        .direction-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-2);
+        }
+
+        .direction-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--fog);
+            font-weight: 500;
+        }
+
+        .direction-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin: var(--space-1) 0;
+            color: var(--pure);
+        }
+
+        .direction-question {
+            font-size: 0.8rem;
+            color: var(--mist);
+            font-style: italic;
+        }
+
+        .compass-center {
+            grid-area: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-spar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-hero);
+            border: none;
+            color: var(--pure);
+            font-family: inherit;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-1);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+            transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-spar::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: conic-gradient(from 0deg, var(--north), var(--east), var(--south), var(--west), var(--north));
+            border-radius: 50%;
+            z-index: -1;
+            animation: compassRotate 8s linear infinite;
+            opacity: 0;
+            transition: opacity var(--duration-normal);
+        }
+
+        .btn-spar:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes compassRotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn-spar:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.5);
+        }
+
+        .btn-spar:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-spar-icon {
+            font-size: 2rem;
+        }
+
+        .btn-spar-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .compass-tensions {
+            display: flex;
+            gap: var(--space-8);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tension {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: 0.9rem;
+            color: var(--mist);
+        }
+
+        .tension-arrow {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ============================================
+           DEBATE SECTION
+           ============================================ */
+
+        .debate-section {
+            display: none;
+            margin-bottom: var(--space-10);
+        }
+
+        .debate-section.active {
+            display: block;
+            animation: fadeIn var(--duration-slow) var(--ease-out);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .round-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+        }
+
+        .round-number {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            border-radius: 50%;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .round-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .round-subtitle {
+            font-size: 0.9rem;
+            color: var(--fog);
+            margin-top: var(--space-1);
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-6);
+        }
+
+        .position-card {
+            background: var(--cosmos);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            border-left: 4px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-card.north {
+            border-left-color: var(--north);
+        }
+
+        .position-card.east {
+            border-left-color: var(--east);
+        }
+
+        .position-card.south {
+            border-left-color: var(--south);
+        }
+
+        .position-card.west {
+            border-left-color: var(--west);
+        }
+
+        .position-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .position-identity {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+
+        .position-icon {
+            font-size: 1.5rem;
+        }
+
+        .position-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .position-direction {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--fog);
+        }
+
+        .position-name {
+            font-weight: 600;
+        }
+
+        .position-status {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .position-status.waiting {
+            background: var(--stardust);
+            color: var(--fog);
+        }
+
+        .position-status.thinking {
+            background: var(--accent);
+            color: var(--pure);
+            animation: statusPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes statusPulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .position-status.done {
+            background: var(--east);
+            color: var(--void);
+        }
+
+        .position-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--mist);
+            white-space: pre-wrap;
+            min-height: 100px;
+        }
+
+        .position-content.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--smoke);
+            font-style: italic;
+        }
+
+        /* Synthesis */
+        .synthesis-card {
+            background: linear-gradient(135deg, var(--nebula) 0%, var(--cosmos) 100%);
+            border: 2px solid var(--accent);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-top: var(--space-8);
+        }
+
+        .synthesis-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+        }
+
+        .synthesis-icon {
+            font-size: 2rem;
+        }
+
+        .synthesis-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .synthesis-content {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--cloud);
+        }
+
+        /* Actions */
+        .actions-bar {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--duration-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-hero);
+            color: var(--pure);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--stardust);
+            color: var(--pure);
+            border: 1px solid var(--smoke);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--duration-fast);
+        }
+
+        .btn-secondary:hover {
+            background: var(--meteor);
+            border-color: var(--accent);
+            color: var(--pure);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+
+        .footer {
+            text-align: center;
+            padding: var(--space-16) 0 var(--space-8);
+            border-top: 1px solid var(--meteor);
+        }
+
+        .footer-philosophy {
+            max-width: 600px;
+            margin: 0 auto var(--space-8);
+        }
+
+        .footer-philosophy p {
+            font-size: 1.1rem;
+            color: var(--mist);
+            margin-bottom: var(--space-4);
+            line-height: 1.8;
+        }
+
+        .footer-philosophy .tamil {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 1.25rem;
+            color: var(--accent-light);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-6);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-6);
+        }
+
+        .footer-links a {
+            color: var(--mist);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--duration-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-credit {
+            font-size: 0.85rem;
+            color: var(--smoke);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        @media (max-width: 900px) {
+            .positions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-4);
+            }
+
+            .logo-text {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .compass {
+                grid-template-areas:
+                    "north"
+                    "west"
+                    "center"
+                    "east"
+                    "south";
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .compass::before {
+                display: none;
+            }
+
+            .compass-tensions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* ============================================
+           SCROLLBAR
+           ============================================ */
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--void);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--meteor);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--smoke);
+        }
+
+        /* ============================================
+           TOAST NOTIFICATIONS
+           ============================================ */
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: var(--space-4) var(--space-6);
+            background: var(--nebula);
+            border: 1px solid var(--meteor);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-success {
+            border-color: var(--east);
+        }
+
+        .toast-error {
+            border-color: var(--west);
+        }
+
+        .toast-icon {
+            font-size: 1.2rem;
+        }
+
+        .toast-message {
+            color: var(--cloud);
+        }
+
+        /* ============================================
+           COPY/RETRY BUTTONS
+           ============================================ */
+
+        .position-actions {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+
+        .btn-small {
+            padding: var(--space-2) var(--space-3);
+            font-size: 0.8rem;
+            border-radius: var(--radius-sm);
+            background: var(--stardust);
+            border: 1px solid var(--meteor);
+            color: var(--mist);
+            cursor: pointer;
+            transition: all var(--duration-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+
+        .btn-small:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--pure);
+        }
+
+        .btn-retry {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--west);
+            color: var(--west);
+        }
+
+        .btn-retry:hover {
+            background: var(--west);
+            color: var(--pure);
+        }
+
+        /* ============================================
+           REMEMBER CHECKBOX
+           ============================================ */
+
+        .remember-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+        }
+
+        .remember-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+        }
+
+        .remember-row label {
+            text-transform: none;
+            font-size: 0.9rem;
+            color: var(--mist);
+            cursor: pointer;
+        }
+
+        /* ============================================
+           ERROR STATES
+           ============================================ */
+
+        .position-content.error {
+            background: rgba(239, 68, 68, 0.05);
+            border-radius: var(--radius-sm);
+            padding: var(--space-4);
+        }
+
+        .error-content {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            color: var(--west);
+        }
+
+        .error-icon {
+            font-size: 1.5rem;
+        }
+
+        .error-message {
+            font-size: 0.9rem;
+        }
+
+        .loading-text {
+            color: var(--mist);
+            font-style: italic;
+        }
+
+        .position-content.loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fade-in {
+            animation: fadeInContent 0.5s ease;
+        }
+
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ============================================
+           KEYBOARD SHORTCUT HINT
+           ============================================ */
+
+        .keyboard-hint {
+            text-align: center;
+            margin-top: var(--space-4);
+            font-size: 0.8rem;
+            color: var(--smoke);
+        }
+
+        .keyboard-hint kbd {
+            background: var(--meteor);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* ============================================
+           ROUND 2 SECTION
+           ============================================ */
+
+        #round2 {
+            display: none;
+            margin-top: var(--space-10);
+        }
+
+        .synthesis-content h4 {
+            color: var(--accent-light);
+            margin: var(--space-4) 0 var(--space-2);
+        }
+
+        .synthesis-content p {
+            margin-bottom: var(--space-3);
+        }
+
+        /* ============================================
+           LANGUAGE TOGGLE
+           ============================================ */
+
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: var(--nebula);
+            border: 1px solid var(--meteor);
+            border-radius: var(--radius-full);
+            color: var(--cloud);
+            font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--duration-fast);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--pure);
+            transform: scale(1.05);
+        }
+
+        .lang-btn::before {
+            content: '🌐';
+            font-size: 1rem;
+        }
+
+        /* Tamil-specific styling */
+        body.lang-ta {
+            font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+        }
+
+        body.lang-ta .tagline,
+        body.lang-ta .section-title,
+        body.lang-ta .insight-card h4,
+        body.lang-ta .insight-card p,
+        body.lang-ta label,
+        body.lang-ta .btn,
+        body.lang-ta .round-title,
+        body.lang-ta .round-subtitle {
+            font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="bg-pattern"></div>
+
     <div class="container">
-        <!-- Header -->
-        <header class="header">
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">
+                <span class="lang-current" id="langCurrent">தமிழ்</span>
+            </button>
+        </div>
+
+        <!-- Hero -->
+        <header class="hero">
             <div class="logo">
                 <span class="logo-icon">🥊</span>
-                <span class="logo-text">SPAR Kit</span>
+                <span class="logo-text">SPAR</span>
             </div>
-            <p class="tagline">நாலு பேரு, நாலு திசை, ஒரு முடிவு — Four voices, four directions, one decision</p>
+            <p class="tagline" data-i18n="tagline">Don't deliberate alone.</p>
+            <p class="tagline-tamil">நாலு பேரு, நாலு திசை, ஒரு முடிவு</p>
+            <p class="tagline-tamil" style="font-size: 1rem; opacity: 0.6;" data-i18n="tagline-sub">Four Perspectives,
+                Four Dimensions, One
+                Synthesis
+            </p>
+
+            <div class="philosophy-quote">
+                <blockquote data-i18n="philosophy-quote">
+                    "The problem isn't AI. <strong>The problem is isolated reasoning.</strong><br><br>
+                    When you deliberate alone — whether you're a lone leader, a homogeneous team, a person chatting with
+                    AI, or AI reasoning with itself — you get <em>variations on a theme</em>, not genuine
+                    disagreement.<br><br>
+                    <strong>SPAR is different.</strong> By instantiating personas with coherent value systems that
+                    <em>genuinely disagree</em>, SPAR surfaces what consensus-seeking processes systematically miss."
+                </blockquote>
+                <p class="mode-note">Whether those personas are embodied by <strong>humans</strong>, simulated by
+                    <strong>AI</strong>, or <strong>both</strong> — the methodology remains the same.
+                </p>
+            </div>
+
+            <!-- SPAR Acronym Definition -->
+            <div class="spar-definition">
+                <div class="spar-letter"><span class="letter">S</span><span class="word">Structured</span><span
+                        class="meaning">Not ad-hoc; a designed process with protocols and phases</span></div>
+                <div class="spar-letter"><span class="letter">P</span><span class="word">Persona</span><span
+                        class="meaning">Distinct voices with coherent, conflicting worldviews</span></div>
+                <div class="spar-letter"><span class="letter">A</span><span class="word">Argumentation</span><span
+                        class="meaning">Personas debate and defend positions — not just "provide perspectives"</span>
+                </div>
+                <div class="spar-letter"><span class="letter">R</span><span class="word">Reasoning</span><span
+                        class="meaning">Systematic logic that exposes blind spots and triggers System 2 thinking</span>
+                </div>
+            </div>
         </header>
 
-        <!-- Setup Section -->
-        <section class="setup-section" id="setup">
-            <h2>🔑 Setup</h2>
-            <div class="api-config">
-                <div class="provider-select">
-                    <label for="provider">AI Provider</label>
-                    <select id="provider">
-                        <option value="openai">OpenAI (GPT-4)</option>
-                        <option value="anthropic">Anthropic (Claude)</option>
-                        <option value="gemini">Google (Gemini)</option>
-                    </select>
+        <!-- Core Insight -->
+        <section class="insight-section">
+            <h2 class="insight-title" data-i18n="insight-title">💡 What SPAR Produces</h2>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <h4 data-i18n="insight-1-title">⚔️ Real Arguments</h4>
+                    <p data-i18n="insight-1-desc">Not balanced trade-off lists. Genuine disagreement that exposes what
+                        you're not seeing.</p>
                 </div>
-                <div class="api-key-input">
-                    <label for="apiKey">API Key</label>
-                    <input type="password" id="apiKey" placeholder="sk-... or your API key">
-                    <button class="btn-secondary" onclick="toggleApiKey()">👁️</button>
+                <div class="insight-card">
+                    <h4 data-i18n="insight-2-title">👁️ Exposed Assumptions</h4>
+                    <p data-i18n="insight-2-desc">Not hidden consensus. The beliefs you didn't know you had, made
+                        visible.</p>
                 </div>
-                <p class="note">🔒 Your key stays in your browser. Never sent to our servers.</p>
-            </div>
-        </section>
-
-        <!-- Decision Section -->
-        <section class="decision-section" id="decision">
-            <h2>🎯 Your Decision</h2>
-            <textarea id="decisionInput"
-                placeholder="I'm deciding whether to...
-
-Example: I'm deciding whether to accept the new job offer or stay at my current company. The new role offers 40% more salary but requires relocation. I have a young family and we just bought a house."></textarea>
-        </section>
-
-        <!-- Compass Visualization -->
-        <section class="compass-section">
-            <h2>🧭 The Four Directions</h2>
-            <div class="compass">
-                <div class="compass-direction north" id="north-indicator">
-                    <span class="direction-icon">🔵</span>
-                    <span class="direction-label">North</span>
-                    <span class="direction-name">The Visionary</span>
-                    <span class="direction-question">"Where are we going?"</span>
+                <div class="insight-card">
+                    <h4 data-i18n="insight-3-title">💡 Fourth Options</h4>
+                    <p data-i18n="insight-3-desc">Not predetermined choices. Possibilities that emerge only when
+                        perspectives collide.</p>
                 </div>
-                <div class="compass-direction east" id="east-indicator">
-                    <span class="direction-icon">🟢</span>
-                    <span class="direction-label">East</span>
-                    <span class="direction-name">The Challenger</span>
-                    <span class="direction-question">"What's emerging?"</span>
-                </div>
-                <div class="compass-direction south" id="south-indicator">
-                    <span class="direction-icon">🟡</span>
-                    <span class="direction-label">South</span>
-                    <span class="direction-name">The Pragmatist</span>
-                    <span class="direction-question">"What's grounded?"</span>
-                </div>
-                <div class="compass-direction west" id="west-indicator">
-                    <span class="direction-icon">🔴</span>
-                    <span class="direction-label">West</span>
-                    <span class="direction-name">The Sage</span>
-                    <span class="direction-question">"What's proven?"</span>
-                </div>
-                <div class="compass-center">
-                    <button class="btn-primary" id="sparBtn" onclick="runSpar()">
-                        🥊 SPAR
-                    </button>
+                <div class="insight-card">
+                    <h4 data-i18n="insight-4-title">✅ Decisions You Can Stand Behind</h4>
+                    <p data-i18n="insight-4-desc">Not sophisticated confirmation. Choices forged through challenge, not
+                        comfort.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Debate Section -->
-        <section class="debate-section" id="debate" style="display: none;">
-            <h2>⚔️ The Debate</h2>
+        <!-- SPARKIT Protocol Wizard -->
+        <section class="protocol-section" id="protocol">
+            <div class="protocol-header">
+                <h2 class="protocol-title">🥊 The SPARKIT Protocol</h2>
+                <p class="protocol-subtitle">Follow the 7 steps to structured disagreement</p>
+            </div>
 
-            <div class="debate-round" id="round1">
-                <h3>Round 1: Opening Positions</h3>
+            <div class="wizard-steps">
+                <!-- Step S: Scope -->
+                <div class="wizard-step active" data-step="S" id="step-S">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('S')">
+                        <div class="wizard-step-number">S</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Scope</div>
+                            <div class="wizard-step-desc">Define your strategic question</div>
+                        </div>
+                        <div class="wizard-step-status">Current</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <div class="form-group">
+                                <label for="provider" data-i18n="provider-label">AI Provider</label>
+                                <select id="provider">
+                                    <option value="openai">OpenAI (GPT-4)</option>
+                                    <option value="anthropic">Anthropic (Claude)</option>
+                                    <option value="gemini">Google (Gemini)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="apiKey">API Key</label>
+                                <div class="api-row">
+                                    <input type="password" id="apiKey" placeholder="Enter your API key...">
+                                    <button class="btn-icon" id="toggleKeyBtn" onclick="toggleApiKey()"
+                                        title="Toggle visibility">👁️</button>
+                                </div>
+                            </div>
+                            <div class="remember-row">
+                                <input type="checkbox" id="rememberKey">
+                                <label for="rememberKey">Remember API key (stored locally)</label>
+                            </div>
+                            <div class="security-note">
+                                <span>🔒</span>
+                                <span>Your key never leaves your browser. All API calls go directly to your chosen
+                                    provider.</span>
+                            </div>
+                            <div class="form-group" style="margin-top: var(--space-6);">
+                                <label for="decisionInput">Your Decision Question</label>
+                                <textarea id="decisionInput"
+                                    placeholder="I'm deciding whether to...
+
+Describe the decision, the context, and what makes it difficult. The more detail you provide, the more nuanced the debate will be."></textarea>
+                            </div>
+                            <div class="decision-examples">
+                                <p class="examples-title">Quick Examples</p>
+                                <div class="example-chips">
+                                    <span class="example-chip" onclick="setExample('career')">Career change</span>
+                                    <span class="example-chip" onclick="setExample('market')">Market expansion</span>
+                                    <span class="example-chip" onclick="setExample('product')">Product launch</span>
+                                    <span class="example-chip" onclick="setExample('hire')">Key hire</span>
+                                    <span class="example-chip" onclick="setExample('investment')">Investment</span>
+                                </div>
+                            </div>
+                            <div class="wizard-step-actions">
+                                <button class="btn-secondary" onclick="advanceToStep('P')">Continue to Personas
+                                    →</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step P: Populate (ARENA-first) -->
+                <div class="wizard-step locked" data-step="P" id="step-P">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('P')">
+                        <div class="wizard-step-number">P</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Populate</div>
+                            <div class="wizard-step-desc">Choose your ARENA — AI selects optimal personas</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <p style="color: var(--mist); margin-bottom: var(--space-4);">
+                                🏟️ <strong>Select an ARENA</strong> — a pre-configured debate formation optimized for
+                                your decision type:
+                            </p>
+
+                            <!-- ARENA Category Tabs -->
+                            <div class="arena-tabs"
+                                style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4);">
+                                <button class="arena-tab active" onclick="showArenaCategory('product')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--accent); background: var(--accent); color: white; cursor: pointer;">🎨
+                                    Product</button>
+                                <button class="arena-tab" onclick="showArenaCategory('strategy')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--fog); background: transparent; color: var(--cloud); cursor: pointer;">🚀
+                                    Strategy</button>
+                                <button class="arena-tab" onclick="showArenaCategory('people')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--fog); background: transparent; color: var(--cloud); cursor: pointer;">👥
+                                    People</button>
+                                <button class="arena-tab" onclick="showArenaCategory('finance')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--fog); background: transparent; color: var(--cloud); cursor: pointer;">💰
+                                    Finance</button>
+                                <button class="arena-tab" onclick="showArenaCategory('ops')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--fog); background: transparent; color: var(--cloud); cursor: pointer;">⚙️
+                                    Operations</button>
+                                <button class="arena-tab" onclick="showArenaCategory('crisis')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--fog); background: transparent; color: var(--cloud); cursor: pointer;">🚨
+                                    Crisis</button>
+                                <button class="arena-tab" onclick="showArenaCategory('ethics')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--fog); background: transparent; color: var(--cloud); cursor: pointer;">⚖️
+                                    Ethics</button>
+                                <button class="arena-tab" onclick="showArenaCategory('personal')"
+                                    style="padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--fog); background: transparent; color: var(--cloud); cursor: pointer;">🎯
+                                    Personal</button>
+                            </div>
+
+                            <!-- ARENA Options -->
+                            <select id="arena-selector" onchange="selectArena(this.value)"
+                                style="width: 100%; padding: 12px; background: var(--nebula); border: 1px solid var(--meteor); border-radius: var(--radius-sm); color: var(--cloud); font-size: 1rem; margin-bottom: var(--space-4);">
+                                <optgroup label="🎨 Product Decisions" id="arena-product">
+                                    <option value="feature-validation">Feature Request Validation — "Should we build
+                                        this feature?"</option>
+                                    <option value="solution-arch">Solution Architecture — "Is this the right technical
+                                        approach?"</option>
+                                    <option value="ux-redesign">UX Redesign — "Should we redesign this experience?"
+                                    </option>
+                                    <option value="build-vs-buy">Build vs Buy — "Build in-house or buy a solution?"
+                                    </option>
+                                    <option value="mvp-scope">MVP Scope — "What's the right scope for our MVP?"</option>
+                                    <option value="roadmap-priority">Roadmap Priority — "What should we build next?"
+                                    </option>
+                                    <option value="tech-debt">Technical Debt — "Should we pay down this debt?"</option>
+                                    <option value="api-design">API Design — "Is this the right API structure?"</option>
+                                </optgroup>
+                                <optgroup label="🚀 Strategy Decisions" id="arena-strategy" style="display: none;">
+                                    <option value="market-expansion">Market Expansion — "Should we enter this new
+                                        market?"</option>
+                                    <option value="pivot-decision">Pivot Decision — "Should we pivot our business
+                                        model?"</option>
+                                    <option value="competitive-response">Competitive Response — "How should we respond?"
+                                    </option>
+                                    <option value="partnership">Partnership Evaluation — "Should we partner?"</option>
+                                    <option value="acquisition">Acquisition Target — "Should we acquire this company?"
+                                    </option>
+                                    <option value="exit-strategy">Exit Strategy — "When and how should we exit?"
+                                    </option>
+                                    <option value="pricing">Pricing Strategy — "What's the right price?"</option>
+                                </optgroup>
+                                <optgroup label="👥 People Decisions" id="arena-people" style="display: none;">
+                                    <option value="hiring">Hiring Decision — "Should we hire this candidate?"</option>
+                                    <option value="restructure">Team Restructuring — "Should we reorganize?"</option>
+                                    <option value="performance">Performance Issue — "How should we handle this?"
+                                    </option>
+                                    <option value="promotion">Promotion Decision — "Should we promote this person?"
+                                    </option>
+                                    <option value="remote-policy">Remote Work Policy — "What should our policy be?"
+                                    </option>
+                                    <option value="compensation">Compensation Review — "How should we structure comp?"
+                                    </option>
+                                    <option value="layoff">Layoff Decision — "How should we approach reduction?"
+                                    </option>
+                                </optgroup>
+                                <optgroup label="💰 Finance Decisions" id="arena-finance" style="display: none;">
+                                    <option value="investment">Investment Decision — "Should we make this investment?"
+                                    </option>
+                                    <option value="budget">Budget Allocation — "How should we allocate?"</option>
+                                    <option value="fundraise">Fundraising Decision — "Should we raise funding?"</option>
+                                    <option value="cost-cutting">Cost Cutting — "Where should we cut costs?"</option>
+                                    <option value="vendor-negotiation">Vendor Negotiation — "How should we approach?"
+                                    </option>
+                                    <option value="pricing-change">Pricing Change — "Should we change pricing?"</option>
+                                </optgroup>
+                                <optgroup label="⚙️ Operations Decisions" id="arena-ops" style="display: none;">
+                                    <option value="process-change">Process Change — "Should we change this process?"
+                                    </option>
+                                    <option value="vendor-select">Vendor Selection — "Which vendor should we choose?"
+                                    </option>
+                                    <option value="tool-adoption">Tool Adoption — "Should we adopt this tool?"</option>
+                                    <option value="policy-change">Policy Change — "Should we change this policy?"
+                                    </option>
+                                    <option value="security">Security Decision — "How should we improve security?"
+                                    </option>
+                                    <option value="automation">Automation Decision — "Should we automate this?"</option>
+                                </optgroup>
+                                <optgroup label="🚨 Crisis Decisions" id="arena-crisis" style="display: none;">
+                                    <option value="incident">Incident Response — "How do we respond to this incident?"
+                                    </option>
+                                    <option value="pr-crisis">PR Crisis — "How do we handle this PR situation?"</option>
+                                    <option value="escalation">Customer Escalation — "How do we handle this customer?"
+                                    </option>
+                                    <option value="breach">Security Breach — "How do we respond to this breach?"
+                                    </option>
+                                    <option value="leadership-crisis">Leadership Crisis — "How do we handle this?"
+                                    </option>
+                                </optgroup>
+                                <optgroup label="⚖️ Ethics Decisions" id="arena-ethics" style="display: none;">
+                                    <option value="ai-ethics">AI Implementation — "Should we implement AI for this?"
+                                    </option>
+                                    <option value="privacy">Privacy Decision — "Is this data use ethical?"</option>
+                                    <option value="environmental">Environmental Impact — "What's the environmental
+                                        cost?"</option>
+                                    <option value="social">Social Responsibility — "What's our responsibility here?"
+                                    </option>
+                                    <option value="transparency">Transparency Decision — "Should we be transparent?"
+                                    </option>
+                                    <option value="inclusion">Inclusion Decision — "Is this decision inclusive?"
+                                    </option>
+                                </optgroup>
+                                <optgroup label="🎯 Personal Decisions" id="arena-personal" style="display: none;">
+                                    <option value="career">Career Change — "Should I make this career change?"</option>
+                                    <option value="purchase">Major Purchase — "Should I make this purchase?"</option>
+                                    <option value="relationship">Relationship Decision — "Should I make this decision?"
+                                    </option>
+                                    <option value="health">Health Decision — "Should I make this health decision?"
+                                    </option>
+                                    <option value="life-change">Life Change — "Should I make this major change?"
+                                    </option>
+                                </optgroup>
+                            </select>
+
+                            <!-- Selected Arena Preview -->
+                            <div id="arena-preview"
+                                style="background: var(--nebula); border: 1px solid var(--accent); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-4);">
+                                <div
+                                    style="font-weight: 600; color: var(--accent-light); margin-bottom: var(--space-3);">
+                                    🏟️ Feature Request Validation</div>
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3);">
+                                    <div style="display: flex; align-items: center; gap: var(--space-2);">
+                                        <span style="color: var(--north);">🔵</span>
+                                        <span id="preview-north">A1: User Advocate</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: var(--space-2);">
+                                        <span style="color: var(--east);">🟢</span>
+                                        <span id="preview-east">E5: First Mover Advocate</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: var(--space-2);">
+                                        <span style="color: var(--south);">🟡</span>
+                                        <span id="preview-south">R3: Delivery Realist</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: var(--space-2);">
+                                        <span style="color: var(--west);">🔴</span>
+                                        <span id="preview-west">P2: Contrarian Accountant</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Custom Toggle -->
+                            <div style="margin-bottom: var(--space-4);">
+                                <button onclick="toggleCustomPersonas()"
+                                    style="background: transparent; border: 1px solid var(--fog); color: var(--mist); padding: 8px 16px; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.875rem;">
+                                    ⚙️ Customize Personas (Advanced)
+                                </button>
+                            </div>
+
+                            <!-- Hidden Custom Persona Selectors -->
+                            <div id="custom-personas" style="display: none;">
+                                <p style="color: var(--mist); margin-bottom: var(--space-3); font-size: 0.875rem;">
+                                    Override the ARENA defaults:</p>
+                                <div class="persona-grid">
+                                    <!-- North -->
+                                    <div class="persona-selector north-selector">
+                                        <div class="persona-header">
+                                            <span class="direction-icon">🔵</span>
+                                            <span class="direction-label">North</span>
+                                        </div>
+                                        <select id="persona-north" class="persona-dropdown"
+                                            onchange="updatePersonaPreview('north')">
+                                            <optgroup label="Default">
+                                                <option value="north" selected>🔵 The Visionary — "Where are we going?"
+                                                </option>
+                                            </optgroup>
+                                            <optgroup label="📊 Strategist">
+                                                <option value="s1_systems_thinker">🕸️ The Systems Thinker</option>
+                                                <option value="s2_game_theorist">🎯 The Game Theorist</option>
+                                                <option value="s3_scenario_planner">🗺️ The Scenario Planner</option>
+                                            </optgroup>
+                                            <optgroup label="🚀 Explorer">
+                                                <option value="e1_opportunity_seeker">🚀 The Opportunity Seeker</option>
+                                                <option value="e2_innovation_hunter">💡 The Innovation Hunter</option>
+                                                <option value="e3_moonshot">🌙 The Moonshot Thinker</option>
+                                            </optgroup>
+                                            <optgroup label="🛡 Protector">
+                                                <option value="p1_risk_watcher">🔍 The Risk Watcher</option>
+                                                <option value="p5_black_swan">🦢 The Black Swan Hunter</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+
+                                    <!-- East -->
+                                    <div class="persona-selector east-selector">
+                                        <div class="persona-header">
+                                            <span class="direction-icon">🟢</span>
+                                            <span class="direction-label">East</span>
+                                        </div>
+                                        <select id="persona-east" class="persona-dropdown"
+                                            onchange="updatePersonaPreview('east')">
+                                            <optgroup label="Default">
+                                                <option value="east" selected>🟢 The Challenger — "What's emerging?"
+                                                </option>
+                                            </optgroup>
+                                            <optgroup label="🚀 Explorer">
+                                                <option value="e4_beginners_mind">🌱 The Beginner's Mind</option>
+                                                <option value="e2_innovation_hunter">💡 The Innovation Hunter</option>
+                                                <option value="e3_moonshot">🌙 The Moonshot Thinker</option>
+                                            </optgroup>
+                                            <optgroup label="👥 Negotiator">
+                                                <option value="n1_devils_advocate">😈 The Devil's Advocate</option>
+                                                <option value="n2_customer_voice">👤 The Customer Voice</option>
+                                            </optgroup>
+                                            <optgroup label="⚙️ Operator">
+                                                <option value="o1_execution_realist">⚙️ The Execution Realist</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+
+                                    <!-- South -->
+                                    <div class="persona-selector south-selector">
+                                        <div class="persona-header">
+                                            <span class="direction-icon">🟡</span>
+                                            <span class="direction-label">South</span>
+                                        </div>
+                                        <select id="persona-south" class="persona-dropdown"
+                                            onchange="updatePersonaPreview('south')">
+                                            <optgroup label="Default">
+                                                <option value="south" selected>🟡 The Pragmatist — "What's grounded?"
+                                                </option>
+                                            </optgroup>
+                                            <optgroup label="⚙️ Operator">
+                                                <option value="o1_execution_realist">⚙️ The Execution Realist</option>
+                                                <option value="o2_resource_allocator">💰 The Resource Allocator</option>
+                                                <option value="o3_bottleneck_finder">🔧 The Bottleneck Finder</option>
+                                            </optgroup>
+                                            <optgroup label="🛡 Protector">
+                                                <option value="p2_contrarian_accountant">📊 The Contrarian Accountant
+                                                </option>
+                                                <option value="p3_ethics_guardian">👁 The Ethics Guardian</option>
+                                            </optgroup>
+                                            <optgroup label="📊 Strategist">
+                                                <option value="s1_systems_thinker">🕸️ The Systems Thinker</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+
+                                    <!-- West -->
+                                    <div class="persona-selector west-selector">
+                                        <div class="persona-header">
+                                            <span class="direction-icon">🔴</span>
+                                            <span class="direction-label">West</span>
+                                        </div>
+                                        <select id="persona-west" class="persona-dropdown"
+                                            onchange="updatePersonaPreview('west')">
+                                            <optgroup label="Default">
+                                                <option value="west" selected>🔴 The Sage — "What's proven?"</option>
+                                            </optgroup>
+                                            <optgroup label="🔬 Analyst">
+                                                <option value="a1_pattern_matcher">📈 The Pattern Matcher</option>
+                                                <option value="a2_contrarian_evidence">📉 The Contrarian Evidence
+                                                </option>
+                                                <option value="a3_historian">📚 The Historian</option>
+                                            </optgroup>
+                                            <optgroup label="🛡 Protector">
+                                                <option value="p4_regulatory_sentinel">⚖️ The Regulatory Sentinel
+                                                </option>
+                                                <option value="p1_risk_watcher">🔍 The Risk Watcher</option>
+                                            </optgroup>
+                                            <optgroup label="📊 Strategist">
+                                                <option value="s4_long_term">⏳ The Long-Term Advocate</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="wizard-step-actions">
+                                <button class="btn-secondary" onclick="advanceToStep('A')">Continue to Announce
+                                    →</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step A: Announce -->
+                <div class="wizard-step locked" data-step="A" id="step-A">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('A')">
+                        <div class="wizard-step-number">A</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Announce</div>
+                            <div class="wizard-step-desc">Review and launch the SPAR</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <div class="announce-summary">
+                                <h4 style="color: var(--accent); margin-bottom: var(--space-3);">📋 SPAR Summary</h4>
+                                <div class="summary-item">
+                                    <strong>Decision:</strong>
+                                    <span id="summary-decision" style="color: var(--mist);">Not yet defined</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Personas:</strong>
+                                    <span id="summary-personas" style="color: var(--mist);">Not yet selected</span>
+                                </div>
+                                <div class="summary-item">
+                                    <strong>Provider:</strong>
+                                    <span id="summary-provider" style="color: var(--mist);">Not yet selected</span>
+                                </div>
+                            </div>
+                            <div class="wizard-step-actions">
+                                <button class="btn-spar" id="sparBtn" onclick="runSpar()">
+                                    <span class="btn-spar-icon">🥊</span>
+                                    <span class="btn-spar-text">SPAR — Launch the Rumble</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step R: Rumble -->
+                <div class="wizard-step locked" data-step="R" id="step-R">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('R')">
+                        <div class="wizard-step-number">R</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Rumble</div>
+                            <div class="wizard-step-desc">Watch the dialectic unfold</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body" id="rumble-content">
+                            <!-- Debate content will be injected here -->
+                            <p style="color: var(--mist);">The four personas are debating...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step K: Knit -->
+                <div class="wizard-step locked" data-step="K" id="step-K">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('K')">
+                        <div class="wizard-step-number">K</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Knit</div>
+                            <div class="wizard-step-desc">Synthesize tensions into insights</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body" id="knit-content">
+                            <!-- Round 2 / Synthesis content -->
+                            <p style="color: var(--mist);">Ready to synthesize...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step I: Interrogate -->
+                <div class="wizard-step locked" data-step="I" id="step-I">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('I')">
+                        <div class="wizard-step-number">I</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Interrogate</div>
+                            <div class="wizard-step-desc">Challenge and stress-test the synthesis</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body" id="interrogate-content">
+                            <!-- Synthesis review content -->
+                            <p style="color: var(--mist);">Review the synthesized insights...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step T: Transmit -->
+                <div class="wizard-step locked" data-step="T" id="step-T">
+                    <div class="wizard-step-header" onclick="toggleWizardStep('T')">
+                        <div class="wizard-step-number">T</div>
+                        <div class="wizard-step-info">
+                            <div class="wizard-step-name">Transmit</div>
+                            <div class="wizard-step-desc">Export actionable recommendations</div>
+                        </div>
+                        <div class="wizard-step-status">Locked</div>
+                    </div>
+                    <div class="wizard-step-content">
+                        <div class="wizard-step-body">
+                            <p style="color: var(--mist); margin-bottom: var(--space-4);">Export your SPAR session:</p>
+                            <div class="wizard-step-actions" style="justify-content: flex-start;">
+                                <button class="btn-secondary" onclick="exportMarkdown()">📄 Export Markdown</button>
+                                <button class="btn-secondary" onclick="resetSpar()">🔄 New SPAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Debate (Hidden initially) -->
+        <section class="debate-section" id="debate">
+            <div class="round-header">
+                <div class="round-number">1</div>
+                <div>
+                    <h2 class="round-title">Opening Positions</h2>
+                    <p class="round-subtitle">Each direction analyzes your decision from their perspective</p>
+                </div>
+            </div>
+
+            <div class="positions-grid">
+                <div class="position-card north">
+                    <div class="position-header">
+                        <div class="position-identity">
+                            <span class="position-icon">🔵</span>
+                            <div class="position-meta">
+                                <span class="position-direction">North</span>
+                                <span class="position-name">The Visionary</span>
+                            </div>
+                        </div>
+                        <span class="position-status waiting" id="north-status">Waiting</span>
+                    </div>
+                    <div class="position-content empty" id="north-content">
+                        Awaiting response...
+                    </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('north')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="north-retry" style="display: none;"
+                            onclick="retryPersona('north')">🔄 Retry</button>
+                    </div>
+                </div>
+
+                <div class="position-card east">
+                    <div class="position-header">
+                        <div class="position-identity">
+                            <span class="position-icon">🟢</span>
+                            <div class="position-meta">
+                                <span class="position-direction">East</span>
+                                <span class="position-name">The Challenger</span>
+                            </div>
+                        </div>
+                        <span class="position-status waiting" id="east-status">Waiting</span>
+                    </div>
+                    <div class="position-content empty" id="east-content">
+                        Awaiting response...
+                    </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('east')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="east-retry" style="display: none;"
+                            onclick="retryPersona('east')">🔄 Retry</button>
+                    </div>
+                </div>
+
+                <div class="position-card south">
+                    <div class="position-header">
+                        <div class="position-identity">
+                            <span class="position-icon">🟡</span>
+                            <div class="position-meta">
+                                <span class="position-direction">South</span>
+                                <span class="position-name">The Pragmatist</span>
+                            </div>
+                        </div>
+                        <span class="position-status waiting" id="south-status">Waiting</span>
+                    </div>
+                    <div class="position-content empty" id="south-content">
+                        Awaiting response...
+                    </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('south')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="south-retry" style="display: none;"
+                            onclick="retryPersona('south')">🔄 Retry</button>
+                    </div>
+                </div>
+
+                <div class="position-card west">
+                    <div class="position-header">
+                        <div class="position-identity">
+                            <span class="position-icon">🔴</span>
+                            <div class="position-meta">
+                                <span class="position-direction">West</span>
+                                <span class="position-name">The Sage</span>
+                            </div>
+                        </div>
+                        <span class="position-status waiting" id="west-status">Waiting</span>
+                    </div>
+                    <div class="position-content empty" id="west-content">
+                        Awaiting response...
+                    </div>
+                    <div class="position-actions">
+                        <button class="btn-small" onclick="copyResponse('west')">📋 Copy</button>
+                        <button class="btn-small btn-retry" id="west-retry" style="display: none;"
+                            onclick="retryPersona('west')">🔄 Retry</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Round 2: The Clash -->
+            <div id="round2">
+                <div class="round-header">
+                    <div class="round-number">2</div>
+                    <div>
+                        <h2 class="round-title">The Clash</h2>
+                        <p class="round-subtitle">Each direction responds to the others — where do they disagree?</p>
+                    </div>
+                </div>
+
                 <div class="positions-grid">
-                    <div class="position north-pos" id="north-response">
+                    <div class="position-card north">
                         <div class="position-header">
-                            <span>🔵 North — The Visionary</span>
-                            <span class="status" id="north-status">Waiting...</span>
+                            <div class="position-identity">
+                                <span class="position-icon">🔵</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">North</span>
+                                    <span class="position-name">The Visionary</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="north-r2-status">Waiting</span>
                         </div>
-                        <div class="position-content" id="north-content"></div>
+                        <div class="position-content empty" id="north-r2-content">Awaiting clash...</div>
                     </div>
-                    <div class="position east-pos" id="east-response">
+
+                    <div class="position-card east">
                         <div class="position-header">
-                            <span>🟢 East — The Challenger</span>
-                            <span class="status" id="east-status">Waiting...</span>
+                            <div class="position-identity">
+                                <span class="position-icon">🟢</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">East</span>
+                                    <span class="position-name">The Challenger</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="east-r2-status">Waiting</span>
                         </div>
-                        <div class="position-content" id="east-content"></div>
+                        <div class="position-content empty" id="east-r2-content">Awaiting clash...</div>
                     </div>
-                    <div class="position south-pos" id="south-response">
+
+                    <div class="position-card south">
                         <div class="position-header">
-                            <span>🟡 South — The Pragmatist</span>
-                            <span class="status" id="south-status">Waiting...</span>
+                            <div class="position-identity">
+                                <span class="position-icon">🟡</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">South</span>
+                                    <span class="position-name">The Pragmatist</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="south-r2-status">Waiting</span>
                         </div>
-                        <div class="position-content" id="south-content"></div>
+                        <div class="position-content empty" id="south-r2-content">Awaiting clash...</div>
                     </div>
-                    <div class="position west-pos" id="west-response">
+
+                    <div class="position-card west">
                         <div class="position-header">
-                            <span>🔴 West — The Sage</span>
-                            <span class="status" id="west-status">Waiting...</span>
+                            <div class="position-identity">
+                                <span class="position-icon">🔴</span>
+                                <div class="position-meta">
+                                    <span class="position-direction">West</span>
+                                    <span class="position-name">The Sage</span>
+                                </div>
+                            </div>
+                            <span class="position-status waiting" id="west-r2-status">Waiting</span>
                         </div>
-                        <div class="position-content" id="west-content"></div>
+                        <div class="position-content empty" id="west-r2-content">Awaiting clash...</div>
                     </div>
                 </div>
             </div>
 
-            <div class="debate-round" id="round2" style="display: none;">
-                <h3>Round 2: The Clash</h3>
-                <div class="positions-grid">
-                    <div class="position north-pos">
-                        <div class="position-header">
-                            <span>🔵 North responds</span>
-                            <span class="status" id="north-r2-status">Waiting...</span>
-                        </div>
-                        <div class="position-content" id="north-r2-content"></div>
-                    </div>
-                    <div class="position east-pos">
-                        <div class="position-header">
-                            <span>🟢 East responds</span>
-                            <span class="status" id="east-r2-status">Waiting...</span>
-                        </div>
-                        <div class="position-content" id="east-r2-content"></div>
-                    </div>
-                    <div class="position south-pos">
-                        <div class="position-header">
-                            <span>🟡 South responds</span>
-                            <span class="status" id="south-r2-status">Waiting...</span>
-                        </div>
-                        <div class="position-content" id="south-r2-content"></div>
-                    </div>
-                    <div class="position west-pos">
-                        <div class="position-header">
-                            <span>🔴 West responds</span>
-                            <span class="status" id="west-r2-status">Waiting...</span>
-                        </div>
-                        <div class="position-content" id="west-r2-content"></div>
-                    </div>
+            <div class="synthesis-card" id="synthesis" style="display: none;">
+                <div class="synthesis-header">
+                    <span class="synthesis-icon">📊</span>
+                    <h3 class="synthesis-title">Synthesis</h3>
+                    <button class="btn-small" style="margin-left: auto;" onclick="copySynthesis()">📋 Copy</button>
                 </div>
-            </div>
-
-            <div class="synthesis-section" id="synthesis" style="display: none;">
-                <h3>📊 Synthesis</h3>
                 <div class="synthesis-content" id="synthesis-content"></div>
             </div>
 
-            <div class="actions" id="actions" style="display: none;">
-                <button class="btn-secondary" onclick="exportMarkdown()">📄 Export Markdown</button>
-                <button class="btn-secondary" onclick="runRound2()">⚔️ Run Round 2</button>
-                <button class="btn-primary" onclick="resetSpar()">🔄 New SPAR</button>
+            <div class="actions-bar" id="actions" style="display: none;">
+                <button class="btn btn-secondary" onclick="exportMarkdown()">📄 Export Markdown</button>
+                <button class="btn btn-secondary" onclick="runRound2()">⚔️ The Clash (Round 2)</button>
+                <button class="btn btn-primary" onclick="resetSpar()">🔄 New SPAR</button>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <p>
-                <a href="https://github.com/synthanai/spar" target="_blank">SPAR Methodology</a> ·
-                <a href="https://github.com/synthanai/spar-kit" target="_blank">GitHub</a> ·
-                MIT License
-            </p>
-            <p class="tamil">நாலு பேரு நாலு விதமா பேசுவாங்க</p>
+            <div class="footer-philosophy">
+                <p class="tamil">நாலு பேரு நாலு விதமா பேசுவாங்க</p>
+                <p>"Four people speak in four different ways."<br>— Tamil Wisdom</p>
+                <p style="font-size: 1.5rem; margin-top: var(--space-6);">🥊 Don't deliberate alone.
+                    <strong>SPAR.</strong>
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://github.com/synthanai/spar">SPAR Methodology</a>
+                <a href="https://github.com/synthanai/spar-kit">GitHub</a>
+                <a href="https://github.com/synthanai/spar/blob/main/quick-start/SPAR_IN_5_MINUTES.md">Manual Guide</a>
+            </div>
+
+            <p class="footer-credit">MIT License · Created by Naveen Riaz Mohamed Kani</p>
         </footer>
     </div>
 
     <script src="spar.js"></script>
+    <script>
+        // ============================================
+        // INTERNATIONALIZATION (i18n) SYSTEM
+        // நாலு பேரு, நாலு திசை, ஒரு முடிவு
+        // ============================================
+
+        const translations = {
+            en: {
+                // Header
+                'tagline': "Don't deliberate alone.",
+                'tagline-sub': "Four Perspectives, Four Dimensions, One Synthesis",
+                'philosophy-quote': `"The problem isn't AI. <strong>The problem is isolated reasoning.</strong><br><br>
+                    When you deliberate alone — whether you're a lone leader, a homogeneous team, a person chatting with AI, or AI reasoning with itself — you get <em>variations on a theme</em>, not genuine disagreement.<br><br>
+                    <strong>SPAR is different.</strong> By instantiating personas with coherent value systems that <em>genuinely disagree</em>, SPAR surfaces what consensus-seeking processes systematically miss."`,
+
+                // Core Insight
+                'insight-title': '💡 What SPAR Produces',
+                'insight-1-title': '⚔️ Real Arguments',
+                'insight-1-desc': "Not balanced trade-off lists. Genuine disagreement that exposes what you're not seeing.",
+                'insight-2-title': '👁️ Exposed Assumptions',
+                'insight-2-desc': "Not hidden consensus. The beliefs you didn't know you had, made visible.",
+                'insight-3-title': '💡 Fourth Options',
+                'insight-3-desc': "Not predetermined choices. Possibilities that emerge only when perspectives collide.",
+                'insight-4-title': '✅ Decisions You Can Stand Behind',
+                'insight-4-desc': "Not sophisticated confirmation. Choices forged through challenge, not comfort.",
+
+                // Setup
+                'setup-title': 'Setup',
+                'provider-label': 'Provider',
+                'api-key-label': 'API Key',
+                'security-note': '🔒 Your key stays in your browser. Never sent to our servers.',
+
+                // Decision
+                'decision-title': 'Your Decision',
+                'decision-placeholder': 'Describe a decision you need to make. Include context, constraints, and what makes it difficult...',
+                'examples-title': 'Try an example:',
+
+                // Compass
+                'north-label': 'NORTH',
+                'north-name': 'The Visionary',
+                'north-question': 'Where are we going?',
+                'east-label': 'EAST',
+                'east-name': 'The Challenger',
+                'east-question': "What's emerging?",
+                'south-label': 'SOUTH',
+                'south-name': 'The Pragmatist',
+                'south-question': "What's grounded?",
+                'west-label': 'WEST',
+                'west-name': 'The Sage',
+                'west-question': "What's proven?",
+                'spar-btn': 'SPAR',
+                'tension-1': 'Vision ↔ Reality',
+                'tension-2': 'Innovation ↔ Tradition',
+
+                // Rounds
+                'round1-title': 'Opening Positions',
+                'round1-subtitle': 'Each direction states their perspective on your decision.',
+                'round2-title': 'The Clash',
+                'round2-subtitle': 'Each direction responds to the others — where do they disagree?',
+                'synthesis-title': 'Synthesis',
+
+                // Buttons
+                'btn-copy': '📋 Copy',
+                'btn-retry': '🔄 Retry',
+                'btn-export': '📄 Export Markdown',
+                'btn-clash': '⚔️ The Clash (Round 2)',
+                'btn-new': '🔄 New SPAR',
+
+                // Footer
+                'footer-wisdom': '"Four people speak in four different ways."',
+                'footer-wisdom-source': '— Tamil Wisdom',
+                'footer-cta': "🥊 Don't deliberate alone. <strong>SPAR.</strong>",
+
+                // Status
+                'awaiting': 'Awaiting response...',
+                'awaiting-clash': 'Awaiting clash...',
+                'waiting': 'Waiting',
+
+                // Lang toggle
+                'lang-switch': 'தமிழ்'
+            },
+            ta: {
+                // Header
+                'tagline': 'தனியாக ஆலோசிக்காதே.',
+                'tagline-sub': 'நான்கு கண்ணோட்டங்கள், நான்கு பரிமாணங்கள், ஒரு தொகுப்பு',
+                'philosophy-quote': `"பிரச்சனை AI அல்ல. <strong>பிரச்சனை தனிமையான சிந்தனை.</strong><br><br>
+                    நீங்கள் தனியாக ஆலோசிக்கும்போது — ஒரு தனி தலைவராக இருந்தாலும், ஒரே மாதிரியான குழுவாக இருந்தாலும், AI-யுடன் பேசும் நபராக இருந்தாலும், AI தானே சிந்திக்கும்போதும் — நீங்கள் <em>ஒரு கருப்பொருளின் மாறுபாடுகளை</em> பெறுகிறீர்கள், உண்மையான கருத்து வேறுபாடு அல்ல.<br><br>
+                    <strong>SPAR வேறுபட்டது.</strong> <em>உண்மையில் முரண்படும்</em> மதிப்பு அமைப்புகளுடன் பாத்திரங்களை உருவாக்குவதன் மூலம், SPAR ஒருமித்த கருத்து தேடும் செயல்முறைகள் தவறவிடுவதை வெளிப்படுத்துகிறது."`,
+
+                // Core Insight
+                'insight-title': '💡 SPAR உருவாக்குவது',
+                'insight-1-title': '⚔️ உண்மையான வாதங்கள்',
+                'insight-1-desc': 'சமநிலையான பரிமாற்ற பட்டியல்கள் அல்ல. நீங்கள் பார்க்காததை வெளிப்படுத்தும் உண்மையான கருத்து வேறுபாடு.',
+                'insight-2-title': '👁️ வெளிப்படுத்தப்பட்ட அனுமானங்கள்',
+                'insight-2-desc': 'மறைந்த ஒருமித்த கருத்து அல்ல. உங்களுக்கு இருந்ததாக தெரியாத நம்பிக்கைகள், காணக்கூடியதாக்கப்பட்டது.',
+                'insight-3-title': '💡 நான்காவது விருப்பங்கள்',
+                'insight-3-desc': 'முன்னரே தீர்மானிக்கப்பட்ட தேர்வுகள் அல்ல. கண்ணோட்டங்கள் மோதும்போது மட்டுமே வெளிப்படும் சாத்தியங்கள்.',
+                'insight-4-title': '✅ நீங்கள் நிற்கக்கூடிய முடிவுகள்',
+                'insight-4-desc': 'நுட்பமான உறுதிப்படுத்தல் அல்ல. சவால் மூலம் உருவாக்கப்பட்ட தேர்வுகள், வசதி மூலம் அல்ல.',
+
+                // Setup
+                'setup-title': 'அமைப்பு',
+                'provider-label': 'வழங்குநர்',
+                'api-key-label': 'API சாவி',
+                'security-note': '🔒 உங்கள் சாவி உங்கள் உலாவியில் தங்கும். எங்கள் சேவையகங்களுக்கு அனுப்பப்படாது.',
+
+                // Decision
+                'decision-title': 'உங்கள் முடிவு',
+                'decision-placeholder': 'நீங்கள் எடுக்க வேண்டிய முடிவை விவரிக்கவும். சூழல், கட்டுப்பாடுகள், என்ன கடினமாக்குகிறது என சேர்க்கவும்...',
+                'examples-title': 'ஒரு உதாரணத்தை முயற்சிக்கவும்:',
+
+                // Compass
+                'north-label': 'வடக்கு',
+                'north-name': 'தொலைநோக்காளர்',
+                'north-question': 'நாம் எங்கே செல்கிறோம்?',
+                'east-label': 'கிழக்கு',
+                'east-name': 'சவாலிடுபவர்',
+                'east-question': 'என்ன வெளிப்படுகிறது?',
+                'south-label': 'தெற்கு',
+                'south-name': 'நடைமுறைவாதி',
+                'south-question': 'என்ன நிலையானது?',
+                'west-label': 'மேற்கு',
+                'west-name': 'ஞானி',
+                'west-question': 'என்ன நிரூபிக்கப்பட்டது?',
+                'spar-btn': 'SPAR',
+                'tension-1': 'தொலைநோக்கு ↔ யதார்த்தம்',
+                'tension-2': 'புதுமை ↔ பாரம்பரியம்',
+
+                // Rounds
+                'round1-title': 'தொடக்க நிலைப்பாடுகள்',
+                'round1-subtitle': 'ஒவ்வொரு திசையும் உங்கள் முடிவு பற்றிய தங்கள் கண்ணோட்டத்தை கூறுகிறது.',
+                'round2-title': 'மோதல்',
+                'round2-subtitle': 'ஒவ்வொரு திசையும் மற்றவர்களுக்கு பதிலளிக்கிறது — எங்கே கருத்து வேறுபடுகிறார்கள்?',
+                'synthesis-title': 'தொகுப்பு',
+
+                // Buttons
+                'btn-copy': '📋 நகலெடு',
+                'btn-retry': '🔄 மீண்டும்',
+                'btn-export': '📄 Markdown ஏற்றுமதி',
+                'btn-clash': '⚔️ மோதல் (சுற்று 2)',
+                'btn-new': '🔄 புதிய SPAR',
+
+                // Footer
+                'footer-wisdom': '"நாலு பேரு நாலு விதமா பேசுவாங்க"',
+                'footer-wisdom-source': '— தமிழ் ஞானம்',
+                'footer-cta': '🥊 தனியாக ஆலோசிக்காதே. <strong>SPAR.</strong>',
+
+                // Status
+                'awaiting': 'பதிலுக்காக காத்திருக்கிறது...',
+                'awaiting-clash': 'மோதலுக்காக காத்திருக்கிறது...',
+                'waiting': 'காத்திருக்கிறது',
+
+                // Lang toggle
+                'lang-switch': 'English'
+            }
+        };
+
+        let currentLang = localStorage.getItem('spar-lang') || 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ta' : 'en';
+            localStorage.setItem('spar-lang', currentLang);
+            applyLanguage();
+        }
+
+        function applyLanguage() {
+            const t = translations[currentLang];
+
+            // Update toggle button
+            document.getElementById('langCurrent').textContent = t['lang-switch'];
+
+            // Update body class for font styling
+            document.body.classList.toggle('lang-ta', currentLang === 'ta');
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+        }
+
+        // Apply language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage();
+        });
+
+        // Example decisions
+        const examples = {
+            career: "I'm deciding whether to accept a new job offer at 40% higher salary but requiring relocation. I have a young family and we just bought a house. The new role is in a growing company but higher risk.",
+            market: "I'm deciding whether to expand into the Singapore market. We have a proven product in Australia but no local presence. The market is competitive but growing. We'd need to hire a local team.",
+            product: "I'm deciding whether to launch our product now with 80% of features or wait 3 more months for the complete version. Competitors are moving fast but early users want more polish.",
+            hire: "I'm deciding between two candidates for VP of Engineering. One has 15 years experience at big tech companies, excellent credentials. The other is from a startup, less traditional background but more energy and aligns with our culture.",
+            investment: "I'm deciding whether to bootstrap our next phase or take VC funding. We're profitable but growing slowly. VC would accelerate growth but mean giving up control and potentially changing our culture."
+        };
+
+        function setExample(type) {
+            document.getElementById('decisionInput').value = examples[type];
+        }
+
+        function toggleApiKey() {
+            const input = document.getElementById('apiKey');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        // ============================================
+        // SPAR ARENA SYSTEM
+        // ============================================
+
+        const arenaConfigs = {
+            // Product ARENAs
+            'feature-validation': { north: 'A1: User Advocate', east: 'E5: First Mover Advocate', south: 'R3: Delivery Realist', west: 'P2: Contrarian Accountant' },
+            'solution-arch': { north: 'N3: Paradigm Navigator', east: 'E9: Platform Dreamer', south: 'R10: Complexity Reducer', west: 'P6: Technical Debt Warden' },
+            'ux-redesign': { north: 'A1: User Advocate', east: 'E2: Innovation Hunter', south: 'R6: Change Fatigue Monitor', west: 'O7: Cognitive Bias Spotter' },
+            'build-vs-buy': { north: 'N4: Capability Builder', east: 'E4: Adjacent Possible Scout', south: 'R11: Integration Realist', west: 'P2: Contrarian Accountant' },
+            'mvp-scope': { north: 'A1: User Advocate', east: 'E10: Moonshot Advocate', south: 'R4: Deadline Defender', west: 'S4: Pivot Sentinel' },
+            'roadmap-priority': { north: 'A2: Customer Champion', east: 'S5: Competitive Strategist', south: 'R7: Capacity Realist', west: 'P1: Risk Watcher' },
+            'tech-debt': { north: 'N5: Sustainable Pace Keeper', east: 'E7: Creative Destroyer', south: 'R3: Delivery Realist', west: 'P6: Technical Debt Warden' },
+            'api-design': { north: 'E13: Ecosystem Engineer', east: 'E9: Platform Dreamer', south: 'R10: Complexity Reducer', west: 'P7: Security Skeptic' },
+            // Strategy ARENAs
+            'market-expansion': { north: 'N1: Visionary', east: 'E3: Blue Ocean Finder', south: 'R1: Pragmatic Executor', west: 'P1: Risk Watcher' },
+            'pivot-decision': { north: 'N3: Paradigm Navigator', east: 'E8: Paradigm Shifter', south: 'R2: Budget Holder', west: 'S4: Pivot Sentinel' },
+            'competitive-response': { north: 'S5: Competitive Strategist', east: 'E7: Creative Destroyer', south: 'R1: Pragmatic Executor', west: 'O3: Pattern Spotter' },
+            'partnership': { north: 'N6: Alliance Architect', east: 'E6: Exponential Thinker', south: 'R11: Integration Realist', west: 'P4: Regulatory Sentinel' },
+            'acquisition': { north: 'S1: Systems Thinker', east: 'E6: Exponential Thinker', south: 'R12: Integration Specialist', west: 'P2: Contrarian Accountant' },
+            'exit-strategy': { north: 'N1: Visionary', east: 'S2: 10-Year Planner', south: 'R2: Budget Holder', west: 'A4: Employee Advocate' },
+            'pricing': { north: 'S6: Value Capturer', east: 'E11: Contrarian Optimist', south: 'R2: Budget Holder', west: 'A2: Customer Champion' },
+            // People ARENAs
+            'hiring': { north: 'N7: Culture Keeper', east: 'E4: Adjacent Possible Scout', south: 'R7: Capacity Realist', west: 'O6: Cognitive Bias Spotter' },
+            'restructure': { north: 'N4: Capability Builder', east: 'S1: Systems Thinker', south: 'R6: Change Fatigue Monitor', west: 'A4: Employee Advocate' },
+            'performance': { north: 'N5: Sustainable Pace Keeper', east: 'A5: Underdog Champion', south: 'R1: Pragmatic Executor', west: 'P3: Safety Guardian' },
+            'promotion': { north: 'N7: Culture Keeper', east: 'S3: Ripple Mapper', south: 'R7: Capacity Realist', west: 'O6: Cognitive Bias Spotter' },
+            'remote-policy': { north: 'N7: Culture Keeper', east: 'E5: First Mover Advocate', south: 'R1: Pragmatic Executor', west: 'A4: Employee Advocate' },
+            'compensation': { north: 'N5: Sustainable Pace Keeper', east: 'S5: Competitive Strategist', south: 'R2: Budget Holder', west: 'A7: Equity Advocate' },
+            'layoff': { north: 'N5: Sustainable Pace Keeper', east: 'S3: Ripple Mapper', south: 'R1: Pragmatic Executor', west: 'A4: Employee Advocate' },
+            // Finance ARENAs
+            'investment': { north: 'N1: Visionary', east: 'E6: Exponential Thinker', south: 'R5: ROI Calculator', west: 'P1: Risk Watcher' },
+            'budget': { north: 'S1: Systems Thinker', east: 'E10: Moonshot Advocate', south: 'R2: Budget Holder', west: 'P8: Precedent Protector' },
+            'fundraise': { north: 'N1: Visionary', east: 'E5: First Mover Advocate', south: 'R8: Runway Monitor', west: 'P13: Dilution Defender' },
+            'cost-cutting': { north: 'S1: Systems Thinker', east: 'E7: Creative Destroyer', south: 'R5: ROI Calculator', west: 'P9: Burnout Sentinel' },
+            'vendor-negotiation': { north: 'S7: Negotiation Strategist', east: 'E13: Ecosystem Engineer', south: 'R2: Budget Holder', west: 'P4: Regulatory Sentinel' },
+            'pricing-change': { north: 'S6: Value Capturer', east: 'E11: Contrarian Optimist', south: 'R5: ROI Calculator', west: 'A2: Customer Champion' },
+            // Operations ARENAs
+            'process-change': { north: 'N4: Capability Builder', east: 'E4: Adjacent Possible Scout', south: 'R6: Change Fatigue Monitor', west: 'O4: Process Critic' },
+            'vendor-select': { north: 'N4: Capability Builder', east: 'E4: Adjacent Possible Scout', south: 'R11: Integration Realist', west: 'P7: Security Skeptic' },
+            'tool-adoption': { north: 'E4: Adjacent Possible Scout', east: 'E6: Exponential Thinker', south: 'R10: Complexity Reducer', west: 'P2: Contrarian Accountant' },
+            'policy-change': { north: 'N7: Culture Keeper', east: 'S3: Ripple Mapper', south: 'R1: Pragmatic Executor', west: 'P4: Regulatory Sentinel' },
+            'security': { north: 'P7: Security Skeptic', east: 'S1: Systems Thinker', south: 'R2: Budget Holder', west: 'A1: User Advocate' },
+            'automation': { north: 'E6: Exponential Thinker', east: 'E4: Adjacent Possible Scout', south: 'R5: ROI Calculator', west: 'A4: Employee Advocate' },
+            // Crisis ARENAs
+            'incident': { north: 'P3: Safety Guardian', east: 'S8: Crisis Navigator', south: 'R1: Pragmatic Executor', west: 'P5: Reputational Guardian' },
+            'pr-crisis': { north: 'N7: Culture Keeper', east: 'S3: Ripple Mapper', south: 'R1: Pragmatic Executor', west: 'P5: Reputational Guardian' },
+            'escalation': { north: 'A2: Customer Champion', east: 'S3: Ripple Mapper', south: 'R2: Budget Holder', west: 'P4: Regulatory Sentinel' },
+            'breach': { north: 'P7: Security Skeptic', east: 'P4: Regulatory Sentinel', south: 'R1: Pragmatic Executor', west: 'A1: User Advocate' },
+            'leadership-crisis': { north: 'N7: Culture Keeper', east: 'S3: Ripple Mapper', south: 'R1: Pragmatic Executor', west: 'A4: Employee Advocate' },
+            // Ethics ARENAs
+            'ai-ethics': { north: 'N8: AI Ethics Guide', east: 'E6: Exponential Thinker', south: 'R9: Bias Detector', west: 'A4: Employee Advocate' },
+            'privacy': { north: 'P12: Privacy Defender', east: 'S6: Value Capturer', south: 'P4: Regulatory Sentinel', west: 'A1: User Advocate' },
+            'environmental': { north: 'N10: Sustainability Leader', east: 'E11: Contrarian Optimist', south: 'R2: Budget Holder', west: 'A10: Future Generations' },
+            'social': { north: 'N7: Culture Keeper', east: 'S3: Ripple Mapper', south: 'R1: Pragmatic Executor', west: 'P5: Reputational Guardian' },
+            'transparency': { north: 'N7: Culture Keeper', east: 'O9: Transparency Champion', south: 'P4: Regulatory Sentinel', west: 'P5: Reputational Guardian' },
+            'inclusion': { north: 'A7: Equity Advocate', east: 'A9: Accessibility Champion', south: 'R1: Pragmatic Executor', west: 'O6: Cognitive Bias Spotter' },
+            // Personal ARENAs
+            'career': { north: 'N1: Visionary', east: 'E4: Adjacent Possible Scout', south: 'R8: Runway Monitor', west: 'P1: Risk Watcher' },
+            'purchase': { north: 'N5: Sustainable Pace Keeper', east: 'E11: Contrarian Optimist', south: 'R2: Budget Holder', west: 'P2: Contrarian Accountant' },
+            'relationship': { north: 'N7: Culture Keeper', east: 'E12: Future Archaeologist', south: 'R1: Pragmatic Executor', west: 'O6: Cognitive Bias Spotter' },
+            'health': { north: 'P3: Safety Guardian', east: 'E4: Adjacent Possible Scout', south: 'R1: Pragmatic Executor', west: 'N5: Sustainable Pace Keeper' },
+            'life-change': { north: 'N1: Visionary', east: 'E8: Paradigm Shifter', south: 'R6: Change Fatigue Monitor', west: 'P1: Risk Watcher' }
+        };
+
+        // Contextual prompt templates that inject decision context
+        const arenaPromptTemplates = {
+            'feature-validation': {
+                north: (d) => `You are THE USER ADVOCATE analyzing: "${d}"
+
+YOUR MANDATE: Represent the user's true needs, not what they say they want.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What user problem does this actually solve? Is it a real pain point or a nice-to-have?
+2. How do users currently work around not having this?
+3. If we don't build this, what happens to user satisfaction?
+4. Are we building what users asked for, or what they actually need?
+5. Which user segment benefits most?`,
+                east: (d) => `You are THE FIRST MOVER ADVOCATE analyzing: "${d}"
+
+YOUR MANDATE: Identify competitive advantage from speed and timing.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. If we build this first, what market position do we capture?
+2. What happens if a competitor ships this before us?
+3. Is this "table stakes" or a differentiator?
+4. What's the cost of waiting 6 months versus shipping now?
+5. Does this create switching costs for users?`,
+                south: (d) => `You are THE DELIVERY REALIST analyzing: "${d}"
+
+YOUR MANDATE: Ground this decision in execution reality.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What's the REALISTIC timeline? Not optimistic — real.
+2. What else gets delayed if we prioritize this?
+3. Do we have the skills in-house?
+4. What's the maintenance burden after launch?
+5. Can we ship a meaningful version in 2 weeks?`,
+                west: (d) => `You are THE CONTRARIAN ACCOUNTANT analyzing: "${d}"
+
+YOUR MANDATE: Expose the true cost and question the value.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What's the FULL cost? Include design, dev, QA, docs, support, maintenance.
+2. What's the expected revenue or retention impact? Show the math.
+3. What's the cost per user of this feature?
+4. Are we gold-plating something 5% of users will touch?
+5. If we paid out of pocket, would we still build it?`
+            },
+            'market-expansion': {
+                north: (d) => `You are THE VISIONARY analyzing: "${d}"
+
+YOUR MANDATE: Paint the picture of what success looks like in 10 years.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. If this succeeds wildly, what does that world look like?
+2. How does this fit into our long-term vision?
+3. What capabilities does this build that compound over time?
+4. Are we playing a finite game or an infinite game?
+5. In 10 years, will we regret NOT doing this?`,
+                east: (d) => `You are THE BLUE OCEAN FINDER analyzing: "${d}"
+
+YOUR MANDATE: Find uncontested space where competition is irrelevant.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. Is this a blue ocean or bloody red water?
+2. Who's already winning? Can we really beat them?
+3. What would make competition irrelevant?
+4. Are we competing on their terms or creating new terms?
+5. Is there adjacent uncontested space we're ignoring?`,
+                south: (d) => `You are THE PRAGMATIC EXECUTOR analyzing: "${d}"
+
+YOUR MANDATE: Ground strategy in execution reality.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. Do we have the people, money, and attention to execute this?
+2. What has to go RIGHT? How many miracles are we counting on?
+3. What's the first 90 days look like? Be specific.
+4. Who leads this? Do they have bandwidth?
+5. What's our honest execution capability assessment?`,
+                west: (d) => `You are THE RISK WATCHER analyzing: "${d}"
+
+YOUR MANDATE: Surface the risks that optimism obscures.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What's the worst realistic case?
+2. If this fails, can we survive it? What's the blast radius?
+3. What's the exit plan if it's not working in 18 months?
+4. What risks aren't we discussing because they're uncomfortable?
+5. What could kill this? Regulatory? Currency? Competition? Talent?`
+            },
+            'hiring': {
+                north: (d) => `You are THE CULTURE KEEPER analyzing: "${d}"
+
+YOUR MANDATE: Protect and strengthen organizational culture.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. Does this candidate genuinely share our values?
+2. What happens to team dynamics when this person joins?
+3. Would our best people want to work with them?
+4. If we hire 10 people like this, what does our culture become?
+5. Are we compromising because we're desperate to fill the role?`,
+                east: (d) => `You are THE ADJACENT POSSIBLE SCOUT analyzing: "${d}"
+
+YOUR MANDATE: See capabilities that aren't on the resume.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What can this candidate do in 2 years that they can't today?
+2. What unique perspective do they bring that we don't have?
+3. Are we hiring for today's needs or tomorrow's challenges?
+4. What adjacent skills might they develop here?
+5. Is their trajectory going up, flat, or down?`,
+                south: (d) => `You are THE CAPACITY REALIST analyzing: "${d}"
+
+YOUR MANDATE: Ensure we can actually onboard this hire.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. Who's going to onboard them? Do they have bandwidth?
+2. What support does this person need to succeed?
+3. Is the team ready for a new member?
+4. What's the realistic time to productivity?
+5. Do we have management capacity for this hire?`,
+                west: (d) => `You are THE COGNITIVE BIAS SPOTTER analyzing: "${d}"
+
+YOUR MANDATE: Surface the biases affecting this decision.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. Are we favoring them because they're similar to us? (Affinity bias)
+2. Are we over-weighting the interview? (Halo effect)
+3. Are we hiring for credentials over capability?
+4. What would make us say NO? Have we looked for it?
+5. If they had a different background, would we decide the same?`
+            },
+            'career': {
+                north: (d) => `You are THE VISIONARY analyzing: "${d}"
+
+YOUR MANDATE: Connect this decision to a life well-lived.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. In 10 years, how does this fit into your life story?
+2. What kind of person do you want to become?
+3. Is this about escaping something or building toward something?
+4. What's the legacy you want? Does this help?
+5. If you succeed wildly, will you be proud of who you've become?`,
+                east: (d) => `You are THE ADJACENT POSSIBLE SCOUT analyzing: "${d}"
+
+YOUR MANDATE: See possibilities that weren't visible before.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What becomes possible after this that's impossible now?
+2. What doors open? What doors close?
+3. What skills, network, or credibility does this build?
+4. What's newly accessible that you didn't see before?
+5. Is this expanding or constraining your possibility space?`,
+                south: (d) => `You are THE RUNWAY MONITOR analyzing: "${d}"
+
+YOUR MANDATE: Ground dreams in financial reality.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What's your financial runway? Honestly.
+2. What's your burn rate? How long can you sustain a transition?
+3. What are your non-negotiables? Mortgage? Family? Insurance?
+4. What's the minimum viable income during transition?
+5. What's your backup plan if this doesn't work in 12 months?`,
+                west: (d) => `You are THE RISK WATCHER analyzing: "${d}"
+
+YOUR MANDATE: Surface the risks that excitement obscures.
+
+CHALLENGE THIS DECISION BY ASKING:
+1. What's the realistic worst case?
+2. If this fails, how hard is it to recover?
+3. What are you not seeing because you want this to work?
+4. What would make you regret this?
+5. Are you running toward opportunity or away from discomfort?`
+            }
+        };
+
+        // Get contextual prompts for a given arena and decision
+        function getArenaPrompts(arenaId, decision) {
+            const templates = arenaPromptTemplates[arenaId];
+            if (!templates) {
+                // Return generic prompts if no specific template
+                return null;
+            }
+            return {
+                north: templates.north(decision),
+                east: templates.east(decision),
+                south: templates.south(decision),
+                west: templates.west(decision)
+            };
+        }
+
+        function showArenaCategory(category) {
+            // Update tabs
+            document.querySelectorAll('.arena-tab').forEach(tab => {
+                tab.style.background = 'transparent';
+                tab.style.border = '1px solid var(--fog)';
+            });
+            event.target.style.background = 'var(--accent)';
+            event.target.style.border = '1px solid var(--accent)';
+
+            const selector = document.getElementById('arena-selector');
+            const categoryMap = {
+                'product': 'arena-product',
+                'strategy': 'arena-strategy',
+                'people': 'arena-people',
+                'finance': 'arena-finance',
+                'ops': 'arena-ops',
+                'crisis': 'arena-crisis',
+                'ethics': 'arena-ethics',
+                'personal': 'arena-personal'
+            };
+
+            // Show/hide optgroups based on selected category
+            selector.querySelectorAll('optgroup').forEach(group => {
+                if (group.id === categoryMap[category]) {
+                    group.style.display = 'block';
+                    group.querySelectorAll('option').forEach(opt => opt.style.display = 'block');
+                } else {
+                    group.style.display = 'none';
+                    group.querySelectorAll('option').forEach(opt => opt.style.display = 'none');
+                }
+            });
+
+            // Select first visible option
+            const visibleOptions = selector.querySelectorAll(`#${categoryMap[category]} option`);
+            if (visibleOptions.length > 0) {
+                selector.value = visibleOptions[0].value;
+                selectArena(visibleOptions[0].value);
+            }
+        }
+
+        function selectArena(arenaId) {
+            const config = arenaConfigs[arenaId];
+            if (!config) return;
+
+            // Update preview
+            document.getElementById('preview-north').textContent = config.north;
+            document.getElementById('preview-east').textContent = config.east;
+            document.getElementById('preview-south').textContent = config.south;
+            document.getElementById('preview-west').textContent = config.west;
+
+            // Update arena title in preview
+            const selector = document.getElementById('arena-selector');
+            const selectedOption = selector.options[selector.selectedIndex];
+            const arenaTitle = selectedOption.textContent.split('—')[0].trim();
+            document.querySelector('#arena-preview > div:first-child').textContent = '🏟️ ' + arenaTitle;
+        }
+
+        function toggleCustomPersonas() {
+            const panel = document.getElementById('custom-personas');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Initialize arena on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            selectArena('feature-validation');
+        });
+    </script>
 </body>
 
 </html>

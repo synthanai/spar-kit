@@ -1,135 +1,272 @@
-# 🥊 SPAR Kit
+<p align="center">
+  <img src="https://raw.githubusercontent.com/synthanai/spar/main/images/spar_logo.png" alt="SPAR Kit" width="150">
+</p>
 
-**Run AI persona debates in your browser. No installation required.**
+<h1 align="center">🥊 sparkit</h1>
 
-> **நாலு பேரு, நாலு திசை, ஒரு முடிவு**
-> *Four voices, four directions, one decision*
+<p align="center">
+  <strong>Run AI persona debates from your terminal or browser</strong><br>
+  <em>The official tool for <a href="https://github.com/synthanai/spar">SPAR</a> AI-Persona Mode (🤖 A in STASH)</em>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/sparkit"><img src="https://img.shields.io/npm/v/sparkit.svg" alt="npm"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License"></a>
+  <a href="https://synthanai.github.io/spar-kit"><img src="https://img.shields.io/badge/playground-live-orange.svg" alt="Try Now"></a>
+  <img src="https://img.shields.io/badge/tests-140%2B%20passing-brightgreen.svg" alt="Tests">
+</p>
+
+<p align="center">
+  <strong>நாலு பேரு, நாலு திசை, ஒரு முடிவு!</strong><br>
+  <em>One methodology. Five modes. Every decision.</em>
+</p>
 
 ---
 
-## 🚀 Try It Now
+## Installation
 
-**[▶️ Launch SPAR Kit](https://synthanai.github.io/spar-kit)**
+### Web (No Install)
+**[▶️ synthanai.github.io/spar-kit](https://synthanai.github.io/spar-kit)**
 
-Enter your API key, paste your decision, hit SPAR. That's it.
+### CLI
+```bash
+npm install -g sparkit
+```
 
 ---
 
-## What is SPAR Kit?
+## Usage
 
-SPAR Kit is a browser-based tool for running [SPAR](https://github.com/synthanai/spar) debates — structured disagreement between AI personas to stress-test your decisions.
+```bash
+# 🎯 Launch TUI Mission Control (recommended)
+sparkit tui
+
+# 🧙 Launch SPAR Builder wizard
+sparkit builder
+
+# ⚡ Quick debate
+sparkit "Should we expand to Singapore?"
+
+# 📝 Full command
+sparkit debate start "Your decision here"
+
+# 📦 Use a template
+sparkit template use startup-pivot
+```
+
+### TUI Features (v4.0.0)
+
+- **Dashboard**: View all sessions with status indicators
+- **Session Management**: Pause, resume, cancel, clone debates
+- **Live Monitoring**: Watch debates unfold in real-time
+- **Persona Browser**: Browse 109 personas across 7 archetypes
+- **3-Round Rumble**: Structured Opening → Clash → Final protocol
+- **Keyboard Navigation**: Full keyboard control (see `docs/KEYBOARD_SHORTCUTS.md`)
+
+---
+
+## Commands
+
+### Core Commands
+| Command | Description |
+|---------|-------------|
+| `spar` | Start interactive debate |
+| `spar tui` | **NEW!** Launch Mission Control TUI |
+| `spar builder` | **NEW!** Launch SPAR Builder wizard |
+| `spar debate start [topic]` | Start debate session |
+| `spar debate history` | View past sessions |
+
+### Template Commands (NEW!)
+| Command | Description |
+|---------|-------------|
+| `spar template list` | Show all templates |
+| `spar template show <id>` | View template details |
+| `spar template use <id>` | Use template to start debate |
+| `spar template create` | Create custom template |
+| `spar template delete <id>` | Delete a template |
+
+### Built-in Templates
+| Template | Preset | Use Case |
+|----------|--------|----------|
+| `startup-pivot` | 🚀 Startup | Evaluate major pivots |
+| `hiring-decision` | 💼 Corporate | Should you hire this person? |
+| `investment-eval` | 💼 Corporate | Evaluate investments |
+| `product-launch` | 🎨 Innovation | Launch readiness |
+| `crisis-response` | ⚠️ Crisis | Emergency decisions |
+| `ethics-dilemma` | ⚖️ Ethics | Navigate ethical situations |
+
+### Other Commands
+| Command | Description |
+|---------|-------------|
+| `spar persona list` | Show all 108 personas |
+| `spar persona create` | Create custom persona |
+| `spar config setup` | Configure provider & API key |
+| `spar config show` | View configuration |
+| `spar status` | Show version & stats |
+| `spar compass` | Display N-E-W-S framework |
+
+---
+
+## The SPARKIT Protocol
+
+```
+S — SCOPE       Define the question precisely
+P — POPULATE    Instantiate clashing personas  
+A — ANNOUNCE    Present the challenge equally
+R — RUMBLE      3-round structured dialectic:
+                - R1: Opening (1500 tokens)
+                - R2: Clash (1200 tokens)
+                - R3: Final (1000 tokens)
+K — KNIT        Moderator synthesizes tensions (21k tokens)
+I — INTERROGATE Stress-test the synthesis
+T — TRANSMIT    Extract actionable recommendations
+```
+
+---
+
+## The Four Directions
 
 ```
                     🔵 NORTH
                    The Visionary
                 "Where are we going?"
                          │
-                         │
-         🔴 WEST ────────┼──────── 🟢 EAST
-         The Sage        │        The Challenger
-     "What's proven?"    │     "What's emerging?"
-                         │
+    🔴 WEST ─────────────┼───────────── 🟢 EAST
+    The Sage             │          The Challenger
+ "What's proven?"        │       "What's emerging?"
                          │
                     🟡 SOUTH
                   The Pragmatist
                "What's grounded?"
 ```
 
-### Features
-
-- ✅ **Zero installation** — runs entirely in your browser
-- ✅ **Multi-provider** — OpenAI, Anthropic, or Google Gemini
-- ✅ **Parallel execution** — all 4 personas run simultaneously
-- ✅ **Two-round debates** — opening positions + the clash
-- ✅ **Auto-synthesis** — AI moderator summarizes tensions & insights
-- ✅ **Markdown export** — save your SPAR sessions
-- ✅ **Privacy-first** — API keys never leave your browser
-
 ---
 
-## How It Works
+## Configuration
 
-1. **Enter your API key** (OpenAI, Anthropic, or Gemini)
-2. **Describe your decision** in the text area
-3. **Click SPAR** — four personas debate in parallel
-4. **Read the clash** — Round 2 surfaces tensions
-5. **Export your session** — Markdown download
+**Global config:** `~/.spar/`
 
----
-
-## The Four Directions
-
-| Direction | Persona | Core Question |
-|-----------|---------|---------------|
-| 🔵 **North** | The Visionary | "Where are we going?" |
-| 🟢 **East** | The Challenger | "What's emerging?" |
-| 🟡 **South** | The Pragmatist | "What's grounded?" |
-| 🔴 **West** | The Sage | "What's proven?" |
-
-**Natural tensions:**
-- **North ↔ South**: Vision vs. Reality
-- **East ↔ West**: Innovation vs. Tradition
-
----
-
-## Self-Hosting
-
-SPAR Kit is a static site. To host your own:
-
-```bash
-git clone https://github.com/synthanai/spar-kit.git
-cd spar-kit
-# Open index.html in your browser, or:
-python -m http.server 8000
-# Visit http://localhost:8000
+```
+~/.spar/
+├── config.json     # Provider + API key
+├── personas/       # Custom personas
+└── sessions/       # Auto-saved debates
 ```
 
 ---
 
-## Privacy & Security
+## Providers
 
-- 🔒 **Your API key stays local** — stored only in your browser session
-- 🔒 **No backend** — all AI calls go directly to provider APIs
-- 🔒 **No tracking** — no analytics, no cookies, no data collection
-- 🔒 **Open source** — audit the code yourself
-
----
-
-## Related
-
-- **[SPAR](https://github.com/synthanai/spar)** — The methodology, principles, and persona library
-- **[SPAR in 5 Minutes](https://github.com/synthanai/spar/blob/main/quick-start/SPAR_IN_5_MINUTES.md)** — Manual quickstart guide
+| Provider | Model |
+|----------|-------|
+| OpenAI | GPT-4 Turbo |
+| Anthropic | Claude 3.5 Sonnet |
+| Google | Gemini 1.5 Flash |
 
 ---
 
-## Contributing
+## Security
 
-Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+- API keys stored locally in `~/.spar/config.json`
+- No server — direct API calls to your provider
+- Web version uses browser localStorage
 
-Ideas for contribution:
-- 🎨 UI/UX improvements
-- 🌍 Translations
-- 🔌 Additional AI provider integrations
-- 📱 Mobile optimization
-- ♿ Accessibility improvements
+---
+
+## Testing
+
+```bash
+# Run all tests (102 tests)
+npm test
+
+# Watch mode
+npm run test:watch
+
+# Coverage report
+npm run test:coverage
+```
+
+### Test Suite
+
+| Suite | Tests | Coverage |
+|-------|-------|----------|
+| `cli.test.js` | CLI configuration, personas, providers, validation | ✅ |
+| `spar.test.js` | HTML structure, accessibility, JavaScript engine | ✅ |
+| `style.test.js` | CSS variables, layout, components, syntax | ✅ |
+| `integration.test.js` | Full debate flow, cross-component consistency | ✅ |
+
+---
+
+## SPAR Methodology
+
+This toolkit implements the **[SPAR](https://github.com/synthanai/spar)** methodology. For full documentation:
+
+| Resource | Description |
+|----------|-------------|
+| **[SPAR in 5 Minutes](https://github.com/synthanai/spar/blob/main/quick-start/SPAR_IN_5_MINUTES.md)** | Get started immediately |
+| **[STASH Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)** | 5 modes: Solo Human, Team Human, AI-Persona, Solo AI, Hybrid |
+| **[The Four Directions](https://github.com/synthanai/spar/blob/main/docs/FOUR_DIRECTIONS.md)** | Canonical N-E-W-S compass reference |
+| **[The Five Principles](https://github.com/synthanai/spar/blob/main/docs/FIVE_PRINCIPLES.md)** | Non-negotiable foundations |
+| **[SPAR Manifesto](https://github.com/synthanai/spar/blob/main/docs/MANIFESTO.md)** | Core philosophy & methodology |
+| **[Persona Library](https://github.com/synthanai/spar/blob/main/templates/PERSONA_LIBRARY.md)** | 20+ ready-to-use personas |
+| **[Example Session](https://github.com/synthanai/spar/blob/main/examples/strategic_expansion.md)** | Full SPAR walkthrough |
+
+---
+
+## Example
+
+```bash
+$ spar "Should we pivot from B2B to B2C?"
+
+╔═══════════════════════════════════════════════════════════════╗
+║   🥊  S P A R   v4.0.0                                        ║
+╚═══════════════════════════════════════════════════════════════╝
+
+═══ RUMBLE — Round 1/3: Opening ═══
+  Token budget: 1500 tokens
+
+🔵 North — "B2C is where the scale is..."
+🟢 East — "The market is shifting..."
+🟡 South — "Do you have the capital?"
+🔴 West — "Every B2C company started with B2B..."
+
+═══ RUMBLE — Round 2/3: The Clash ═══
+═══ RUMBLE — Round 3/3: Final Positions ═══
+
+✓ 3-Round Rumble Complete
+📊 SYNTHESIS: Key Tensions, Evolution, Insights
+✓ Session saved to ~/.spar/sessions/...
+```
+
+---
+
+## Development
+
+```bash
+git clone https://github.com/synthanai/spar-kit.git
+cd spar-kit
+npm install
+npm test        # Run 102 tests
+node cli/index.js
+```
+
+---
+
+## Links
+
+- **[SPAR Methodology](https://github.com/synthanai/spar)** — The framework
+- **[STASH Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)** — 5 modes for running SPAR
+- **[Web Playground](https://synthanai.github.io/spar-kit)** — Try in browser
+- **[ASPIRES Framework](https://github.com/synthanai/spar/blob/main/docs/ADVANCED_PATTERNS.md)** — Advanced patterns
 
 ---
 
 ## License
 
-MIT License — use freely, attribute kindly.
+MIT © [Naveen Riaz Mohamed Kani](https://github.com/synthanai)
 
 ---
 
-## Author
-
-**Naveen Riaz Mohamed Kani**
-
-Built with the SPAR methodology — using structured disagreement to stress-test the tool itself.
-
----
-
-> **நாலு பேரு, நாலு திசை, ஒரு முடிவு.**
-> **Four voices, four directions, one decision.**
-
-*Don't deliberate alone. SPAR.* 🥊
+<p align="center">
+  <em>Don't deliberate alone. SPAR.</em> 🥊
+</p>

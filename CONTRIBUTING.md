@@ -84,4 +84,4 @@ Open an issue or reach out on [LinkedIn](https://linkedin.com/in/naveenriaz).
 ---
 
 > **நாலு பேரு, நாலு திசை, ஒரு முடிவு.**
-> *Four voices, four directions, one decision.*
+> *Four Perspectives, Four Dimensions, One Synthesis.*

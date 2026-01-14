@@ -88,10 +88,10 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [ ] **TASK-039**: Test checkpoint serialization/deserialization
 
 #### 4.2 Component Tests (`__tests__/components/`)
-- [ ] **TASK-040**: Test `<Dashboard>` rendering
-- [ ] **TASK-041**: Test `<SessionList>` keyboard navigation
-- [ ] **TASK-042**: Test `<SessionDetail>` phase display
-- [ ] **TASK-043**: Test `<LiveSession>` streaming updates
+- [x] **TASK-040**: Test `<Dashboard>` rendering ✅ [tui.test.js]
+- [x] **TASK-041**: Test `<SessionList>` keyboard navigation ✅ [tui.test.js]
+- [x] **TASK-042**: Test `<SessionDetail>` phase display ✅ [tui.test.js]
+- [x] **TASK-043**: Test `<LiveSession>` streaming updates ✅ [tui.test.js]
 
 #### 4.3 Integration Tests (`__tests__/integration/`)
 - [x] **TASK-044**: Test full debate flow (start → complete) ✅ [debate-flow.test.js]
@@ -101,10 +101,10 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [x] **TASK-048**: Test session persistence across restarts ✅ [debate-flow.test.js]
 
 #### 4.4 End-to-End Tests (`__tests__/e2e/`)
-- [ ] **TASK-049**: E2E: New debate with Ollama
-- [ ] **TASK-050**: E2E: TUI navigation and selection
-- [ ] **TASK-051**: E2E: Export and file verification
-- [ ] **TASK-052**: E2E: Error recovery scenarios
+- [x] **TASK-049**: E2E: New debate with Ollama ✅ [scenarios.test.js]
+- [x] **TASK-050**: E2E: TUI navigation and selection ✅ [scenarios.test.js]
+- [x] **TASK-051**: E2E: Export and file verification ✅ [scenarios.test.js]
+- [x] **TASK-052**: E2E: Error recovery scenarios ✅ [scenarios.test.js]
 
 ---
 
@@ -141,11 +141,11 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 ### Phase 6: Performance & Load Testing
 
 #### 6.1 Performance Tests (`__tests__/performance/`)
-- [ ] **TASK-071**: Benchmark session list loading (1000+ sessions)
-- [ ] **TASK-072**: Benchmark session detail rendering
-- [ ] **TASK-073**: Benchmark TUI startup time (< 500ms target)
-- [ ] **TASK-074**: Benchmark memory usage during long debates
-- [ ] **TASK-075**: Profile LLM streaming performance
+- [x] **TASK-071**: Benchmark session list loading (1000+ sessions) ✅ [benchmarks.test.js]
+- [x] **TASK-072**: Benchmark session detail rendering ✅ [benchmarks.test.js]
+- [x] **TASK-073**: Benchmark TUI startup time (< 500ms target) ✅ [benchmarks.test.js]
+- [x] **TASK-074**: Benchmark memory usage during long debates ✅ [benchmarks.test.js]
+- [x] **TASK-075**: Profile LLM streaming performance ✅ [benchmarks.test.js]
 
 #### 6.2 Load Tests (`__tests__/load/`)
 - [ ] **TASK-076**: Stress test concurrent debate sessions

@@ -42,7 +42,7 @@ You will analyze a decision. Argue your perspective directly.
 Don't be balanced — be you. Challenge others to think beyond current constraints.
 When you see small thinking, name it. When you see untapped potential, champion it.
 
-Keep your response focused and under 300 words.`
+⚠️ CRITICAL: Keep your response under 2100 tokens (approximately 250-300 words). Be direct and impactful.`
     },
     east: {
         name: 'The Challenger',
@@ -61,7 +61,7 @@ You will analyze a decision. Argue your perspective directly.
 Don't be balanced — be you. Challenge assumptions that worked yesterday but may fail tomorrow.
 When you see complacency, disrupt it. When you see fresh approaches, advocate for them.
 
-Keep your response focused and under 300 words.`
+⚠️ CRITICAL: Keep your response under 2100 tokens (approximately 250-300 words). Be direct and impactful.`
     },
     south: {
         name: 'The Pragmatist',
@@ -80,7 +80,7 @@ You will analyze a decision. Argue your perspective directly.
 Don't be balanced — be you. Ground airy visions in operational reality.
 When you see wishful thinking, challenge it. When you see solid plans, support them.
 
-Keep your response focused and under 300 words.`
+⚠️ CRITICAL: Keep your response under 2100 tokens (approximately 250-300 words). Be direct and impactful.`
     },
     west: {
         name: 'The Sage',
@@ -99,7 +99,7 @@ You will analyze a decision. Argue your perspective directly.
 Don't be balanced — be you. Bring the weight of experience to bear on shiny new ideas.
 When you see historical patterns being ignored, name them. When you see genuine novelty, acknowledge it.
 
-Keep your response focused and under 300 words.`
+⚠️ CRITICAL: Keep your response under 2100 tokens (approximately 250-300 words). Be direct and impactful.`
     }
 };
 

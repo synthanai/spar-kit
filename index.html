@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -1299,6 +1299,62 @@
         .synthesis-content p {
             margin-bottom: var(--space-3);
         }
+
+        /* ============================================
+           LANGUAGE TOGGLE
+           ============================================ */
+
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: var(--nebula);
+            border: 1px solid var(--meteor);
+            border-radius: var(--radius-full);
+            color: var(--cloud);
+            font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--duration-fast);
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--pure);
+            transform: scale(1.05);
+        }
+
+        .lang-btn::before {
+            content: '🌐';
+            font-size: 1rem;
+        }
+
+        /* Tamil-specific styling */
+        body.lang-ta {
+            font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+        }
+
+        body.lang-ta .tagline,
+        body.lang-ta .section-title,
+        body.lang-ta .insight-card h4,
+        body.lang-ta .insight-card p,
+        body.lang-ta label,
+        body.lang-ta .btn,
+        body.lang-ta .round-title,
+        body.lang-ta .round-subtitle {
+            font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+        }
     </style>
 </head>
 
@@ -1306,20 +1362,28 @@
     <div class="bg-pattern"></div>
 
     <div class="container">
+        <!-- Language Toggle -->
+        <div class="lang-toggle">
+            <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">
+                <span class="lang-current" id="langCurrent">தமிழ்</span>
+            </button>
+        </div>
+
         <!-- Hero -->
         <header class="hero">
             <div class="logo">
                 <span class="logo-icon">🥊</span>
                 <span class="logo-text">SPAR</span>
             </div>
-            <p class="tagline">Don't deliberate alone.</p>
+            <p class="tagline" data-i18n="tagline">Don't deliberate alone.</p>
             <p class="tagline-tamil">நாலு பேரு, நாலு திசை, ஒரு முடிவு</p>
-            <p class="tagline-tamil" style="font-size: 1rem; opacity: 0.6;">Four Perspectives, Four Dimensions, One
+            <p class="tagline-tamil" style="font-size: 1rem; opacity: 0.6;" data-i18n="tagline-sub">Four Perspectives,
+                Four Dimensions, One
                 Synthesis
             </p>
 
             <div class="philosophy-quote">
-                <blockquote>
+                <blockquote data-i18n="philosophy-quote">
                     "When you ask AI for 'multiple perspectives,' you get something that <em>looks</em> like
                     disagreement but isn't. The perspectives don't actually conflict — they're variations on a
                     theme.<br><br>
@@ -1666,6 +1730,196 @@ Describe the decision, the context, and what makes it difficult. The more detail
 
     <script src="spar.js"></script>
     <script>
+        // ============================================
+        // INTERNATIONALIZATION (i18n) SYSTEM
+        // நாலு பேரு, நாலு திசை, ஒரு முடிவு
+        // ============================================
+
+        const translations = {
+            en: {
+                // Header
+                'tagline': "Don't deliberate alone.",
+                'tagline-sub': "Four Perspectives, Four Dimensions, One Synthesis",
+                'philosophy-quote': `"When you ask AI for 'multiple perspectives,' you get something that <em>looks</em> like
+                    disagreement but isn't. The perspectives don't actually conflict — they're variations on a
+                    theme.<br><br>
+                    <strong>SPAR is different.</strong> By instantiating separate personas with genuinely conflicting
+                    value systems, SPAR surfaces what consensus-seeking processes systematically miss."`,
+
+                // Core Insight
+                'insight-title': '💡 The Core Insight',
+                'insight-1-title': '⚔️ Real Arguments',
+                'insight-1-desc': "Not balanced trade-off lists. Genuine disagreement that exposes what you're not seeing.",
+                'insight-2-title': '👁️ Exposed Assumptions',
+                'insight-2-desc': "Not hidden consensus. The beliefs you didn't know you had, made visible.",
+                'insight-3-title': '💡 Fourth Options',
+                'insight-3-desc': "Not predetermined choices. Possibilities that emerge only when perspectives collide.",
+                'insight-4-title': '✅ Decisions You Can Stand Behind',
+                'insight-4-desc': "Not sophisticated confirmation. Choices forged through challenge, not comfort.",
+
+                // Setup
+                'setup-title': 'Setup',
+                'provider-label': 'Provider',
+                'api-key-label': 'API Key',
+                'security-note': '🔒 Your key stays in your browser. Never sent to our servers.',
+
+                // Decision
+                'decision-title': 'Your Decision',
+                'decision-placeholder': 'Describe a decision you need to make. Include context, constraints, and what makes it difficult...',
+                'examples-title': 'Try an example:',
+
+                // Compass
+                'north-label': 'NORTH',
+                'north-name': 'The Visionary',
+                'north-question': 'Where are we going?',
+                'east-label': 'EAST',
+                'east-name': 'The Challenger',
+                'east-question': "What's emerging?",
+                'south-label': 'SOUTH',
+                'south-name': 'The Pragmatist',
+                'south-question': "What's grounded?",
+                'west-label': 'WEST',
+                'west-name': 'The Sage',
+                'west-question': "What's proven?",
+                'spar-btn': 'SPAR',
+                'tension-1': 'Vision ↔ Reality',
+                'tension-2': 'Innovation ↔ Tradition',
+
+                // Rounds
+                'round1-title': 'Opening Positions',
+                'round1-subtitle': 'Each direction states their perspective on your decision.',
+                'round2-title': 'The Clash',
+                'round2-subtitle': 'Each direction responds to the others — where do they disagree?',
+                'synthesis-title': 'Synthesis',
+
+                // Buttons
+                'btn-copy': '📋 Copy',
+                'btn-retry': '🔄 Retry',
+                'btn-export': '📄 Export Markdown',
+                'btn-clash': '⚔️ The Clash (Round 2)',
+                'btn-new': '🔄 New SPAR',
+
+                // Footer
+                'footer-wisdom': '"Four people speak in four different ways."',
+                'footer-wisdom-source': '— Tamil Wisdom',
+                'footer-cta': "🥊 Don't deliberate alone. <strong>SPAR.</strong>",
+
+                // Status
+                'awaiting': 'Awaiting response...',
+                'awaiting-clash': 'Awaiting clash...',
+                'waiting': 'Waiting',
+
+                // Lang toggle
+                'lang-switch': 'தமிழ்'
+            },
+            ta: {
+                // Header
+                'tagline': 'தனியாக ஆலோசிக்காதே.',
+                'tagline-sub': 'நான்கு கண்ணோட்டங்கள், நான்கு பரிமாணங்கள், ஒரு தொகுப்பு',
+                'philosophy-quote': `"நீங்கள் AI-யிடம் 'பல கண்ணோட்டங்கள்' கேட்கும்போது, கருத்து வேறுபாடு <em>போல் தெரியும்</em> ஆனால் 
+                    அது உண்மையில் அல்ல. கண்ணோட்டங்கள் உண்மையில் முரண்படுவதில்லை — அவை ஒரு கருப்பொருளின் மாறுபாடுகள்.<br><br>
+                    <strong>SPAR வேறுபட்டது.</strong> உண்மையில் முரண்படும் மதிப்பு அமைப்புகளுடன் தனித்தனி பாத்திரங்களை 
+                    உடனடியாக்குவதன் மூலம், SPAR ஒருமித்த கருத்து தேடும் செயல்முறைகள் முறையாக தவறவிடுவதை வெளிப்படுத்துகிறது."`,
+
+                // Core Insight
+                'insight-title': '💡 முக்கிய நுண்ணறிவு',
+                'insight-1-title': '⚔️ உண்மையான வாதங்கள்',
+                'insight-1-desc': 'சமநிலையான பரிமாற்ற பட்டியல்கள் அல்ல. நீங்கள் பார்க்காததை வெளிப்படுத்தும் உண்மையான கருத்து வேறுபாடு.',
+                'insight-2-title': '👁️ வெளிப்படுத்தப்பட்ட அனுமானங்கள்',
+                'insight-2-desc': 'மறைந்த ஒருமித்த கருத்து அல்ல. உங்களுக்கு இருந்ததாக தெரியாத நம்பிக்கைகள், காணக்கூடியதாக்கப்பட்டது.',
+                'insight-3-title': '💡 நான்காவது விருப்பங்கள்',
+                'insight-3-desc': 'முன்னரே தீர்மானிக்கப்பட்ட தேர்வுகள் அல்ல. கண்ணோட்டங்கள் மோதும்போது மட்டுமே வெளிப்படும் சாத்தியங்கள்.',
+                'insight-4-title': '✅ நீங்கள் நிற்கக்கூடிய முடிவுகள்',
+                'insight-4-desc': 'நுட்பமான உறுதிப்படுத்தல் அல்ல. சவால் மூலம் உருவாக்கப்பட்ட தேர்வுகள், வசதி மூலம் அல்ல.',
+
+                // Setup
+                'setup-title': 'அமைப்பு',
+                'provider-label': 'வழங்குநர்',
+                'api-key-label': 'API சாவி',
+                'security-note': '🔒 உங்கள் சாவி உங்கள் உலாவியில் தங்கும். எங்கள் சேவையகங்களுக்கு அனுப்பப்படாது.',
+
+                // Decision
+                'decision-title': 'உங்கள் முடிவு',
+                'decision-placeholder': 'நீங்கள் எடுக்க வேண்டிய முடிவை விவரிக்கவும். சூழல், கட்டுப்பாடுகள், என்ன கடினமாக்குகிறது என சேர்க்கவும்...',
+                'examples-title': 'ஒரு உதாரணத்தை முயற்சிக்கவும்:',
+
+                // Compass
+                'north-label': 'வடக்கு',
+                'north-name': 'தொலைநோக்காளர்',
+                'north-question': 'நாம் எங்கே செல்கிறோம்?',
+                'east-label': 'கிழக்கு',
+                'east-name': 'சவாலிடுபவர்',
+                'east-question': 'என்ன வெளிப்படுகிறது?',
+                'south-label': 'தெற்கு',
+                'south-name': 'நடைமுறைவாதி',
+                'south-question': 'என்ன நிலையானது?',
+                'west-label': 'மேற்கு',
+                'west-name': 'ஞானி',
+                'west-question': 'என்ன நிரூபிக்கப்பட்டது?',
+                'spar-btn': 'SPAR',
+                'tension-1': 'தொலைநோக்கு ↔ யதார்த்தம்',
+                'tension-2': 'புதுமை ↔ பாரம்பரியம்',
+
+                // Rounds
+                'round1-title': 'தொடக்க நிலைப்பாடுகள்',
+                'round1-subtitle': 'ஒவ்வொரு திசையும் உங்கள் முடிவு பற்றிய தங்கள் கண்ணோட்டத்தை கூறுகிறது.',
+                'round2-title': 'மோதல்',
+                'round2-subtitle': 'ஒவ்வொரு திசையும் மற்றவர்களுக்கு பதிலளிக்கிறது — எங்கே கருத்து வேறுபடுகிறார்கள்?',
+                'synthesis-title': 'தொகுப்பு',
+
+                // Buttons
+                'btn-copy': '📋 நகலெடு',
+                'btn-retry': '🔄 மீண்டும்',
+                'btn-export': '📄 Markdown ஏற்றுமதி',
+                'btn-clash': '⚔️ மோதல் (சுற்று 2)',
+                'btn-new': '🔄 புதிய SPAR',
+
+                // Footer
+                'footer-wisdom': '"நாலு பேரு நாலு விதமா பேசுவாங்க"',
+                'footer-wisdom-source': '— தமிழ் ஞானம்',
+                'footer-cta': '🥊 தனியாக ஆலோசிக்காதே. <strong>SPAR.</strong>',
+
+                // Status
+                'awaiting': 'பதிலுக்காக காத்திருக்கிறது...',
+                'awaiting-clash': 'மோதலுக்காக காத்திருக்கிறது...',
+                'waiting': 'காத்திருக்கிறது',
+
+                // Lang toggle
+                'lang-switch': 'English'
+            }
+        };
+
+        let currentLang = localStorage.getItem('spar-lang') || 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ta' : 'en';
+            localStorage.setItem('spar-lang', currentLang);
+            applyLanguage();
+        }
+
+        function applyLanguage() {
+            const t = translations[currentLang];
+
+            // Update toggle button
+            document.getElementById('langCurrent').textContent = t['lang-switch'];
+
+            // Update body class for font styling
+            document.body.classList.toggle('lang-ta', currentLang === 'ta');
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+        }
+
+        // Apply language on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage();
+        });
+
         // Example decisions
         const examples = {
             career: "I'm deciding whether to accept a new job offer at 40% higher salary but requiring relocation. I have a young family and we just bought a house. The new role is in a growing company but higher risk.",

@@ -229,15 +229,15 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 
 #### 9.4 Employment & Social Impact
 - [ ] **TASK-122**: Analyze potential employment impact of automation features
-- [ ] **TASK-123**: Document job augmentation (not replacement) strategies
+- [x] **TASK-123**: Document job augmentation (not replacement) strategies ✅ [docs/JOB_AUGMENTATION.md]
 - [ ] **TASK-124**: Create guidelines for responsible deployment in workplaces
 - [ ] **TASK-125**: Design upskilling pathways for users transitioning to AI-assisted decisions
 
 #### 9.5 Ethical Framework & Governance
 - [x] **TASK-126**: Document ethical guardrails for AI decision-making boundaries ✅ [docs/ETHICAL_FRAMEWORK.md]
 - [x] **TASK-127**: Implement bias detection and mitigation in AI outputs ✅ [cli/bias.js]
-- [ ] **TASK-128**: Create accountability chain for AI-influenced decisions
-- [ ] **TASK-129**: Establish data privacy standards for decision context
+- [x] **TASK-128**: Create accountability chain for AI-influenced decisions ✅ [docs/ACCOUNTABILITY_CHAIN.md]
+- [x] **TASK-129**: Establish data privacy standards for decision context ✅ [docs/DATA_PRIVACY.md]
 - [x] **TASK-130**: Design audit trail for algorithmic decision processes ✅ [cli/audit.js]
 
 #### 9.6 Continuous Monitoring & Adaptation

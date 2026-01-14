@@ -234,7 +234,7 @@ Transform `sparkit status` from a static printout into an **interactive terminal
 - [ ] **TASK-125**: Design upskilling pathways for users transitioning to AI-assisted decisions
 
 #### 9.5 Ethical Framework & Governance
-- [ ] **TASK-126**: Document ethical guardrails for AI decision-making boundaries
+- [x] **TASK-126**: Document ethical guardrails for AI decision-making boundaries ✅ [docs/ETHICAL_FRAMEWORK.md]
 - [ ] **TASK-127**: Implement bias detection and mitigation in AI outputs
 - [ ] **TASK-128**: Create accountability chain for AI-influenced decisions
 - [ ] **TASK-129**: Establish data privacy standards for decision context

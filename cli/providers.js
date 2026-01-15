@@ -1,9 +1,11 @@
 /**
- * SPAR Kit - Provider Module v3.3 (Model-Agnostic Ultrathink)
+ * SPAR Kit - Provider Module v3.4 (OpenRouter FREE Tier Support)
  * Multi-provider LLM support with user-selectable reasoning modes
  * 
  * DESIGN PRINCIPLE: Users choose their own provider and model.
  * Ultrathink is a REASONING MODE that can apply to any model.
+ * 
+ * NEW in v3.4: OpenRouter support with 26 FREE models ($0/M tokens)
  */
 
 /**
@@ -46,12 +48,34 @@ export const REASONING_TIERS = REASONING_MODES;
  * Users can use any model available through these providers
  */
 export const PROVIDERS = {
+    openrouter: {
+        name: 'OpenRouter',
+        description: '400+ models including 26 FREE models - recommended for multi-model debate',
+        requiresKey: true,
+        endpoint: 'https://openrouter.ai/api/v1/chat/completions',
+        supportsModelDiscovery: true,
+        thinkingBlockPattern: /<think>([\s\S]*?)<\/think>/gi,
+        freeModels: {
+            // Arbiter-class (reasoning models)
+            arbiter: 'deepseek/deepseek-r1-0528:free',
+            arbiterBackup: 'meta-llama/llama-3.1-405b-instruct:free',
+            arbiterTechnical: 'qwen/qwen3-coder:free',
+            // Critic-class
+            critic: 'meta-llama/llama-3.3-70b-instruct:free',
+            criticBackup: 'google/gemma-3-27b-it:free',
+            // Debater-class (fast)
+            debater: 'google/gemini-2.0-flash-exp:free',
+            debaterAlt1: 'moonshotai/kimi-k2:free',
+            debaterAlt2: 'nvidia/nemotron-3-nano-30b-a3b:free',
+            debaterTechnical: 'mistralai/devstral-2512:free'
+        }
+    },
     ollama: {
         name: 'Ollama (Local)',
         description: 'Run models locally - you choose which models to install',
         requiresKey: false,
         endpoint: 'http://localhost:11434/api/chat',
-        supportsModelDiscovery: true,  // CLI can query available models
+        supportsModelDiscovery: true,
         thinkingBlockPattern: /<think>([\s\S]*?)<\/think>/gi
     },
     openai: {
@@ -158,6 +182,10 @@ export async function callAI(provider, apiKey, model, systemPrompt, userMessage,
     // Enhance system prompt based on reasoning mode
     const enhancedSystemPrompt = systemPrompt + modeConfig.systemPromptAddition;
 
+    if (provider === 'openrouter') {
+        return await callOpenRouter(apiKey, model, enhancedSystemPrompt, userMessage, maxTokens);
+    }
+
     if (provider === 'openai' || provider === 'openai_compatible') {
         return await callOpenAI(baseUrl, apiKey, model, enhancedSystemPrompt, userMessage, maxTokens);
     }
@@ -215,6 +243,34 @@ async function callOpenAI(endpoint, apiKey, model, systemPrompt, userMessage, ma
     });
     const data = await response.json();
     if (data.error) throw new Error(data.error.message);
+    return data.choices[0].message.content;
+}
+
+/**
+ * Call OpenRouter API
+ * Supports 400+ models including 26 FREE models at $0/M tokens
+ * Recommended for multi-model SPAR debates
+ */
+async function callOpenRouter(apiKey, model, systemPrompt, userMessage, maxTokens) {
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`,
+            'HTTP-Referer': 'https://spar-kit.dev',
+            'X-Title': 'SPAR Kit'
+        },
+        body: JSON.stringify({
+            model,
+            messages: [
+                { role: 'system', content: systemPrompt },
+                { role: 'user', content: userMessage }
+            ],
+            max_tokens: maxTokens
+        })
+    });
+    const data = await response.json();
+    if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
     return data.choices[0].message.content;
 }
 

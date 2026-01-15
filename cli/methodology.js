@@ -1,6 +1,6 @@
 /**
- * SPAR Kit - Methodology Module v3.0
- * SPARKIT Protocol, SPARK Principles, ASPIRES Framework
+ * SPAR Kit - Methodology Module v3.1
+ * SPARKIT Protocol, GRACE Principles, ASPIRES Framework
  */
 
 // =============================================================================
@@ -116,51 +116,54 @@ Each persona, evaluate this synthesis:
 };
 
 // =============================================================================
-// SPARK PRINCIPLES (5 Non-Negotiables)
+// GRACE PRINCIPLES (5 Epistemological Stances)
 // =============================================================================
 
-export const SPARK_PRINCIPLES = {
-    S: {
-        letter: 'S', name: 'Stillness Before Synthesis',
-        question: 'Have we paused before acting?',
-        description: 'Build pauses into the urgency of action.',
+export const GRACE_PRINCIPLES = {
+    G: {
+        letter: 'G', name: 'Ground',
+        question: 'Have we stilled ourselves before synthesis?',
+        description: 'Still yourself before synthesis. Insights arrive in silence.',
         timing: 'After Debate',
         check: "What surprised us? What are we not ready to decide?",
         warning: 'Immediately moving to action items without pause'
     },
-    P: {
-        letter: 'P', name: 'Power & Anxiety Honesty',
-        question: 'What human conversation are we avoiding?',
-        description: 'Address human tensions before delegating to process.',
+    R: {
+        letter: 'R', name: 'Reveal',
+        question: 'What conversation are we avoiding?',
+        description: 'Surface biases and anxieties before delegating to process.',
         timing: 'Before SPAR',
         check: 'What uncomfortable human conversation are we substituting for?',
         warning: 'The SPAR feels "safe" because it avoids naming the real tension'
     },
     A: {
-        letter: 'A', name: 'Adjacent Possible',
+        letter: 'A', name: 'Approach',
         question: 'What feels too radical to consider?',
-        description: 'Force consideration of options that feel "too far."',
+        description: 'Seek the adjacent possible, not defended positions.',
         timing: 'During SPAR',
         check: 'What option feels too radical to consider seriously?',
         warning: 'All options feel like variations on the status quo'
     },
-    R: {
-        letter: 'R', name: 'Radical Dissent',
-        question: 'Is the contrarian voice protected?',
-        description: 'Protect the contrarian voice structurally.',
+    C: {
+        letter: 'C', name: 'Court',
+        question: 'Is dissent welcomed or merely tolerated?',
+        description: 'Welcome radical dissent. Invite it. Make space for it.',
         timing: 'During SPAR',
         check: "What's the strongest case against what we're about to decide?",
         warning: 'Everyone agrees enthusiastically. No one is uncomfortable.'
     },
-    K: {
-        letter: 'K', name: 'Knowing Transparency',
-        question: 'From whose perspective is this conclusion drawn?',
-        description: 'Acknowledge the perspective from which every conclusion is drawn.',
+    E: {
+        letter: 'E', name: 'Expose',
+        question: 'What don\'t we know?',
+        description: 'Acknowledge what you don\'t know. Name the missing perspectives.',
         timing: 'After Synthesis',
         check: 'What did we NOT consider? What perspectives were missing?',
         warning: 'The synthesis claims objectivity. It sounds like "the answer."'
     }
 };
+
+// Backwards compatibility alias
+export const SPARK_PRINCIPLES = GRACE_PRINCIPLES;
 
 // =============================================================================
 // ASPIRES FRAMEWORK (7 Advanced Patterns)
@@ -257,11 +260,14 @@ export function getSparkitSequence() {
 }
 
 /**
- * Get SPARK principle by letter
+ * Get GRACE principle by letter
  */
-export function getSparkPrinciple(letter) {
-    return SPARK_PRINCIPLES[letter.toUpperCase()];
+export function getGracePrinciple(letter) {
+    return GRACE_PRINCIPLES[letter.toUpperCase()];
 }
+
+// Backwards compatibility alias
+export const getSparkPrinciple = getGracePrinciple;
 
 /**
  * Get ASPIRES pattern by letter
@@ -291,20 +297,23 @@ export function formatSparkitQuickRef() {
 }
 
 /**
- * Format SPARK quick reference
+ * Format GRACE quick reference
  */
-export function formatSparkQuickRef() {
+export function formatGraceQuickRef() {
     return `
 ┌─────────────────────────────────────────────────────────────────────┐
-│                           S P A R K                                 │
+│                           G R A C E                                 │
 ├─────────────────────────────────────────────────────────────────────┤
-│  S  │ STILLNESS           │ Have we paused before acting?          │
-│  P  │ POWER HONESTY       │ What conversation are we avoiding?     │
-│  A  │ ADJACENT POSSIBLE   │ What feels too radical to consider?    │
-│  R  │ RADICAL DISSENT     │ Is the contrarian voice protected?     │
-│  K  │ KNOWING TRANSPARENCY│ From whose perspective?                │
+│  G  │ GROUND              │ Have we stilled ourselves?             │
+│  R  │ REVEAL              │ What conversation are we avoiding?     │
+│  A  │ APPROACH            │ What feels too radical to consider?    │
+│  C  │ COURT               │ Is dissent welcomed or tolerated?      │
+│  E  │ EXPOSE              │ What don't we know?                    │
 └─────────────────────────────────────────────────────────────────────┘`;
 }
+
+// Backwards compatibility alias
+export const formatSparkQuickRef = formatGraceQuickRef;
 
 /**
  * Format ASPIRES quick reference
@@ -326,13 +335,16 @@ export function formatAspiresQuickRef() {
 
 export default {
     SPARKIT_PROTOCOL,
-    SPARK_PRINCIPLES,
+    GRACE_PRINCIPLES,
+    SPARK_PRINCIPLES, // backwards compatibility
     ASPIRES_FRAMEWORK,
     getSparkitStep,
     getSparkitSequence,
-    getSparkPrinciple,
+    getGracePrinciple,
+    getSparkPrinciple, // backwards compatibility
     getAspiresPattern,
     formatSparkitQuickRef,
-    formatSparkQuickRef,
+    formatGraceQuickRef,
+    formatSparkQuickRef, // backwards compatibility
     formatAspiresQuickRef
 };

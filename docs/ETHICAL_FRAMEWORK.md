@@ -77,12 +77,12 @@ SPAR-Kit includes built-in bias awareness through:
 
 1. **Diverse Personas**: 108-persona library spans 7 archetypes to represent varied perspectives
 2. **NEWS Compass**: Ensures balanced coverage (Novelty, Expertise, Wisdom, Synthesis)
-3. **SPARK Principles**: 
-   - **Power & Anxiety Honesty**: Surface hidden interests
-   - **Legitimate Dissent**: Protect minority viewpoints
-   - **Observer Transparency**: Acknowledge observer biases
+3. **GRACE Principles**:
+   - **Reveal**: Surface hidden biases and anxieties
+   - **Court**: Protect and welcome dissent
+   - **Expose**: Acknowledge what we don't know
 
-**Implementation**: Pre-debate SPARK check prompts users to consider biases.
+**Implementation**: Pre-debate GRACE check prompts users to consider biases.
 
 ### G4: Data Privacy
 
@@ -181,7 +181,7 @@ Users can flag:
 
 ## 📚 References
 
-- SPAR Methodology: [SPARK Principles](https://github.com/synthanai/spar/blob/main/docs/SPARK_PRINCIPLES.md)
+- SPAR Methodology: [GRACE Principles](https://github.com/synthanai/spar/blob/main/docs/GRACE_PRINCIPLES.md)
 - SPAR Protocol: [SPARKIT 7-Step Protocol](https://github.com/synthanai/spar/blob/main/docs/PROTOCOL.md)
 - STASH Modes: [Human-AI Collaboration Modes](https://github.com/synthanai/spar/blob/main/docs/STASH_MODES.md)
 

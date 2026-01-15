@@ -254,17 +254,17 @@ In **Deep/Ultrathink** mode:
 - Extend INTERROGATE phase with failure mode analysis
 - Provide synthesis with quantified confidence (e.g., "High confidence - 85%")
 
-## SPARK QUALITY CHECKS
+## GRACE QUALITY CHECKS
 
 After SYNTHESIS, run these 5 non-negotiable checks:
 
 | Check | Question | Warning Sign |
 |-------|----------|-------------|
-| **S**tillness | Have we paused before acting? | Rushing to action items without reflection |
-| **P**ower Honesty | What human conversation are we avoiding? | SPAR substitutes for naming real tensions |
-| **A**djacent Possible | What feels too radical to consider? | All options are variations of status quo |
-| **R**adical Dissent | Is the contrarian voice protected? | Everyone agrees enthusiastically |
-| **K**nowing Transparency | From whose perspective is this conclusion drawn? | Synthesis claims objectivity |
+| **G**round | Have we stilled ourselves before synthesis? | Rushing to action items without reflection |
+| **R**eveal | What conversation are we avoiding? | SPAR substitutes for naming real tensions |
+| **A**pproach | What feels too radical to consider? | All options are variations of status quo |
+| **C**ourt | Is dissent welcomed or merely tolerated? | Everyone agrees enthusiastically |
+| **E**xpose | What don't we know? | Synthesis claims objectivity |
 
 If any check fails, **flag it explicitly** before TRANSMIT.
 

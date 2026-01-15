@@ -48,8 +48,8 @@ If 3+ docs, create **Document Map** first. Never debate in vacuum when docs exis
 6. **I**NTERROGATE: "What assumption could be wrong?"
 7. **T**RANSMIT: Recommendation + actions + confidence
 
-## SPARK CHECKS
-S-tillness | P-ower Honesty | A-djacent Possible | R-adical Dissent | K-nowing Transparency
+## GRACE CHECKS
+G-round | R-eveal | A-pproach | C-ourt | E-xpose
 
 ## TESSERACT PRESETS
 | Preset | Trigger | Config |

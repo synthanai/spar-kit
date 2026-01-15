@@ -8,7 +8,7 @@
  * - NEWS Compass (4 Directions)
  * - PERSONA Library (108 personas, 7 archetypes)
  * - SPARKIT Protocol (7 steps)
- * - SPARK Principles (5 foundations)
+ * - GRACE Principles (5 stances)
  * - ASPIRES Framework (7 advanced patterns)
  * - 3-Round Rumble Protocol (v4.0)
  * - Staged Token Budgeting (v4.0)
@@ -31,7 +31,7 @@ import { join } from 'path';
 
 import { callAI, PROVIDERS } from './providers.js';
 import { NEWS_COMPASS, PRESET_PACKS, getAllPersonas, getPresetPersonas, PERSONA_ARCHETYPES } from './personas.js';
-import { SPARKIT_PROTOCOL, SPARK_PRINCIPLES, ASPIRES_FRAMEWORK, formatSparkitQuickRef, formatSparkQuickRef, formatAspiresQuickRef } from './methodology.js';
+import { SPARKIT_PROTOCOL, GRACE_PRINCIPLES, ASPIRES_FRAMEWORK, formatSparkitQuickRef, formatGraceQuickRef, formatAspiresQuickRef } from './methodology.js';
 import {
     TOKEN_BUDGETS,
     RUMBLE_CONFIG,
@@ -143,7 +143,7 @@ function printBanner() {
 ║   🥊  ${chalk.white('S P A R   K I T')}   ${chalk.gray('v' + VERSION)}                                      ║
 ║   ${chalk.dim('Structured Persona-Argumentation for Reasoning')}                      ║
 ║                                                                       ║
-║   ${chalk.cyan('SPARKIT Protocol')} · ${chalk.yellow('SPARK Principles')} · ${chalk.green('ASPIRES Framework')}       ║
+║   ${chalk.cyan('SPARKIT Protocol')} · ${chalk.yellow('GRACE Principles')} · ${chalk.green('ASPIRES Framework')}       ║
 ║                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
     `));
@@ -171,11 +171,11 @@ function printDivider(char = '─', color = chalk.gray) {
 }
 
 // ============================================
-// SPARK PRINCIPLES CHECK
+// GRACE PRINCIPLES CHECK
 // ============================================
 
-async function runSparkCheck(phase = 'before') {
-    const principles = Object.values(SPARK_PRINCIPLES);
+async function runGraceCheck(phase = 'before') {
+    const principles = Object.values(GRACE_PRINCIPLES);
     const relevant = principles.filter(p => {
         if (phase === 'before') return p.timing === 'Before SPAR';
         if (phase === 'during') return p.timing === 'During SPAR';
@@ -185,7 +185,7 @@ async function runSparkCheck(phase = 'before') {
 
     if (relevant.length === 0) return true;
 
-    console.log(chalk.yellow(`\n⚡ SPARK Check (${phase}):\n`));
+    console.log(chalk.yellow(`\n✨ GRACE Check (${phase}):\n`));
 
     for (const p of relevant) {
         console.log(chalk.bold(`  ${p.letter} — ${p.name}`));
@@ -241,7 +241,7 @@ async function debateStart(decision, options) {
     }
 
     // SPARK Check (Before)
-    const sparkOk = await runSparkCheck('before');
+    const sparkOk = await runGraceCheck('before');
     if (!sparkOk) {
         console.log(chalk.yellow('\n💡 Consider addressing the SPARK principles first.\n'));
         return;
@@ -554,7 +554,7 @@ Provide (${transmitBudget.promptGuidance}):
     }
 
     // SPARK Check (After)
-    await runSparkCheck('after');
+    await runGraceCheck('after');
 
     // Auto-save
     const savedFile = saveSession(session);
@@ -754,17 +754,20 @@ function showSparkit() {
     });
 }
 
-function showSpark() {
+function showGrace() {
     printBanner();
-    console.log(chalk.bold.yellow('\n⚡ The SPARK Principles\n'));
-    console.log(formatSparkQuickRef());
+    console.log(chalk.bold.yellow('\n✨ The GRACE Principles\n'));
+    console.log(formatGraceQuickRef());
     console.log('\n');
-    Object.values(SPARK_PRINCIPLES).forEach(p => {
+    Object.values(GRACE_PRINCIPLES).forEach(p => {
         console.log(chalk.bold(`  ${p.letter} — ${p.name}`));
         console.log(chalk.gray(`      When: ${p.timing}`));
         console.log(chalk.white(`      Check: "${p.check}"\n`));
     });
 }
+
+// Backwards compatibility alias
+const showSpark = showGrace;
 
 function showAspires() {
     printBanner();

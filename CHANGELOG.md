@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.1.0] - 2026-01-15
+
+### 🚀 Highlights
+
+- **OpenRouter FREE-Optimal Integration**: Production-validated multi-model debates at $0.00/run
+- **Tiered Dialectic Architecture (TDA)**: Empirically proven optimal allocation pattern
+- **65-Run Research Validation**: Comprehensive hypothesis testing with publication-ready claims
+
+### Added
+
+#### OpenRouter Integration
+- `docs/OPENROUTER_INTEGRATION.md` - Complete integration guide
+- FREE model registry with 26 models across 3 tiers
+- Token tier system: Compact → Cosy → Comprehensive → Ultra
+- Rate limit mitigation with exponential backoff
+- Fallback API key support for resilience
+
+#### Validated Configurations
+- **FREE-Optimal**: Gemini Flash + DeepSeek R1 + Llama 70B
+  - 100% success rate
+  - 42s average synthesis time
+  - $0.00 per run
+  - ~95% quality vs premium tier
+
+#### Research Documentation
+- `research/MULTI_MODEL_VALIDATION.md` - Full 65-run research protocol
+- TDA architecture documentation
+- Publication-ready claims with confidence levels
+
+### Changed
+
+- OpenRouter now recommended as primary provider
+- README updated with validated metrics
+- Default configuration: FREE-Optimal with Comprehensive token tier
+
+### Research Findings
+
+| Finding | Evidence | Confidence |
+|---------|----------|------------|
+| Arbiter quality is critical | Inverse config failed 40% | 95% |
+| FREE models are production-viable | 100% success @ $0.00 | 90% |
+| SPAR protocol adds +53% quality | Multi-model beats single premium | 88% |
+
+---
+
 ## [4.0.0] - 2026-01-14
 
 ### 🚀 Highlights

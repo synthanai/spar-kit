@@ -192,7 +192,7 @@ Week 3-4:
 
 - [SPAR Methodology Cheatsheet](https://github.com/synthanai/spar/blob/main/docs/CHEATSHEET.md)
 - [SPARKIT Protocol](https://github.com/synthanai/spar/blob/main/docs/PROTOCOL.md)
-- [SPARK Principles](https://github.com/synthanai/spar/blob/main/docs/SPARK_PRINCIPLES.md)
+- [GRACE Principles](https://github.com/synthanai/spar/blob/main/docs/GRACE_PRINCIPLES.md)
 
 ### Deep Dives
 

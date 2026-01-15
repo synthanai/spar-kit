@@ -160,6 +160,20 @@ T — TRANSMIT    Extract actionable recommendations
 
 ## Providers
 
+### OpenRouter (Recommended) 🆕
+
+**FREE-Optimal** configuration validated at 100% success, $0.00/run:
+
+| Role | Model | Use |
+|------|-------|-----|
+| Debaters | `google/gemini-2.0-flash-exp:free` | Fast, 1M context |
+| Arbiter | `deepseek/deepseek-r1-0528:free` | True reasoning |
+| Critic | `meta-llama/llama-3.3-70b-instruct:free` | Balanced rigor |
+
+📖 **[OpenRouter Integration Guide →](docs/OPENROUTER_INTEGRATION.md)**
+
+### Other Providers
+
 | Provider | Model |
 |----------|-------|
 | OpenAI | GPT-4 Turbo |

@@ -254,7 +254,7 @@ console.log(formatConfigSummary());
 ## Next Steps
 
 - **[SPARKIT Protocol](PROTOCOL.md)** — Full 7-step protocol
-- **[SPARK Principles](SPARK_PRINCIPLES.md)** — 5 foundational checks
+- **[GRACE Principles](GRACE_PRINCIPLES.md)** — 5 epistemological stances
 - **[ASPIRES Framework](ADVANCED_PATTERNS.md)** — 7 advanced patterns
 
 ---

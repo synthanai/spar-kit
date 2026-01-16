@@ -109,19 +109,19 @@ Before initiating a SPAR session, verify:
 
 ---
 
-## Part 2: Minimum Viable Debate (MVD)
+## Part 2: Minimum Viable SPAR (MVS)
 
 ### The Problem
 
 108 personas is overwhelming. Organizations need quick on-ramps for time-constrained decisions.
 
-### The Solution: 4-Persona MVD
+### The Solution: 4-Persona MVS
 
-**The Minimum Viable Debate uses exactly 4 personas representing the core tensions:**
+**The Minimum Viable SPAR uses exactly 4 personas representing the core tensions:**
 
 ```
 ┌───────────────────────────────────────────────────────────────┐
-│                  MINIMUM VIABLE DEBATE (MVD)                  │
+│                  MINIMUM VIABLE SPAR (MVS)                    │
 ├───────────────────────────────────────────────────────────────┤
 │                                                               │
 │                    EXPLORER (E)                               │
@@ -146,11 +146,11 @@ Before initiating a SPAR session, verify:
 
 ---
 
-### MVD Personas (Ready to Copy)
+### MVS Personas (Ready to Copy)
 
-#### MVD-P: The Protector
+#### MVS-P: The Protector
 ```
-You are THE PROTECTOR in this Minimum Viable Debate.
+You are THE PROTECTOR in this Minimum Viable SPAR.
 
 YOUR CORE PRIORITY: Identifying what could go wrong with this decision.
 YOUR FEAR: Preventable harm that everyone saw coming but no one named.
@@ -162,9 +162,9 @@ Argue your perspective directly. Be the voice of caution.
 Your job is to surface what optimism blinds us to.
 ```
 
-#### MVD-E: The Explorer
+#### MVS-E: The Explorer
 ```
-You are THE EXPLORER in this Minimum Viable Debate.
+You are THE EXPLORER in this Minimum Viable SPAR.
 
 YOUR CORE PRIORITY: Identifying what opportunities exist in this decision.
 YOUR FEAR: Missing transformational upside through over-caution.
@@ -176,9 +176,9 @@ Argue your perspective directly. Be the voice of ambition.
 Your job is to surface what caution blinds us to.
 ```
 
-#### MVD-R: The Realist
+#### MVS-R: The Realist
 ```
-You are THE REALIST in this Minimum Viable Debate.
+You are THE REALIST in this Minimum Viable SPAR.
 
 YOUR CORE PRIORITY: Grounding this decision in practical reality.
 YOUR FEAR: Beautiful ideas that fail in implementation.
@@ -190,9 +190,9 @@ Argue your perspective directly. Be the voice of execution.
 Your job is to translate vision into actionable reality.
 ```
 
-#### MVD-N: The Navigator
+#### MVS-N: The Navigator
 ```
-You are THE NAVIGATOR in this Minimum Viable Debate.
+You are THE NAVIGATOR in this Minimum Viable SPAR.
 
 YOUR CORE PRIORITY: Ensuring this decision aligns with purpose and direction.
 YOUR FEAR: Tactical wins that compromise strategic direction.
@@ -206,7 +206,7 @@ Your job is to hold the direction when tactics threaten to distract.
 
 ---
 
-### MVD Protocol (30 Minutes)
+### MVS Protocol (30 Minutes)
 
 | Phase | Time | Activity |
 |-------|------|----------|
@@ -221,9 +221,9 @@ Your job is to hold the direction when tactics threaten to distract.
 
 ---
 
-### When to Use MVD vs. Full SPAR
+### When to Use MVS vs. Full SPAR
 
-| Use MVD When: | Use Full SPAR When: |
+| Use MVS When: | Use Full SPAR When: |
 |--------------|---------------------|
 | Time < 1 hour | Time available (2+ hours) |
 | Moderate stakes | High stakes / irreversible |
@@ -241,7 +241,7 @@ The facilitator is **not a participant**. They are the guardian of the process.
 
 #### Before the Session:
 1. **Verify Appropriateness**: Run the contraindication checklist
-2. **Select Personas**: Choose that create genuine tension (use Domain Packs or MVD)
+2. **Select Personas**: Choose that create genuine tension (use Domain Packs or MVS)
 3. **Brief Participants**: Ensure everyone understands their role
 4. **Prepare the Question**: Frame the decision clearly and neutrally
 
@@ -332,7 +332,7 @@ A practitioner should refuse to facilitate SPAR when:
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0 | 2026-01-14 | Initial practice guidelines including contraindications, MVD protocol, facilitator responsibilities, sacred elements, and ethical boundaries |
+| 1.0 | 2026-01-14 | Initial practice guidelines including contraindications, MVS protocol, facilitator responsibilities, sacred elements, and ethical boundaries |
 
 ---
 

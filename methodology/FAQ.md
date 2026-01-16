@@ -37,7 +37,7 @@ The methodology works in all modes. AI just makes it faster and more convenient.
 | **Tier 2 (Practice)** | 30+ minutes | Strategic decisions |
 | **Tier 3 (Mastery)** | Extended | Facilitation, teaching |
 
-The **Minimum Viable Debate (MVD)** is 30 minutes with 4 personas — this captures 80% of the value.
+The **Minimum Viable SPAR (MVS)** is 30 minutes with 4 personas — this captures 80% of the value.
 
 ---
 

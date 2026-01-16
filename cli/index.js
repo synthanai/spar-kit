@@ -33,6 +33,18 @@ import { callAI, PROVIDERS } from './providers.js';
 import { NEWS_COMPASS, PRESET_PACKS, getAllPersonas, getPresetPersonas, PERSONA_ARCHETYPES } from './personas.js';
 import { SPARKIT_PROTOCOL, GRACE_PRINCIPLES, ASPIRES_FRAMEWORK, formatSparkitQuickRef, formatGraceQuickRef, formatAspiresQuickRef } from './methodology.js';
 import {
+    STASH_MODES,
+    MVS_PROTOCOL,
+    resolveMode,
+    getModeDefaults,
+    showStashModes,
+    showMvsProtocol,
+    formatStashQuickRef,
+    formatMvsQuickRef,
+    formatFacilitationGuide,
+    suggestMode
+} from './stash.js';
+import {
     TOKEN_BUDGETS,
     RUMBLE_CONFIG,
     DEFAULT_DEBATE_CONFIG,
@@ -860,6 +872,73 @@ program.command('compass').description('Show NEWS compass').action(() => { print
 program.command('sparkit').description('Show SPARKIT 7-step protocol').action(showSparkit);
 program.command('spark').description('Show SPARK 5 principles').action(showSpark);
 program.command('aspires').description('Show ASPIRES 7 patterns').action(showAspires);
+
+// STASH Framework commands
+program.command('stash')
+    .description('Show STASH framework (5 modes of SPAR)')
+    .action(() => {
+        printBanner();
+        showStashModes();
+    });
+
+program.command('mvs')
+    .description('⚡ Quick MVS (Minimum Viable SPAR) - 30-minute protocol')
+    .argument('[decision]', 'The decision to debate')
+    .option('-m, --mode <mode>', 'STASH mode: solo-ai|ai-persona|hybrid (default: ai-persona)')
+    .option('-P, --preset <pack>', 'Persona preset')
+    .option('--guide', 'Show facilitation guide for human modes')
+    .action(async (decision, options) => {
+        printBanner();
+
+        // Resolve mode
+        const mode = resolveMode(options.mode || 'ai-persona');
+        const defaults = getModeDefaults(mode);
+
+        console.log(chalk.bold.yellow(`\n⚡ MVS — Minimum Viable SPAR (${mode.name})\n`));
+        console.log(chalk.gray(`   ${MVS_PROTOCOL.tagline}\n`));
+        console.log(chalk.white(`   Mode: ${mode.icon} ${mode.name}`));
+        console.log(chalk.white(`   Timing: ${mode.timing.min}-${mode.timing.max} ${mode.timing.unit}`));
+        console.log(chalk.white(`   Technique: ${mode.technique}\n`));
+
+        // Show facilitation guide for human modes
+        if (options.guide || !mode.aiExecutable) {
+            const guide = formatFacilitationGuide(mode);
+            if (guide) {
+                console.log(guide);
+            }
+        }
+
+        // For AI-executable modes, run the debate
+        if (mode.aiExecutable && decision) {
+            console.log(chalk.cyan(`\n▶ Starting MVS debate...\n`));
+
+            // Run with MVS defaults (1 round, cardinal four)
+            await debateStart(decision, {
+                preset: options.preset || 'innovation',
+                mode: mode.id,
+                mvs: true,
+                rounds: 1,
+                personas: defaults.personas?.join(',')
+            });
+        } else if (mode.aiExecutable && !decision) {
+            console.log(chalk.yellow('\n💡 Provide a decision to start:\n'));
+            console.log(chalk.gray('   sparkit mvs "Should we launch the feature?" --mode ai-persona\n'));
+        } else {
+            // Human mode - just show guide
+            console.log(chalk.green('\n✓ Facilitation guide displayed. Run your MVS session!\n'));
+        }
+    });
+
+// Show MVS protocol reference
+program.command('mvs-ref')
+    .description('Show MVS (Minimum Viable SPAR) protocol reference')
+    .action(() => {
+        printBanner();
+        showMvsProtocol();
+        console.log(formatStashQuickRef());
+        console.log('\n');
+    });
+
 
 // TUI commands (v3.1+)
 program.command('tui')

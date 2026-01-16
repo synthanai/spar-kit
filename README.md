@@ -237,7 +237,7 @@ The methodology's own conscience. The framework's doubt.
 
 ---
 
-### Minimum Viable Debate (MVD)
+### Minimum Viable SPAR (MVS)
 
 For time-constrained decisions, a **30-minute, 4-persona protocol**:
 
@@ -250,7 +250,7 @@ For time-constrained decisions, a **30-minute, 4-persona protocol**:
 
 *80% of decision value in 20% of time.*
 
-📖 **[Full MVD Protocol →](methodology/PRACTICE_GUIDELINES.md#part-2-minimum-viable-debate-mvd)**
+📖 **[Full MVS Protocol →](methodology/PRACTICE_GUIDELINES.md#part-2-minimum-viable-spar-mvs)**
 
 ---
 

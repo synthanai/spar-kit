@@ -1,8 +1,8 @@
 <p align="center">
-  <span style="font-size: 100px;">🥊</span>
+  <img src="spar_logo.png" alt="SPAR" width="200">
 </p>
 
-<h1 align="center">🥊 SPAR-Kit</h1>
+<h1 align="center">SPAR-Kit</h1>
 
 <p align="center">
   <strong>Structured Persona-Argumentation for Reasoning</strong><br>

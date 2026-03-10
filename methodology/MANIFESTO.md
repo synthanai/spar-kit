@@ -140,7 +140,7 @@ When all four directions engage, no blind spot survives.
 | **I** | **Interrogate** | Challenge the synthesis — probe assumptions, find gaps |
 | **T** | **Transmit** | Extract concrete, actionable recommendations |
 
-> **The Name**: "SPARKIT" is both the backronym for the 8-step process *and* the name of the CLI tool that implements it.
+> **The Name**: "SPARKIT" is both the backronym for the 7-step process *and* the name of the CLI tool that implements it.
 
 ### The STASH Framework (5 Modes)
 
@@ -323,7 +323,7 @@ The next time you face a decision that matters:
 ### Core Concepts
 - **[The Four Directions (N-E-W-S)](./FOUR_DIRECTIONS.md)** — Canonical persona definitions
 - **[The GRACE Principles](./GRACE_PRINCIPLES.md)** — Deep dive into the 5 stances
-- **[The SPARKIT Protocol](./PROTOCOL.md)** — Complete 8-step dialectic engine (v8.0)
+- **[The SPARKIT Protocol](./PROTOCOL.md)** — Complete 7-step dialectic engine (v8.0)
 - **[The ASPIRES Framework](./ADVANCED_PATTERNS.md)** — 7 advanced patterns for edge cases
 
 ### Resources & Templates

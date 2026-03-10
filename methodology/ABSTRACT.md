@@ -1,8 +1,9 @@
-# Step 3: ABSTRACT — Abstraction of Thought (AoT)
+# ABSTRACT: Abstraction of Thought (AoT)
 
 *Construct a cognitive map before deliberation begins.*
 
-> **Version**: 2.0 (Protocol v8.0)
+> **Version**: 2.1 (Protocol v8.0)
+> **Position**: Sub-phase of POPULATE (steps 2b-2e)
 > **Inspired by**: Benny Cheung's "[Abstraction of Thought Makes AI Better Reasoners](https://bennycheung.github.io/abstraction-of-thought-makes-ai-better-reasoners)"
 
 ---
@@ -15,13 +16,13 @@ Humans think in abstractions: we decompose complexity into diagrams, mental maps
 
 ---
 
-## Position in the 8-Step Protocol
+## Position in the 7-Step Protocol
 
 ```
-1. SCOPE → 2. POPULATE → ★ 3. ABSTRACT → 4. ANNOUNCE → 5. RUMBLE → 6. KNIT → 7. INTERROGATE → 8. TRANSMIT
+1. SCOPE (+ NOOL) → 2. POPULATE [★ AoT: ABSTRACT] → 3. ANNOUNCE → 4. RUMBLE → 5. KNIT → 6. INTERROGATE → 7. TRANSMIT
 ```
 
-ABSTRACT sits between POPULATE and ANNOUNCE. Personas are selected but have not yet begun debating. The abstraction map gives all participants a shared cognitive scaffold.
+ABSTRACT sits inside POPULATE (steps 2b-2e), between agent selection and ANNOUNCE. Personas are selected but have not yet begun debating. The abstraction map gives all participants a shared cognitive scaffold.
 
 ---
 

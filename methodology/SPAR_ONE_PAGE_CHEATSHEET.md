@@ -63,7 +63,7 @@ That's it. That's the seed.
 ## Ready for More?
 
 - **30-Day Challenge**: Build the habit gradually
-- **Full Protocol**: The 8-step SPARKIT process (v8.0)
+- **Full Protocol**: The 7-step SPARKIT process (v8.0)
 - **108 Personas**: Deep character library for complex decisions
 - **SPAR-Kit CLI**: `npx sparkit` for AI-assisted debates
 

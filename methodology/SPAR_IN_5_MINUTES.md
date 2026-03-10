@@ -159,7 +159,7 @@ Write down:
 
 ## Want to Go Deeper?
 
-📖 **Read the [Complete Protocol](../docs/PROTOCOL.md)** — Full SPARKIT 8-step protocol (v8.0) with all prompts.
+📖 **Read the [Complete Protocol](../docs/PROTOCOL.md)** — Full SPARKIT 7-step protocol (v8.0) with all prompts.
 
 > **Note**: This quick-start is a simplified 5-step version. The complete **SPARKIT** protocol adds two critical steps: **Scope** (explicit question framing) and **Interrogate** (stress-testing the synthesis).
 

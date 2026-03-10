@@ -8,7 +8,7 @@
 
 | Component | Version | Status |
 |-----------|---------|--------|
-| **Methodology** | v8.0 | ✅ Current (8-step protocol, TESSERACT, depth modes) |
+| **Methodology** | v8.0 | ✅ Current (7-step protocol, TESSERACT, depth modes) |
 | **CLI** | v4.1.0 | 🟡 Trails methodology (implements 7-step protocol) |
 | **Web Showcase** | v4.0 | 🟡 Trails methodology |
 | **MCP Server** | v1.0 | ✅ Functional |

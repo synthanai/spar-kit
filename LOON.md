@@ -103,14 +103,14 @@ Copy the "Entry" section above for each new reflection.
 
 | NOOL Layer | Expected (v0.2, from LOON #2) | Actual | Drift |
 |------------|------------------------------|--------|-------|
-| **Intent (WHY)** | "Reasoning infrastructure accessed through structured disagreement." Evolving from disagreement to governance. | Still correct and validated by this sync. The NOOL was updated to v0.3 to reflect the IoT-AoT-CoT stack and 8-step protocol. The gap between internal knowledge (v8.0) and OSS (v4.1.0) has been closed for methodology docs. | Converged (internal → OSS alignment restored) |
+| **Intent (WHY)** | "Reasoning infrastructure accessed through structured disagreement." Evolving from disagreement to governance. | Still correct and validated by this sync. The NOOL was updated to v0.3 to reflect the IoT-AoT-CoT stack and 7-step protocol. The gap between internal knowledge (v8.0) and OSS (v4.1.0) has been closed for methodology docs. | Converged (internal → OSS alignment restored) |
 | **Abstraction (WHAT TYPE)** | DESIGN: Multi-surface implementation. Strategic governance layer forming. | Still correct. But Centre Behavioral Analyst represents a structural expansion: the NEWS compass is no longer just strategic, it's an MBS compass (North/East = Mind, South/West = Body, Centre = Soul). The methodology now has a human-behavioral layer that was previously absent. | Expanded (from 4-direction to 5-direction MBS compass) |
 
 ### Chain Audit (v8 → OSS Sync)
 
 | Component | Pre-Sync State (OSS v4.1.0) | Post-Sync (OSS v5.0.0-methodology) | Gap |
 |-----------|------------------------------|-------------------------------------|-----|
-| Protocol | 7-step | 8-step + Step 0 (NOOL) | ✅ Closed |
+| Protocol | 7-step | 7-step (NOOL as input to SCOPE, AoT inside POPULATE) | ✅ Closed |
 | ABSTRACT | Not documented | Full AoT v2.0 spec (Type 1-3) | ✅ Closed |
 | TESSERACT | Not documented | 504-config, 4 axes, 5 presets | ✅ Closed |
 | Depth modes | Not documented | 6 modes (Show Me to Ultra) | ✅ Closed |

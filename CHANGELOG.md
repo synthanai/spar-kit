@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🚀 Highlights
 
-- **8-Step Protocol (v8.0)**: ABSTRACT elevated from POPULATE sub-activity to dedicated Step 3
+- **7-Step Protocol (v8.0)**: NOOL integrated as input to SCOPE. AoT confirmed as POPULATE sub-phase (2b-2e)
 - **TESSERACT Configuration System**: 504 possible debate configurations across 4 axes
 - **Reasoning Depth Modes**: 6 calibrated modes from Show Me to Ultra
 - **NOOL Integration**: IoT-AoT-CoT three-layer reasoning stack as Step 0
@@ -43,8 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **Protocol**: 7-step → 8-step (SCOPE, POPULATE, **ABSTRACT**, ANNOUNCE → RUMBLE renamed to step 5)
-- **NOOL.md**: Updated to v0.3 reflecting 8-step protocol
+- **Protocol**: 7-step maintained (SCOPE, POPULATE with AoT, ANNOUNCE, RUMBLE, KNIT, INTERROGATE, TRANSMIT)
+- **NOOL.md**: Updated to v0.3 reflecting 7-step protocol
 - **README.md**: Updated core concepts, added TESSERACT and depth modes
 
 ### Important

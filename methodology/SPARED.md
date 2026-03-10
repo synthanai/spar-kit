@@ -94,7 +94,7 @@ SPARED supports three entry points based on practitioner experience:
 |-------|-------------|-------------------|
 | 🟢 **Gentle Entry** | Single perspective introduced | Show Me depth mode |
 | 🟡 **Standard** | Full 4-direction compass | Basic to Stress Test |
-| 🔴 **Deep** | Full 8-step with 8+ personas | Deep to Ultra |
+| 🔴 **Deep** | Full 7-step with 8+ personas | Deep to Ultra |
 
 ### Entry Protocol (3 Questions)
 

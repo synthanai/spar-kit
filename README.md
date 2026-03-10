@@ -153,7 +153,7 @@ SPAR's foundational model uses a compass metaphor. Four personas, four orientati
 
 ---
 
-### The SPARKIT Protocol (8 Steps, v8.0)
+### The SPARKIT Protocol (7 Steps, v8.0)
 
 ```
 0 — NOOL        State deliberation intent (WHY, WHAT TYPE, HOW)
@@ -402,7 +402,7 @@ This toolkit includes the complete **SPAR methodology** (v8.0), everything you n
 
 | Document | Description |
 |----------|-------------|
-| [**PROTOCOL.md**](methodology/PROTOCOL.md) | The 8-step SPARKIT protocol with prompts |
+| [**PROTOCOL.md**](methodology/PROTOCOL.md) | The 7-step SPARKIT protocol with prompts |
 | [**ABSTRACT.md**](methodology/ABSTRACT.md) | **NEW** Abstraction of Thought (AoT) specification |
 | [**TESSERACT.md**](methodology/TESSERACT.md) | **NEW** 504-configuration system (4 axes) |
 | [**DEPTH_MODES.md**](methodology/DEPTH_MODES.md) | **NEW** 6 reasoning depth modes |
@@ -558,7 +558,7 @@ SPAR isn't just a technique. It's a stance toward knowledge:
 - **[ChatGPT GPT](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)**: Use SPAR in ChatGPT
 - **[Web Playground](https://synthanai.github.io/spar-kit)**: Try in browser
 - **[npm Package](https://www.npmjs.com/package/sparkit)**: Install via npm
-- **[SPARKIT Protocol](methodology/PROTOCOL.md)**: 8-step methodology (v8.0)
+- **[SPARKIT Protocol](methodology/PROTOCOL.md)**: 7-step methodology (v8.0)
 - **[TESSERACT Config](methodology/TESSERACT.md)**: 504 debate configurations
 - **[Depth Modes](methodology/DEPTH_MODES.md)**: 6 reasoning intensity levels
 - **[ASPIRES Framework](methodology/ADVANCED_PATTERNS.md)**: Advanced patterns

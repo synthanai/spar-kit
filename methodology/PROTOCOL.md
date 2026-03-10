@@ -1,9 +1,9 @@
 # The SPARKIT Protocol
 
-*The complete 8-step dialectic engine for structured persona debate.*
+*The complete 7-step dialectic engine for structured persona debate.*
 
 > **Version**: 8.0 (March 2026)
-> **Change**: Step 3 ABSTRACT elevated from POPULATE sub-activity to dedicated step. AoT integration validated with +40% synthesis quality improvement.
+> **Change**: Centre OUTER/INNER (Observer + PROBE as Soul compass). NOOL integrated as input to SCOPE. AoT integrated as sub-phase of POPULATE.
 
 ---
 
@@ -501,7 +501,7 @@ NEXT ACTION: [Specific step with owner]
 
 | Version | Date | Changes |
 |---------|------|---------|
-| v8.0 | 2026-03 | AoT elevated to Step 3: ABSTRACT. 8-step protocol. NOOL Step 0. 6R Engine. Checkpoint tables. |
+| v8.0 | 2026-03 | 7-step protocol maintained. NOOL as input to SCOPE (not separate step). AoT stays inside POPULATE (2b-2e). Centre OUTER/INNER. 6R Engine. Checkpoint tables. |
 | v7.3 | 2026-01 | AoT added as POPULATE sub-activity |
 | v7.2 | 2025-12 | Reasoning depth modes refined |
 | v7.0 | 2025-10 | 7-step SPARKIT protocol established |

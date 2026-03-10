@@ -140,7 +140,7 @@ SDK for programmatic integration is on the roadmap.
 **A:** Devil's Advocate is one pattern (attacking a position). SPAR is a full system:
 
 - **Multiple genuine perspectives**, not just opposition
-- **Structured protocol** (7 steps), not ad-hoc challenge
+- **Structured protocol** (8 steps, v8.0), not ad-hoc challenge
 - **Coherent personas** with consistent worldviews, not isolated objections
 - **Synthesis**, not just critique
 

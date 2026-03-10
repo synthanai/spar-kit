@@ -418,6 +418,20 @@ This toolkit includes the complete **SPAR methodology** (v8.0), everything you n
 | [**WHEN_NOT_TO_USE_SPAR.md**](methodology/WHEN_NOT_TO_USE_SPAR.md) | Explicit contraindications and boundary conditions |
 | [**FAQ.md**](methodology/FAQ.md) | Frequently asked questions (18 common questions answered) |
 
+### Governance & Advanced
+
+| Document | Description |
+|----------|-------------|
+| [**6R_ENGINE.md**](methodology/6R_ENGINE.md) | Backstage cognition loop |
+| [**SPARED.md**](methodology/SPARED.md) | Coaching cycle (5 phases: Ground, Flow, Burn, Expand, Return) |
+| [**RAMP_LEVELS.md**](methodology/RAMP_LEVELS.md) | Decision gravity assessment (5 levels) |
+| [**COMMIT_DEPTH.md**](methodology/COMMIT_DEPTH.md) | Graduated autonomy (Shallow to Full) |
+| [**ARENA_MITOSIS.md**](methodology/ARENA_MITOSIS.md) | Recursive arena spawning |
+| [**LOOP_GOVERNANCE.md**](methodology/LOOP_GOVERNANCE.md) | Hard limits, circuit breakers, checkpoint/resume |
+| [**FEEDBACK_RESOLUTION.md**](methodology/FEEDBACK_RESOLUTION.md) | Disagreement disposition protocol |
+| [**DOORS.md**](methodology/DOORS.md) | Decision exit framework |
+| [**DEBATE_LINEAGE.md**](methodology/DEBATE_LINEAGE.md) | Session relationship tracking |
+
 ### Quick Start
 
 | Document | Description |

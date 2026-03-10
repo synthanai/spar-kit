@@ -846,7 +846,7 @@ All five STASH modes use the same core frameworks:
 | Framework | What It Is | Used In |
 |-----------|-----------|---------|
 | **Four Directions (N-E-W-S)** | Canonical 4-persona model | All modes |
-| **SPARKIT Protocol (7 steps)** | Debate structure | All modes |
+| **SPARKIT Protocol (8 steps, v8.0)** | Debate structure | All modes |
 | **GRACE Principles (5 stances)** | Non-negotiables | All modes |
 | **ASPIRES Framework (7 patterns)** | Advanced techniques | All modes |
 | **109-Persona Library** | Extended personas | All modes |

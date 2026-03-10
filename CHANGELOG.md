@@ -7,6 +7,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [5.0.0-methodology] - 2026-03-10
+
+### 🚀 Highlights
+
+- **8-Step Protocol (v8.0)**: ABSTRACT elevated from POPULATE sub-activity to dedicated Step 3
+- **TESSERACT Configuration System**: 504 possible debate configurations across 4 axes
+- **Reasoning Depth Modes**: 6 calibrated modes from Show Me to Ultra
+- **NOOL Integration**: IoT-AoT-CoT three-layer reasoning stack as Step 0
+
+### Added
+
+#### New Methodology Documents
+- `methodology/ABSTRACT.md` - Full AoT v2.0 specification (Type 1-3 abstraction)
+- `methodology/TESSERACT.md` - 4-axis configuration system (504 combos)
+- `methodology/DEPTH_MODES.md` - 6 reasoning depth modes with selection guide
+- `methodology/CENTRE.md` - Centre Behavioral Analyst (always-on, Human 5 Whats)
+- `methodology/6R_ENGINE.md` - Backstage cognition loop
+- `methodology/SPARED.md` - Coaching cycle (5 phases)
+- `methodology/RAMP_LEVELS.md` - Decision gravity assessment (5 levels)
+- `methodology/ARENA_MITOSIS.md` - Recursive arena spawning (3 modes)
+- `methodology/COMMIT_DEPTH.md` - Graduated autonomy (4 levels)
+- `methodology/DOORS.md` - Decision exit framework
+- `methodology/FEEDBACK_RESOLUTION.md` - Disagreement disposition protocol
+- `methodology/LOOP_GOVERNANCE.md` - Hard limits and circuit breakers
+- `methodology/DEBATE_LINEAGE.md` - Session relationship tracking
+
+#### Protocol Enhancements
+- Step 0: NOOL (State deliberation intent before scoping)
+- Step 3: ABSTRACT (Construct cognitive map before debate)
+- GRACE check integrated into RUMBLE rounds
+- 6R Engine backstage cognition loop
+- Checkpoint decision tables for all transitions
+- TRANSMIT now includes Dissent Record and Conditions
+
+### Changed
+
+- **Protocol**: 7-step → 8-step (SCOPE, POPULATE, **ABSTRACT**, ANNOUNCE → RUMBLE renamed to step 5)
+- **NOOL.md**: Updated to v0.3 reflecting 8-step protocol
+- **README.md**: Updated core concepts, added TESSERACT and depth modes
+
+### Important
+
+> **CLI Implementation**: The CLI remains at v4.1.0 and implements the 7-step protocol. The methodology documentation reflects v8.0. See [ROADMAP.md](./ROADMAP.md) for CLI v5.0 plans.
+
+---
+
 ## [4.1.0] - 2026-01-15
 
 ### 🚀 Highlights

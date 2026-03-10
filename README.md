@@ -25,13 +25,13 @@
 
 ## What is SPAR?
 
-**SPAR** is a decision-making methodology that uses structured disagreement between distinct personas to surface insights that consensus-seeking processes systematically miss. Whether those personas are embodied by humans, simulated by AI, or both — the methodology remains the same.
+**SPAR** is a decision-making methodology that uses structured disagreement between distinct personas to surface insights that consensus-seeking processes systematically miss. Whether those personas are embodied by humans, simulated by AI, or both, the methodology remains the same.
 
 | Letter | Meaning | Definition |
 |--------|---------|------------|
 | **S** | Structured | Not ad-hoc; a designed process with protocols and phases |
 | **P** | Persona | Distinct voices with coherent, conflicting worldviews |
-| **A** | Argumentation | Personas debate and defend positions — not just "provide perspectives" |
+| **A** | Argumentation | Personas debate and defend positions, not just "provide perspectives" |
 | **R** | Reasoning | Systematic logic that exposes blind spots and triggers System 2 thinking |
 
 ---
@@ -149,26 +149,60 @@ SPAR's foundational model uses a compass metaphor. Four personas, four orientati
 - **North ↔ South** — Vision vs. Reality
 - **East ↔ West** — Innovation vs. Tradition
 
-📖 **[Full Four Directions →](methodology/FOUR_DIRECTIONS.md)**
+📖 **[Full Four Directions →](methodology/FOUR_DIRECTIONS.md)** | 📖 **[Centre: Behavioral Analyst →](methodology/CENTRE.md)**
 
 ---
 
-### The SPARKIT Protocol (7 Steps)
+### The SPARKIT Protocol (8 Steps, v8.0)
 
 ```
+0 — NOOL        State deliberation intent (WHY, WHAT TYPE, HOW)
 S — SCOPE       Define the question precisely
-P — POPULATE    Instantiate clashing personas  
-A — ANNOUNCE    Present the challenge equally
-R — RUMBLE      3-round structured dialectic:
-                - R1: Opening (1500 tokens)
-                - R2: Clash (1200 tokens)
-                - R3: Final (1000 tokens)
-K — KNIT        Moderator synthesizes tensions (21k tokens)
+P — POPULATE    Instantiate clashing personas
+A — ABSTRACT    Construct shared cognitive map (AoT)        ★ NEW
+R — RUMBLE      Structured dialectic (rounds by depth mode)
+K — KNIT        Moderator synthesizes tensions
 I — INTERROGATE Stress-test the synthesis
 T — TRANSMIT    Extract actionable recommendations
 ```
 
+> **v8.0**: Step 3 ABSTRACT was elevated from a POPULATE sub-activity to a dedicated step after validated experiments showed +40% synthesis quality improvement.
+
 📖 **[Full SPARKIT Protocol →](methodology/PROTOCOL.md)**
+
+---
+
+### TESSERACT Configuration (504 Combos)
+
+Tune any debate across four independent axes:
+
+| Axis | Options | Default |
+|------|---------|--------|
+| **Depth** | `duel` (2) · `clash` (4+PROBE) · `rumble` (8+) | clash |
+| **Pattern** | sequential · freeflow · binary · dialectic · inquisition · emergence | dialectic |
+| **Style** | balanced · adversarial · steelman · consensus · premortem · escalation · inversion | balanced |
+| **Horizon** | now · cycle · legacy · shifted | cycle |
+
+Or use a preset: ⚡ `quick` · 🔮 `deep` · 🚨 `crisis` · 🤝 `align` · 🎯 `challenge`
+
+📖 **[Full TESSERACT Configuration →](methodology/TESSERACT.md)**
+
+---
+
+### Reasoning Depth Modes (6 Levels)
+
+Match debate intensity to decision stakes:
+
+| Mode | Rounds | Personas | Best For |
+|------|--------|----------|----------|
+| 👀 Show Me | 1 | 4 | Demo, onboarding |
+| ⚡ Quick | 3 | 4 | Rapid sanity check |
+| ⚖️ Basic | 3 | 4 + PROBE | Standard decisions |
+| 💣 Stress Test | 3 | 4 + PROBE | Significant investment |
+| 🧠 Deep | 5 | 8 + PROBE | Strategic pivots |
+| 🤯 Ultra | 7+ | 8+ | Existential decisions |
+
+📖 **[Full Depth Modes →](methodology/DEPTH_MODES.md)**
 
 ---
 
@@ -354,23 +388,32 @@ For time-constrained decisions, a **30-minute, 4-persona protocol**:
 
 ## 📖 Methodology Documentation
 
-This toolkit includes the complete **SPAR methodology** — everything you need to understand, implement, and master structured persona-argumentation:
+This toolkit includes the complete **SPAR methodology** (v8.0), everything you need to understand, implement, and master structured persona-argumentation:
 
 ### Philosophy & Foundations
 
 | Document | Description |
 |----------|-------------|
 | [**MANIFESTO.md**](methodology/MANIFESTO.md) | The complete philosophy of SPAR |
-| [**GRACE_PRINCIPLES.md**](methodology/GRACE_PRINCIPLES.md) | The GRACE principles — 5 epistemological stances |
+| [**GRACE_PRINCIPLES.md**](methodology/GRACE_PRINCIPLES.md) | The GRACE principles: 5 epistemological stances |
 | [**FOUR_DIRECTIONS.md**](methodology/FOUR_DIRECTIONS.md) | Deep dive into the N-E-W-S compass model |
+
+### Protocol & Configuration (v8.0)
+
+| Document | Description |
+|----------|-------------|
+| [**PROTOCOL.md**](methodology/PROTOCOL.md) | The 8-step SPARKIT protocol with prompts |
+| [**ABSTRACT.md**](methodology/ABSTRACT.md) | **NEW** Abstraction of Thought (AoT) specification |
+| [**TESSERACT.md**](methodology/TESSERACT.md) | **NEW** 504-configuration system (4 axes) |
+| [**DEPTH_MODES.md**](methodology/DEPTH_MODES.md) | **NEW** 6 reasoning depth modes |
+| [**CENTRE.md**](methodology/CENTRE.md) | **NEW** Centre: Behavioral Analyst (always-on, Human 5 Whats) |
 
 ### Process & Practice
 
 | Document | Description |
 |----------|-------------|
-| [**PROTOCOL.md**](methodology/PROTOCOL.md) | The 7-step SPARKIT protocol with prompts |
 | [**STASH_MODES.md**](methodology/STASH_MODES.md) | The 5 modes: Solo Human, Team Human, AI-Persona, Solo AI, Hybrid |
-| [**ADVANCED_PATTERNS.md**](methodology/ADVANCED_PATTERNS.md) | The ASPIRES framework — 7 advanced patterns |
+| [**ADVANCED_PATTERNS.md**](methodology/ADVANCED_PATTERNS.md) | The ASPIRES framework: 7 advanced patterns |
 | [**PRACTICE_GUIDELINES.md**](methodology/PRACTICE_GUIDELINES.md) | When to use, when NOT to use, and how to do it right |
 | [**WHEN_NOT_TO_USE_SPAR.md**](methodology/WHEN_NOT_TO_USE_SPAR.md) | Explicit contraindications and boundary conditions |
 | [**FAQ.md**](methodology/FAQ.md) | Frequently asked questions (18 common questions answered) |
@@ -379,7 +422,7 @@ This toolkit includes the complete **SPAR methodology** — everything you need 
 
 | Document | Description |
 |----------|-------------|
-| [**SPAR_ONE_PAGE_CHEATSHEET.md**](methodology/SPAR_ONE_PAGE_CHEATSHEET.md) | **Start here** — Learn SPAR in 60 seconds |
+| [**SPAR_ONE_PAGE_CHEATSHEET.md**](methodology/SPAR_ONE_PAGE_CHEATSHEET.md) | **Start here**: Learn SPAR in 60 seconds |
 | [**SPAR_IN_5_MINUTES.md**](methodology/SPAR_IN_5_MINUTES.md) | Learn to run SPAR manually in 5 minutes |
 
 ### Resources & Templates
@@ -498,12 +541,15 @@ SPAR isn't just a technique. It's a stance toward knowledge:
 
 ## Links
 
-- **[ChatGPT GPT](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)** — Use SPAR in ChatGPT
-- **[Web Playground](https://synthanai.github.io/spar-kit)** — Try in browser
-- **[npm Package](https://www.npmjs.com/package/sparkit)** — Install via npm
-- **[SPARKIT Protocol](methodology/PROTOCOL.md)** — 7-step methodology
-- **[ASPIRES Framework](methodology/ADVANCED_PATTERNS.md)** — Advanced patterns
-- **[Full Manifesto](methodology/MANIFESTO.md)** — Complete philosophy
+- **[ChatGPT GPT](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)**: Use SPAR in ChatGPT
+- **[Web Playground](https://synthanai.github.io/spar-kit)**: Try in browser
+- **[npm Package](https://www.npmjs.com/package/sparkit)**: Install via npm
+- **[SPARKIT Protocol](methodology/PROTOCOL.md)**: 8-step methodology (v8.0)
+- **[TESSERACT Config](methodology/TESSERACT.md)**: 504 debate configurations
+- **[Depth Modes](methodology/DEPTH_MODES.md)**: 6 reasoning intensity levels
+- **[ASPIRES Framework](methodology/ADVANCED_PATTERNS.md)**: Advanced patterns
+- **[Full Manifesto](methodology/MANIFESTO.md)**: Complete philosophy
+- **[ROADMAP](ROADMAP.md)**: What's coming next
 
 ---
 

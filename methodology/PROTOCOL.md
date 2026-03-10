@@ -1,24 +1,30 @@
 # The SPARKIT Protocol
 
-*The complete 7-step dialectic engine for structured persona debate.*
+*The complete 8-step dialectic engine for structured persona debate.*
+
+> **Version**: 8.0 (March 2026)
+> **Change**: Step 3 ABSTRACT elevated from POPULATE sub-activity to dedicated step. AoT integration validated with +40% synthesis quality improvement.
 
 ---
 
 ## Overview
 
-A SPAR session follows the **SPARKIT** protocol — seven steps designed to stress-test decisions through structured disagreement:
+A SPAR session follows the **SPARKIT** protocol, eight steps designed to stress-test decisions through structured disagreement:
 
 | Step | Letter | Phase | Description |
 |------|--------|-------|-------------|
+| 0 | — | **NOOL** | State the deliberation's intent (WHY, WHAT TYPE, HOW) |
 | 1 | **S** | **Scope** | Define the strategic question, constraints, and decision context |
 | 2 | **P** | **Populate** | Instantiate diverse personas with coherent, clashing worldviews |
-| 3 | **A** | **Announce** | Present the challenge equally to all personas |
-| 4 | **R** | **Rumble** | Run the dialectic — let personas argue, critique, and stress-test |
+| 3 | **A** | **Abstract** | Construct shared abstraction map before debate (**v8.0**) |
+| 4 | **R** | **Rumble** | Run the dialectic, let personas argue, critique, stress-test |
 | 5 | **K** | **Knit** | Moderator synthesizes tensions, convergences, and blind spots |
-| 6 | **I** | **Interrogate** | Challenge the synthesis — probe assumptions, find gaps |
+| 6 | **I** | **Interrogate** | Challenge the synthesis, probe assumptions, find gaps |
 | 7 | **T** | **Transmit** | Extract concrete, actionable recommendations |
 
-> **The Name**: "SPARKIT" is both the backronym for the 7-step process *and* the name of the CLI tool that implements it. *spar-kit* follows the **SPARKIT** protocol.
+> **The Name**: "SPARKIT" is both the backronym for the protocol *and* the name of the CLI tool that implements it. The letters S-P-A-R-K-I-T map to the 7 action steps (Step 0: NOOL is the pre-step).
+
+> **v8.0 Note**: The CLI (v4.1.0) currently implements the 7-step protocol. See [ROADMAP.md](../ROADMAP.md) for CLI v5.0 plans.
 
 ---
 
@@ -40,7 +46,24 @@ If the real obstacle is stakeholder conflict or avoided conversations, SPAR won'
 
 ---
 
-## Step 1: SCOPE — Define the Question
+## Step 0: NOOL — State the Intent 🧵
+
+Before scoping, state the deliberation's reasoning thread using the three-layer IoT-AoT-CoT stack:
+
+```
+NOOL:
+  Intent (WHY):       [Why are we deliberating? What outcome matters?]
+  Abstraction (WHAT): [What type of problem is this?]
+  Chain (HOW):        [How will we know we succeeded?]
+```
+
+Any persona can invoke a "NOOL check" during the debate to recalibrate if discussion diverges from the original intent.
+
+> **IoT-AoT-CoT**: Intent of Thought (Soul/WHY), Abstraction of Thought (Mind/WHAT TYPE), Chain of Thought (Body/HOW). The three layers ensure deliberation stays grounded.
+
+---
+
+## Step 1: SCOPE — Define the Question 🔭
 
 Before any personas engage, precisely define the strategic question.
 
@@ -64,11 +87,11 @@ CURRENT LEAN:
 
 ### Why Scope First?
 
-The most common failure in dialectic is **scope drift** — personas arguing past each other on different interpretations of the question. Explicit scoping forces alignment before debate begins.
+The most common failure in dialectic is **scope drift**, personas arguing past each other on different interpretations of the question. Explicit scoping forces alignment before debate begins.
 
 ---
 
-## Step 2: POPULATE — Instantiate Each Persona
+## Step 2: POPULATE — Instantiate Each Persona 🎭
 
 Use this prompt structure to create each persona:
 
@@ -107,11 +130,44 @@ For each persona, define these elements:
 | **Non-Negotiable** | What they won't compromise? | "Acting without clarity" |
 | **Challenge Frame** | Their instinctive question? | "Where's your evidence?" |
 
+### Persona Count by Depth Mode
+
+| Mode | Personas | Configuration |
+|------|----------|---------------|
+| 👀 Show Me | 4 + Centre | NEWS compass + Behavioral Analyst |
+| ⚡ Quick | 2 + Centre | Duel + Behavioral Analyst |
+| ⚖️ Basic | 4 + PROBE + Centre | NEWS + framework critic + Behavioral Analyst |
+| 💣 Stress Test | 4 + PROBE + Centre | NEWS + framework critic + Behavioral Analyst |
+| 🧠 Deep | 8 + PROBE + Centre | Full PERSONALITY roster + always-ons |
+| 🤯 Ultra | 8+ + PROBE + Centre | Full roster + domain experts + always-ons |
+
+> **Centre (★ Behavioral Analyst) is always-on**, like PROBE. It participates in every debate, asking "Why will humans do or not do this?" using the Human 5 Whats diagnostic. See [CENTRE.md](./CENTRE.md).
+
+> **See**: [TESSERACT.md](./TESSERACT.md) for configuration axes, [DEPTH_MODES.md](./DEPTH_MODES.md) for mode details.
+
 ---
 
-## Step 3: ANNOUNCE — Present the Challenge
+## Step 3: ABSTRACT — Construct the Cognitive Map 🗺️
 
-Give all personas the same challenge prompt:
+**NEW in v8.0.** Before debate begins, establish a shared abstraction map using Abstraction of Thought (AoT). This prevents personas from arguing in disconnected frames.
+
+Three types of abstraction, applied progressively by depth mode:
+
+| Type | What It Does |
+|------|-------------|
+| **Type 1: Decompose** | Break the decision into 3-5 key dimensions with sub-factors |
+| **Type 2: Relate** | Map connections between dimensions (ENABLES, BLOCKS, etc.) |
+| **Type 3: Reframe** | State the real problem type to prevent false-frame debates |
+
+All personas receive the abstraction map before ANNOUNCE. Arguments reference shared dimensions, producing sharper synthesis.
+
+> **Full specification**: [ABSTRACT.md](./ABSTRACT.md)
+
+---
+
+## Step 4: ANNOUNCE — Present the Challenge 📢
+
+Give all personas the same challenge prompt, now including the abstraction map:
 
 ```
 THE DECISION:
@@ -120,6 +176,10 @@ THE DECISION:
 THE CONTEXT:
 [Provide relevant background: constraints, stakeholders, timeline,
 what's been tried, what you're uncertain about]
+
+THE ABSTRACTION MAP:
+[Include the decomposition tree, relation map, and abstraction statement
+from the ABSTRACT phase]
 
 THE CURRENT LEAN:
 [If you have a tentative direction, state it. If not, say "No current lean."]
@@ -136,14 +196,14 @@ Analyze this decision from your perspective.
 
 The most common failure is abstract debate disconnected from reality. Ground your challenge in:
 
-- **Specific numbers** — Revenue, timeline, headcount
-- **Named stakeholders** — Who cares about this decision?
-- **Concrete constraints** — What's actually limiting options?
-- **Real uncertainty** — What don't you know?
+- **Specific numbers**, revenue, timeline, headcount
+- **Named stakeholders**, who cares about this decision?
+- **Concrete constraints**, what's actually limiting options?
+- **Real uncertainty**, what don't you know?
 
 ---
 
-## Step 4: RUMBLE — Run the Dialectic
+## Step 5: RUMBLE — Run the Dialectic ⚔️
 
 After each persona responds, prompt them to engage with each other:
 
@@ -159,9 +219,26 @@ Now engage with these positions directly:
 - Has anything they said caused you to update your view?
 ```
 
+### The GRACE Check (Before Each Round)
+
+Before each RUMBLE round, each persona should apply the GRACE principles:
+
+- **G**round Yourself: Still yourself before synthesis
+- **R**eveal The Shadow: Surface biases and anxieties
+- **A**pproach The Edge: Seek the adjacent possible
+- **C**ourt The Opposite: Welcome radical dissent
+- **E**xpose Your Limits: Acknowledge what you don't know
+
 ### How Many Rounds?
 
-Run 2-3 rounds of engagement. More rounds rarely add value; the key tensions usually surface quickly.
+| Depth Mode | Rounds |
+|------------|--------|
+| 👀 Show Me | 1 |
+| ⚡ Quick | 3 |
+| ⚖️ Basic | 3 |
+| 💣 Stress Test | 3 |
+| 🧠 Deep | 5 |
+| 🤯 Ultra | 7+ |
 
 **Signs you need another round:**
 - A major point hasn't been addressed
@@ -173,11 +250,24 @@ Run 2-3 rounds of engagement. More rounds rarely add value; the key tensions usu
 - The same arguments are repeating
 - Key tensions are clearly visible
 
+### The 6R Engine (Backstage)
+
+During the RUMBLE, a backstage cognitive loop runs to prevent context drift:
+
+1. **Reduce**: Extract atomic claims from each position
+2. **Reflect**: Find supporting evidence from knowledge
+3. **Reweave**: Update the relation map with new connections
+4. **Recite**: Challenge descriptions for accuracy
+5. **Review**: Audit for drift from the original NOOL intent
+6. **Rethink**: Inject counter-theses (via PROBE)
+
+> **Full specification**: [6R_ENGINE.md](./6R_ENGINE.md)
+
 ---
 
-## Step 5: KNIT — The Moderator Synthesis
+## Step 6: KNIT — The Moderator Synthesis ⚖️
 
-After Round 2, introduce a moderator voice:
+After the final RUMBLE round, introduce a moderator voice:
 
 ```
 ## MODERATOR SYNTHESIS
@@ -188,6 +278,8 @@ TENSION 1: [A claims X, while B claims Y. These appear incompatible because...]
 TENSION 2: [C's framework would require Z, but this contradicts...]
 
 CONVERGENCE: [Where multiple personas surprisingly agree...]
+
+UNDECIDABLE CORE: [What genuinely cannot be resolved with available information...]
 
 UNEXAMINED: [What has NOT been addressed by any participant...]
 
@@ -202,6 +294,7 @@ The moderator is **neutral**, not another debater. They should:
 - ✅ Summarize positions accurately
 - ✅ Name tensions explicitly
 - ✅ Identify what's been avoided
+- ✅ Name the undecidable core
 - ✅ Draft a preliminary synthesis
 - ❌ NOT impose their own view
 - ❌ NOT resolve tensions prematurely
@@ -209,7 +302,7 @@ The moderator is **neutral**, not another debater. They should:
 
 ---
 
-## Step 6: INTERROGATE — Stress-Test the Synthesis
+## Step 7: INTERROGATE — Stress-Test the Synthesis 🔬
 
 This is the critical step that prevents premature closure. Challenge the moderator's synthesis:
 
@@ -229,26 +322,44 @@ Each persona, evaluate this synthesis:
 
 ### Why Interrogate?
 
-Without this step, synthesis becomes consensus theater — a false harmony that papers over real tensions. Interrogation ensures:
+Without this step, synthesis becomes consensus theater, a false harmony that papers over real tensions. Interrogation ensures:
 
 - The synthesis has been stress-tested from all angles
 - Hidden assumptions are exposed
 - Failure modes are identified
 - The final recommendations account for genuine uncertainty
 
+### PROBE Questions
+
+The PROBE persona plays a special role here, asking questions that attack the *methodology itself*:
+
+- "What is the SPAR process preventing us from seeing?"
+- "Which persona voice was systematically underweighted?"
+- "What information would reverse this synthesis entirely?"
+
 ---
 
-## Step 7: TRANSMIT — Request Final Positions
+## Step 8: TRANSMIT — Extract Actionable Recommendations 🎯
 
-After interrogation, request concrete recommendations:
+After interrogation, extract the final verdict:
 
 ```
-The synthesis has been stress-tested. From your perspective:
-- What synthesis would you propose that honors the valid concerns raised?
-- What would you NOT be willing to compromise, even in synthesis?
-- What remains genuinely unresolved that the decision-maker must weigh?
-- What is your specific, actionable recommendation?
+RECOMMENDATION: [Clear, actionable recommendation]
+
+CONFIDENCE: [0-100%]
+
+DISSENT RECORD:
+- [Persona X]: [What they still disagree with and why]
+- [Persona Y]: [What they still disagree with and why]
+
+CONDITIONS:
+- [Under what conditions should this decision be revisited?]
+
+NEXT ACTION:
+- [Specific, concrete next step with owner and timeline]
 ```
+
+Dissent is **preserved, not resolved**. A good SPAR ends with honest disagreement, not forced agreement.
 
 ---
 
@@ -259,9 +370,9 @@ The debate output is **input to your decision**, not the decision itself.
 ### What to Extract
 
 | Category | What to Look For |
-|----------|-----------------|
+|----------|--------------------|
 | **Convergences** | Where did personas unexpectedly agree? High-confidence signals. |
-| **Irreconcilable Tensions** | Where they couldn't find common ground. These are genuine trade-offs — choose, don't dissolve. |
+| **Irreconcilable Tensions** | Where they couldn't find common ground. These are genuine trade-offs, choose, don't dissolve. |
 | **New Options** | Did the collision produce a fourth option none individually proposed? |
 | **Exposed Assumptions** | What did you take for granted that was challenged? |
 | **Questions You Can't Answer** | Information gaps become investigation priorities. |
@@ -270,11 +381,26 @@ The debate output is **input to your decision**, not the decision itself.
 
 The personas don't vote. You don't count which position "won." Instead:
 
-1. **Map to your context** — Which concerns are most relevant to YOUR specific situation?
+1. **Map to your context**, which concerns are most relevant to YOUR specific situation?
 
-2. **Check your own bias** — Which persona do you instinctively agree with? That's where you need the least input. Pay more attention to perspectives that feel "wrong."
+2. **Check your own bias**, which persona do you instinctively agree with? That's where you need the least input. Pay more attention to perspectives that feel "wrong."
 
-3. **Identify the forcing function** — What will actually determine success or failure? Weight those concerns most heavily.
+3. **Identify the forcing function**, what will actually determine success or failure? Weight those concerns most heavily.
+
+---
+
+## Checkpoint Decision Tables
+
+Explicit conditions for each transition. Obvious decisions automatic; judgment on ambiguous cases.
+
+| Transition | STOP/BACK if | PROCEED if |
+|------------|-------------|------------|
+| SCOPE → POPULATE | Ambiguous question, no tension | All fields complete, tension sharp |
+| POPULATE → ABSTRACT | Roster lacks opposition | Roster covers tension |
+| ABSTRACT → ANNOUNCE | AoT < 2 dimensions, problem misclassified | AoT ≥ 3 deep, reframe clear |
+| RUMBLE → KNIT | New substantive argument, unresolved critical items | 3+ rounds done, repetition starting |
+| KNIT → INTERROGATE | Synthesis contradicts NOOL, undecidable > 50% | Coherent synthesis produced |
+| INTERROGATE → TRANSMIT | PROBE flags systematic bias, catastrophic risk | All gates pass for depth mode |
 
 ---
 
@@ -292,16 +418,17 @@ After your debate, ask yourself:
 
 ---
 
-## Quick Reference: The SPARKIT Protocol
+## Quick Reference: The SPARKIT Protocol (v8.0)
 
 ```
-S — SCOPE      Define the question precisely
-P — POPULATE   Instantiate clashing personas
-A — ANNOUNCE   Present the challenge equally
-R — RUMBLE     Run the dialectic (2-3 rounds)
-K — KNIT       Moderator synthesizes tensions
+0 — NOOL        State deliberation intent (WHY, WHAT TYPE, HOW)
+S — SCOPE       Define the question precisely
+P — POPULATE    Instantiate clashing personas
+A — ABSTRACT    Construct shared cognitive map (AoT)        ★ NEW
+R — RUMBLE      Run the dialectic (rounds by depth mode)
+K — KNIT        Moderator synthesizes tensions
 I — INTERROGATE Stress-test the synthesis
-T — TRANSMIT   Extract actionable recommendations
+T — TRANSMIT    Extract actionable recommendations
 ```
 
 ---
@@ -317,6 +444,15 @@ UNCERTAINTY: [What you don't know]
 CURRENT LEAN: [Your tentative direction or "No lean"]
 ```
 
+### NOOL Template
+
+```
+NOOL:
+  Intent (WHY):       [Why does this decision matter?]
+  Abstraction (WHAT): [What type of problem?]
+  Chain (HOW):        [How will we know success?]
+```
+
 ### Opening Prompt for Persona
 
 ```
@@ -330,6 +466,7 @@ Argue your perspective vigorously. Don't soften for politeness.
 ```
 THE DECISION: [One paragraph]
 THE CONTEXT: [Background, constraints, uncertainty]
+THE ABSTRACTION MAP: [Decomposition, relations, reframe]
 THE CURRENT LEAN: [Your tentative direction or "No lean"]
 YOUR TASK: What do you see? What questions? What's your position?
 ```
@@ -351,20 +488,34 @@ What does it get right? Miss? What assumptions? What risks? What would make it f
 ### Final Position Prompt
 
 ```
-What synthesis honors all valid concerns?
-What won't you compromise?
-What's unresolved?
-What's your specific recommendation?
+RECOMMENDATION: [Clear action]
+CONFIDENCE: [0-100%]
+DISSENT: [What you still disagree with]
+CONDITIONS: [When to revisit]
+NEXT ACTION: [Specific step with owner]
 ```
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| v8.0 | 2026-03 | AoT elevated to Step 3: ABSTRACT. 8-step protocol. NOOL Step 0. 6R Engine. Checkpoint tables. |
+| v7.3 | 2026-01 | AoT added as POPULATE sub-activity |
+| v7.2 | 2025-12 | Reasoning depth modes refined |
+| v7.0 | 2025-10 | 7-step SPARKIT protocol established |
 
 ---
 
 ## Next Steps
 
-- **[SPAR in 5 Minutes](./SPAR_IN_5_MINUTES.md)** — Simplified quick start
-- **[ASPIRES Framework](./ADVANCED_PATTERNS.md)** — 7 advanced patterns for experienced practitioners
-- **[Persona Library](./PERSONA_LIBRARY.md)** — Ready-to-use persona sets
-- **[Example Session](../examples/strategic_expansion.md)** — Full walkthrough
+- **[SPAR in 5 Minutes](./SPAR_IN_5_MINUTES.md)**, simplified quick start
+- **[ABSTRACT.md](./ABSTRACT.md)**, the Abstraction of Thought specification
+- **[TESSERACT.md](./TESSERACT.md)**, the 504-configuration system
+- **[DEPTH_MODES.md](./DEPTH_MODES.md)**, the six reasoning depth modes
+- **[ASPIRES Framework](./ADVANCED_PATTERNS.md)**, advanced patterns for experienced practitioners
+- **[Persona Library](./PERSONA_LIBRARY.md)**, ready-to-use persona sets
 
 ---
 

@@ -83,7 +83,7 @@ Presets are curated TESSERACT configurations for common scenarios.
 
 ## Agent Roster
 
-### Clash (4 + PROBE + Centre)
+### Clash (4 + Centre)
 
 | Agent | Direction | Element | Core Question |
 |-------|-----------|---------|---------------|
@@ -91,10 +91,10 @@ Presets are curated TESSERACT configurations for common scenarios.
 | 🔥 **Challenger** | East | Fire | "What's emerging?" |
 | 🌍 **Pragmatist** | South | Earth | "What's grounded?" |
 | 💧 **Sage** | West | Water | "What has history taught?" |
-| 🔍 **PROBE** | Meta | Aether | "What is this process preventing us from seeing?" |
-| ★ **Behavioral Analyst** | Centre | Soul | "Why will humans do or not do this?" |
+| 👁️ **Observer** | Centre-OUTER | Soul | "Why will humans do or not do this?" |
+| 🔍 **PROBE** | Centre-INNER | Soul | "Is the way we're reasoning flawed?" |
 
-> **Centre is always-on.** Like PROBE, it participates in every debate regardless of depth mode. See [CENTRE.md](./CENTRE.md) for the Human 5 Whats diagnostic.
+> **Centre is always-on.** OUTER (Observer, Human 5 Whats) looks at human behavior. INNER (PROBE, 5-point critique) looks at the methodology. Both run in every debate. See [CENTRE.md](./CENTRE.md).
 
 ### Rumble adds (8+)
 

@@ -134,14 +134,14 @@ For each persona, define these elements:
 
 | Mode | Personas | Configuration |
 |------|----------|---------------|
-| 👀 Show Me | 4 + Centre | NEWS compass + Behavioral Analyst |
-| ⚡ Quick | 2 + Centre | Duel + Behavioral Analyst |
-| ⚖️ Basic | 4 + PROBE + Centre | NEWS + framework critic + Behavioral Analyst |
-| 💣 Stress Test | 4 + PROBE + Centre | NEWS + framework critic + Behavioral Analyst |
-| 🧠 Deep | 8 + PROBE + Centre | Full PERSONALITY roster + always-ons |
-| 🤯 Ultra | 8+ + PROBE + Centre | Full roster + domain experts + always-ons |
+| 👀 Show Me | 4 + Centre | NEWS compass + Observer (OUTER) + PROBE (INNER) |
+| ⚡ Quick | 2 + Centre | Duel + Observer (OUTER) + PROBE (INNER) |
+| ⚖️ Basic | 4 + Centre | NEWS + OUTER + INNER |
+| 💣 Stress Test | 4 + Centre | NEWS + OUTER + INNER |
+| 🧠 Deep | 8 + Centre | Full PERSONALITY roster + OUTER + INNER |
+| 🤯 Ultra | 8+ + Centre | Full roster + domain experts + OUTER + INNER |
 
-> **Centre (★ Behavioral Analyst) is always-on**, like PROBE. It participates in every debate, asking "Why will humans do or not do this?" using the Human 5 Whats diagnostic. See [CENTRE.md](./CENTRE.md).
+> **Centre (★ Soul)** has two always-on lenses: OUTER (Observer, Human 5 Whats) looks at human behavior, INNER (PROBE, 5-point critique) looks at the methodology. See [CENTRE.md](./CENTRE.md).
 
 > **See**: [TESSERACT.md](./TESSERACT.md) for configuration axes, [DEPTH_MODES.md](./DEPTH_MODES.md) for mode details.
 

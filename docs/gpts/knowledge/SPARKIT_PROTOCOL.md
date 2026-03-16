@@ -128,3 +128,19 @@ Confidence: Medium (strong execution case, cultural uncertainty)
 - When data already gives a clear answer
 - Trivial choices (don't over-engineer)
 - Time-critical emergency responses (act first, SPAR later)
+
+
+---
+
+## RAPS REVIEW
+
+| Field | Value |
+|-------|-------|
+| Review Tier | Lite |
+| Review Due | TBD (needs confidence score) |
+| Review Status | Pending |
+| Verdict Status | Unknown |
+| Evidence | - |
+| Corrective Action | - |
+| Reviewed By | - |
+| Review Date | - |

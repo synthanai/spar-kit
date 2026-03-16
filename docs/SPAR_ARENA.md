@@ -1144,3 +1144,19 @@ sparkit arena list --category crisis
 
 *The ARENA Library is part of SPAR-Kit v4.0.0*
 *50+ pre-configured formations for every decision you face.*
+
+
+---
+
+## RAPS REVIEW
+
+| Field | Value |
+|-------|-------|
+| Review Tier | Lite |
+| Review Due | TBD (needs confidence score) |
+| Review Status | Pending |
+| Verdict Status | Unknown |
+| Evidence | - |
+| Corrective Action | - |
+| Reviewed By | - |
+| Review Date | - |

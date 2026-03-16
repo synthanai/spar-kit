@@ -78,3 +78,19 @@ That's it. That's the seed.
 *Four Perspectives, Four Dimensions, One Synthesis*
 
 [synthanai.github.io/spar](https://synthanai.github.io/spar)
+
+
+---
+
+## RAPS REVIEW
+
+| Field | Value |
+|-------|-------|
+| Review Tier | Lite |
+| Review Due | TBD (needs confidence score) |
+| Review Status | Pending |
+| Verdict Status | Unknown |
+| Evidence | - |
+| Corrective Action | - |
+| Reviewed By | - |
+| Review Date | - |

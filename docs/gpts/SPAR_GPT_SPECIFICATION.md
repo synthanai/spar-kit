@@ -612,3 +612,19 @@ For most decisions, the Four Directions (NORTH/EAST/SOUTH/WEST) are sufficient. 
 *Created: 2026-01-14*  
 *Updated: 2026-01-14*  
 *Status: Ready for GPT Store Publication*
+
+
+---
+
+## RAPS REVIEW
+
+| Field | Value |
+|-------|-------|
+| Review Tier | Lite |
+| Review Due | 2026-04-14 |
+| Review Status | Pending |
+| Verdict Status | Unknown |
+| Evidence | - |
+| Corrective Action | - |
+| Reviewed By | - |
+| Review Date | - |

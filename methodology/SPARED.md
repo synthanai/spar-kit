@@ -120,3 +120,19 @@ Weekly SPARED ritual:
 ---
 
 > *See also: [PROTOCOL.md](./PROTOCOL.md) | [STASH_MODES.md](./STASH_MODES.md) | [PRACTICE_GUIDELINES.md](./PRACTICE_GUIDELINES.md)*
+
+
+---
+
+## RAPS REVIEW
+
+| Field | Value |
+|-------|-------|
+| Review Tier | Lite |
+| Review Due | TBD (needs confidence score) |
+| Review Status | Pending |
+| Verdict Status | Unknown |
+| Evidence | - |
+| Corrective Action | - |
+| Reviewed By | - |
+| Review Date | - |

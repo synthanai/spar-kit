@@ -22,9 +22,9 @@ Controls the number and diversity of personas in the arena.
 
 | Setting | Agents | Description |
 |---------|--------|-------------|
-| `duel` | 2 | Two opposing voices. Fast binary decisions. |
-| `clash` *(default)* | 4 + PROBE | NEWS compass (North, East, South, West) + framework critic. |
+| `clash` *(default, minimum)* | 4 + PROBE | NEWS compass (North, East, South, West) + framework critic. |
 | `rumble` | 8+ | Full PERSONALITY roster + PROBE. Strategic pivots. |
+| `domain` | 4+N | Clash + domain/MBS/governance experts. |
 
 ### 2. Pattern — How do they interact?
 
@@ -64,20 +64,32 @@ Anchors the debate to a specific temporal lens.
 | `legacy` | Multi-year | "How does this look in 5 years?" |
 | `shifted` | Radically different future | "If everything changed, would this still hold?" |
 
+### 5. Width — How deep per response? *(token-based SPARs only)*
+
+Controls the token budget per persona per round. Applies only to LLM-executed SPARs, not human facilitation.
+
+| Width | Tokens/response | Use Case |
+|-------|----------------|----------|
+| `quick` | ~200-400 | Fast signal, rapid iteration. Headlines only. |
+| `standard` *(default)* | ~600-1000 | Balanced depth. Evidence + reasoning. |
+| `ultra` | ~1500-2500 | Full analysis. Citations, worked examples, deep chains. |
+
+> **Note:** Width does not multiply the 504 base configurations. It is a runtime parameter, not a design axis. The 504 count (3 × 6 × 7 × 4) covers the four design axes: Depth × Pattern × Style × Horizon.
+
 ---
 
 ## Presets
 
 Presets are curated TESSERACT configurations for common scenarios.
 
-| Preset | Depth | Pattern | Style | Horizon | Use Case |
-|--------|-------|---------|-------|---------|----------|
-| *(default)* | clash | dialectic | balanced | cycle | General decision-making |
-| ⚡ `quick` | duel | binary | balanced | now | Fast yes/no decisions |
-| 🔮 `deep` | rumble | dialectic | steelman | legacy | Strategic pivots, M&A |
-| 🚨 `crisis` | clash | freeflow | escalation | now | Surface hidden issues fast |
-| 🤝 `align` | clash | sequential | consensus | cycle | Build team agreement |
-| 🎯 `challenge` | duel | binary | adversarial | now | Stress-test a specific idea |
+| Preset | Depth | Pattern | Style | Horizon | Width | Use Case |
+|--------|-------|---------|-------|---------|-------|----------|
+| *(default)* | clash | dialectic | balanced | cycle | standard | General decision-making |
+| ⚡ `quick` | clash | binary | balanced | now | quick | Fast yes/no decisions |
+| 🔮 `deep` | rumble | dialectic | steelman | legacy | ultra | Strategic pivots, M&A |
+| 🚨 `crisis` | clash | freeflow | escalation | now | standard | Surface hidden issues fast |
+| 🤝 `align` | clash | sequential | consensus | cycle | standard | Build team agreement |
+| 🎯 `challenge` | clash | binary | adversarial | now | standard | Stress-test a specific idea |
 
 ---
 
@@ -125,7 +137,7 @@ You can mix any combination:
 sparkit --rumble --style=steelman --horizon=legacy "Should we open-source our core engine?"
 
 # Quick adversarial check on a tactical decision
-sparkit --duel --style=adversarial --horizon=now "Should we ship this feature Friday?"
+sparkit --style=adversarial --horizon=now "Should we ship this feature Friday?"
 
 # Consensus-building with the full team
 sparkit --pattern=sequential --style=consensus "What should our Q2 priorities be?"

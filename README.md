@@ -172,13 +172,13 @@ T — TRANSMIT    Extract actionable recommendations
 
 ---
 
-### TESSERACT Configuration (504 Combos)
+### TESSERACT Configuration (378 Combos)
 
 Tune any debate across four independent axes:
 
 | Axis | Options | Default |
 |------|---------|--------|
-| **Depth** | `duel` (2) · `clash` (4+PROBE) · `rumble` (8+) | clash |
+| **Depth** | `clash` (4+PROBE, minimum) · `rumble` (8+) · `domain` (4+N) | clash |
 | **Pattern** | sequential · freeflow · binary · dialectic · inquisition · emergence | dialectic |
 | **Style** | balanced · adversarial · steelman · consensus · premortem · escalation · inversion | balanced |
 | **Horizon** | now · cycle · legacy · shifted | cycle |

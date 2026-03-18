@@ -25,9 +25,9 @@ The TESSERACT system provides 504 possible debate configurations through 4 dimen
 
 | Depth | Agents | Description |
 |-------|--------|-------------|
-| **Duel** | 2 | Binary debate (FOR vs AGAINST) |
-| **Clash** | 4 | Standard NEWS compass (North, East, West, South) |
+| **Clash** | 4 | Standard NEWS compass (North, East, West, South). Minimum for all debates. |
 | **Rumble** | 8+ | Full persona panel with specialist observers |
+| **Domain** | 4+N | Clash + domain/MBS/governance experts |
 
 ---
 
@@ -119,7 +119,7 @@ Rounds: 3
 
 ### ⚡ Quick
 ```
-Depth: Duel (2 agents)
+Depth: Clash (4 agents)
 Pattern: Binary
 Style: Balanced
 Horizon: Now
@@ -155,7 +155,7 @@ Rounds: Until convergence
 
 ### 🎯 Challenge
 ```
-Depth: Duel (2 agents)
+Depth: Clash (4 agents)
 Pattern: Inquisition
 Style: Adversarial
 Horizon: Cycle
@@ -173,7 +173,7 @@ Users can mix and match:
 → Depth: Rumble + Style: Adversarial + Horizon: Legacy
 
 "Quick binary debate about this decision"
-→ Depth: Duel + Pattern: Binary
+→ Depth: Clash + Pattern: Binary
 
 "Use emergence pattern to build consensus"
 → Pattern: Emergence + Style: Consensus

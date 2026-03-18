@@ -135,7 +135,7 @@ For each persona, define these elements:
 | Mode | Personas | Configuration |
 |------|----------|---------------|
 | 👀 Show Me | 4 + Centre | NEWS compass + Observer (OUTER) + PROBE (INNER) |
-| ⚡ Quick | 2 + Centre | Duel + Observer (OUTER) + PROBE (INNER) |
+| ⚡ Quick | 4 + Centre | NEWS compass + Observer (OUTER) + PROBE (INNER) |
 | ⚖️ Basic | 4 + Centre | NEWS + OUTER + INNER |
 | 💣 Stress Test | 4 + Centre | NEWS + OUTER + INNER |
 | 🧠 Deep | 8 + Centre | Full PERSONALITY roster + OUTER + INNER |

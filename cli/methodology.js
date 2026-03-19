@@ -87,6 +87,8 @@ CONVERGENCE: [Where multiple personas surprisingly agree...]
 
 UNEXAMINED: [What has NOT been addressed by any participant...]
 
+MEDIATION CHECK: [Does this synthesis merely compromise between particular views, or does it identify the Concrete Universal that genuinely mediates them into a new unit of action?]
+
 DRAFT SYNTHESIS: [Attempt to honor valid concerns from all sides]`
     },
     I: {

@@ -165,7 +165,7 @@ cli/audit.js
 SPAR-Kit displays accountability reminders:
 
 1. **Before approval**: "You are accountable for this decision"
-2. **Low confidence**: "High uncertainty — your judgment is critical"
+2. **Low confidence**: "High uncertainty, your judgment is critical"
 3. **Override detected**: "Your modification is recorded"
 4. **Export**: "You are responsible for how this is used"
 
@@ -254,4 +254,4 @@ Every session ends with:
 
 ---
 
-*SPAR-Kit Accountability Chain v1.0.0 — TASK-128 — 2026-01-14*
+*SPAR-Kit Accountability Chain v1.0.0, TASK-128, 2026-01-14*

@@ -49,21 +49,21 @@ SPAR-Kit is designed to enhance human decision-making, not replace it. This docu
 │              DECISION TRAFFIC LIGHT                            │
 ├───────────────────────────────────────────────────────────────┤
 │                                                                │
-│  🟢 GREEN — AI-Assisted, Human Approved                       │
+│  🟢 GREEN, AI-Assisted, Human Approved                       │
 │  ├── High confidence (≥70%)                                   │
 │  ├── Good persona convergence                                 │
 │  ├── INTERROGATE phase completed                              │
 │  └── Human has reviewed and approved                          │
 │      → ACTION: Proceed with documented approval               │
 │                                                                │
-│  🟡 YELLOW — Enhanced Review Required                         │
+│  🟡 YELLOW, Enhanced Review Required                         │
 │  ├── Moderate confidence (50-69%)                             │
 │  ├── OR: Significant persona disagreement                     │
 │  ├── OR: Bias detected in synthesis                           │
 │  └── Human must add additional analysis                       │
 │      → ACTION: Seek second opinion before proceeding          │
 │                                                                │
-│  🔴 RED — Human Authority Required                            │
+│  🔴 RED, Human Authority Required                            │
 │  ├── Low confidence (<50%)                                    │
 │  ├── OR: High-stakes decision domains                         │
 │  ├── OR: Ethical concerns flagged                             │
@@ -201,4 +201,4 @@ SPAR-Kit is designed to enhance human decision-making, not replace it. This docu
 
 ---
 
-*SPAR-Kit AI-Human Boundaries v1.0.0 — TASK-121 — 2026-01-14*
+*SPAR-Kit AI-Human Boundaries v1.0.0, TASK-121, 2026-01-14*

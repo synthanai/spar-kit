@@ -154,4 +154,4 @@ sparkit audit export <session-id> --format md
 
 ---
 
-*SPAR-Kit Integration Testing Plan v1.0.0 — TASK-137, 139, 140 — 2026-01-14*
+*SPAR-Kit Integration Testing Plan v1.0.0, TASK-137, 139, 140, 2026-01-14*

@@ -73,9 +73,9 @@ Before any personas engage, precisely define the strategic question.
 QUESTION: [State the core decision in one sentence]
 
 CONSTRAINTS:
-- [Time constraint — when does this need to be decided?]
-- [Resource constraint — budget, team, capacity]
-- [Political constraint — stakeholders, power dynamics]
+- [Time constraint, when does this need to be decided?]
+- [Resource constraint, budget, team, capacity]
+- [Political constraint, stakeholders, power dynamics]
 
 UNCERTAINTY:
 - [What don't you know that matters?]
@@ -421,14 +421,14 @@ After your debate, ask yourself:
 ## Quick Reference: The SPARKIT Protocol (v8.0)
 
 ```
-0 — NOOL        State deliberation intent (WHY, WHAT TYPE, HOW)
-S — SCOPE       Define the question precisely
-P — POPULATE    Instantiate clashing personas
-A — ABSTRACT    Construct shared cognitive map (AoT)        ★ NEW
-R — RUMBLE      Run the dialectic (rounds by depth mode)
-K — KNIT        Moderator synthesizes tensions
-I — INTERROGATE Stress-test the synthesis
-T — TRANSMIT    Extract actionable recommendations
+0, NOOL        State deliberation intent (WHY, WHAT TYPE, HOW)
+S, SCOPE       Define the question precisely
+P, POPULATE    Instantiate clashing personas
+A, ABSTRACT    Construct shared cognitive map (AoT)        ★ NEW
+R, RUMBLE      Run the dialectic (rounds by depth mode)
+K, KNIT        Moderator synthesizes tensions
+I, INTERROGATE Stress-test the synthesis
+T, TRANSMIT    Extract actionable recommendations
 ```
 
 ---

@@ -60,7 +60,7 @@ be affected by this decision.
 Before responding to [PERSONA B], first demonstrate that you understand
 their position by articulating it better than they did. 
 
-What is the STEELMAN version of their argument — the strongest possible 
+What is the STEELMAN version of their argument, the strongest possible 
 case for their position?
 ```
 

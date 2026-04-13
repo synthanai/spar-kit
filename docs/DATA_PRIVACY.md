@@ -249,4 +249,4 @@ SPAR-Kit displays warnings when:
 
 ---
 
-*SPAR-Kit Data Privacy Standards v1.0.0 — TASK-129 — 2026-01-14*
+*SPAR-Kit Data Privacy Standards v1.0.0, TASK-129, 2026-01-14*

@@ -89,7 +89,7 @@ git push origin v3.0.0
 
 Then create a release on GitHub with:
 - Tag: v3.0.0
-- Title: SPAR Kit v3.0.0 — Full Methodology Implementation
+- Title: SPAR Kit v3.0.0, Full Methodology Implementation
 - Notes: Link to CHANGELOG.md
 
 ---

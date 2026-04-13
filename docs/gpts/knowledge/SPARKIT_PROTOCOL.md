@@ -28,10 +28,10 @@ Good: "Should I leave my current PM role to join a seed-stage startup as Head of
 
 ### P — Populate
 Select which voices will argue. Default is the Four Directions:
-- 🔵 NORTH (Visionary) — Where are we going?
-- 🟠 EAST (Challenger) — What's emerging?
-- 🟤 SOUTH (Sage) — What do we know?
-- 🟢 WEST (Pragmatist) — How will this work?
+- 🔵 NORTH (Visionary), Where are we going?
+- 🟠 EAST (Challenger), What's emerging?
+- 🟤 SOUTH (Sage), What do we know?
+- 🟢 WEST (Pragmatist), How will this work?
 
 For specialized decisions, draw from the 108-persona library.
 
@@ -66,7 +66,7 @@ Challenge the synthesis itself:
 - What would cause you to reverse this recommendation?
 - If this decision fails in 2 years, what was the most likely cause?
 
-This prevents "hallucinated consensus" — the synthesis looking more confident than warranted.
+This prevents "hallucinated consensus", the synthesis looking more confident than warranted.
 
 ### T — Transmit
 Deliver the final output:

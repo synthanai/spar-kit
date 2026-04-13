@@ -11,7 +11,7 @@ cd spar-kit
 # Make changes, refresh to test
 ```
 
-No build step required — it's just HTML, CSS, and JavaScript.
+No build step required, it's just HTML, CSS, and JavaScript.
 
 ---
 

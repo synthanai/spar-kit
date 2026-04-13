@@ -140,7 +140,7 @@ SPAR-Kit displays ethical warnings when:
 
 ### Persona Divergence
 - Final positions show <30% convergence
-- Response: "Significant disagreement exists — minority views should be reviewed"
+- Response: "Significant disagreement exists, minority views should be reviewed"
 
 ### Time Pressure Detection
 - User attempts to skip INTERROGATE phase
@@ -198,4 +198,4 @@ By using SPAR-Kit's ultrathink capabilities, users acknowledge:
 
 ---
 
-*SPAR-Kit Ethical Framework v1.0.0 — TASK-126 — 2026-01-14*
+*SPAR-Kit Ethical Framework v1.0.0, TASK-126, 2026-01-14*

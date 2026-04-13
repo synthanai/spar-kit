@@ -235,7 +235,7 @@ Step back from your persona. As an objective observer:
 
 ### The Problem It Solves
 
-Politeness and conflict-avoidance cause debates to plateau at surface-level disagreement. Genuine insight often lives in the uncomfortable territory that social norms prevent exploration. The Escalation Trigger grants permission—even mandates—pushing into generative discomfort.
+Politeness and conflict-avoidance cause debates to plateau at surface-level disagreement. Genuine insight often lives in the uncomfortable territory that social norms prevent exploration. The Escalation Trigger grants permission, even mandates, pushing into generative discomfort.
 
 ### The Prompt
 
@@ -245,7 +245,7 @@ ESCALATION TRIGGER: The debate has become too comfortable.
 Each persona must now:
 1. Name the ONE thing they've been reluctant to say
 2. Identify the assumption in another persona's position that they find 
-   most problematic—but have been too polite to challenge directly
+   most problematic, but have been too polite to challenge directly
 3. State their position in its most uncompromising form
 
 This is not about being adversarial. It is about honoring the debate with 

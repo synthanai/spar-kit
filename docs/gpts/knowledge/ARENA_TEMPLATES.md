@@ -30,13 +30,13 @@ Instead of selecting personas from scratch, choose the Arena that matches your d
 
 ### Example
 ```
-User: "ARENA: Feature Request Validation — Should we add dark mode?"
+User: "ARENA: Feature Request Validation, Should we add dark mode?"
 
 SPAR will automatically instantiate:
-🔵 NORTH: User Advocate — "Do users actually need this?"
-🟠 EAST: First Mover Advocate — "What's the competitive advantage?"  
-🟤 SOUTH: Delivery Realist — "Can we ship this in time?"
-🟢 WEST: Contrarian Accountant — "What's the true cost vs. value?"
+🔵 NORTH: User Advocate, "Do users actually need this?"
+🟠 EAST: First Mover Advocate, "What's the competitive advantage?"  
+🟤 SOUTH: Delivery Realist, "Can we ship this in time?"
+🟢 WEST: Contrarian Accountant, "What's the true cost vs. value?"
 ```
 
 ---
@@ -114,14 +114,14 @@ SPAR will automatically instantiate:
 ### In Conversation
 
 ```
-"ARENA: [Arena Name] — [Your specific decision]"
+"ARENA: [Arena Name], [Your specific decision]"
 ```
 
 Examples:
-- "ARENA: Feature Validation — Should we add social login?"
-- "ARENA: Pivot Decision — Should we go from B2B to B2C?"
-- "ARENA: Hiring Decision — Should we hire this VP of Sales?"
-- "ARENA: Investment Decision — Should we invest $2M in AI capabilities?"
+- "ARENA: Feature Validation, Should we add social login?"
+- "ARENA: Pivot Decision, Should we go from B2B to B2C?"
+- "ARENA: Hiring Decision, Should we hire this VP of Sales?"
+- "ARENA: Investment Decision, Should we invest $2M in AI capabilities?"
 
 ### If Unsure Which Arena
 
@@ -139,4 +139,4 @@ If no Arena matches your decision, describe it and SPAR will create a custom for
 
 ---
 
-*Reference: SPAR-Kit v4.0.0 docs/SPAR_ARENA.md — 50+ full Arena specifications*
+*Reference: SPAR-Kit v4.0.0 docs/SPAR_ARENA.md, 50+ full Arena specifications*

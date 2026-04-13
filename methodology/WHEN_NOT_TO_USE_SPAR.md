@@ -112,7 +112,7 @@ If a CEO "SPARs" with their direct reports, is the dissent genuine?
 
 SPAR requires cognitive engagement, not fight-or-flight.
 
-**Mitigation**: Invoke "Stillness Before Synthesis" — wait 24 hours, then deliberate.
+**Mitigation**: Invoke "Stillness Before Synthesis", wait 24 hours, then deliberate.
 
 ---
 
@@ -134,7 +134,7 @@ Not all cultures view open challenge as acceptable.
 
 ## ✅ When TO Use SPAR
 
-This document focuses on the "no" — but for completeness:
+This document focuses on the "no", but for completeness:
 
 | Situation | SPAR Mode |
 |-----------|-----------|

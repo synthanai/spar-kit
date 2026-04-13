@@ -49,7 +49,7 @@ The problem isn't AI. The problem is **isolated reasoning** — and it fails in 
 | **Person + AI** | Single reasoning context producing false "balance" |
 | **AI alone** | Sophisticated coherence without genuine tension |
 
-When you deliberate alone — whether that's a lone executive, a homogeneous team, or a single AI context — you get *variations on a theme*, not genuine disagreement.
+When you deliberate alone, whether that's a lone executive, a homogeneous team, or a single AI context, you get *variations on a theme*, not genuine disagreement.
 
 **This is not debate. This is sophisticated confirmation bias.**
 
@@ -156,14 +156,14 @@ SPAR's foundational model uses a compass metaphor. Four personas, four orientati
 ### The SPARKIT Protocol (7 Steps, v8.0)
 
 ```
-0 — NOOL        State deliberation intent (WHY, WHAT TYPE, HOW)
-S — SCOPE       Define the question precisely
-P — POPULATE    Instantiate clashing personas
-A — ABSTRACT    Construct shared cognitive map (AoT)        ★ NEW
-R — RUMBLE      Structured dialectic (rounds by depth mode)
-K — KNIT        Moderator synthesizes tensions
-I — INTERROGATE Stress-test the synthesis
-T — TRANSMIT    Extract actionable recommendations
+0, NOOL        State deliberation intent (WHY, WHAT TYPE, HOW)
+S, SCOPE       Define the question precisely
+P, POPULATE    Instantiate clashing personas
+A, ABSTRACT    Construct shared cognitive map (AoT)        ★ NEW
+R, RUMBLE      Structured dialectic (rounds by depth mode)
+K, KNIT        Moderator synthesizes tensions
+I, INTERROGATE Stress-test the synthesis
+T, TRANSMIT    Extract actionable recommendations
 ```
 
 > **v8.0**: Step 3 ABSTRACT was elevated from a POPULATE sub-activity to a dedicated step after validated experiments showed +40% synthesis quality improvement.
@@ -230,11 +230,11 @@ SPAR is grounded in five epistemological stances. Be GRACEful:
 ┌───────────────────────────────────────────────────────────────────────┐
 │                          S T A S H                                   │
 ├───────────────────────────────────────────────────────────────────────┤
-│ 👤 S — SOLO HUMAN    One person, multiple mental frames             │
-│ 👥 T — TEAM HUMAN    Team members embody assigned personas          │
-│ 🤖 A — AI-PERSONA    Multiple LLMs argue with each other            │
-│ 🧠 S — SOLO AI       One LLM role-plays all perspectives            │
-│ 🔀 H — HYBRID        AI + Human combined                            │
+│ 👤 S, SOLO HUMAN    One person, multiple mental frames             │
+│ 👥 T, TEAM HUMAN    Team members embody assigned personas          │
+│ 🤖 A, AI-PERSONA    Multiple LLMs argue with each other            │
+│ 🧠 S, SOLO AI       One LLM role-plays all perspectives            │
+│ 🔀 H, HYBRID        AI + Human combined                            │
 └───────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -276,7 +276,7 @@ SPAR includes a unique meta-persona that **attacks the methodology itself from w
 PROBE: THE FRAMEWORK CRITIC
 "What is PERSONA itself preventing us from seeing?"
 
-Recursive skepticism — using structured disagreement to question structured disagreement.
+Recursive skepticism, using structured disagreement to question structured disagreement.
 The methodology's own conscience. The framework's doubt.
 ```
 
@@ -458,7 +458,7 @@ This toolkit includes the complete **SPAR methodology** (v8.0), everything you n
 ## Security
 
 - API keys stored locally in `~/.spar/config.json`
-- No server — direct API calls to your provider
+- No server, direct API calls to your provider
 - Web version uses browser localStorage
 
 ---
@@ -496,16 +496,16 @@ $ spar "Should we pivot from B2B to B2C?"
 ║   🥊  S P A R   v4.0.0                                        ║
 ╚═══════════════════════════════════════════════════════════════╝
 
-═══ RUMBLE — Round 1/3: Opening ═══
+═══ RUMBLE, Round 1/3: Opening ═══
   Token budget: 1500 tokens
 
-🔵 North — "B2C is where the scale is..."
-🟢 East — "The market is shifting..."
-🟡 South — "Do you have the capital?"
-🔴 West — "Every B2C company started with B2B..."
+🔵 North, "B2C is where the scale is..."
+🟢 East, "The market is shifting..."
+🟡 South, "Do you have the capital?"
+🔴 West, "Every B2C company started with B2B..."
 
-═══ RUMBLE — Round 2/3: The Clash ═══
-═══ RUMBLE — Round 3/3: Final Positions ═══
+═══ RUMBLE, Round 2/3: The Clash ═══
+═══ RUMBLE, Round 3/3: Final Positions ═══
 
 ✓ 3-Round Rumble Complete
 📊 SYNTHESIS: Key Tensions, Evolution, Insights

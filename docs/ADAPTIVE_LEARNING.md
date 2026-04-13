@@ -185,4 +185,4 @@ With explicit user consent:
 
 ---
 
-*SPAR-Kit Adaptive Learning v1.0.0 — TASK-120 — 2026-01-14*
+*SPAR-Kit Adaptive Learning v1.0.0, TASK-120, 2026-01-14*

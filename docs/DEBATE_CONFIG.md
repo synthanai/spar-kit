@@ -49,7 +49,7 @@ Based on extensive testing:
 - **Round 1** surfaces initial positions and assumptions
 - **Round 2** creates genuine dialectic friction
 - **Round 3** allows perspective updates after challenge
-- **More than 3** rarely adds value — positions harden without new insight
+- **More than 3** rarely adds value, positions harden without new insight
 - **Operational**: 3 rounds fits within 32k context window limits
 
 ### Exception: 5 Rounds
@@ -259,4 +259,4 @@ console.log(formatConfigSummary());
 
 ---
 
-*SPAR Kit v4.0 — Battle-tested debate configuration for structured reasoning.*
+*SPAR Kit v4.0, Battle-tested debate configuration for structured reasoning.*

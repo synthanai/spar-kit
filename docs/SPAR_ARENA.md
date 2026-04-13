@@ -8,7 +8,7 @@
 
 ## What is the ARENA?
 
-The ARENA is a comprehensive library of pre-defined SPAR configurations — each optimized for a specific type of decision. Instead of choosing personas from scratch, pick the ARENA that matches your situation.
+The ARENA is a comprehensive library of pre-defined SPAR configurations, each optimized for a specific type of decision. Instead of choosing personas from scratch, pick the ARENA that matches your situation.
 
 **Each ARENA includes:**
 - 🎯 **Decision Type** — What question this is designed for

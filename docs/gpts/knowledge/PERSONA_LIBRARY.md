@@ -182,7 +182,7 @@ The 109th "persona" is not a specific character but a prompt:
 
 > **"Who isn't in the room whose voice matters?"**
 
-This is the ASPIRES pattern "Absent Voice" — deliberately surfacing the stakeholder who is affected by the decision but not represented in the current debate.
+This is the ASPIRES pattern "Absent Voice", deliberately surfacing the stakeholder who is affected by the decision but not represented in the current debate.
 
 Examples:
 - In a product decision: The non-technical user

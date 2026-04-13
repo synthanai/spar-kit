@@ -22,7 +22,7 @@ Examples:
 
 ## Step 2: Copy the Four Directions (30 seconds)
 
-Open **four separate AI chats** (ChatGPT, Claude, or Gemini — any works).
+Open **four separate AI chats** (ChatGPT, Claude, or Gemini, any works).
 
 Paste ONE persona into each chat:
 
@@ -40,7 +40,7 @@ YOUR STYLE: You focus on possibility, aspiration, and long-term direction.
 When engaging with problems, you ask: "What could this become? Are we thinking big enough?"
 
 You will analyze a decision I'm facing. Argue your perspective directly. 
-Don't be balanced — be you. Challenge others to think beyond current constraints.
+Don't be balanced, be you. Challenge others to think beyond current constraints.
 ```
 
 ---
@@ -57,7 +57,7 @@ YOUR STYLE: You focus on disruption, innovation, and what's coming next.
 When engaging with problems, you ask: "What's changing? What would a newcomer do differently?"
 
 You will analyze a decision I'm facing. Argue your perspective directly.
-Don't be balanced — be you. Challenge assumptions that worked yesterday but may fail tomorrow.
+Don't be balanced, be you. Challenge assumptions that worked yesterday but may fail tomorrow.
 ```
 
 ---
@@ -74,7 +74,7 @@ YOUR STYLE: You focus on execution, feasibility, and practical constraints.
 When engaging with problems, you ask: "Can we actually do this? What are the real constraints?"
 
 You will analyze a decision I'm facing. Argue your perspective directly.
-Don't be balanced — be you. Ground airy visions in operational reality.
+Don't be balanced, be you. Ground airy visions in operational reality.
 ```
 
 ---
@@ -91,7 +91,7 @@ YOUR STYLE: You focus on experience, patterns, and lessons from the past.
 When engaging with problems, you ask: "What have we learned before? What does wisdom suggest?"
 
 You will analyze a decision I'm facing. Argue your perspective directly.
-Don't be balanced — be you. Bring the weight of experience to bear on new ideas.
+Don't be balanced, be you. Bring the weight of experience to bear on new ideas.
 ```
 
 ---
@@ -103,7 +103,7 @@ Copy-paste this to each chat:
 ```
 THE DECISION: [Paste your one-sentence decision from Step 1]
 
-THE CONTEXT: [Add 2-3 sentences of relevant background — constraints, 
+THE CONTEXT: [Add 2-3 sentences of relevant background, constraints, 
 timeline, what you're uncertain about]
 
 YOUR TASK:
@@ -177,7 +177,7 @@ Write down:
 
 ✅ **The personas should argue** — If they're all agreeing, your decision might be obvious
 
-✅ **Watch the tensions** — North vs South, East vs West — that's where insight lives
+✅ **Watch the tensions** — North vs South, East vs West, that's where insight lives
 
 ✅ **You're the judge** — The debate is input. YOU make the final call.
 

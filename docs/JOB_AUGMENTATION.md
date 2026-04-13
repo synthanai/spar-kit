@@ -229,4 +229,4 @@ SPAR-Kit is explicitly designed as an **augmentation tool**, not an automation t
 
 ---
 
-*SPAR-Kit Job Augmentation Strategy v1.0.0 — TASK-123 — 2026-01-14*
+*SPAR-Kit Job Augmentation Strategy v1.0.0, TASK-123, 2026-01-14*

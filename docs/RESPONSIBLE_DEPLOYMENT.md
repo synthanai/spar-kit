@@ -203,4 +203,4 @@ Stop deployment if you observe:
 
 ---
 
-*SPAR-Kit Responsible Deployment Guidelines v1.0.0 — TASK-124 — 2026-01-14*
+*SPAR-Kit Responsible Deployment Guidelines v1.0.0, TASK-124, 2026-01-14*

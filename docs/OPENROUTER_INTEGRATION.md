@@ -225,7 +225,7 @@ Error: Request timeout after 300s
 ```
 
 **Solutions**:
-1. DeepSeek R1 can take 60-120s for complex synthesis — this is normal
+1. DeepSeek R1 can take 60-120s for complex synthesis, this is normal
 2. Increase `OPENROUTER_TIMEOUT` if needed
 3. Use smaller token tier for faster responses
 
@@ -244,9 +244,9 @@ Error: Model not found
 
 ## See Also
 
-- [**MULTI_MODEL_VALIDATION.md**](../../spar/research/MULTI_MODEL_VALIDATION.md) — Full research documentation
-- [**SPARKIT Protocol**](gpts/knowledge/SPARKIT_PROTOCOL.md) — 7-step methodology
-- [**OpenRouter Docs**](https://openrouter.ai/docs) — API reference
+- [**MULTI_MODEL_VALIDATION.md**](../../spar/research/MULTI_MODEL_VALIDATION.md), Full research documentation
+- [**SPARKIT Protocol**](gpts/knowledge/SPARKIT_PROTOCOL.md), 7-step methodology
+- [**OpenRouter Docs**](https://openrouter.ai/docs), API reference
 
 ---
 

@@ -69,7 +69,7 @@ That's it. That's the seed.
 
 ---
 
-*⚠️ This is SPAR Lite — the entry point, not the full practice.*  
+*⚠️ This is SPAR Lite, the entry point, not the full practice.*  
 *Real transformation requires discomfort, time, and repetition.*
 
 ---

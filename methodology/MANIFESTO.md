@@ -12,7 +12,7 @@
 
 ## What is SPAR?
 
-**SPAR** is a decision-making methodology that uses structured disagreement between distinct personas to surface insights that consensus-seeking processes systematically miss. Whether those personas are embodied by humans, simulated by AI, or both — the methodology remains the same.
+**SPAR** is a decision-making methodology that uses structured disagreement between distinct personas to surface insights that consensus-seeking processes systematically miss. Whether those personas are embodied by humans, simulated by AI, or both, the methodology remains the same.
 
 | Letter | Meaning | Definition |
 |--------|---------|------------|
@@ -27,7 +27,7 @@
 
 **The problem isn't AI. The problem is isolated reasoning.**
 
-When you deliberate alone — whether you're a lone leader, a homogeneous team, a person chatting with AI, or AI reasoning with itself — you get something that *looks* like perspective but isn't. It's variations on a theme, structured to appear balanced while hiding shared assumptions.
+When you deliberate alone, whether you're a lone leader, a homogeneous team, a person chatting with AI, or AI reasoning with itself, you get something that *looks* like perspective but isn't. It's variations on a theme, structured to appear balanced while hiding shared assumptions.
 
 | Context | The Problem |
 |---------|-------------|
@@ -36,7 +36,7 @@ When you deliberate alone — whether you're a lone leader, a homogeneous team, 
 | **Person + AI** | Single reasoning context producing false "balance" |
 | **AI alone** | Sophisticated coherence without genuine tension |
 
-This is why "ask for multiple perspectives" fails. The perspectives don't actually conflict — they're generated from the same underlying assumptions.
+This is why "ask for multiple perspectives" fails. The perspectives don't actually conflict, they're generated from the same underlying assumptions.
 
 **SPAR is different.**
 
@@ -154,13 +154,13 @@ When all four directions engage, no blind spot survives.
 | **S** | **Solo AI** | One LLM role-plays multiple personas | Quick exploration, low-stakes decisions |
 | **H** | **Hybrid** | Mix of AI personas and human participants | High-stakes decisions, maximum insight |
 
-> **The Principle**: The methodology is mode-agnostic. Whether personas are embodied by humans, simulated by AI, or both — the SPARKIT protocol, GRACE principles, and ASPIRES patterns remain constant.
+> **The Principle**: The methodology is mode-agnostic. Whether personas are embodied by humans, simulated by AI, or both, the SPARKIT protocol, GRACE principles, and ASPIRES patterns remain constant.
 
 📖 **[Full STASH Framework with Prompt Templates →](./STASH_MODES.md)**
 
 ### The SPAR Verb Family
 
-SPAR is designed to become organizational vocabulary — a decision hygiene practice invoked when stakes matter.
+SPAR is designed to become organizational vocabulary, a decision hygiene practice invoked when stakes matter.
 
 #### Core Phrasings
 
@@ -208,7 +208,7 @@ Historical parallels that succeeded this way:
 | Premortem | "Let's do a premortem" | ~15 years |
 | Red Team | "Did we red-team this?" | ~10-20 years |
 
-SPAR follows this pattern — it's a *decision quality gate*, not a meeting type.
+SPAR follows this pattern, it's a *decision quality gate*, not a meeting type.
 
 **Estimated adoption**: 3-5 years for "Why don't we SPAR this?" to appear in decision-conscious organizations.
 
@@ -238,7 +238,7 @@ SPAR follows this pattern — it's a *decision quality gate*, not a meeting type
 
 Run SPAR for a month. Then ask:
 
-> **Has a structured disagreement surfaced an insight that genuinely surprised me — something I would not have generated through my normal decision process?**
+> **Has a structured disagreement surfaced an insight that genuinely surprised me, something I would not have generated through my normal decision process?**
 
 If **yes** — the practice is alive.
 
@@ -260,7 +260,7 @@ SPAR isn't just a technique. It's a stance toward knowledge:
 
 This is uncomfortable. It requires intellectual humility. It means accepting that your best thinking, unchallenged, is probably incomplete.
 
-But it's also the path to decisions you can actually stand behind — not because you suppressed doubt, but because you genuinely wrestled with the alternatives.
+But it's also the path to decisions you can actually stand behind, not because you suppressed doubt, but because you genuinely wrestled with the alternatives.
 
 ---
 
@@ -292,17 +292,17 @@ The next time you face a decision that matters:
 - *"Practice combat for your decisions."*
 
 ### The Four Directions (N-E-W-S)
-- **North** (Air/Visionary) — Where are we going?
-- **East** (Fire/Challenger) — What's emerging?
-- **West** (Water/Pragmatist) — How will this work?
-- **South** (Earth/Sage) — What do we know?
+- **North** (Air/Visionary), Where are we going?
+- **East** (Fire/Challenger), What's emerging?
+- **West** (Water/Pragmatist), How will this work?
+- **South** (Earth/Sage), What do we know?
 
 ### The GRACE Principles (Summary)
-1. **G**round — Still yourself before synthesis
-2. **R**eveal — Surface biases and anxieties
-3. **A**pproach — Seek the adjacent possible
-4. **C**ourt — Welcome radical dissent
-5. **E**xpose — Acknowledge what you don't know
+1. **G**round, Still yourself before synthesis
+2. **R**eveal, Surface biases and anxieties
+3. **A**pproach, Seek the adjacent possible
+4. **C**ourt, Welcome radical dissent
+5. **E**xpose, Acknowledge what you don't know
 
 ### Hashtags
 `#SPAR` `#DecisionMaking` `#AI` `#Strategy` `#Leadership`

@@ -129,10 +129,10 @@ Toulmin's model (1958) provides the structure of good argument:
 - **Backing**: Support for the warrant itself
 
 SPAR's persona prompts embed Toulmin's structure:
-- "What's your position?" — Claim
-- "What evidence supports it?" — Data
-- "Why does that evidence matter?" — Warrant
-- "What would change your mind?" — Qualifier/Rebuttal
+- "What's your position?", Claim
+- "What evidence supports it?", Data
+- "Why does that evidence matter?", Warrant
+- "What would change your mind?", Qualifier/Rebuttal
 
 ---
 
@@ -209,7 +209,7 @@ Schein's research (*Humble Inquiry*, 2013) argues that most organizational failu
 
 SPAR institutionalizes inquiry:
 - Personas must ask questions, not just assert
-- GRACE's **R — Reveal** explicitly addresses status dynamics and anxieties
+- GRACE's **R, Reveal** explicitly addresses status dynamics and anxieties
 - The methodology values *not knowing* as a starting condition
 
 ### Chris Argyris: Defensive Reasoning
@@ -315,7 +315,7 @@ Academic research rediscovers what wisdom traditions always knew:
 > *"Four people speak in four different ways."*  
 > — Tamil proverb
 
-The insight that genuine understanding requires multiple perspectives isn't new. SPAR is simply a structured methodology for operationalizing it — with humans, with AI, or with both.
+The insight that genuine understanding requires multiple perspectives isn't new. SPAR is simply a structured methodology for operationalizing it, with humans, with AI, or with both.
 
 ---
 

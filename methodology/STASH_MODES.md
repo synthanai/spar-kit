@@ -1,7 +1,7 @@
 # The STASH Framework
 ## Five Modes for Structured Persona-Argumentation
 
-*SPAR works everywhere — solo, in teams, with AI, or any combination.*
+*SPAR works everywhere, solo, in teams, with AI, or any combination.*
 
 ---
 
@@ -11,7 +11,7 @@
 
 ## What is STASH?
 
-**STASH** defines the five ways to run SPAR. The methodology is mode-agnostic — the same SPARKIT protocol, GRACE principles, and ASPIRES patterns work across all modes. STASH simply describes *who* embodies the personas.
+**STASH** defines the five ways to run SPAR. The methodology is mode-agnostic, the same SPARKIT protocol, GRACE principles, and ASPIRES patterns work across all modes. STASH simply describes *who* embodies the personas.
 
 | Letter | Mode | Description |
 |--------|------|-------------|
@@ -96,7 +96,7 @@ But AI cannot replace:
 
 ## How It Works
 
-You inhabit each persona sequentially, arguing from their worldview as if it were your own. The value isn't the output — it's the practice of genuinely holding contradictory positions.
+You inhabit each persona sequentially, arguing from their worldview as if it were your own. The value isn't the output, it's the practice of genuinely holding contradictory positions.
 
 ## The Practice
 
@@ -325,7 +325,7 @@ Multiple LLM instances (separate chat windows, API calls, or the SPAR Kit tool) 
 
 ### Setup: Four Chat Windows
 
-**Window 1 — NORTH (The Visionary)**
+**Window 1, NORTH (The Visionary)**
 ```
 You are THE VISIONARY (North) in a structured SPAR debate.
 
@@ -338,7 +338,7 @@ When engaging with problems, you ask:
 
 RULES:
 - Argue your perspective vigorously
-- Do NOT be balanced — be you
+- Do NOT be balanced, be you
 - Challenge others to think beyond current constraints
 - You may update your view if genuinely persuaded
 - Keep responses focused (250-400 words)
@@ -346,7 +346,7 @@ RULES:
 I will share a decision for analysis, then share what other personas said for you to engage with.
 ```
 
-**Window 2 — EAST (The Challenger)**
+**Window 2, EAST (The Challenger)**
 ```
 You are THE CHALLENGER (East) in a structured SPAR debate.
 
@@ -359,7 +359,7 @@ When engaging with problems, you ask:
 
 RULES:
 - Argue your perspective vigorously
-- Do NOT be balanced — be you
+- Do NOT be balanced, be you
 - Challenge assumptions that worked yesterday but may fail tomorrow
 - You may update your view if genuinely persuaded
 - Keep responses focused (250-400 words)
@@ -367,7 +367,7 @@ RULES:
 I will share a decision for analysis, then share what other personas said for you to engage with.
 ```
 
-**Window 3 — SOUTH (The Pragmatist)**
+**Window 3, SOUTH (The Pragmatist)**
 ```
 You are THE PRAGMATIST (South) in a structured SPAR debate.
 
@@ -380,7 +380,7 @@ When engaging with problems, you ask:
 
 RULES:
 - Argue your perspective vigorously
-- Do NOT be balanced — be you
+- Do NOT be balanced, be you
 - Ground airy visions in operational reality
 - You may update your view if genuinely persuaded
 - Keep responses focused (250-400 words)
@@ -388,7 +388,7 @@ RULES:
 I will share a decision for analysis, then share what other personas said for you to engage with.
 ```
 
-**Window 4 — WEST (The Sage)**
+**Window 4, WEST (The Sage)**
 ```
 You are THE SAGE (West) in a structured SPAR debate.
 
@@ -401,7 +401,7 @@ When engaging with problems, you ask:
 
 RULES:
 - Argue your perspective vigorously
-- Do NOT be balanced — be you
+- Do NOT be balanced, be you
 - Bring the weight of experience to bear on shiny new ideas
 - You may update your view if genuinely persuaded
 - Keep responses focused (250-400 words)
@@ -416,7 +416,7 @@ THE DECISION:
 [State your decision clearly in 2-3 sentences]
 
 THE CONTEXT:
-[Relevant background — constraints, timeline, stakeholders, uncertainties]
+[Relevant background, constraints, timeline, stakeholders, uncertainties]
 
 THE CURRENT LEAN:
 [Your tentative direction, or "No current lean"]
@@ -536,7 +536,7 @@ THE FOUR DIRECTIONS:
 
 RULES FOR EACH PERSONA:
 - Argue vigorously from that perspective
-- Do NOT be balanced — be that character
+- Do NOT be balanced, be that character
 - Find genuine conflict with other perspectives
 - Each perspective gets 200-300 words
 
@@ -642,7 +642,7 @@ Phase 3: Humans respond and synthesize
 ```
 Track 1: Human team runs Team Mode (T)
 Track 2: AI runs AI-Persona Mode (A) simultaneously
-Phase 3: Compare both syntheses — where do they differ?
+Phase 3: Compare both syntheses, where do they differ?
 ```
 
 ## Prompt Template: Hybrid Mode (Configuration 1)
@@ -690,7 +690,7 @@ Here's what emerged:
 Now I want your input:
 
 1. What did the AI debate GET RIGHT?
-2. What did it MISS — context only we know?
+2. What did it MISS, context only we know?
 3. What RISKS do you see that weren't identified?
 4. Does this change anyone's view?
 5. What's our actual decision?"
@@ -757,8 +757,8 @@ Our response to each:
 3. _____________________________________
 
 DECISION: Does this change our direction?
-[  ] Yes — new direction: _______________
-[  ] No — because: ______________________
+[  ] Yes, new direction: _______________
+[  ] No, because: ______________________
 ```
 
 ## Tips for Hybrid Mode
@@ -851,7 +851,7 @@ All five STASH modes use the same core frameworks:
 | **ASPIRES Framework (7 patterns)** | Advanced techniques | All modes |
 | **109-Persona Library** | Extended personas | All modes |
 
-The frameworks are mode-agnostic. Whether a persona is embodied by a human, an AI, or both — the same principles apply.
+The frameworks are mode-agnostic. Whether a persona is embodied by a human, an AI, or both, the same principles apply.
 
 ---
 
@@ -863,19 +863,19 @@ The frameworks are mode-agnostic. Whether a persona is embodied by a human, an A
 ║                    Five Modes for Every Decision                           ║
 ╠═══════════════════════════════════════════════════════════════════════════╣
 ║                                                                            ║
-║  👤 S — SOLO HUMAN     One person, multiple mental frames                  ║
+║  👤 S, SOLO HUMAN     One person, multiple mental frames                  ║
 ║                        "The philosopher's practice"                        ║
 ║                                                                            ║
-║  👥 T — TEAM HUMAN     Team members embody assigned personas               ║
+║  👥 T, TEAM HUMAN     Team members embody assigned personas               ║
 ║                        "The organizational practice"                       ║
 ║                                                                            ║
-║  🤖 A — AI-PERSONA     Multiple LLMs argue with each other                 ║
+║  🤖 A, AI-PERSONA     Multiple LLMs argue with each other                 ║
 ║                        "The amplified practice"                            ║
 ║                                                                            ║
-║  🧠 S — SOLO AI        One LLM role-plays all perspectives                 ║
+║  🧠 S, SOLO AI        One LLM role-plays all perspectives                 ║
 ║                        "The rapid practice"                                ║
 ║                                                                            ║
-║  🔀 H — HYBRID         AI + Human combined                                 ║
+║  🔀 H, HYBRID         AI + Human combined                                 ║
 ║                        "The ultimate practice"                             ║
 ║                                                                            ║
 ╠═══════════════════════════════════════════════════════════════════════════╣

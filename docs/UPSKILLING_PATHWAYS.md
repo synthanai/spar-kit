@@ -202,4 +202,4 @@ Week 3-4:
 
 ---
 
-*SPAR-Kit Upskilling Pathways v1.0.0 — TASK-125 — 2026-01-14*
+*SPAR-Kit Upskilling Pathways v1.0.0, TASK-125, 2026-01-14*

@@ -7,9 +7,9 @@
 
 ### **Q: What's the difference between SPAR and just "asking for multiple perspectives"?**
 
-**A:** When you ask an AI (or people) for "multiple perspectives," they typically provide variations on a theme — different angles that all share the same underlying assumptions. This creates the *appearance* of diversity without genuine disagreement.
+**A:** When you ask an AI (or people) for "multiple perspectives," they typically provide variations on a theme, different angles that all share the same underlying assumptions. This creates the *appearance* of diversity without genuine disagreement.
 
-SPAR is different because personas have **coherent, conflicting worldviews**. They don't just "have different perspectives" — they genuinely disagree about what matters, what's risky, and what's possible. The friction between these worldviews is where insight emerges.
+SPAR is different because personas have **coherent, conflicting worldviews**. They don't just "have different perspectives", they genuinely disagree about what matters, what's risky, and what's possible. The friction between these worldviews is where insight emerges.
 
 ---
 
@@ -37,7 +37,7 @@ The methodology works in all modes. AI just makes it faster and more convenient.
 | **Tier 2 (Practice)** | 30+ minutes | Strategic decisions |
 | **Tier 3 (Mastery)** | Extended | Facilitation, teaching |
 
-The **Minimum Viable Debate (MVD)** is 30 minutes with 4 personas — this captures 80% of the value.
+The **Minimum Viable Debate (MVD)** is 30 minutes with 4 personas, this captures 80% of the value.
 
 ---
 
@@ -80,7 +80,7 @@ If you disagree with the synthesis, articulate why. That articulation is often t
 
 ### **Q: Can I do SPAR alone without AI?**
 
-**A:** Yes — this is **Solo Human Mode**. It's actually the most transformative mode because it builds *your* capacity for perspective-taking, rather than outsourcing it.
+**A:** Yes, this is **Solo Human Mode**. It's actually the most transformative mode because it builds *your* capacity for perspective-taking, rather than outsourcing it.
 
 The practice:
 1. Choose 3-4 personas with conflicting worldviews
@@ -178,9 +178,9 @@ That's a useful reflex for any decision, big or small.
 - 108 Upanishads in Hindu philosophy  
 - 108 chakra lines converging in the heart
 
-It's a nod to the methodology's Tamil roots and the aspiration that SPAR is more than a business tool — it's a practice for human flourishing.
+It's a nod to the methodology's Tamil roots and the aspiration that SPAR is more than a business tool, it's a practice for human flourishing.
 
-(Plus there's 1 meta-persona — PROBE: The Framework Critic — making 109 total.)
+(Plus there's 1 meta-persona, PROBE: The Framework Critic, making 109 total.)
 
 ---
 

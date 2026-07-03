@@ -175,11 +175,11 @@ SPAR-Kit displays accountability reminders:
 
 ### What Users Must Do
 
-1. **Review thoroughly** — Don't rubber-stamp recommendations
-2. **Apply context** — Consider factors AI cannot access
-3. **Document reasoning** — Explain overrides and modifications
-4. **Accept ownership** — Acknowledge decision responsibility
-5. **Escalate appropriately** — Flag decisions beyond authority
+1. **Review thoroughly**  -  Don't rubber-stamp recommendations
+2. **Apply context**  -  Consider factors AI cannot access
+3. **Document reasoning**  -  Explain overrides and modifications
+4. **Accept ownership**  -  Acknowledge decision responsibility
+5. **Escalate appropriately**  -  Flag decisions beyond authority
 
 ### Accountability Statement
 
@@ -207,11 +207,11 @@ Every session ends with:
 
 ### What Organizations Must Do
 
-1. **Enable informed decisions** — Provide training on SPAR-Kit use
-2. **Set appropriate authority levels** — Match decisions to approvers
-3. **Maintain audit trails** — Preserve accountability records
-4. **Review outcomes** — Learn from decision results
-5. **Update processes** — Improve based on experience
+1. **Enable informed decisions**  -  Provide training on SPAR-Kit use
+2. **Set appropriate authority levels**  -  Match decisions to approvers
+3. **Maintain audit trails**  -  Preserve accountability records
+4. **Review outcomes**  -  Learn from decision results
+5. **Update processes**  -  Improve based on experience
 
 ### Escalation Matrix
 

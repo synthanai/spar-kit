@@ -1,4 +1,4 @@
-# OUTLINE: Paper C1 — SPAR-Kit DSR
+# OUTLINE: Paper C1  -  SPAR-Kit DSR
 # "SPAR-Kit: Designing a Configurable Multi-Agent Dialectic Engine for Structured Decision Deliberation"
 
 **Venue:** *DESRIST* / *European Journal of Information Systems*

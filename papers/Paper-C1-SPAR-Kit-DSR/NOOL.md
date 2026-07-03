@@ -1,4 +1,4 @@
-# நூல் / NOOL — SPAR-Kit DSR Paper (C1)
+# நூல் / NOOL  -  SPAR-Kit DSR Paper (C1)
 
 > *The Reasoning Thread: a record of INTENT (why), ABSTRACTION (what type), and CHAIN (how).*
 

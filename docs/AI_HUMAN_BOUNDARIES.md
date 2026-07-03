@@ -177,12 +177,12 @@ SPAR-Kit is designed to enhance human decision-making, not replace it. This docu
 
 ### Already Implemented ✅
 
-- [x] **Confidence scoring** — `cli/confidence.js`
-- [x] **Transparency indicators** — `ThinkingBlock` component
-- [x] **Override mechanisms** — `OverridePanel.js`
-- [x] **Ethical guardrails** — `docs/ETHICAL_FRAMEWORK.md`
-- [x] **Audit trail** — `cli/audit.js`
-- [x] **Bias detection** — `cli/bias.js`
+- [x] **Confidence scoring**  -  `cli/confidence.js`
+- [x] **Transparency indicators**  -  `ThinkingBlock` component
+- [x] **Override mechanisms**  -  `OverridePanel.js`
+- [x] **Ethical guardrails**  -  `docs/ETHICAL_FRAMEWORK.md`
+- [x] **Audit trail**  -  `cli/audit.js`
+- [x] **Bias detection**  -  `cli/bias.js`
 
 ### To Be Implemented 🔲
 

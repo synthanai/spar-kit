@@ -50,19 +50,19 @@ npx sparkit tui
 ### 📊 Dashboard
 
 The main view showing:
-- **Session Statistics** — Total, completed, running, failed counts
-- **Recent Sessions** — Last 5 sessions with status
-- **Quick Actions** — New debate, templates, settings
+- **Session Statistics**  -  Total, completed, running, failed counts
+- **Recent Sessions**  -  Last 5 sessions with status
+- **Quick Actions**  -  New debate, templates, settings
 
 ### 🛠️ SPAR Builder
 
 A 5-step wizard for creating debates:
 
-1. **SCOPE** — Define your decision question
-2. **POPULATE** — Choose persona preset or build custom panel
-3. **RULES** — Set rounds and debate style
-4. **ENGINE** — Select AI provider (Ollama, OpenAI, etc.)
-5. **REVIEW** — Preview and launch
+1. **SCOPE**  -  Define your decision question
+2. **POPULATE**  -  Choose persona preset or build custom panel
+3. **RULES**  -  Set rounds and debate style
+4. **ENGINE**  -  Select AI provider (Ollama, OpenAI, etc.)
+5. **REVIEW**  -  Preview and launch
 
 ### 📋 Session Detail
 
@@ -75,16 +75,16 @@ Detailed view of a completed debate:
 ### 📚 Template Browser
 
 Browse and use debate templates:
-- **Built-in Templates** — 6 ready-to-use templates
-- **Your Templates** — Custom templates you've created
-- **Variable Input** — Fill in placeholders
+- **Built-in Templates**  -  6 ready-to-use templates
+- **Your Templates**  -  Custom templates you've created
+- **Variable Input**  -  Fill in placeholders
 
 ### ⚙️ Settings
 
 Configure SPAR-Kit:
-- **AI Engine** — Provider, model, API key
-- **Appearance** — Theme, tips, confirmations
-- **Debate Defaults** — Default rounds, preset
+- **AI Engine**  -  Provider, model, API key
+- **Appearance**  -  Theme, tips, confirmations
+- **Debate Defaults**  -  Default rounds, preset
 
 ---
 
@@ -194,9 +194,9 @@ npm run tui
 ### Missing Dependencies
 
 The TUI requires:
-- `ink` — React for CLI
-- `react` — React library
-- `zustand` — State management
+- `ink`  -  React for CLI
+- `react`  -  React library
+- `zustand`  -  State management
 
 Install with:
 ```bash

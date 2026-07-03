@@ -1,4 +1,4 @@
-# Mirror / LOON — Module: spar-kit/methodology
+# Mirror / LOON  -  Module: spar-kit/methodology
 
 ## Entry: 2026-04-13
 

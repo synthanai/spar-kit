@@ -116,7 +116,7 @@ The breakthrough from our 65-run research: **arbiter quality determines output q
 |------|----------|---------|--------|----------|
 | **Compact** | 200 | 600 | 150 | Quick tests, iteration |
 | **Cosy** | 2,100 | 4,500 | 2,100 | Standard production |
-| **Comprehensive** | 2,100 | 9,000 | 2,100 | **Default** — Deep decisions |
+| **Comprehensive** | 2,100 | 9,000 | 2,100 | **Default**  -  Deep decisions |
 | **Ultra** | 4,000 | 16,000 | 4,000 | Publication-grade / Strategic |
 
 **Key Insight**: Arbiter token budget has the highest marginal return. Invest there first.
@@ -131,7 +131,7 @@ These models excel at synthesis, meta-analysis, and final recommendations.
 
 | Model | Context | Notes |
 |-------|---------|-------|
-| `deepseek/deepseek-r1-0528:free` | 163K | **PRIMARY** — True reasoning model |
+| `deepseek/deepseek-r1-0528:free` | 163K | **PRIMARY**  -  True reasoning model |
 | `tngtech/deepseek-r1t-chimera:free` | 163K | R1 variant (TNG tuned) |
 | `meta-llama/llama-3.1-405b-instruct:free` | 131K | Largest scale |
 | `qwen/qwen3-coder:free` | 262K | 480B MoE - Technical arbiter |
@@ -142,7 +142,7 @@ These models excel at weakness detection and logical rigor.
 
 | Model | Context | Notes |
 |-------|---------|-------|
-| `meta-llama/llama-3.3-70b-instruct:free` | 131K | **PRIMARY** — Balanced rigor |
+| `meta-llama/llama-3.3-70b-instruct:free` | 131K | **PRIMARY**  -  Balanced rigor |
 | `google/gemma-3-27b-it:free` | 131K | Google quality |
 | `openai/gpt-oss-120b:free` | 131K | Large scale |
 | `z-ai/glm-4.5-air:free` | 131K | Multilingual |
@@ -153,7 +153,7 @@ These models excel at persona agents and multi-perspective generation.
 
 | Model | Context | Notes |
 |-------|---------|-------|
-| `google/gemini-2.0-flash-exp:free` | 1M | **PRIMARY** — Fastest, massive context |
+| `google/gemini-2.0-flash-exp:free` | 1M | **PRIMARY**  -  Fastest, massive context |
 | `moonshotai/kimi-k2:free` | 32K | Fast, low latency |
 | `nvidia/nemotron-3-nano-30b-a3b:free` | 256K | MoE, good quality |
 | `xiaomi/mimo-v2-flash:free` | 262K | Speed optimized |
@@ -186,7 +186,7 @@ From 65-run research protocol (January 2026):
 |--------|------------|--------------|------|
 | FREE-Optimal (R1 Arbiter) | 27.6/30 | **+73%** | $0.00 |
 | FREE-Scale (405B Arbiter) | 26.2/30 | **+64%** | $0.00 |
-| Single-Flash (Baseline) | 16.0/30 | — | $0.00 |
+| Single-Flash (Baseline) | 16.0/30 |  -  | $0.00 |
 | Inverse (Failure Test) | 14.4/30 | **-10%** | $0.00 |
 
 **Publication Claim**: *"FREE-Optimal configuration achieves 100% success rate and 85%+ quality at zero cost."*

@@ -43,10 +43,10 @@ No build step required, it's just HTML, CSS, and JavaScript.
 
 ## Code Style
 
-- **Vanilla JavaScript** — no frameworks, no build step
-- **CSS custom properties** — use existing `--var` tokens
-- **Semantic HTML** — proper ARIA labels, meaningful IDs
-- **Comments** — explain *why*, not *what*
+- **Vanilla JavaScript**  -  no frameworks, no build step
+- **CSS custom properties**  -  use existing `--var` tokens
+- **Semantic HTML**  -  proper ARIA labels, meaningful IDs
+- **Comments**  -  explain *why*, not *what*
 
 ---
 

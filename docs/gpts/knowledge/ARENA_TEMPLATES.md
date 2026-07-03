@@ -26,7 +26,7 @@ Instead of selecting personas from scratch, choose the Arena that matches your d
 ### Quick Start
 1. **Identify your decision category** (Product, Strategy, People, etc.)
 2. **Find the matching Arena** (Feature Validation, Pivot Decision, Hiring, etc.)
-3. **State your specific decision** — the Arena provides the personas
+3. **State your specific decision**  -  the Arena provides the personas
 
 ### Example
 ```

@@ -13,7 +13,7 @@ A SPAR session follows the **SPARKIT** protocol, eight steps designed to stress-
 
 | Step | Letter | Phase | Description |
 |------|--------|-------|-------------|
-| 0 | — | **NOOL** | State the deliberation's intent (WHY, WHAT TYPE, HOW) |
+| 0 |  -  | **NOOL** | State the deliberation's intent (WHY, WHAT TYPE, HOW) |
 | 1 | **S** | **Scope** | Define the strategic question, constraints, and decision context |
 | 2 | **P** | **Populate** | Instantiate diverse personas with coherent, clashing worldviews |
 | 3 | **A** | **Abstract** | Construct shared abstraction map before debate (**v8.0**) |
@@ -46,7 +46,7 @@ If the real obstacle is stakeholder conflict or avoided conversations, SPAR won'
 
 ---
 
-## Step 0: NOOL — State the Intent 🧵
+## Step 0: NOOL  -  State the Intent 🧵
 
 Before scoping, state the deliberation's reasoning thread using the three-layer IoT-AoT-CoT stack:
 
@@ -63,7 +63,7 @@ Any persona can invoke a "NOOL check" during the debate to recalibrate if discus
 
 ---
 
-## Step 1: SCOPE — Define the Question 🔭
+## Step 1: SCOPE  -  Define the Question 🔭
 
 Before any personas engage, precisely define the strategic question.
 
@@ -91,7 +91,7 @@ The most common failure in dialectic is **scope drift**, personas arguing past e
 
 ---
 
-## Step 2: POPULATE — Instantiate Each Persona 🎭
+## Step 2: POPULATE  -  Instantiate Each Persona 🎭
 
 Use this prompt structure to create each persona:
 
@@ -147,7 +147,7 @@ For each persona, define these elements:
 
 ---
 
-## Step 3: ABSTRACT — Construct the Cognitive Map 🗺️
+## Step 3: ABSTRACT  -  Construct the Cognitive Map 🗺️
 
 **NEW in v8.0.** Before debate begins, establish a shared abstraction map using Abstraction of Thought (AoT). This prevents personas from arguing in disconnected frames.
 
@@ -165,7 +165,7 @@ All personas receive the abstraction map before ANNOUNCE. Arguments reference sh
 
 ---
 
-## Step 4: ANNOUNCE — Present the Challenge 📢
+## Step 4: ANNOUNCE  -  Present the Challenge 📢
 
 Give all personas the same challenge prompt, now including the abstraction map:
 
@@ -203,7 +203,7 @@ The most common failure is abstract debate disconnected from reality. Ground you
 
 ---
 
-## Step 5: RUMBLE — Run the Dialectic ⚔️
+## Step 5: RUMBLE  -  Run the Dialectic ⚔️
 
 After each persona responds, prompt them to engage with each other:
 
@@ -265,7 +265,7 @@ During the RUMBLE, a backstage cognitive loop runs to prevent context drift:
 
 ---
 
-## Step 6: KNIT — The Moderator Synthesis ⚖️
+## Step 6: KNIT  -  The Moderator Synthesis ⚖️
 
 After the final RUMBLE round, introduce a moderator voice:
 
@@ -302,7 +302,7 @@ The moderator is **neutral**, not another debater. They should:
 
 ---
 
-## Step 7: INTERROGATE — Stress-Test the Synthesis 🔬
+## Step 7: INTERROGATE  -  Stress-Test the Synthesis 🔬
 
 This is the critical step that prevents premature closure. Challenge the moderator's synthesis:
 
@@ -339,7 +339,7 @@ The PROBE persona plays a special role here, asking questions that attack the *m
 
 ---
 
-## Step 8: TRANSMIT — Extract Actionable Recommendations 🎯
+## Step 8: TRANSMIT  -  Extract Actionable Recommendations 🎯
 
 After interrogation, extract the final verdict:
 

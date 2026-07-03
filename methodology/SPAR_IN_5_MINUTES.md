@@ -3,7 +3,7 @@
 *Your first structured debate. Four Perspectives, Four Dimensions, One Synthesis.*
 
 > **"நாலு பேரு நாலு விதமா பேசுவாங்க"**
-> *"Four people speak in four different ways."* — Tamil wisdom
+> *"Four people speak in four different ways."*  -  Tamil wisdom
 
 ---
 
@@ -28,7 +28,7 @@ Paste ONE persona into each chat:
 
 ---
 
-### 🔵 Chat 1: North — The Visionary
+### 🔵 Chat 1: North  -  The Visionary
 
 ```
 You are THE VISIONARY (North).
@@ -45,7 +45,7 @@ Don't be balanced, be you. Challenge others to think beyond current constraints.
 
 ---
 
-### 🟢 Chat 2: East — The Challenger
+### 🟢 Chat 2: East  -  The Challenger
 
 ```
 You are THE CHALLENGER (East).
@@ -62,7 +62,7 @@ Don't be balanced, be you. Challenge assumptions that worked yesterday but may f
 
 ---
 
-### 🟡 Chat 3: South — The Pragmatist
+### 🟡 Chat 3: South  -  The Pragmatist
 
 ```
 You are THE PRAGMATIST (South).
@@ -79,7 +79,7 @@ Don't be balanced, be you. Ground airy visions in operational reality.
 
 ---
 
-### 🔴 Chat 4: West — The Sage
+### 🔴 Chat 4: West  -  The Sage
 
 ```
 You are THE SAGE (West).
@@ -159,29 +159,29 @@ Write down:
 
 ## Want to Go Deeper?
 
-📖 **Read the [Complete Protocol](../docs/PROTOCOL.md)** — Full SPARKIT 7-step protocol (v8.0) with all prompts.
+📖 **Read the [Complete Protocol](../docs/PROTOCOL.md)**  -  Full SPARKIT 7-step protocol (v8.0) with all prompts.
 
 > **Note**: This quick-start is a simplified 5-step version. The complete **SPARKIT** protocol adds two critical steps: **Scope** (explicit question framing) and **Interrogate** (stress-testing the synthesis).
 
-🎯 **Master the [ASPIRES Framework](../docs/ADVANCED_PATTERNS.md)** — 7 advanced patterns: **A**bsent Voice, **S**teelman, **P**re-Mortem, **I**nversion, **R**eflective Meta, **E**scalation, **S**hifted Horizon.
+🎯 **Master the [ASPIRES Framework](../docs/ADVANCED_PATTERNS.md)**  -  7 advanced patterns: **A**bsent Voice, **S**teelman, **P**re-Mortem, **I**nversion, **R**eflective Meta, **E**scalation, **S**hifted Horizon.
 
-📚 **Browse the [Persona Library](./PERSONA_LIBRARY.md)** — Ready-to-use personas for different decision types.
+📚 **Browse the [Persona Library](./PERSONA_LIBRARY.md)**  -  Ready-to-use personas for different decision types.
 
-📜 **Understand the [SPAR Manifesto](../docs/MANIFESTO.md)** — The philosophy and GRACE principles behind the methodology.
+📜 **Understand the [SPAR Manifesto](../docs/MANIFESTO.md)**  -  The philosophy and GRACE principles behind the methodology.
 
-🎮 **Try the [SPAR Kit Playground](https://synthanai.github.io/spar-kit)** — Run AI debates in your browser, no setup required.
+🎮 **Try the [SPAR Kit Playground](https://synthanai.github.io/spar-kit)**  -  Run AI debates in your browser, no setup required.
 
 ---
 
 ## Quick Tips
 
-✅ **The personas should argue** — If they're all agreeing, your decision might be obvious
+✅ **The personas should argue**  -  If they're all agreeing, your decision might be obvious
 
-✅ **Watch the tensions** — North vs South, East vs West, that's where insight lives
+✅ **Watch the tensions**  -  North vs South, East vs West, that's where insight lives
 
-✅ **You're the judge** — The debate is input. YOU make the final call.
+✅ **You're the judge**  -  The debate is input. YOU make the final call.
 
-✅ **Repeat the pattern** — Run SPAR on any decision with genuine uncertainty. It gets faster with practice.
+✅ **Repeat the pattern**  -  Run SPAR on any decision with genuine uncertainty. It gets faster with practice.
 
 ---
 

@@ -1,4 +1,4 @@
-# SPAR Kit — Advanced Debate Configuration
+# SPAR Kit  -  Advanced Debate Configuration
 
 *Production-validated multi-agent debate architecture for structured reasoning.*
 
@@ -253,9 +253,9 @@ console.log(formatConfigSummary());
 
 ## Next Steps
 
-- **[SPARKIT Protocol](PROTOCOL.md)** — Full 7-step protocol
-- **[GRACE Principles](GRACE_PRINCIPLES.md)** — 5 epistemological stances
-- **[ASPIRES Framework](ADVANCED_PATTERNS.md)** — 7 advanced patterns
+- **[SPARKIT Protocol](PROTOCOL.md)**  -  Full 7-step protocol
+- **[GRACE Principles](GRACE_PRINCIPLES.md)**  -  5 epistemological stances
+- **[ASPIRES Framework](ADVANCED_PATTERNS.md)**  -  7 advanced patterns
 
 ---
 

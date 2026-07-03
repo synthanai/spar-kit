@@ -43,10 +43,10 @@ All user input is validated before processing:
 
 All output is sanitized before display or export:
 
-- **Terminal output** — Control characters removed
-- **Markdown export** — Special characters escaped
-- **JSON export** — Internal fields stripped
-- **LLM responses** — Prompt injection patterns removed
+- **Terminal output**  -  Control characters removed
+- **Markdown export**  -  Special characters escaped
+- **JSON export**  -  Internal fields stripped
+- **LLM responses**  -  Prompt injection patterns removed
 
 ### Sensitive Data Handling
 
@@ -182,10 +182,10 @@ Tests cover:
 
 ### For Developers
 
-1. **Never log API keys** — Use `maskSensitiveData()`
-2. **Validate all input** — Use validation module
-3. **Sanitize all output** — Use sanitization module
-4. **Test security** — Run `npm run test:security`
+1. **Never log API keys**  -  Use `maskSensitiveData()`
+2. **Validate all input**  -  Use validation module
+3. **Sanitize all output**  -  Use sanitization module
+4. **Test security**  -  Run `npm run test:security`
 
 ---
 

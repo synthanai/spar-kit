@@ -9,11 +9,11 @@
 
 SPAR draws on several streams of cognitive science and organizational research:
 
-1. **Cognitive Bias Literature** — Why individual reasoning fails
-2. **Group Decision-Making Research** — Why collective reasoning fails
-3. **Argumentation Theory** — Why structured disagreement works
-4. **Dialectical Reasoning** — The ancient practice of thesis-antithesis-synthesis
-5. **AI Alignment Research** — Why AI-generated "balance" is insufficient
+1. **Cognitive Bias Literature**  -  Why individual reasoning fails
+2. **Group Decision-Making Research**  -  Why collective reasoning fails
+3. **Argumentation Theory**  -  Why structured disagreement works
+4. **Dialectical Reasoning**  -  The ancient practice of thesis-antithesis-synthesis
+5. **AI Alignment Research**  -  Why AI-generated "balance" is insufficient
 
 ---
 
@@ -106,10 +106,10 @@ Mercier & Sperber's research (*The Enigma of Reason*, 2017) proposes that human 
 
 **Implications for SPAR:**
 
-- **Individual reason is biased by design** — We're evolved to win arguments, not find truth
-- **Reasoning works best in groups** — But only when genuine disagreement exists
-- **Confirmation bias is a feature, not a bug** — It makes us effective advocates for our position
-- **Collective reasoning requires structure** — Without it, dominant voices win
+- **Individual reason is biased by design**  -  We're evolved to win arguments, not find truth
+- **Reasoning works best in groups**  -  But only when genuine disagreement exists
+- **Confirmation bias is a feature, not a bug**  -  It makes us effective advocates for our position
+- **Collective reasoning requires structure**  -  Without it, dominant voices win
 
 SPAR creates the **ideal conditions for collective reasoning**:
 - Separate reasoners (personas) with committed positions
@@ -313,7 +313,7 @@ Academic research rediscovers what wisdom traditions always knew:
 
 > *"நாலு பேரு நாலு விதமா பேசுவாங்க"*  
 > *"Four people speak in four different ways."*  
-> — Tamil proverb
+>  -  Tamil proverb
 
 The insight that genuine understanding requires multiple perspectives isn't new. SPAR is simply a structured methodology for operationalizing it, with humans, with AI, or with both.
 

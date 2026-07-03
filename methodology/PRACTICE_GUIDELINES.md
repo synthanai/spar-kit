@@ -5,7 +5,7 @@
 
 ---
 
-## Part 1: Contraindications — When NOT to Use SPAR
+## Part 1: Contraindications  -  When NOT to Use SPAR
 
 ### ⚠️ The Anti-Pattern Warning
 
@@ -264,14 +264,14 @@ The facilitator is **not a participant**. They are the guardian of the process.
 
 **Stop the session if:**
 
-1. **Psychological safety breaks down** — Someone is genuinely distressed
-2. **Power dynamics override process** — Senior voice silencing dissent
-3. **The decision is already made** — Process is being used to rubber-stamp
-4. **Personas are being weaponized** — Used to attack individuals, not ideas
-5. **Confidentiality is breached** — Content is shared outside agreed bounds
-6. **Time pressure distorts quality** — Rushing produces theater, not insight
-7. **Framework Critic (PROBE) raises fundamental concern** — The meta-level challenge is valid
-8. **Genuine harm is being planned** — Ethical lines are being crossed
+1. **Psychological safety breaks down**  -  Someone is genuinely distressed
+2. **Power dynamics override process**  -  Senior voice silencing dissent
+3. **The decision is already made**  -  Process is being used to rubber-stamp
+4. **Personas are being weaponized**  -  Used to attack individuals, not ideas
+5. **Confidentiality is breached**  -  Content is shared outside agreed bounds
+6. **Time pressure distorts quality**  -  Rushing produces theater, not insight
+7. **Framework Critic (PROBE) raises fundamental concern**  -  The meta-level challenge is valid
+8. **Genuine harm is being planned**  -  Ethical lines are being crossed
 
 ---
 
@@ -294,7 +294,7 @@ Some elements of SPAR are non-negotiable. They define authentic practice:
 > Every conclusion is provisional. Every synthesis might be wrong. The Framework Critic (PROBE) exists to remind us: even this methodology has blind spots.
 
 #### 5. **The Tamil Anchor**
-> *"நாலு பேரு நாலு விதமா பேசுவாங்க"* — "Four people speak in four different ways."
+> *"நாலு பேரு நாலு விதமா பேசுவாங்க"*  -  "Four people speak in four different ways."
 > Diversity of voice is not a bug; it is the feature. Homogeneity of thought is the enemy.
 
 ---
@@ -310,7 +310,7 @@ Some elements of SPAR are non-negotiable. They define authentic practice:
 | Attack individuals rather than ideas | Weaponizes disagreement |
 | Exclude uncomfortable perspectives | Defeats the purpose of structured dissent |
 | Create appearance of rigor without substance | Performance theater, not practice |
-| Avoid human conversation by delegating to process | "Have the human conversation first" — GRACE Principle (Reveal) |
+| Avoid human conversation by delegating to process | "Have the human conversation first"  -  GRACE Principle (Reveal) |
 
 ---
 

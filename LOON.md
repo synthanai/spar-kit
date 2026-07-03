@@ -1,4 +1,4 @@
-# LOON — SPAR-Kit
+# LOON  -  SPAR-Kit
 
 > *The Mirror: looking back at what the thread promised.*
 

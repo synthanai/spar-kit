@@ -40,7 +40,7 @@
 
 **Don't Deliberate Alone.**
 
-The problem isn't AI. The problem is **isolated reasoning** — and it fails in every context:
+The problem isn't AI. The problem is **isolated reasoning**  -  and it fails in every context:
 
 | Context | The Problem |
 |---------|-------------|
@@ -71,15 +71,15 @@ curl -fsSL https://raw.githubusercontent.com/synthanai/spar-kit/main/install.sh 
 ```
 
 This installs the CLI **and** auto-configures integrations for:
-- 🤖 **Claude Code** — Adds skill to `~/.claude/skills/`
-- ✨ **Gemini** — Adds skill + workflow to `.agent/`
-- 🎯 **Cursor** — Adds rules to `~/.cursor/`
+- 🤖 **Claude Code**  -  Adds skill to `~/.claude/skills/`
+- ✨ **Gemini**  -  Adds skill + workflow to `.agent/`
+- 🎯 **Cursor**  -  Adds rules to `~/.cursor/`
 
 ### Web (No Install)
 **[▶️ synthanai.github.io/spar-kit](https://synthanai.github.io/spar-kit)**
 
 ### ChatGPT GPT (No Install)
-**[🤖 SPAR Decision Partner](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)** — Use SPAR directly in ChatGPT
+**[🤖 SPAR Decision Partner](https://chatgpt.com/g/g-69678df7ed248191be8fd211e11d4797)**  -  Use SPAR directly in ChatGPT
 
 ### npm Only
 ```bash
@@ -146,8 +146,8 @@ SPAR's foundational model uses a compass metaphor. Four personas, four orientati
 | 🔴 **West** | The Sage | *What's proven?* | Experience, wisdom, lessons learned |
 
 **Natural Tensions:**
-- **North ↔ South** — Vision vs. Reality
-- **East ↔ West** — Innovation vs. Tradition
+- **North ↔ South**  -  Vision vs. Reality
+- **East ↔ West**  -  Innovation vs. Tradition
 
 📖 **[Full Four Directions →](methodology/FOUR_DIRECTIONS.md)** | 📖 **[Centre: Behavioral Analyst →](methodology/CENTRE.md)**
 
@@ -212,10 +212,10 @@ SPAR is grounded in five epistemological stances. Be GRACEful:
 
 | Principle | Meaning |
 |-----------|---------|
-| **G**round | Still yourself before synthesis — insights arrive in silence |
+| **G**round | Still yourself before synthesis  -  insights arrive in silence |
 | **R**eveal | Surface biases and anxieties before delegating to process |
 | **A**pproach | Seek the adjacent possible, not defended positions |
-| **C**ourt | Welcome radical dissent — invite it, make space for it |
+| **C**ourt | Welcome radical dissent  -  invite it, make space for it |
 | **E**xpose | Acknowledge what you don't know, name missing perspectives |
 
 📖 **[Full GRACE Principles →](methodology/GRACE_PRINCIPLES.md)**
@@ -530,10 +530,10 @@ node cli/index.js
 
 SPAR is a living methodology that grows through use. Contributions welcome:
 
-- **🎭 New Personas** — Submit personas for uncovered decision types
-- **📝 Case Studies** — Document SPARs you've run
-- **📖 Methodology Refinements** — Propose improvements to the core concepts
-- **🌍 Translations** — Help SPAR speak new languages
+- **🎭 New Personas**  -  Submit personas for uncovered decision types
+- **📝 Case Studies**  -  Document SPARs you've run
+- **📖 Methodology Refinements**  -  Propose improvements to the core concepts
+- **🌍 Translations**  -  Help SPAR speak new languages
 
 See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines.
 

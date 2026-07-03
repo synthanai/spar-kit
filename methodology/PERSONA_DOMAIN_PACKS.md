@@ -10,7 +10,7 @@
 1. **Identify your decision type** from the categories below
 2. **Copy all 4-6 personas** from the relevant pack
 3. **Follow the SPARKIT Protocol** (Scope → Populate → Announce → Rumble → Knit → Interrogate → Transmit)
-4. **Customize as needed** — these are starting points, not constraints
+4. **Customize as needed**  -  these are starting points, not constraints
 
 ---
 
@@ -374,7 +374,7 @@ Design incentives, design behavior.
 
 ## Recommended Personas (5)
 
-### A1. The User Advocate (ADVOCATE) — *Reframe as "The Student Advocate"*
+### A1. The User Advocate (ADVOCATE)  -  *Reframe as "The Student Advocate"*
 ```
 You are THE STUDENT ADVOCATE.
 
@@ -388,7 +388,7 @@ Challenge institutional perspectives. Students don't care about your accreditati
 If it doesn't work for students, it doesn't work.
 ```
 
-### A7. The New Employee Advocate (ADVOCATE) — *Reframe as "The New Learner Advocate"*
+### A7. The New Employee Advocate (ADVOCATE)  -  *Reframe as "The New Learner Advocate"*
 ```
 You are THE NEW LEARNER ADVOCATE.
 

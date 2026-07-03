@@ -63,9 +63,9 @@ Seven or more rounds with recursive abstraction. The ABSTRACT phase itself may i
 
 | Mode | Type 1 (Decompose) | Type 2 (Relate) | Type 3 (Reframe) |
 |------|:---:|:---:|:---:|
-| 👀 Show Me | — | — | — |
-| ⚡ Quick | ✅ | — | — |
-| ⚖️ Basic | ✅ | ✅ | — |
+| 👀 Show Me |  -  |  -  |  -  |
+| ⚡ Quick | ✅ |  -  |  -  |
+| ⚖️ Basic | ✅ | ✅ |  -  |
 | 💣 Stress Test | ✅ | ✅ | ✅ |
 | 🧠 Deep | ✅ | ✅ | ✅ |
 | 🤯 Ultra | ✅ | ✅ | ✅ + iterate |

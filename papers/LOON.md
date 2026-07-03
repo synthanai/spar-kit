@@ -1,4 +1,4 @@
-# Mirror / LOON — Module: spar-kit/papers
+# Mirror / LOON  -  Module: spar-kit/papers
 
 ## Entry: 2026-04-13
 

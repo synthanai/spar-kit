@@ -22,7 +22,7 @@ Once you've mastered the [basic protocol](./PROTOCOL.md), the **ASPIRES** framew
 
 ---
 
-## A — Absent Voice
+## A  -  Absent Voice
 
 *Introduce a persona representing whoever is NOT at the decision table.*
 
@@ -68,7 +68,7 @@ be affected by this decision.
 
 ---
 
-## S — Steelman Challenge
+## S  -  Steelman Challenge
 
 *Before any participant critiques another's position, they must first articulate the strongest possible version of that position.*
 
@@ -100,7 +100,7 @@ steelman version of their argument?
 
 ---
 
-## P — Pre-Mortem Persona
+## P  -  Pre-Mortem Persona
 
 *Add a persona explicitly designed to imagine failure.*
 
@@ -136,7 +136,7 @@ catastrophically. Your job is to reconstruct what went wrong.
 
 ---
 
-## I — Inversion Protocol
+## I  -  Inversion Protocol
 
 *Force personas to argue the opposite of their natural position.*
 
@@ -195,7 +195,7 @@ Having argued the opposite position:
 
 ---
 
-## R — Reflective Meta-Review
+## R  -  Reflective Meta-Review
 
 *After the debate concludes, add a reflection phase where personas step outside their roles.*
 
@@ -229,7 +229,7 @@ Step back from your persona. As an objective observer:
 
 ---
 
-## E — Escalation Trigger
+## E  -  Escalation Trigger
 
 *Deliberately amplify productive tension when debate becomes too comfortable.*
 
@@ -298,7 +298,7 @@ de-escalate and integrate.
 
 ---
 
-## S — Shifted Horizon
+## S  -  Shifted Horizon
 
 *Run the same debate with the same personas, but at different time horizons.*
 
@@ -356,7 +356,7 @@ Advanced practitioners combine patterns for maximum insight:
 | Combination | Effect |
 |-------------|--------|
 | **A + P** (Absent Voice + Pre-Mortem) | "How will this failure affect those not at the table?" |
-| **S + I** (Steelman + Inversion) | Deep empathy—understand AND argue the opposing view |
+| **S + I** (Steelman + Inversion) | Deep empathy - understand AND argue the opposing view |
 | **E + R** (Escalation + Meta-Review) | Push hard, then reflect on what surfaced |
 | **P + S** (Pre-Mortem + Shifted Horizon) | "How does failure look different at each time scale?" |
 | **I + E** (Inversion + Escalation) | Argue the opposite position at maximum intensity |
@@ -514,9 +514,9 @@ One debate doesn't give you truth. It gives you a perspective-enriched view. The
 
 ## Next Steps
 
-- **[Protocol](./PROTOCOL.md)** — Master the basics first
-- **[Implementation Guide](IMPLEMENTATION_GUIDE.md)** — Context-specific guidance
-- **[GRACE Principles](./GRACE_PRINCIPLES.md)** — The 5 epistemological stances
+- **[Protocol](./PROTOCOL.md)**  -  Master the basics first
+- **[Implementation Guide](IMPLEMENTATION_GUIDE.md)**  -  Context-specific guidance
+- **[GRACE Principles](./GRACE_PRINCIPLES.md)**  -  The 5 epistemological stances
 
 ---
 

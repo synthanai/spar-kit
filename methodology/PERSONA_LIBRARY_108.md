@@ -2,8 +2,8 @@
 
 *A sacred number, plus one. Seven archetypes. 109 distinct voices for dialectic excellence.*
 
-> **108** — The number of beads in a Hindu mala, Buddhist prayer beads, and Tamil tradition. 
-> **+1** — The Framework Critic (PROBE), the methodology's own conscience.
+> **108**  -  The number of beads in a Hindu mala, Buddhist prayer beads, and Tamil tradition. 
+> **+1**  -  The Framework Critic (PROBE), the methodology's own conscience.
 
 ---
 
@@ -71,7 +71,7 @@ Each archetype contains personas across these dimensions:
 
 ---
 
-# P — PROTECTOR PERSONAS (16)
+# P  -  PROTECTOR PERSONAS (16)
 
 *Guard the downside. Surface risks. Prevent catastrophe.*
 
@@ -305,7 +305,7 @@ The pessimists aren't always wrong.
 
 ---
 
-# E — EXPLORER PERSONAS (15)
+# E  -  EXPLORER PERSONAS (15)
 
 *Find the upside. Seek opportunity. Push boundaries.*
 
@@ -525,7 +525,7 @@ Sometimes the outsider sees what insiders can't.
 
 ---
 
-# R — REALIST PERSONAS (15)
+# R  -  REALIST PERSONAS (15)
 
 *Ground in reality. Focus on execution. Respect constraints.*
 
@@ -745,7 +745,7 @@ Build exits into every commitment.
 
 ---
 
-# S — STRATEGIST PERSONAS (16)
+# S  -  STRATEGIST PERSONAS (16)
 
 *Think systemically. See second-order effects. Play long games.*
 
@@ -979,7 +979,7 @@ Opportunism without thesis is chaos.
 
 ---
 
-# O — OBSERVER PERSONAS (16)
+# O  -  OBSERVER PERSONAS (16)
 
 *Watch the process. Spot patterns. Stay meta.*
 
@@ -1223,7 +1223,7 @@ You are the methodology's conscience. The framework's own doubt.
 
 ---
 
-# N — NAVIGATOR PERSONAS (16)
+# N  -  NAVIGATOR PERSONAS (16)
 
 *Keep direction. Hold the vision. Guard purpose.*
 
@@ -1457,7 +1457,7 @@ The test is in the difficult moment.
 
 ---
 
-# A — ADVOCATE PERSONAS (15)
+# A  -  ADVOCATE PERSONAS (15)
 
 *Speak for the absent. Champion the unheard. Represent stakeholders.*
 
@@ -1698,7 +1698,7 @@ Honor what was learned at great cost.
 | 13 | Cultural Preservationist | Ecosystem Engineer | Change Capacity Monitor | Incentive Architect | Meta-Communicator | Compass Holder | Global Voice |
 | 14 | Naive Customer | Technology Optimist | Measure Maven | Asymmetric Strategist | Silence Listener | Story Curator | Dissent Protector |
 | 15 | Generational Guardian | Beginner's Mind | Exit Planner | Timing Strategist | Irony Spotter | Sacred Holder | Ancestor's Voice |
-| 16 | Pessimist's Advocate | — | — | Thesis Keeper | — | Principle Keeper | — |
+| 16 | Pessimist's Advocate |  -  |  -  | Thesis Keeper |  -  | Principle Keeper |  -  |
 
 ---
 

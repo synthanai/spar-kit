@@ -43,10 +43,10 @@ Then give that perspective 60 seconds of genuine consideration.
 
 ## When NOT to Use SPAR
 
-❌ **Time-critical emergencies** — Just decide  
-❌ **Matters of expertise** — Trust the expert  
-❌ **Personal taste** — No debate needed  
-❌ **When you just need to vent** — That's not SPAR
+❌ **Time-critical emergencies**  -  Just decide  
+❌ **Matters of expertise**  -  Trust the expert  
+❌ **Personal taste**  -  No debate needed  
+❌ **When you just need to vent**  -  That's not SPAR
 
 ---
 

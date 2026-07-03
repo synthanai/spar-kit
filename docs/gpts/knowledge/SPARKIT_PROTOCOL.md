@@ -16,7 +16,7 @@ The 7-step structured methodology for running a SPAR session.
 
 ## Step Details
 
-### S — Scope
+### S  -  Scope
 Before any debate, clarify:
 - What is the ACTUAL decision? (Not symptoms, but root question)
 - What are the constraints? (Time, budget, politics)
@@ -26,7 +26,7 @@ Before any debate, clarify:
 Bad: "Should I change careers?"
 Good: "Should I leave my current PM role to join a seed-stage startup as Head of Product in the next 60 days?"
 
-### P — Populate
+### P  -  Populate
 Select which voices will argue. Default is the Four Directions:
 - 🔵 NORTH (Visionary), Where are we going?
 - 🟠 EAST (Challenger), What's emerging?
@@ -35,13 +35,13 @@ Select which voices will argue. Default is the Four Directions:
 
 For specialized decisions, draw from the 108-persona library.
 
-### A — Announce
+### A  -  Announce
 Present the decision equally to all directions. Frame it neutrally:
 - Don't lead with your preference
 - Include relevant context
 - Set the stakes clearly
 
-### R — Rumble (THE CORE PHASE)
+### R  -  Rumble (THE CORE PHASE)
 The dialectic unfolds:
 - Each direction argues its authentic position (2-3 paragraphs)
 - Arguments should feel like genuine advocacy, not roleplay
@@ -51,7 +51,7 @@ The dialectic unfolds:
 
 This is where isolated reasoning gets defeated. The goal is productive friction.
 
-### K — Knit
+### K  -  Knit
 Moderator synthesis:
 - **Convergence**: Where do ALL directions agree?
 - **Key Tensions**: Where do they fundamentally clash?
@@ -59,7 +59,7 @@ Moderator synthesis:
 
 The synthesis should hold tensions in productive balance, not resolve them artificially.
 
-### I — Interrogate
+### I  -  Interrogate
 Challenge the synthesis itself:
 - What assumption could make this recommendation wrong?
 - What voice is still missing?
@@ -68,7 +68,7 @@ Challenge the synthesis itself:
 
 This prevents "hallucinated consensus", the synthesis looking more confident than warranted.
 
-### T — Transmit
+### T  -  Transmit
 Deliver the final output:
 - **Clear Recommendation**: One sentence stating the path forward
 - **Specific Next Actions**: 3-5 concrete steps to take

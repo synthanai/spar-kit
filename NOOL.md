@@ -1,4 +1,4 @@
-# நூல் / NOOL — SPAR-Kit
+# நூல் / NOOL  -  SPAR-Kit
 
 > *The Reasoning Thread: a record of INTENT (why), ABSTRACTION (what type), and CHAIN (how).*
 
@@ -22,7 +22,7 @@ End isolated reasoning by giving everyone, humans and AI, reasoning infrastructu
 
 | Version | Date | Layer Changed | What Changed | Source |
 |---------|------|---------------|--------------|--------|
-| v0.1 | 2026-02-27 | All | Initial NOOL from 580-line README | — |
+| v0.1 | 2026-02-27 | All | Initial NOOL from 580-line README |  -  |
 | v0.2 | 2026-02-27 | Intent | Updated from 'disagreement methodology' to 'reasoning infrastructure accessed through disagreement.' Added IoT-AoT-CoT reference. | SPAR #42 |
 | v0.3 | 2026-03-10 | All | Updated to v8.0: 7-step protocol (NOOL as input to SCOPE, AoT inside POPULATE), 6R Engine, depth modes, TESSERACT 504-config. | SPAR #XX (OSS Sync) |
 

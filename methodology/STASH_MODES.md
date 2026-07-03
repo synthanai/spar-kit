@@ -27,15 +27,15 @@
 > AI modes are powerful augmentation tools, not the origin of the practice.
 
 The wisdom comes from *structured disagreement*, not from AI. SPAR was designed as a human cognitive practice first. AI simply allows:
-- **Speed** — Generate 4+ perspectives in minutes
-- **Breadth** — Access personas outside your experience
-- **Tirelessness** — Debate for hours without fatigue
+- **Speed**  -  Generate 4+ perspectives in minutes
+- **Breadth**  -  Access personas outside your experience
+- **Tirelessness**  -  Debate for hours without fatigue
 
 But AI cannot replace:
-- **Tacit knowledge** — What you know that you don't know you know
-- **Accountability** — Real skin in the game
-- **Relational trust** — The psychological safety of team deliberation
-- **Presence** — The embodied experience of inhabiting a perspective
+- **Tacit knowledge**  -  What you know that you don't know you know
+- **Accountability**  -  Real skin in the game
+- **Relational trust**  -  The psychological safety of team deliberation
+- **Presence**  -  The embodied experience of inhabiting a perspective
 
 **Start with human modes. Add AI as it becomes useful.**
 
@@ -83,9 +83,9 @@ But AI cannot replace:
 
 ---
 
-# 👤 S — Solo Human Mode
+# 👤 S  -  Solo Human Mode
 
-> *"The philosopher's practice — building your own capacity for multi-perspectival thinking."*
+> *"The philosopher's practice  -  building your own capacity for multi-perspectival thinking."*
 
 ## When to Use
 
@@ -101,10 +101,10 @@ You inhabit each persona sequentially, arguing from their worldview as if it wer
 ## The Practice
 
 1. **Choose 3-4 personas** with genuinely conflicting worldviews
-2. **Set the scene** — State the decision clearly
-3. **Embody each persona** — Write or speak from their perspective
-4. **Physically shift** — Change position, location, or writing instrument between personas
-5. **Synthesize** — Step back as "moderator" and notice tensions
+2. **Set the scene**  -  State the decision clearly
+3. **Embody each persona**  -  Write or speak from their perspective
+4. **Physically shift**  -  Change position, location, or writing instrument between personas
+5. **Synthesize**  -  Step back as "moderator" and notice tensions
 
 ## Prompt Template: Solo Human Mode
 
@@ -172,17 +172,17 @@ _________________________________________________
 
 ## Tips for Solo Human Mode
 
-✅ **Use physical anchors** — Sit in different chairs, use different colored pens
-✅ **Give each persona time** — Minimum 5 minutes per perspective
-✅ **Argue positions you disagree with** — That's where growth happens
-✅ **Track patterns** — Which personas consistently surprise you?
-✅ **Don't rush synthesis** — Let tensions sit overnight if needed
+✅ **Use physical anchors**  -  Sit in different chairs, use different colored pens
+✅ **Give each persona time**  -  Minimum 5 minutes per perspective
+✅ **Argue positions you disagree with**  -  That's where growth happens
+✅ **Track patterns**  -  Which personas consistently surprise you?
+✅ **Don't rush synthesis**  -  Let tensions sit overnight if needed
 
 ---
 
-# 👥 T — Team Human Mode
+# 👥 T  -  Team Human Mode
 
-> *"The organizational practice — building collective perspective-taking and psychological safety."*
+> *"The organizational practice  -  building collective perspective-taking and psychological safety."*
 
 ## When to Use
 
@@ -198,10 +198,10 @@ Team members are each assigned a persona **different from their natural view**. 
 ## The Practice
 
 1. **Brief the team** on SPAR and the decision context
-2. **Assign personas** — Deliberately mismatch people to perspectives
-3. **Give preparation time** — 10 minutes to research their worldview
-4. **Run the structured debate** — Follow the SPARKIT protocol
-5. **Debrief the meta-experience** — What did people learn from their assigned view?
+2. **Assign personas**  -  Deliberately mismatch people to perspectives
+3. **Give preparation time**  -  10 minutes to research their worldview
+4. **Run the structured debate**  -  Follow the SPARKIT protocol
+5. **Debrief the meta-experience**  -  What did people learn from their assigned view?
 
 ## Prompt Template: Team Human Mode
 
@@ -290,17 +290,17 @@ Break character. Discuss:
 
 ## Tips for Team Human Mode
 
-✅ **Mismatch deliberately** — Growth happens when people argue unfamiliar positions
-✅ **Protect the facilitator's neutrality** — They don't have a persona
-✅ **Debrief the meta-experience** — "What was it like to argue that view?"
-✅ **Rotate assignments** — Don't let people calcify into roles
-✅ **Track over time** — Keep records of decisions for later audit
+✅ **Mismatch deliberately**  -  Growth happens when people argue unfamiliar positions
+✅ **Protect the facilitator's neutrality**  -  They don't have a persona
+✅ **Debrief the meta-experience**  -  "What was it like to argue that view?"
+✅ **Rotate assignments**  -  Don't let people calcify into roles
+✅ **Track over time**  -  Keep records of decisions for later audit
 
 ---
 
-# 🤖 A — AI-Persona Mode
+# 🤖 A  -  AI-Persona Mode
 
-> *"The amplified practice — leveraging AI to generate diverse perspectives at scale."*
+> *"The amplified practice  -  leveraging AI to generate diverse perspectives at scale."*
 
 ## When to Use
 
@@ -318,8 +318,8 @@ Multiple LLM instances (separate chat windows, API calls, or the SPAR Kit tool) 
 1. **Open multiple AI interfaces** (4 chat windows recommended)
 2. **Paste persona prompts** into each
 3. **Send the same challenge** to all personas
-4. **Run dialectic rounds** — Share positions across windows
-5. **Synthesize** — Either have a 5th moderator AI, or do it yourself
+4. **Run dialectic rounds**  -  Share positions across windows
+5. **Synthesize**  -  Either have a 5th moderator AI, or do it yourself
 
 ## Prompt Template: AI-Persona Mode
 
@@ -472,17 +472,17 @@ YOUR TASK:
 
 ## Tips for AI-Persona Mode
 
-✅ **Use different providers** — GPT-4, Claude, Gemini all have different "personalities"
-✅ **Keep responses bounded** — 250-400 words keeps debates focused
-✅ **Don't over-round** — 2-3 rounds is usually sufficient
-✅ **Save transcripts** — Build a library of past debates for organizational learning
-✅ **Use the SPAR Kit** — Automates multi-persona orchestration
+✅ **Use different providers**  -  GPT-4, Claude, Gemini all have different "personalities"
+✅ **Keep responses bounded**  -  250-400 words keeps debates focused
+✅ **Don't over-round**  -  2-3 rounds is usually sufficient
+✅ **Save transcripts**  -  Build a library of past debates for organizational learning
+✅ **Use the SPAR Kit**  -  Automates multi-persona orchestration
 
 ---
 
-# 🧠 S — Solo AI Mode
+# 🧠 S  -  Solo AI Mode
 
-> *"The rapid practice — one AI holding multiple perspectives in a single conversation."*
+> *"The rapid practice  -  one AI holding multiple perspectives in a single conversation."*
 
 ## When to Use
 
@@ -498,10 +498,10 @@ A single LLM is prompted to role-play multiple personas sequentially in one conv
 ## The Practice
 
 1. **Single conversation** with one AI
-2. **Meta-prompt** — Explain the SPAR structure
+2. **Meta-prompt**  -  Explain the SPAR structure
 3. **Request all perspectives** in one response or sequentially
 4. **Request synthesis** from the AI
-5. **Challenge the synthesis** — Push back on weak points
+5. **Challenge the synthesis**  -  Push back on weak points
 
 ## Prompt Template: Solo AI Mode
 
@@ -592,17 +592,17 @@ As each persona, critique the moderator's recommendation:
 
 ## Tips for Solo AI Mode
 
-✅ **Be explicit about conflicts** — LLMs default to harmony; push for tension
-✅ **Challenge the synthesis** — Always run an interrogation round
-✅ **Use "ultrathink" or extended thinking** — Deeper reasoning produces better personas
-✅ **Save for later** — Good debates are reusable templates
-⚠️ **Know the limitation** — One model produces less diversity than multiple
+✅ **Be explicit about conflicts**  -  LLMs default to harmony; push for tension
+✅ **Challenge the synthesis**  -  Always run an interrogation round
+✅ **Use "ultrathink" or extended thinking**  -  Deeper reasoning produces better personas
+✅ **Save for later**  -  Good debates are reusable templates
+⚠️ **Know the limitation**  -  One model produces less diversity than multiple
 
 ---
 
-# 🔀 H — Hybrid Mode
+# 🔀 H  -  Hybrid Mode
 
-> *"The ultimate practice — combining AI scale with human judgment."*
+> *"The ultimate practice  -  combining AI scale with human judgment."*
 
 ## When to Use
 
@@ -715,7 +715,7 @@ RATIONALE FOR DIVERGENCE FROM AI (if any):
 _________________________________________
 ```
 
-## Prompt Template: Hybrid Mode (Configuration 3 — AI Devil's Advocate)
+## Prompt Template: Hybrid Mode (Configuration 3  -  AI Devil's Advocate)
 
 ### Setup: AI as Challenger
 
@@ -763,11 +763,11 @@ DECISION: Does this change our direction?
 
 ## Tips for Hybrid Mode
 
-✅ **Use AI for breadth, humans for depth** — AI covers perspectives; humans add context
-✅ **Document divergence** — When humans override AI, explain why
-✅ **Don't delegate accountability** — Humans decide, always
-✅ **Run AI first** — Prevents anchoring on human initial views
-✅ **Compare syntheses** — When AI and humans disagree, that's the interesting zone
+✅ **Use AI for breadth, humans for depth**  -  AI covers perspectives; humans add context
+✅ **Document divergence**  -  When humans override AI, explain why
+✅ **Don't delegate accountability**  -  Humans decide, always
+✅ **Run AI first**  -  Prevents anchoring on human initial views
+✅ **Compare syntheses**  -  When AI and humans disagree, that's the interesting zone
 
 ---
 

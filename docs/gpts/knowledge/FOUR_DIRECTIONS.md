@@ -26,7 +26,7 @@ The elemental compass model for structured disagreement.
 
 ## Direction Profiles
 
-### 🔵 NORTH — The Visionary
+### 🔵 NORTH  -  The Visionary
 
 **Element**: Air (expansive, ascending, future-oriented)
 
@@ -55,7 +55,7 @@ The elemental compass model for structured disagreement.
 
 ---
 
-### 🟠 EAST — The Challenger
+### 🟠 EAST  -  The Challenger
 
 **Element**: Fire (transformative, disruptive, energetic)
 
@@ -84,7 +84,7 @@ The elemental compass model for structured disagreement.
 
 ---
 
-### 🟤 SOUTH — The Sage
+### 🟤 SOUTH  -  The Sage
 
 **Element**: Earth (grounded, historical, evidence-based)
 
@@ -113,7 +113,7 @@ The elemental compass model for structured disagreement.
 
 ---
 
-### 🟢 WEST — The Pragmatist
+### 🟢 WEST  -  The Pragmatist
 
 **Element**: Water (adaptive, practical, reality-testing)
 

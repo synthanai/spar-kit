@@ -1,4 +1,4 @@
-# நூல் / NOOL — Module: spar-kit/papers
+# நூல் / NOOL  -  Module: spar-kit/papers
 
 ## நோக்கம் / Intent
 Specialised sub-layer component for spar-kit.

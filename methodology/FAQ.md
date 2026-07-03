@@ -17,11 +17,11 @@ SPAR is different because personas have **coherent, conflicting worldviews**. Th
 
 **A:** No. SPAR has five modes (STASH):
 
-- **Solo Human** — You role-play different personas yourself
-- **Team Human** — Team members each adopt assigned personas
-- **AI-Persona** — Multiple AI instances argue with each other
-- **Solo AI** — One AI role-plays all personas
-- **Hybrid** — Mix of AI and human participants
+- **Solo Human**  -  You role-play different personas yourself
+- **Team Human**  -  Team members each adopt assigned personas
+- **AI-Persona**  -  Multiple AI instances argue with each other
+- **Solo AI**  -  One AI role-plays all personas
+- **Hybrid**  -  Mix of AI and human participants
 
 The methodology works in all modes. AI just makes it faster and more convenient.
 
@@ -59,10 +59,10 @@ The **Minimum Viable Debate (MVD)** is 30 minutes with 4 personas, this captures
 
 **A:** The debate is done when:
 
-1. **Something surprised you** — If nothing unexpected emerged, keep going
-2. **Tensions have been named** — You can articulate where positions genuinely conflict
-3. **A synthesis has been stress-tested** — The Interrogate step challenges the synthesis
-4. **Actionable recommendations exist** — You know what to do next
+1. **Something surprised you**  -  If nothing unexpected emerged, keep going
+2. **Tensions have been named**  -  You can articulate where positions genuinely conflict
+3. **A synthesis has been stress-tested**  -  The Interrogate step challenges the synthesis
+4. **Actionable recommendations exist**  -  You know what to do next
 
 A common mistake is stopping after Round 1 (opening positions). The value comes from the clash in Round 2+.
 
@@ -152,9 +152,9 @@ Devil's Advocate is useful but limited. SPAR creates a complete decision-stress-
 
 **A:** Valid concern. Safeguards:
 
-1. **Time-box the debate** — SPAR has defined end points (Transmit step)
-2. **Extract specific recommendations** — The output isn't "more things to worry about" but "what to do and why"
-3. **Acknowledge irreducible uncertainty** — Some decisions will always be uncertain. SPAR helps you see the uncertainty clearly, not eliminate it
+1. **Time-box the debate**  -  SPAR has defined end points (Transmit step)
+2. **Extract specific recommendations**  -  The output isn't "more things to worry about" but "what to do and why"
+3. **Acknowledge irreducible uncertainty**  -  Some decisions will always be uncertain. SPAR helps you see the uncertainty clearly, not eliminate it
 
 If SPAR consistently leads to paralysis, you may be using it for decisions that don't need it. See [When NOT to Use SPAR](docs/WHEN_NOT_TO_USE_SPAR.md).
 

@@ -22,7 +22,7 @@ The ASPIRES framework extends basic SPAR debates with specialized techniques for
 
 ## Pattern Details
 
-### A — Absent Voice
+### A  -  Absent Voice
 
 **Purpose**: Include perspectives of those affected but not present in the debate.
 
@@ -46,7 +46,7 @@ be affected by this decision.
 
 ---
 
-### S — Steelman Challenge
+### S  -  Steelman Challenge
 
 **Purpose**: Prevent strawman arguments by forcing genuine understanding of opposing views.
 
@@ -68,7 +68,7 @@ case for their position?
 
 ---
 
-### P — Pre-Mortem Persona
+### P  -  Pre-Mortem Persona
 
 **Purpose**: Engage with failure scenarios before they happen.
 
@@ -91,7 +91,7 @@ catastrophically. Your job is to reconstruct what went wrong.
 
 ---
 
-### I — Inversion Protocol
+### I  -  Inversion Protocol
 
 **Purpose**: Break confirmation bias by forcing personas to argue the opposite of their natural position.
 
@@ -112,7 +112,7 @@ Argue as if this IS your genuine position. No hedging.
 
 ---
 
-### R — Reflective Meta-Review
+### R  -  Reflective Meta-Review
 
 **Purpose**: Step back from the content to examine the debate process itself.
 
@@ -135,7 +135,7 @@ Step back from your persona. As an objective observer:
 
 ---
 
-### E — Escalation Trigger
+### E  -  Escalation Trigger
 
 **Purpose**: Surface hidden tensions that politeness has suppressed.
 
@@ -160,7 +160,7 @@ Surface what politeness has suppressed.
 
 ---
 
-### S — Shifted Horizon
+### S  -  Shifted Horizon
 
 **Purpose**: Reveal hidden time preferences by testing decisions across different timeframes.
 
@@ -195,7 +195,7 @@ How does your position change across these horizons?
 | "Pre-mortem this decision" | Pre-Mortem |
 | "Invert your position" | Inversion |
 | "Meta-review the debate" | Reflective |
-| "Escalate — what are we avoiding?" | Escalation |
+| "Escalate  -  what are we avoiding?" | Escalation |
 | "How does this change over time?" | Shifted Horizon |
 
 ### When to Deploy

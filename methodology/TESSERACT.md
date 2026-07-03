@@ -16,7 +16,7 @@ Most users never touch TESSERACT directly. The 5 presets cover 90% of use cases.
 
 ## The Four Axes
 
-### 1. Depth — How many voices?
+### 1. Depth  -  How many voices?
 
 Controls the number and diversity of personas in the arena.
 
@@ -26,20 +26,20 @@ Controls the number and diversity of personas in the arena.
 | `rumble` | 8+ | Full PERSONALITY roster + PROBE. Strategic pivots. |
 | `domain` | 4+N | Clash + domain/MBS/governance experts. |
 
-### 2. Pattern — How do they interact?
+### 2. Pattern  -  How do they interact?
 
 Determines the conversation structure between personas.
 
 | Pattern | Description | Cultural Alias |
 |---------|-------------|----------------|
 | `sequential` | Each speaks in turn, building on previous | Circle, Ubuntu |
-| `freeflow` | Unstructured, interrupt-driven | — |
+| `freeflow` | Unstructured, interrupt-driven |  -  |
 | `binary` | Two sides, structured clash | Oxford |
 | `dialectic` *(default)* | Thesis-antithesis-synthesis cycle | Lincoln |
 | `inquisition` | One defends, others attack | Scholastic |
 | `emergence` | Consensus-seeking through iterative refinement | Nemawashi |
 
-### 3. Style — What's the tone?
+### 3. Style  -  What's the tone?
 
 Sets the argumentative posture of the debate.
 
@@ -53,7 +53,7 @@ Sets the argumentative posture of the debate.
 | `escalation` | Start mild, increase pressure each round |
 | `inversion` | Argue the opposite of what you believe |
 
-### 4. Horizon — What timeframe?
+### 4. Horizon  -  What timeframe?
 
 Anchors the debate to a specific temporal lens.
 
@@ -64,7 +64,7 @@ Anchors the debate to a specific temporal lens.
 | `legacy` | Multi-year | "How does this look in 5 years?" |
 | `shifted` | Radically different future | "If everything changed, would this still hold?" |
 
-### 5. Width — How deep per response? *(token-based SPARs only)*
+### 5. Width  -  How deep per response? *(token-based SPARs only)*
 
 Controls the token budget per persona per round. Applies only to LLM-executed SPARs, not human facilitation.
 

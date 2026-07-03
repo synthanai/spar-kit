@@ -11,11 +11,11 @@
 The ARENA is a comprehensive library of pre-defined SPAR configurations, each optimized for a specific type of decision. Instead of choosing personas from scratch, pick the ARENA that matches your situation.
 
 **Each ARENA includes:**
-- 🎯 **Decision Type** — What question this is designed for
-- 🥊 **Four Personas** — Pre-selected for maximum productive tension
-- ❓ **Key Questions** — What each persona will challenge
-- ⚡ **When to Use** — Ideal timing and context
-- ⚠️ **Watch For** — Common pitfalls in this decision type
+- 🎯 **Decision Type**  -  What question this is designed for
+- 🥊 **Four Personas**  -  Pre-selected for maximum productive tension
+- ❓ **Key Questions**  -  What each persona will challenge
+- ⚡ **When to Use**  -  Ideal timing and context
+- ⚠️ **Watch For**  -  Common pitfalls in this decision type
 
 ---
 

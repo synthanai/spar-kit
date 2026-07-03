@@ -18,7 +18,7 @@
 |--------|---------|------------|
 | **S** | Structured | Not ad-hoc; a designed process with protocols and phases |
 | **P** | Persona | Distinct voices with coherent, conflicting worldviews |
-| **A** | Argumentation | Personas debate and defend positions — not just "provide perspectives" |
+| **A** | Argumentation | Personas debate and defend positions  -  not just "provide perspectives" |
 | **R** | Reasoning | Systematic logic that exposes blind spots and triggers System 2 thinking |
 
 ---
@@ -53,10 +53,10 @@ By instantiating separate personas with coherent value systems that *genuinely d
 **Spar** (verb): To practice combat in a controlled environment for mutual improvement.
 
 In boxing and martial arts, sparring is:
-- **Safe-to-fail** — You're not fighting to destroy, you're fighting to learn
-- **Structured** — Rules of engagement prevent harm while enabling challenge
-- **Skill-building** — Repeated practice develops capacity
-- **Symbiotic** — Both parties improve through the conflict
+- **Safe-to-fail**  -  You're not fighting to destroy, you're fighting to learn
+- **Structured**  -  Rules of engagement prevent harm while enabling challenge
+- **Skill-building**  -  Repeated practice develops capacity
+- **Symbiotic**  -  Both parties improve through the conflict
 
 This is exactly what SPAR does to decisions.
 
@@ -68,35 +68,35 @@ This is exactly what SPAR does to decisions.
 
 *Be GRACEful: the stance from which truth can be approached but never owned.*
 
-### G — Ground
+### G  -  Ground
 **Still yourself before synthesis.**
 
 After debate and before action, create space for reflection without agenda. The deepest insights often arrive in the silence after the tension.
 
 *"What surprised us? What are we not ready to decide?"*
 
-### R — Reveal
+### R  -  Reveal
 **Surface the biases and anxieties driving the conversation.**
 
 Before turning to AI debates, humans must have the honest conversations they are avoiding. Process should never be an escape route from difficult human relationships.
 
 *"What uncomfortable human conversation are we substituting for?"*
 
-### A — Approach
+### A  -  Approach
 **Seek the adjacent possible, not defended positions.**
 
 At least one participant must steelman an alternative that might transform the situation entirely but feels unrealistic from where you currently stand.
 
 *"What options are we not considering because they feel too far from current reality?"*
 
-### C — Court
+### C  -  Court
 **Welcome dissent. Invite it. Make space for it.**
 
 Every debate must include a voice explicitly tasked with finding weaknesses in emerging consensus. Not as "devil's advocate theater," but as genuine intellectual opposition.
 
 *"What's the strongest case against what we're about to decide?"*
 
-### E — Expose
+### E  -  Expose
 **Acknowledge what you don't know. Name the missing perspectives.**
 
 Every synthesis must state its own limits: "This was seen from *here*, with *these* distinctions." This maintains the humility necessary for continuous adaptation.
@@ -111,7 +111,7 @@ Every synthesis must state its own limits: "This was seen from *here*, with *the
 
 > *"நாலு பேரு நாலு விதமா பேசுவாங்க"*
 > *"Four people speak in four different ways."*
-> — Tamil wisdom
+>  -  Tamil wisdom
 
 Like a compass needs all four directions to navigate, SPAR uses four personas to achieve complete perspective coverage:
 
@@ -135,9 +135,9 @@ When all four directions engage, no blind spot survives.
 | **S** | **Scope** | Define the strategic question, constraints, and decision context |
 | **P** | **Populate** | Instantiate diverse personas with coherent, clashing worldviews |
 | **A** | **Announce** | Present the challenge equally to all personas |
-| **R** | **Rumble** | Run the dialectic — let personas argue, critique, and stress-test |
+| **R** | **Rumble** | Run the dialectic  -  let personas argue, critique, and stress-test |
 | **K** | **Knit** | Moderator synthesizes tensions, convergences, and blind spots |
-| **I** | **Interrogate** | Challenge the synthesis — probe assumptions, find gaps |
+| **I** | **Interrogate** | Challenge the synthesis  -  probe assumptions, find gaps |
 | **T** | **Transmit** | Extract concrete, actionable recommendations |
 
 > **The Name**: "SPARKIT" is both the backronym for the 7-step process *and* the name of the CLI tool that implements it.
@@ -166,17 +166,17 @@ SPAR is designed to become organizational vocabulary, a decision hygiene practic
 
 | Phrasing | Meaning | When Used |
 |----------|---------|-----------|
-| **"Let's SPAR this"** | Run a SPAR session on the topic | Active initiation — *starting* the process |
-| **"Why don't we SPAR this first?"** | Insert a SPAR checkpoint before deciding | Decision gate — *before* committing |
-| **"Did we SPAR this?"** | Post-hoc quality check | Audit — *after* noticing a decision went wrong |
-| **"This needs SPARring"** | Flag for structured debate | Escalation — when something's contentious |
+| **"Let's SPAR this"** | Run a SPAR session on the topic | Active initiation  -  *starting* the process |
+| **"Why don't we SPAR this first?"** | Insert a SPAR checkpoint before deciding | Decision gate  -  *before* committing |
+| **"Did we SPAR this?"** | Post-hoc quality check | Audit  -  *after* noticing a decision went wrong |
+| **"This needs SPARring"** | Flag for structured debate | Escalation  -  when something's contentious |
 
 #### Usage Examples
 
 > *"Let's **SPAR** this acquisition before the board meeting."*
 > *"Why don't we **SPAR** this first? It's a big commitment."*
 > *"Did we **SPAR** this? The team seems to have jumped to a conclusion."*
-> *"This pricing decision needs **SPARring** — there's too much disagreement."*
+> *"This pricing decision needs **SPARring**  -  there's too much disagreement."*
 > *"Has anyone **SPAR'd** this assumption?"*
 
 #### Grammatical Forms
@@ -191,9 +191,9 @@ Like established methodology verbs ("brainstorm," "workshop," "whiteboard"), SPA
 #### The Key Advantage
 
 Unlike "brainstorm" or "workshop," **"SPAR"** carries inherent meaning:
-- **It implies opposition** — You're not just generating, you're *stress-testing*
-- **It's outcome-oriented** — You SPAR to *decide*, not just to explore
-- **It has a physical metaphor** — Sparring (boxing/martial arts) = constructive combat
+- **It implies opposition**  -  You're not just generating, you're *stress-testing*
+- **It's outcome-oriented**  -  You SPAR to *decide*, not just to explore
+- **It has a physical metaphor**  -  Sparring (boxing/martial arts) = constructive combat
 
 > **"Let's SPAR this"** signals: *We're going to argue this properly before deciding.*
 
@@ -226,7 +226,7 @@ SPAR follows this pattern, it's a *decision quality gate*, not a meeting type.
 
 ❌ **Trivial decisions** with low stakes and high reversibility
 ❌ **Clear conviction** when you already know what's right
-❌ **Avoiding accountability** — SPAR doesn't distribute responsibility
+❌ **Avoiding accountability**  -  SPAR doesn't distribute responsibility
 ❌ **Political problems** that require human conversation, not analysis
 ❌ **Active crises** that require immediate action
 
@@ -240,9 +240,9 @@ Run SPAR for a month. Then ask:
 
 > **Has a structured disagreement surfaced an insight that genuinely surprised me, something I would not have generated through my normal decision process?**
 
-If **yes** — the practice is alive.
+If **yes**  -  the practice is alive.
 
-If **no** — you're performing debate without generating dialectic. Revisit your personas. Revisit your willingness to be changed.
+If **no**  -  you're performing debate without generating dialectic. Revisit your personas. Revisit your willingness to be changed.
 
 ---
 
@@ -317,24 +317,24 @@ The next time you face a decision that matters:
 ## Further Resources
 
 ### Getting Started
-- **[SPAR in 5 Minutes](./SPAR_IN_5_MINUTES.md)** — Get started immediately
-- **[STASH Modes](./STASH_MODES.md)** — Choose your mode: Solo Human, Team Human, AI-Persona, Solo AI, or Hybrid
+- **[SPAR in 5 Minutes](./SPAR_IN_5_MINUTES.md)**  -  Get started immediately
+- **[STASH Modes](./STASH_MODES.md)**  -  Choose your mode: Solo Human, Team Human, AI-Persona, Solo AI, or Hybrid
 
 ### Core Concepts
-- **[The Four Directions (N-E-W-S)](./FOUR_DIRECTIONS.md)** — Canonical persona definitions
-- **[The GRACE Principles](./GRACE_PRINCIPLES.md)** — Deep dive into the 5 stances
-- **[The SPARKIT Protocol](./PROTOCOL.md)** — Complete 7-step dialectic engine (v8.0)
-- **[The ASPIRES Framework](./ADVANCED_PATTERNS.md)** — 7 advanced patterns for edge cases
+- **[The Four Directions (N-E-W-S)](./FOUR_DIRECTIONS.md)**  -  Canonical persona definitions
+- **[The GRACE Principles](./GRACE_PRINCIPLES.md)**  -  Deep dive into the 5 stances
+- **[The SPARKIT Protocol](./PROTOCOL.md)**  -  Complete 7-step dialectic engine (v8.0)
+- **[The ASPIRES Framework](./ADVANCED_PATTERNS.md)**  -  7 advanced patterns for edge cases
 
 ### Resources & Templates
-- **[109-Persona Library](./PERSONA_LIBRARY_108.md)** — Complete library (108 + Framework Critic)
-- **[Domain Packs](./PERSONA_DOMAIN_PACKS.md)** — 10 sector-specific preset combinations
-- **[Practice Guidelines](./PRACTICE_GUIDELINES.md)** — When to use, when NOT to use, facilitator duties
-- **[Example Session](../examples/strategic_expansion.md)** — See a full SPAR in action
+- **[109-Persona Library](./PERSONA_LIBRARY_108.md)**  -  Complete library (108 + Framework Critic)
+- **[Domain Packs](./PERSONA_DOMAIN_PACKS.md)**  -  10 sector-specific preset combinations
+- **[Practice Guidelines](./PRACTICE_GUIDELINES.md)**  -  When to use, when NOT to use, facilitator duties
+- **[Example Session](../examples/strategic_expansion.md)**  -  See a full SPAR in action
 
 ### Tooling
-- **[SPAR Kit Playground](https://synthanai.github.io/spar-kit)** — Run AI debates in your browser
-- **[sparkit CLI](../kit/README.md)** — Enterprise-ready terminal interface
+- **[SPAR Kit Playground](https://synthanai.github.io/spar-kit)**  -  Run AI debates in your browser
+- **[sparkit CLI](../kit/README.md)**  -  Enterprise-ready terminal interface
 
 ---
 

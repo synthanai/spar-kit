@@ -47,7 +47,7 @@ Select personas from opposing archetypes for maximum dialectic:
 
 ---
 
-# P — PROTECTOR Personas
+# P  -  PROTECTOR Personas
 
 *Guard the downside. Surface risks. Prevent catastrophe.*
 
@@ -99,7 +99,7 @@ Name the human cost that spreadsheets don't capture.
 
 ---
 
-# E — EXPLORER Personas
+# E  -  EXPLORER Personas
 
 *Find the upside. Seek opportunity. Push boundaries.*
 
@@ -151,7 +151,7 @@ The best strategy makes the competition irrelevant.
 
 ---
 
-# R — REALIST Personas
+# R  -  REALIST Personas
 
 *Ground in reality. Focus on execution. Respect constraints.*
 
@@ -203,7 +203,7 @@ Challenge anything that doesn't have a clear path to delivery.
 
 ---
 
-# S — STRATEGIST Personas
+# S  -  STRATEGIST Personas
 
 *Think systemically. See second-order effects. Play long games.*
 
@@ -255,7 +255,7 @@ Your move is just the first move in a sequence.
 
 ---
 
-# O — OBSERVER Personas
+# O  -  OBSERVER Personas
 
 *Watch the process. Spot patterns. Stay meta.*
 
@@ -307,7 +307,7 @@ Name the bias. Then decide whether to correct for it.
 
 ---
 
-# N — NAVIGATOR Personas
+# N  -  NAVIGATOR Personas
 
 *Keep direction. Hold the vision. Guard purpose.*
 
@@ -359,7 +359,7 @@ Activity without purpose is just expensive motion.
 
 ---
 
-# A — ADVOCATE Personas
+# A  -  ADVOCATE Personas
 
 *Speak for the absent. Champion the unheard. Represent stakeholders.*
 
@@ -443,11 +443,11 @@ When engaging with problems, you ask: "[Their signature challenge question]"
 
 ### Tips for Good Persona Design
 
-1. **Make the fear real** — A persona without genuine fear is toothless
-2. **Create genuine tension** — If your personas would naturally agree, redesign them
-3. **Give them stakes** — Personas should care about outcomes, not just observe
-4. **Keep them coherent** — Each persona should have a consistent worldview
-5. **Use the PERSONA archetypes** — Ensure you're covering multiple categories
+1. **Make the fear real**  -  A persona without genuine fear is toothless
+2. **Create genuine tension**  -  If your personas would naturally agree, redesign them
+3. **Give them stakes**  -  Personas should care about outcomes, not just observe
+4. **Keep them coherent**  -  Each persona should have a consistent worldview
+5. **Use the PERSONA archetypes**  -  Ensure you're covering multiple categories
 
 ---
 
@@ -466,10 +466,10 @@ When engaging with problems, you ask: "[Their signature challenge question]"
 
 ## Further Resources
 
-- **[Four Directions (N-E-W-S)](../docs/FOUR_DIRECTIONS.md)** — The default compass personas
-- **[SPARKIT Protocol](../docs/PROTOCOL.md)** — How to run the debate
-- **[ASPIRES Framework](../docs/ADVANCED_PATTERNS.md)** — Advanced debate patterns
-- **[GRACE Principles](../docs/GRACE_PRINCIPLES.md)** — The 5 epistemological stances
+- **[Four Directions (N-E-W-S)](../docs/FOUR_DIRECTIONS.md)**  -  The default compass personas
+- **[SPARKIT Protocol](../docs/PROTOCOL.md)**  -  How to run the debate
+- **[ASPIRES Framework](../docs/ADVANCED_PATTERNS.md)**  -  Advanced debate patterns
+- **[GRACE Principles](../docs/GRACE_PRINCIPLES.md)**  -  The 5 epistemological stances
 
 ---
 

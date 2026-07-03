@@ -39,10 +39,10 @@ const result = sparkit.exportSession(session.id, { format: 'md' });
 Initialize the API. Must be called before other methods.
 
 **Returns:** `Object`
-- `version` — API version string
-- `provider` — Configured LLM provider
-- `model` — Configured model name
-- `sessionCount` — Number of existing sessions
+- `version`  -  API version string
+- `provider`  -  Configured LLM provider
+- `model`  -  Configured model name
+- `sessionCount`  -  Number of existing sessions
 
 **Example:**
 ```javascript
@@ -65,13 +65,13 @@ Create a new SPAR session.
 | `model` | `string` | No | Model name (default: config) |
 
 **Returns:** `Object`
-- `id` — Session UUID
-- `status` — Session status (`running`)
-- `decision` — The decision text
-- `preset` — Preset used
-- `provider` — Provider used
-- `model` — Model used
-- `createdAt` — ISO timestamp
+- `id`  -  Session UUID
+- `status`  -  Session status (`running`)
+- `decision`  -  The decision text
+- `preset`  -  Preset used
+- `provider`  -  Provider used
+- `model`  -  Model used
+- `createdAt`  -  ISO timestamp
 
 **Throws:**
 - `Error` if decision is invalid (XSS, too short, etc.)
@@ -150,10 +150,10 @@ Export a session to a file or return content.
 | `output` | `string` | No | File path to write (optional) |
 
 **Returns:** `Object`
-- `content` — Export content string
-- `format` — Format used
-- `path` — File path if written
-- `sessionId` — Session ID
+- `content`  -  Export content string
+- `format`  -  Format used
+- `path`  -  File path if written
+- `sessionId`  -  Session ID
 
 **Throws:**
 - `Error` if session not found
@@ -206,10 +206,10 @@ Clone an existing session.
 | `id` | `string` | Yes | Session UUID to clone |
 
 **Returns:** `Object`
-- `id` — New session UUID
-- `status` — Status (`running`)
-- `decision` — Decision text
-- `clonedFrom` — Original session ID
+- `id`  -  New session UUID
+- `status`  -  Status (`running`)
+- `decision`  -  Decision text
+- `clonedFrom`  -  Original session ID
 
 **Throws:**
 - `Error` if session not found
@@ -227,12 +227,12 @@ console.log(`Cloned to: ${cloned.id}`);
 Get session statistics.
 
 **Returns:** `Object`
-- `total` — Total session count
-- `completed` — Completed count
-- `running` — Running count
-- `paused` — Paused count
-- `failed` — Failed count
-- `completionRate` — Percentage (0-100)
+- `total`  -  Total session count
+- `completed`  -  Completed count
+- `running`  -  Running count
+- `paused`  -  Paused count
+- `failed`  -  Failed count
+- `completionRate`  -  Percentage (0-100)
 
 **Example:**
 ```javascript
@@ -247,12 +247,12 @@ console.log(`Completion rate: ${stats.completionRate}%`);
 Get current configuration (API keys masked).
 
 **Returns:** `Object`
-- `provider` — LLM provider
-- `model` — Model name
-- `baseUrl` — API endpoint
-- `apiKeySet` — Boolean (true if key is set)
-- `tui` — TUI settings
-- `debate` — Debate settings
+- `provider`  -  LLM provider
+- `model`  -  Model name
+- `baseUrl`  -  API endpoint
+- `apiKeySet`  -  Boolean (true if key is set)
+- `tui`  -  TUI settings
+- `debate`  -  Debate settings
 
 **Example:**
 ```javascript
@@ -293,9 +293,9 @@ try {
 
 The API includes built-in security:
 
-- **Input Validation** — XSS, path traversal prevention
-- **Output Sanitization** — Safe content export
-- **API Key Masking** — Keys never exposed via API
+- **Input Validation**  -  XSS, path traversal prevention
+- **Output Sanitization**  -  Safe content export
+- **API Key Masking**  -  Keys never exposed via API
 
 ---
 

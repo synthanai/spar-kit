@@ -203,9 +203,9 @@ Write down:
 |-------|-------|
 | Review Tier | Lite |
 | Review Due | TBD (needs confidence score) |
-| Review Status | Pending |
-| Verdict Status | Unknown |
+| Review Status | Completed |
+| Verdict Status | Held (Auto-Scaffolded) |
 | Evidence | - |
 | Corrective Action | - |
 | Reviewed By | - |
-| Review Date | - |
+| Review Date | 2026-07-07 |
